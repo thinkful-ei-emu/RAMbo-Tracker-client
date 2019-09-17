@@ -37,7 +37,7 @@ header {
   font-size: 20px;
   display: flex;
   align-items: center;
-  background: white;
+  background: rgb(219, 248, 219);
 }
 #user-name{
   font-size: 27px;

@@ -7,6 +7,8 @@ import Header from '../Header/Header'
 // import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
 // import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 // import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
+import SymptomRoute from '../Symptom/Symptom'
+import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 
 
 class App extends Component {
@@ -25,32 +27,32 @@ class App extends Component {
           {this.state.hasError && (
             <p>There was an error! Rut Roh!</p>
           )}
-          {/* <Switch>
-          <PrivateRoute
+          <Switch>
+          {/* <PrivateRoute
                 exact
                 path={'/dash'}
-              component = {DashboardRoute}
-              />
+              component = {DashboardRoute} */}
+              {/* />
               <PrivateRoute
                 path={'/meal'}
-                // component={MealRoute}
-              />
-              <PrivateRoute
+                component={MealRoute}
+              /> */}
+              <Route /* ROUTE ONLY HERE FOR TESTING TO BYPASS AUTH */
                 path={'/symptom'}
-                // component={SymptomRoute}
+                 component={SymptomRoute}
               />
-              <PublicOnlyRoute
+              {/* <PublicOnlyRoute
                 path={'/register'}
-                component={RegistrationRoute}
-              />
-              <PublicOnlyRoute
+                component={RegistrationRoute} 
+              />*/}
+              {/* <PublicOnlyRoute
                 path={'/login'}
-                component={LoginRoute}
-              />
+                component={LoginRoute} 
+              />*/}
               <Route
-                // component={NotFoundRoute}
+                component={NotFoundRoute}
               />
-          </Switch> */}
+          </Switch>
         </main>
       </div>
     );
