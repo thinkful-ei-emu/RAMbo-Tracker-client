@@ -13,14 +13,17 @@ class Symptom extends Component {
 
   handleSymptomSubmit = (e) => {
     e.preventDefault();
-    console.log('testing symptomSubmit');
-
+    
     let userSymptom = e.target['user-symptom'].value;
-    API.doFetch(/*'TODO',*/ 'POST', {userSymptom})
-    .then(res => {
-      //TODO
-    })
-    .catch(e => console.log(e));
+    let userSeverity = this.state.symptomSeverity;
+    let userTime = this.state.symptomTime;
+
+    console.log(userSymptom, userSeverity, userTime);
+    // API.doFetch(/*'TODO',*/ 'POST', {userSymptom, userSeverity})
+    // .then(res => {
+    //   //TODO
+    // })
+    // .catch(e => console.log(e));
     e.target['user-symptom'].value = '';
   }
 
@@ -55,28 +58,28 @@ class Symptom extends Component {
         <div id='severity-radio'>
             <p>Rate the Severity</p>
           <div className="radio">
-            <label><input type="radio" value="option1" 
-            checked={this.state.symptomSeverity === 'option1'}
+            <label><input type="radio" value="1" 
+            checked={this.state.symptomSeverity === '1'}
             onChange={this.handleSeverityChange} />1</label>
           </div>
           <div className="radio">
-            <label><input type="radio" value="option2" 
-            checked={this.state.symptomSeverity === 'option2'}
+            <label><input type="radio" value="2" 
+            checked={this.state.symptomSeverity === '2'}
             onChange={this.handleSeverityChange} />2</label>
           </div>
           <div className="radio">
-            <label><input type="radio" value="option3" 
-            checked={this.state.symptomSeverity === 'option3'}
+            <label><input type="radio" value="3" 
+            checked={this.state.symptomSeverity === '3'}
             onChange={this.handleSeverityChange} />3</label>
           </div>
           <div className="radio">
-            <label><input type="radio" value="option4" 
-            checked={this.state.symptomSeverity === 'option4'}
+            <label><input type="radio" value="4" 
+            checked={this.state.symptomSeverity === '4'}
             onChange={this.handleSeverityChange}/>4</label>
           </div>
           <div className="radio">
-            <label><input type="radio" value="option5" 
-            checked={this.state.symptomSeverity === 'option5'}
+            <label><input type="radio" value="5" 
+            checked={this.state.symptomSeverity === '5'}
             onChange={this.handleSeverityChange}/>5</label>
           </div>
         </div>
