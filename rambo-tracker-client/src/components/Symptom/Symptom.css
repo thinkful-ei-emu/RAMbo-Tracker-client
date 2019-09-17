@@ -1,0 +1,35 @@
+.symptom-container{
+  border: 5px groove white;
+  border-radius: 5px;
+  background: rgb(219, 248, 219);
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+  padding: 10px;
+  font-size: 26px;
+}
+
+#user-input-container{
+  padding-bottom: 15px;
+}
+
+#date-select{
+  text-align: center;
+}
+
+#severity-radio{
+  padding: 5px;
+}
+
+input{
+  padding: 5px;
+  border-radius: 10px;
+}
+
+button{
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 18px;
+  background: white;
+}
