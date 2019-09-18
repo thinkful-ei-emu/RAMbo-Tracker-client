@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
-import UserContext from '../../contexts/UserContext'
 import './Header.css'
 
 class Header extends Component {
-  static contextType = UserContext
 
   handleLogoutClick = () => {
     this.context.processLogout()
@@ -14,9 +12,6 @@ class Header extends Component {
   renderLogoutLink() {
     return (
       <div className='user-container'>
-        <span id='user-name'>
-          {this.context.user.name}
-        </span>
         <nav>
           <Link
             onClick={this.handleLogoutClick}

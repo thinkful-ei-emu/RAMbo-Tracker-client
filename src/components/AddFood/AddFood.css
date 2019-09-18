@@ -1,0 +1,33 @@
+.AddFoodDiv{
+  position:relative;
+  padding:10px;
+  background-color:lightblue;
+}
+
+.AddFoodSearchResultsRow{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.AddFoodSearchResultsRow div{
+  word-break: normal; 
+  word-wrap: normal;
+  display: inline-block;
+}
+.AddFoodSearchResultsAddButton{
+  flex-grow:0;
+  height:40px;
+}
+
+.AddFoodSearchResultsSpace{
+  flex-basis:20px;
+  flex-grow:1;
+}
+
+.AddFoodSearchResultsFoodInfo{
+  flex-basis:60%;
+  flex-grow:1;
+}
+.AddFoodSearchResultsManu{
+  font-weight:550;
+}
