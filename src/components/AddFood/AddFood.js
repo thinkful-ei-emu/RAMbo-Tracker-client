@@ -9,8 +9,79 @@ export default class AddFood extends React.Component {
     displaySearchResults: false,
     foodsFromSearch: [],
     searchTerm: '',
+    lockedInSearchTerm:'',
     gotNoResults: true,
+    resultsPerPage:25,
+    page:1,
   }
+
+
+  goFirstPage =()=>{
+    FoodApiService.getFoods(this.state.lockedInSearchTerm,1)
+    .then((res) => {
+      res = JSON.parse(res);
+      if (res['list']) {
+        this.setState({
+          foodsFromSearch: res['list'],
+          displaySearchResults: true,
+          page:1
+        })
+      }
+    })
+  }
+
+  goLastPage =()=>{
+    //considered making lastPage a state variable, decided that I didn't want to think
+    //through cases where this can go bad
+    let lastPage=Math.ceil(this.state.foodsFromSearch.total/this.state.resultsPerPage);
+    FoodApiService.getFoods(this.state.lockedInSearchTerm,lastPage)
+    .then((res) => {
+      res = JSON.parse(res);
+      if (res['list']) {
+        this.setState({
+          foodsFromSearch: res['list'],
+          displaySearchResults: true,
+          page:lastPage
+        })
+      }
+    })
+  }
+
+  goNextPage = ()=>{
+    if(this.state.page!==Math.ceil(this.state.foodsFromSearch.total/this.state.resultsPerPage)){
+      FoodApiService.getFoods(this.state.lockedInSearchTerm,this.state.page+1)
+        .then((res) => {
+          res = JSON.parse(res);
+          if (res['list']) {
+            this.setState({
+              foodsFromSearch: res['list'],
+              displaySearchResults: true,
+              page:this.state.page+1
+            })
+          }
+        })
+    }
+    
+  }
+
+  goPrevPage = ()=>{
+    if(this.state.page!==1){
+      FoodApiService.getFoods(this.state.lockedInSearchTerm,this.state.page-1)
+        .then((res) => {
+          res = JSON.parse(res);
+          if (res['list']) {
+            this.setState({
+              foodsFromSearch: res['list'],
+              displaySearchResults: true,
+              page:this.state.page-1
+            })
+          }
+        })
+    }
+    
+  }
+
+
   handleSearchChange = (searchTerm) => {
     this.setState({ searchTerm })
   }
@@ -29,12 +100,17 @@ export default class AddFood extends React.Component {
             foodsFromSearch: res['list'],
             gotNoResults: false,
             displaySearchResults: true,
+            lockedInSearchTerm: this.state.searchTerm,
+            page:1
           })
         }
+        //If the usda server bugs out gives me back error
         else {
           this.setState({
             gotNoResults: true,
-            displaySearchResults: true,
+            displaySearchResults: false,
+            lockedInSearchTerm:'',
+            page:1
           })
         }
       })
@@ -44,7 +120,13 @@ export default class AddFood extends React.Component {
 
   handleAddFood=(e,food)=>{
     e.preventDefault();
-    this.setState({displaySearchResults:false},()=>this.props.addFood(food));
+    this.setState({
+      displaySearchResults:false,
+      lockedInSearchTerm:'',
+      page:1
+    },
+    ()=>this.props.addFood(food)
+    );
 
   }
 
@@ -78,7 +160,7 @@ export default class AddFood extends React.Component {
             :
             (<div className='AddFoodSearchResults'>
               <div>
-                Only the first 25 items shown, total of {this.state.foodsFromSearch.total}
+                Only the first {this.state.foodsFromSearch.item.length} items shown, total of {this.state.foodsFromSearch.total}
               </div>
               <hr></hr>
               {
@@ -103,6 +185,8 @@ export default class AddFood extends React.Component {
                   </div>
                 )
               }
+              <div className='AddFoodSearchResultsPaginate'>
+              </div>
 
             </div>)
           )

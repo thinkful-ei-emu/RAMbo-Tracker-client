@@ -1,7 +1,7 @@
 .AddFoodDiv{
   position:relative;
   padding:10px;
-  background-color:lightblue;
+  background-color:rgb(202, 227, 235);
 }
 
 .AddFoodSearchResultsRow{
@@ -12,7 +12,6 @@
 .AddFoodSearchResultsRow div{
   word-break: normal; 
   word-wrap: normal;
-  display: inline-block;
 }
 .AddFoodSearchResultsAddButton{
   flex-grow:0;

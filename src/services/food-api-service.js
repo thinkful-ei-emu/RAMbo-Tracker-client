@@ -2,7 +2,7 @@ import config from '../config';
 import TokenService from "./token-service";
 
 const FoodApiService={
-  getFoods(query,offset=0) {
+  getFoods(query,page=1) {
     return fetch(`${config.API_ENDPOINT}/food/search/${query}`, {
       method: 'GET',
       headers: {
