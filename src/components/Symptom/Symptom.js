@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import API from '../../services/Api-service';
 import DatePicker from 'react-datepicker';
+import helper from '../../services/helper.services';
 import 'react-datepicker/dist/react-datepicker.css';
 import './Symptom.css';
 
@@ -9,33 +10,21 @@ class Symptom extends Component {
     symptomName : '',
     symptomSeverity : null,
     symptomTime : new Date(),
-    pastUserSymptoms : [
-      { label: '', value: '' },
-      { label: 'Bloated', value: 'Bloated' },
-      { label: 'Drowzey', value: 'Drowzey' },
-      { label: 'Heart Burn', value: 'Heart Burn' },
-      { label: 'Gas', value: 'Gas' },
-      { label: 'Vomiting', value: 'Vomiting' },
-      { label: 'Nausea', value: 'Nausea' },
-      { label: 'Diarrhea', value: 'Diarrhea' },
-    ],
+    pastUserSymptoms : [],
     pastSymptomVal : '',
     SymptomSelectIsHidden : false
   }
 
-  /*
+  
   componentDidMount() {
-    Api.doFetch('TODO')
-    .then(res => {
-      //res will be user symtoms table data, to be used in current user symptoms selector
-
-      //this.setState({
-        //TODO
+    /* Api.doFetch('TODO')
+    .then(res => { */
       //})
-    })
-    .catch(e => console.log(e))
+      this.setState({pastUserSymptoms: helper.preExisting()});
+    //})
+    //.catch(e => console.log(e))
   }
-  */
+ 
 
   handleSymptomSubmit = (e) => {
     e.preventDefault();
