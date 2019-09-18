@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import API from '../../services/Api-service';
+// import API from '../../services/Api-service';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './Symptom.css';
@@ -9,16 +9,42 @@ class Symptom extends Component {
     symptomName : '',
     symptomSeverity : null,
     symptomTime : new Date(),
+    pastUserSymptoms : [
+      { label: '', value: '' },
+      { label: 'Bloated', value: 'Bloated' },
+      { label: 'Drowzey', value: 'Drowzey' },
+      { label: 'Heart Burn', value: 'Heart Burn' },
+      { label: 'Gas', value: 'Gas' },
+      { label: 'Vomiting', value: 'Vomiting' },
+      { label: 'Nausea', value: 'Nausea' },
+      { label: 'Diarrhea', value: 'Diarrhea' },
+    ],
+    pastSymptomVal : ''
   }
+
+  /*
+  componentDidMount() {
+    Api.doFetch('TODO')
+    .then(res => {
+      //res will be user symtoms table data, to be used in current user symptoms selector
+
+      //this.setState({
+        //TODO
+      //})
+    })
+    .catch(e => console.log(e))
+  }
+  */
 
   handleSymptomSubmit = (e) => {
     e.preventDefault();
     
-    let userSymptom = e.target['user-symptom'].value;
+    let newUserSymptom = e.target['user-symptom'].value;
     let userSeverity = this.state.symptomSeverity;
     let userTime = this.state.symptomTime;
+    let pastSymptom = this.state.pastSymptomVal;
 
-    console.log(userSymptom, userSeverity, userTime);
+    console.log(newUserSymptom, userSeverity, userTime, pastSymptom);
     // API.doFetch(/*'TODO',*/ 'POST', {userSymptom, userSeverity})
     // .then(res => {
     //   //TODO
@@ -39,7 +65,20 @@ class Symptom extends Component {
     }); 
   }
 
+  handleSymptomChange = sym => {
+    this.setState({
+      pastSymptomVal: sym.target.value
+    })
+  }
+
   render() {
+
+    let savedSymptoms = this.state.pastUserSymptoms.map((item, index) => {
+      return  <option key={index} value={item.value}>
+                {item.label}
+              </option>
+    })
+
     return(
       <section className='symptom-container'>
         <form onSubmit={(e)=>this.handleSymptomSubmit(e)}>
@@ -50,7 +89,14 @@ class Symptom extends Component {
           <input name='symptom' id='user-symptom' type='text' placeholder='bloated..'></input>
         </div>
 
-        <div>
+        <div id='select'>
+          <label htmlFor='symptom-select'>Pre-existing</label>
+          <select id='symptom-select' onChange={this.handleSymptomChange} value={this.state.pastSymptomVal} >
+            {savedSymptoms}
+          </select>
+        </div>
+
+        <div id='date'>
           <label htmlFor='date-select'>When?</label>
             <DatePicker id='date-select' selected={this.state.symptomTime} onChange={this.handleTimeChange} showTimeSelect withPortal dateFormat="Pp" />
         </div>
