@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import './App.css';
 import Header from '../Header/Header'
 // import PrivateRoute from '../PrivateRoute/PrivateRoute'
-// import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
+import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
 // import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 // import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
