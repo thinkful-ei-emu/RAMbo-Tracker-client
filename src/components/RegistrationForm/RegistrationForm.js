@@ -21,11 +21,12 @@ class RegistrationForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { name, username, password } = e.target;
+    console.log('submitted!');
+    const { name, username, password } = this.state;
     AuthApiService.postUser({
-      display_name: name.value,
-      username: username.value,
-      password: password.value
+      display_name: name,
+      username: username,
+      password: password
     })
       .then((user) => {
         name.value = '';
