@@ -19,7 +19,8 @@ class Symptom extends Component {
       { label: 'Nausea', value: 'Nausea' },
       { label: 'Diarrhea', value: 'Diarrhea' },
     ],
-    pastSymptomVal : ''
+    pastSymptomVal : '',
+    SymptomSelectIsHidden : false
   }
 
   /*
@@ -71,6 +72,14 @@ class Symptom extends Component {
     })
   }
 
+  addSymptomClick = (e) => {
+    e.preventDefault();
+    const SymptomSelectIsHidden = this.state.SymptomSelectIsHidden;
+    this.setState({
+      SymptomSelectIsHidden : !SymptomSelectIsHidden
+    })
+  }
+
   render() {
 
     let savedSymptoms = this.state.pastUserSymptoms.map((item, index) => {
@@ -90,10 +99,13 @@ class Symptom extends Component {
         </div>
 
         <div id='select'>
-          <label htmlFor='symptom-select'>Pre-existing</label>
+          <button onClick={(e)=>this.addSymptomClick(e)}>Add Pre-existing</button>
+          { this.state.SymptomSelectIsHidden ? <>
+          <label htmlFor='symptom-select'></label>
           <select id='symptom-select' onChange={this.handleSymptomChange} value={this.state.pastSymptomVal} >
             {savedSymptoms}
-          </select>
+          </select> </> : <></>
+        }
         </div>
 
         <div id='date'>
@@ -131,7 +143,7 @@ class Symptom extends Component {
         </div>
 
           <br/>
-          <button>Submit Symptom</button>
+          <button type='submit'>Submit Symptom</button>
           
         </form>
       </section>
