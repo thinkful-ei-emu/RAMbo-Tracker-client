@@ -22,7 +22,7 @@ const FoodApiService={
         'content-type': 'application/json',
       },
       body:JSON.stringify({
-        item:id,
+        ndbno:id,
         name
       })
     })
