@@ -77,6 +77,7 @@ class Symptom extends Component {
     const SymptomSelectIsHidden = this.state.SymptomSelectIsHidden;
     this.setState({
       SymptomSelectIsHidden : !SymptomSelectIsHidden
+      
     })
   }
 
