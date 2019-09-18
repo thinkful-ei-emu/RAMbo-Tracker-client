@@ -116,31 +116,7 @@ class Symptom extends Component {
 
         <div id='severity-radio'>
             <p>Rate the Severity</p>
-          <div className="radio">
-            <label><input type="radio" value="1" 
-            checked={this.state.symptomSeverity === '1'}
-            onChange={this.handleSeverityChange} />1</label>
-          </div>
-          <div className="radio">
-            <label><input type="radio" value="2" 
-            checked={this.state.symptomSeverity === '2'}
-            onChange={this.handleSeverityChange} />2</label>
-          </div>
-          <div className="radio">
-            <label><input type="radio" value="3" 
-            checked={this.state.symptomSeverity === '3'}
-            onChange={this.handleSeverityChange} />3</label>
-          </div>
-          <div className="radio">
-            <label><input type="radio" value="4" 
-            checked={this.state.symptomSeverity === '4'}
-            onChange={this.handleSeverityChange}/>4</label>
-          </div>
-          <div className="radio">
-            <label><input type="radio" value="5" 
-            checked={this.state.symptomSeverity === '5'}
-            onChange={this.handleSeverityChange}/>5</label>
-          </div>
+          <input type="range" step="1" min="1" max="5" onChange={(e)=>this.handleSymptomChange(e)}/>
         </div>
 
           <br/>
