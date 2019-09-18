@@ -16,14 +16,13 @@ export default class MealRoute extends React.Component{
     foodsInMeal:[],
     
     handleAddFood:(food)=>{
-     /*  FoodApiService.postFood(id,name)
-        .then(res=>{ */
+      FoodApiService.postFood(food.ndbno,food.name)
+        .then(res=>{
           console.log(...this.state.foodsInMeal,food);
           this.setState({
             foodsInMeal:[...this.state.foodsInMeal,food]
           });
-        /* }) */
-      
+      })
     }
   }
 
@@ -67,16 +66,19 @@ export default class MealRoute extends React.Component{
   handleMealSubmit= (e)=>{
     e.preventDefault();
     if( !(this.verifyMealName()) && !(this.verifyFoodNonempty()) ){
-      console.log({
-        time:this.state.mealTime,
-        name:this.state.mealName,
-        items: this.state.foodsInMeal.map(food=>food.ndbno)
-      });
-      /* MealApiService.postMeal({
+      /* console.log({
         time:this.state.mealTime,
         name:this.state.mealName,
         items: this.state.foodsInMeal.map(food=>food.ndbno)
       }); */
+      MealApiService.postMeal({
+        time:this.state.mealTime,
+        name:this.state.mealName,
+        items: this.state.foodsInMeal.map(food=>food.ndbno)
+      })
+        .then(()=>{
+          this.props.history.push('/')
+        });
     }
   }
   
