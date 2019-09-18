@@ -33,8 +33,8 @@ class Header extends Component {
       <div className='nav-container'>
       <nav className='LoginLogout'>
         <Link id='loginlink' to='/login'>Login</Link>
-        {' '}
-        <Link id='signuplink' to='/register'>Sign up</Link>
+        
+        {/* <Link id='signuplink' to='/register'>Sign up</Link> */}
       </nav>
       </div>
     )

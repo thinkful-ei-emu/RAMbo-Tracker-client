@@ -1,0 +1,31 @@
+.section-container{
+margin: 5px;
+}
+
+.reg-container{
+  border: 5px groove white;
+  border-radius: 10px;
+  background: lightslategray;
+  color: white;
+  display: inline-flex;
+  margin: 5px;
+  padding: 5px;
+}
+
+.RegistrationForm{
+ 
+}
+
+.red{
+  color: red;
+}
+
+.user_name{
+  margin: 10px;
+  padding: 0px;
+}
+
+.password{
+  margin: 10px;
+  padding: 0px;
+}

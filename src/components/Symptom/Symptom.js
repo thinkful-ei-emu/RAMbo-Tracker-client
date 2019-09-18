@@ -14,7 +14,6 @@ class Symptom extends Component {
     pastSymptomVal : '',
     symptomSelectIsHidden : false,
     symptomInputDisabled : false
-    
   }
 
   

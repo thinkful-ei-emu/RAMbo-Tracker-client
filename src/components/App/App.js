@@ -4,11 +4,10 @@ import './App.css';
 import Header from '../Header/Header'
 // import PrivateRoute from '../PrivateRoute/PrivateRoute'
 // import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
-// import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
-// import LoginRoute from '../../routes/LoginRoute/LoginRoute'
-// import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
+import LoginForm from '../../components/Login/LoginForm'
 import SymptomRoute from '../Symptom/Symptom'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
+import LandingPage from '../../routes/LandingRoute/LandingRoute'
 
 
 class App extends Component {
@@ -32,23 +31,36 @@ class App extends Component {
                 exact
                 path={'/dash'}
               component = {DashboardRoute} */}
-              {/* />
-              <PrivateRoute
-                path={'/meal'}
-                component={MealRoute}
-              /> */}
+              
+              <Route /* ROUTE ONLY HERE FOR TESTING TO BYPASS AUTH */
+                exact
+                path={'/'}
+                component={LandingPage}
+              />
+
               <Route /* ROUTE ONLY HERE FOR TESTING TO BYPASS AUTH */
                 path={'/symptom'}
-                 component={SymptomRoute}
+                exact
+                component={SymptomRoute}
               />
+
               {/* <PublicOnlyRoute
                 path={'/register'}
                 component={RegistrationRoute} 
               />*/}
+
+
               {/* <PublicOnlyRoute
                 path={'/login'}
                 component={LoginRoute} 
               />*/}
+
+              <Route /* ROUTE ONLY HERE FOR TESTING TO BYPASS AUTH */
+                exact
+                path={'/login'}
+                component={LoginForm}
+              />
+
               <Route
                 component={NotFoundRoute}
               />
