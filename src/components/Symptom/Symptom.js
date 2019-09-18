@@ -20,7 +20,9 @@ class Symptom extends Component {
       { label: 'Diarrhea', value: 'Diarrhea' },
     ],
     pastSymptomVal : '',
-    SymptomSelectIsHidden : false
+    symptomSelectIsHidden : false,
+    symptomInputDisabled : false
+    
   }
 
   /*
@@ -62,7 +64,7 @@ class Symptom extends Component {
 
   handleSeverityChange = sev => { 
     this.setState({ 
-      symptomSeverity: sev.target.value 
+      symptomSeverity: sev.target.value
     }); 
   }
 
@@ -74,10 +76,10 @@ class Symptom extends Component {
 
   addSymptomClick = (e) => {
     e.preventDefault();
-    const SymptomSelectIsHidden = this.state.SymptomSelectIsHidden;
+    const symptomSelectIsHidden = this.state.symptomSelectIsHidden;
     this.setState({
-      SymptomSelectIsHidden : !SymptomSelectIsHidden
-      
+      symptomSelectIsHidden : !symptomSelectIsHidden,
+      symptomInputDisabled : true
     })
   }
 
@@ -94,14 +96,17 @@ class Symptom extends Component {
         <form onSubmit={(e)=>this.handleSymptomSubmit(e)}>
 
         <div id='user-input-container'>
+          
           <label htmlFor='user-symptom'>New Symptom</label>
           <br/>
           <input name='symptom' id='user-symptom' type='text' placeholder='bloated..'></input>
+          
+
         </div>
 
         <div id='select'>
           <button onClick={(e)=>this.addSymptomClick(e)}>Add Pre-existing</button>
-          { this.state.SymptomSelectIsHidden ? <>
+          { this.state.symptomSelectIsHidden ? <>
           <label htmlFor='symptom-select'></label>
           <select id='symptom-select' onChange={this.handleSymptomChange} value={this.state.pastSymptomVal} >
             {savedSymptoms}
