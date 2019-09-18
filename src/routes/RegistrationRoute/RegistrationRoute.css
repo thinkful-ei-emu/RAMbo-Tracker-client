@@ -1,0 +1,22 @@
+.registration-view {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding-top: 30px;
+}
+
+.reg-photo {
+  max-width: 400px;
+  box-shadow: 13px -13px 0 0px aqua;
+}
+
+.reg-description {
+  margin-top: 0px;
+  width: 90%;
+}
+
+.reg-description-header {
+  margin-top: 30px;
+  marigin-bottom: 5px;
+  width: 90%;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AuthApiService from '../../services/auth-api-service';
+import './RegistrationForm.css';
 
 class RegistrationForm extends React.Component {
   constructor(props) {
@@ -8,7 +9,8 @@ class RegistrationForm extends React.Component {
     this.state = {
       error: null,
       username: '',
-      password: '',
+      password1: '',
+      password2: '',
       name: ''
     };
   }
@@ -21,28 +23,32 @@ class RegistrationForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submitted!');
-    const { name, username, password } = this.state;
-    AuthApiService.postUser({
-      display_name: name,
-      username: username,
-      password: password
-    })
-      .then((user) => {
-        name.value = '';
-        username.value = '';
-        password.value = '';
-        this.props.onRegistrationSuccess();
+    if(this.state.password1 !== this.state.password2) {
+      this.setState({
+        error: 'Passwords must match'
       })
-      .catch((res) => {
-        this.setState({ error: res.error });
-      });
+    }
+    else {
+      const { name, username, password1 } = this.state;
+      AuthApiService.postUser({
+        display_name: name,
+        username: username,
+        password: password1
+      })
+        .then((user) => {
+          this.props.onRegistrationSuccess();
+        })
+        .catch((res) => {
+          this.setState({ error: res.error });
+        });
+    }
   };
 
   render() {
     const { error } = this.state;
     return (
       <form onSubmit={this.handleSubmit} className="registration-form">
+        <h2>Register for an account</h2>
         <div role="alert" className="error">
           {error && <p>{error}</p>}
         </div>
@@ -71,20 +77,33 @@ class RegistrationForm extends React.Component {
           />
         </div>
         <div className="registration-input">
-          <label htmlFor="registration-password-input">
+          <label htmlFor="registration-password-input1">
             Choose a password:
           </label>
           <input
             onChange={this.handleChange}
-            id="registration-password-input"
-            name="password"
+            id="registration-password-input1"
+            name="password1"
             type="password"
-            value={this.state.password}
+            value={this.state.password1}
+            required
+          />
+        </div>
+        <div className="registration-input">
+          <label htmlFor="registration-password-input2">
+            Re-enter your password:
+          </label>
+          <input
+            onChange={this.handleChange}
+            id="registration-password-input2"
+            name="password2"
+            type="password"
+            value={this.state.password2}
             required
           />
         </div>
         <button type="submit">Sign up!</button>
-        <Link to="/login">Already have an account?</Link>
+        <p><Link to="/login">Already have an account?</Link></p>
       </form>
     );
   }
