@@ -85,7 +85,7 @@ class Symptom extends Component {
         <div id='user-input-container'>
           <label htmlFor='user-symptom'>New Symptom</label>
           <br/>
-          <input name='symptom' id='user-symptom' type='text' placeholder='bloated..'></input>
+          <input name='symptom' id='user-symptom' type='text' placeholder='bloated..' disabled={this.state.SymptomSelectIsHidden} />
         </div>
 
         <div id='select'>
