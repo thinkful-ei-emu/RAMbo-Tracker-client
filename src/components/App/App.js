@@ -43,7 +43,6 @@ class App extends Component {
           {this.state.hasError && (
             <p>There was an error! Rut Roh!</p>
           )}
-          <MealRoute/>
           <Switch>
           {/* <PrivateRoute
                 exact
