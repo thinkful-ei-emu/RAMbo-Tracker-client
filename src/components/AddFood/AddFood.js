@@ -85,8 +85,13 @@ export default class AddFood extends React.Component {
                 this.state.foodsFromSearch.item.map((food, index) =>
                   <div key={index} className='AddFoodSearchResultsDiv'>
                     <div className='AddFoodSearchResultsRow'>
-                      <div className='AddFoodSearchResultsName'>
-                        {ProcessFoodName(food.name)}
+                      <div className='AddFoodSearchResultsFoodInfo'>
+                        <div className='AddFoodSearchResultsManu'>
+                          {ProcessFoodName(food.manu)}
+                        </div>
+                        <div className='AddFoodSearchResultsName'>
+                          {ProcessFoodName(food.name)}
+                        </div>
                       </div>
                       <div className='AddFoodSearchResultsSpace'>
                       </div>
@@ -97,8 +102,8 @@ export default class AddFood extends React.Component {
                     <hr></hr>
                   </div>
                 )
-
               }
+
             </div>)
           )
         }

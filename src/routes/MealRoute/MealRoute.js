@@ -54,6 +54,16 @@ export default class MealRoute extends React.Component{
       return 'Meal contents can\'t be empty';
   }
 
+  handleRemoveFood=(e,index)=>{
+    e.preventDefault();
+    e.stopPropagation();
+    let foods=[...this.state.foodsInMeal];
+    foods.splice(index,1);
+    this.setState({
+      foodsInMeal:foods
+    })
+  }
+
   handleMealSubmit= (e)=>{
     e.preventDefault();
     if( !(this.verifyMealName()) && !(this.verifyFoodNonempty()) ){
@@ -73,6 +83,7 @@ export default class MealRoute extends React.Component{
   render(){
     return (
       <div className='AddMealDiv'>
+        <h2>Add a Meal!</h2>
         <form className='AddMealForm' onSubmit={this.handleMealSubmit}>
           <label htmlFor='AddMealNameInput'>
             Meal Name:
@@ -101,10 +112,20 @@ export default class MealRoute extends React.Component{
             <div className='AddMealFoodsDisplay'>
               {
                 this.state.foodsInMeal.map((food,index)=>
-                  <div key={index} className='AddMealFoodsDisplayRow'>
-                    {ProcessFoodName(food.name)}
-                    <hr></hr>
+                <div key={index}>
+
+                  <div  className='AddMealFoodsDisplayRow'>
+                    <div className='AddMealFoodsDisplayName'>
+                      {ProcessFoodName(food.name)}
+                    </div>
+                    <div className='AddMealFoodsDisplaySpace'>
+                    </div>
+                    <button onClick={e => { this.handleRemoveFood(e,index) }} className='AddMealFoodsDisplayRemove'>
+                      Remove
+                    </button>
                   </div>
+                  <hr></hr>
+                </div>
                 )
               }
             </div>
