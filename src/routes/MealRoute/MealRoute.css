@@ -1,0 +1,23 @@
+.AddMealDiv{
+  min-width:300px;
+  max-width:800px;
+  margin:auto;
+  margin-top:7vh;
+  background-color:gainsboro;
+  padding:10px;
+}
+.AddMealForm{
+
+}
+#AddMealNameInput{
+
+}
+
+.react-datepicker__input-container{
+  display:inline-block;
+}
+
+.InlineBlockTheDate{
+  display:inline-block;
+}
+
