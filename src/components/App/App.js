@@ -5,7 +5,7 @@ import Header from '../Header/Header'
 // import PrivateRoute from '../PrivateRoute/PrivateRoute'
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
-// import LoginRoute from '../../routes/LoginRoute/LoginRoute'
+import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 // import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
 
 
@@ -43,11 +43,11 @@ class App extends Component {
                 path={'/register'}
                 component={RegistrationRoute}
               />
-              {/* <PublicOnlyRoute
+              <PublicOnlyRoute
                 path={'/login'}
                 component={LoginRoute}
               />
-              <Route
+              {/* <Route
                 // component={NotFoundRoute}
               /> */}
           </Switch> 
