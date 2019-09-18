@@ -21,13 +21,17 @@ class RegistrationForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    console.log('submitted!');
     const { name, username, password } = this.state;
     AuthApiService.postUser({
-      display_name: name.value,
-      username: username.value,
-      password: password.value
+      display_name: name,
+      username: username,
+      password: password
     })
       .then((user) => {
+        name.value = '';
+        username.value = '';
+        password.value = '';
         this.props.onRegistrationSuccess();
       })
       .catch((res) => {
