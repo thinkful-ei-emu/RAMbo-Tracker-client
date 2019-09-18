@@ -7,6 +7,8 @@ import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 // import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
+import SymptomRoute from '../Symptom/Symptom'
+import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 
 
 class App extends Component {
@@ -29,19 +31,15 @@ class App extends Component {
           {/* <PrivateRoute
                 exact
                 path={'/dash'}
-              component = {DashboardRoute}
-              />
+              component = {DashboardRoute} */}
+              {/* />
               <PrivateRoute
                 path={'/meal'}
-                // component={MealRoute}
-              />
-              <PrivateRoute
-                path={'/symptom'}
-                // component={SymptomRoute}
+                component={MealRoute}
               /> */}
-              <PublicOnlyRoute
-                path={'/register'}
-                component={RegistrationRoute}
+              <Route /* ROUTE ONLY HERE FOR TESTING TO BYPASS AUTH */
+                path={'/symptom'}
+                 component={SymptomRoute}
               />
               <PublicOnlyRoute
                 path={'/login'}
