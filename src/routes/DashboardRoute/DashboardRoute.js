@@ -49,12 +49,8 @@ export default class DashBoard extends React.Component{
           user: {username : res.username,display_name: res.display_name},
           events: res.events
         })
-      }); 
-      let test = helper.getUserEvents()
-      this.setState({
-        user: {username : test.username,display_name: test.display_name},
-        events: test.events
       })
+      .catch(e=>this.setState({error:e}));
   }
 
   closeModal = (modal)=>
