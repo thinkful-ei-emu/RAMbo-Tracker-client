@@ -43,6 +43,7 @@ class Symptom extends Component {
     // })
     // .catch(e => console.log(e));
     e.target['user-symptom'].value = '';
+    this.props.closeModal('addSymptomsModal');//this functions is passed in from dashboard to close the modal, it should be placed int the 'then' of api call to ensure it only runs in happy case 
   }
 
   handleTimeChange = date => { 

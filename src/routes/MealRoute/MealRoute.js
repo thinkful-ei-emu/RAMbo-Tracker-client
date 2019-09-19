@@ -77,7 +77,8 @@ export default class MealRoute extends React.Component{
         items: this.state.foodsInMeal.map(food=>food.ndbno)
       })
         .then(()=>{
-          this.props.history.push('/')
+          //this.props.history.push('/')
+          this.props.closeModal('addMealModal');//this functions is passed in from dashboard to close the modal, it should be placed int the 'then' of api call to ensure it only runs in happy case 
         });
     }
   }
