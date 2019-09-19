@@ -27,7 +27,14 @@
   border: 1px solid white;
   width: 50%;
   margin: 0 auto;
+  margin-top: 2%;
   padding: 2%;
+  background-color: rgb(63, 2, 63);
+  color: white;
+}
+.user-button:hover{
+  background-color: rgb(109, 5, 109)
+
 }
 a {
   display: inline-block;
