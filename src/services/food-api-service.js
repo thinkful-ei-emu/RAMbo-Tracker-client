@@ -7,6 +7,7 @@ const FoodApiService={
       method: 'GET',
       headers: {
         'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res =>
@@ -20,17 +21,18 @@ const FoodApiService={
       method: 'POST',
       headers: {
         'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body:JSON.stringify({
         ndbno:id,
         name
       })
-    })
+    })/* 
       .then(res =>
         (!res.ok)
           ? res.json().then(err => Promise.reject(err))
           : res.json()
-      )
+      ) */
   }
 
 }

@@ -7,6 +7,7 @@ const MealApiService={
       method: 'POST',
       headers: {
         'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body:JSON.stringify({
         time:meal.time,
@@ -15,12 +16,12 @@ const MealApiService={
         name:meal.name
 
       })
-    })
+    })/* 
       .then(res =>
         (!res.ok)
           ? res.json().then(err => Promise.reject(err))
           : res.json()
-      )
+      ) */
   }
 
 }

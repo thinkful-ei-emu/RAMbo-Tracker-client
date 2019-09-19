@@ -15,6 +15,8 @@ export default class AddFood extends React.Component {
     page:1,
   }
 
+  
+
 
   goFirstPage =()=>{
     FoodApiService.getFoods(this.state.lockedInSearchTerm,1)
@@ -108,7 +110,7 @@ export default class AddFood extends React.Component {
         else {
           this.setState({
             gotNoResults: true,
-            displaySearchResults: false,
+            displaySearchResults: true,
             lockedInSearchTerm:'',
             page:1
           })
@@ -116,6 +118,11 @@ export default class AddFood extends React.Component {
       })
     }
     
+  }
+  keyPressed=(event)=> {
+    if (event.key === "Enter") {
+      this.handleFoodSubmit(event);
+    }
   }
 
   handleAddFood=(e,food)=>{
@@ -145,10 +152,16 @@ export default class AddFood extends React.Component {
           <input
             type='text'
             onChange={(e) => this.handleSearchChange(e.target.value)}
+            onKeyPress={this.keyPressed}
             id='searchTermInput'
             value={this.state.searchTerm}
+            form='sub-form'
           />
-          <button onClick={this.handleFoodSubmit}>Search for food</button>
+          <button 
+            form='sub-form' htmlFor='searchTermInput' 
+            onClick={this.handleFoodSubmit}>
+            Search for food
+          </button>
         </div>
 
         {

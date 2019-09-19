@@ -4,9 +4,13 @@ import TokenService from '../../services/token-service'
 import './Header.css'
 
 class Header extends Component {
-
+  state={
+    refresh:true
+  }
   handleLogoutClick = () => {
-    this.context.processLogout()
+    TokenService.clearAuthToken();this.setState({
+      refresh: !this.state.refresh
+    })
   }
 
   renderLogoutLink() {
