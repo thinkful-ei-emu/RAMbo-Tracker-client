@@ -53,7 +53,7 @@ class RegistrationForm extends React.Component {
           {error && <p>{error}</p>}
         </div>
         <div className="registration-input">
-          <label htmlFor="registration-name-input">Enter your name:</label>
+          <label htmlFor="registration-name-input" className='regLabel'>Enter your name:</label>
           <input
             onChange={this.handleChange}
             type="text"
@@ -64,7 +64,7 @@ class RegistrationForm extends React.Component {
           />
         </div>
         <div className="registration-input">
-          <label htmlFor="registration-username-input">
+          <label htmlFor="registration-username-input" className='regLabel'>
             Choose a username:
           </label>
           <input
@@ -77,7 +77,7 @@ class RegistrationForm extends React.Component {
           />
         </div>
         <div className="registration-input">
-          <label htmlFor="registration-password-input1">
+          <label htmlFor="registration-password-input1" className='regLabel'>
             Choose a password:
           </label>
           <input
@@ -90,7 +90,7 @@ class RegistrationForm extends React.Component {
           />
         </div>
         <div className="registration-input">
-          <label htmlFor="registration-password-input2">
+          <label htmlFor="registration-password-input2" className='regLabel'>
             Re-enter your password:
           </label>
           <input
