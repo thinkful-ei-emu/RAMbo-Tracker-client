@@ -20,7 +20,8 @@ class RegistrationRoute extends React.Component {
           className="reg-photo"
           src="https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/nutraingredients.com/news/markets-and-trends/savvy-shoppers-search-for-balance-is-protein-s-reign-over/8872621-1-eng-GB/Savvy-shoppers-search-for-balance-Is-protein-s-reign-over_wrbm_large.jpg"
           alt="Health food"
-        /></div>
+        />
+        </div>
         <img
           className="reg-photo-2"
           src="https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/nutraingredients.com/news/markets-and-trends/savvy-shoppers-search-for-balance-is-protein-s-reign-over/8872621-1-eng-GB/Savvy-shoppers-search-for-balance-Is-protein-s-reign-over_wrbm_large.jpg"
