@@ -29,10 +29,6 @@ class App extends Component {
           )}
           <Switch>
            <PrivateRoute exact path={'/dash'} component = {DashboardRoute} />
-              {/* <PrivateRoute
-                path={'/meal'}
-                component={MealRoute}
-              />  */}
               <PublicOnlyRoute
                 path={'/register'}
                 component={RegistrationRoute} 

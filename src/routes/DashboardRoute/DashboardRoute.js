@@ -45,6 +45,7 @@ export default class DashBoard extends React.Component{
     return (
     <div>
       Welcome back <strong>{this.state.user.display_name}</strong>
+      <button>+</button>
     </div>)
   }
 }
