@@ -5,10 +5,11 @@ import Header from '../Header/Header'
 import TokenService from '../../services/token-service'
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
+import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
-// import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
+
 // import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
-import SymptomRoute from '../Symptom/Symptom'
+// import SymptomRoute from '../Symptom/Symptom'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import MealRoute from '../../routes/MealRoute/MealRoute';
 
@@ -53,11 +54,11 @@ class App extends Component {
                 path={'/meal'}
                 component={MealRoute}
               /> */}
-              {/*<Route  ROUTE ONLY HERE FOR TESTING TO BYPASS AUTH 
-                path={'/symptom'}
-                 component={SymptomRoute}
-              />*/}
               <PublicOnlyRoute
+                path={'/register'}
+                component={RegistrationRoute} 
+              />
+               <PublicOnlyRoute
                 path={'/login'}
                 component={LoginRoute}
               />
@@ -67,6 +68,9 @@ class App extends Component {
               {/* <Route
                 // component={NotFoundRoute}
               /> */}
+              { <Route
+                 component={NotFoundRoute}
+              /> }
           </Switch> 
         </main>
       </div>
