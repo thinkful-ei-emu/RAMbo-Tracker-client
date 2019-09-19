@@ -11,7 +11,7 @@
 }
 
 #user-input-container{
-  padding-bottom: 15px;
+  padding: 15px;
 }
 
 #date-select{
@@ -20,6 +20,26 @@
 
 #severity-radio{
   padding: 5px;
+}
+
+#select{
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  align-items: center;
+}
+
+#symptom-select{
+  border: 5px groove white;
+  margin: 10px;
+  border-radius: 5px;
+  width: 60%;
+}
+
+
+#date{
+  
 }
 
 input{
