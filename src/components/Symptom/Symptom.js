@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import API from '../../services/Api-service';
+// import API from '../../services/Api-service';
 import DatePicker from 'react-datepicker';
+import helper from '../../services/helper.services';
 import 'react-datepicker/dist/react-datepicker.css';
 import './Symptom.css';
 
@@ -9,16 +10,33 @@ class Symptom extends Component {
     symptomName : '',
     symptomSeverity : null,
     symptomTime : new Date(),
+    pastUserSymptoms : [],
+    pastSymptomVal : '',
+    symptomSelectIsHidden : false,
+    symptomInputDisabled : false
+    
   }
+
+  
+  componentDidMount() {
+    /* Api.doFetch('TODO')
+    .then(res => { */
+      //})
+      this.setState({pastUserSymptoms: helper.preExisting()});
+    //})
+    //.catch(e => console.log(e))
+  }
+ 
 
   handleSymptomSubmit = (e) => {
     e.preventDefault();
     
-    let userSymptom = e.target['user-symptom'].value;
+    let newUserSymptom = e.target['user-symptom'].value;
     let userSeverity = this.state.symptomSeverity;
     let userTime = this.state.symptomTime;
+    let pastSymptom = this.state.pastSymptomVal;
 
-    console.log(userSymptom, userSeverity, userTime);
+    console.log(newUserSymptom, userSeverity, userTime, pastSymptom);
     // API.doFetch(/*'TODO',*/ 'POST', {userSymptom, userSeverity})
     // .then(res => {
     //   //TODO
@@ -35,11 +53,33 @@ class Symptom extends Component {
 
   handleSeverityChange = sev => { 
     this.setState({ 
-      symptomSeverity: sev.target.value 
+      symptomSeverity: sev.target.value
     }); 
   }
 
+  handleSymptomChange = sym => {
+    this.setState({
+      pastSymptomVal: sym.target.value
+    })
+  }
+
+  addSymptomClick = (e) => {
+    e.preventDefault();
+    const symptomSelectIsHidden = this.state.symptomSelectIsHidden;
+    this.setState({
+      symptomSelectIsHidden : !symptomSelectIsHidden,
+      symptomInputDisabled : true
+    })
+  }
+
   render() {
+
+    let savedSymptoms = this.state.pastUserSymptoms.map((item, index) => {
+      return  <option key={index} value={item.value}>
+                {item.label}
+              </option>
+    })
+
     return(
       <section className='symptom-container'>
         <form onSubmit={(e)=>this.handleSymptomSubmit(e)}>
@@ -47,45 +87,31 @@ class Symptom extends Component {
         <div id='user-input-container'>
           <label htmlFor='user-symptom'>New Symptom</label>
           <br/>
-          <input name='symptom' id='user-symptom' type='text' placeholder='bloated..'></input>
+          <input name='symptom' id='user-symptom' type='text' placeholder='bloated..' disabled={this.state.symptomSelectIsHidden} />
         </div>
 
-        <div>
+        <div id='select'>
+          <button onClick={(e)=>this.addSymptomClick(e)}>Add Pre-existing</button>
+          { this.state.symptomSelectIsHidden ? <>
+          <label htmlFor='symptom-select'></label>
+          <select id='symptom-select' onChange={this.handleSymptomChange} value={this.state.pastSymptomVal} >
+            {savedSymptoms}
+          </select> </> : <></>
+        }
+        </div>
+
+        <div id='date'>
           <label htmlFor='date-select'>When?</label>
             <DatePicker id='date-select' selected={this.state.symptomTime} onChange={this.handleTimeChange} showTimeSelect withPortal dateFormat="Pp" />
         </div>
 
         <div id='severity-radio'>
             <p>Rate the Severity</p>
-          <div className="radio">
-            <label><input type="radio" value="1" 
-            checked={this.state.symptomSeverity === '1'}
-            onChange={this.handleSeverityChange} />1</label>
-          </div>
-          <div className="radio">
-            <label><input type="radio" value="2" 
-            checked={this.state.symptomSeverity === '2'}
-            onChange={this.handleSeverityChange} />2</label>
-          </div>
-          <div className="radio">
-            <label><input type="radio" value="3" 
-            checked={this.state.symptomSeverity === '3'}
-            onChange={this.handleSeverityChange} />3</label>
-          </div>
-          <div className="radio">
-            <label><input type="radio" value="4" 
-            checked={this.state.symptomSeverity === '4'}
-            onChange={this.handleSeverityChange}/>4</label>
-          </div>
-          <div className="radio">
-            <label><input type="radio" value="5" 
-            checked={this.state.symptomSeverity === '5'}
-            onChange={this.handleSeverityChange}/>5</label>
-          </div>
+          <input type="range" step="1" min="1" max="5" onChange={(e)=>this.handleSymptomChange(e)}/>
         </div>
 
           <br/>
-          <button>Submit Symptom</button>
+          <button type='submit'>Submit Symptom</button>
           
         </form>
       </section>
