@@ -40,7 +40,6 @@ export default class DashBoard extends React.Component{
             time: null
           }
         ],
-        symptoms: []
     }
   componentDidMount(){
     API.doFetch('/event')
