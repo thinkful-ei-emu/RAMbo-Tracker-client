@@ -18,6 +18,7 @@ module.exports = {
       events: 
         [
           {
+            name:'Lunch',
             type: 'meal', 
             items: [
               {
@@ -33,8 +34,8 @@ module.exports = {
           }, 
           {
             type: 'symptom', 
-            symptom: 'bloating', 
-            severity: 4, 
+            name: 'bloating', 
+            severity: 'HIGH', 
             time: Date.now()
           }
         ],
