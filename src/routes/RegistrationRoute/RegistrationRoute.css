@@ -3,7 +3,7 @@
   flex-flow: row wrap;
   justify-content: space-around;
   padding-top: 30px;
-
+  max-width: 1090px;
 }
 
 .mission {
@@ -19,13 +19,14 @@
   /* border-top: 30px solid rgb(251, 177, 2); */
   box-shadow: 0px -30px 0 0 rgb(251, 177, 2);
   border-right: 30px solid rgb(251, 177, 2);
-  margin-bottom: 5%;
   
 }
 
-/* .reg-photo-container{
+.reg-photo-container{
 box-shadow: 0px 50px 20px -20px rgb(219, 219, 219);
-} */
+margin-bottom: 5%;
+
+}
 
 .reg-photo-2 {
   margin-top: 10%;

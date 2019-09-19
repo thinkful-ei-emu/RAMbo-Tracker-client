@@ -2,6 +2,9 @@ import React from 'react';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
 import './RegistrationRoute.css'
 import lemon from '../../Media/Lemons.jpg'
+import carrot from '../../Media/carrot.jpg'
+import grape from '../../Media/grapes.jpg'
+import lettuce from '../../Media/lettuce.jpg'
 
 class RegistrationRoute extends React.Component {
   handleRegistrationSuccess = () => {
@@ -18,13 +21,13 @@ class RegistrationRoute extends React.Component {
         <div className='reg-photo-container'>
         <img
           className="reg-photo"
-          src="https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/nutraingredients.com/news/markets-and-trends/savvy-shoppers-search-for-balance-is-protein-s-reign-over/8872621-1-eng-GB/Savvy-shoppers-search-for-balance-Is-protein-s-reign-over_wrbm_large.jpg"
-          alt="Health food"
+          src={lemon}
+          alt="A lemon"
         /></div>
         <img
           className="reg-photo-2"
-          src="https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/nutraingredients.com/news/markets-and-trends/savvy-shoppers-search-for-balance-is-protein-s-reign-over/8872621-1-eng-GB/Savvy-shoppers-search-for-balance-Is-protein-s-reign-over_wrbm_large.jpg"
-          alt="Health food"
+          src={carrot}
+          alt="Carrot"
         />
         <div className="mission">
           <h3 className="reg-description-header">Our mission</h3>
@@ -45,13 +48,13 @@ class RegistrationRoute extends React.Component {
           </div>
           <img
           className="reg-photo-2"
-          src="https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/nutraingredients.com/news/markets-and-trends/savvy-shoppers-search-for-balance-is-protein-s-reign-over/8872621-1-eng-GB/Savvy-shoppers-search-for-balance-Is-protein-s-reign-over_wrbm_large.jpg"
-          alt="Health food"
+          src={grape}
+          alt="bunch of grapes"
         />
              <img
           className="reg-photo-2"
-          src="https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/nutraingredients.com/news/markets-and-trends/savvy-shoppers-search-for-balance-is-protein-s-reign-over/8872621-1-eng-GB/Savvy-shoppers-search-for-balance-Is-protein-s-reign-over_wrbm_large.jpg"
-          alt="Health food"
+          src={lettuce}
+          alt="lettuce"
         />
         <div className="mission">
           <p>
