@@ -43,8 +43,13 @@ export default class DashBoard extends React.Component{
         symptoms: []
     }
   componentDidMount(){
-   /*  API.doFetch('events')
-      .then(res=>) */
+    API.doFetch('/event')
+      .then(res=>{
+        this.setState({
+          user: {username : res.username,display_name: res.display_name},
+          events: res.events
+        })
+      }); 
       let test = helper.getUserEvents()
       this.setState({
         user: {username : test.username,display_name: test.display_name},
@@ -62,7 +67,7 @@ export default class DashBoard extends React.Component{
   }
   render(){
     let events = this.state.events.map((e,index)=>{
-      return (<li key={index} className={e.type === 'meal'? 'meal': 'symptom'}>{e.name}@ {e.time} | {e.severity}</li>)
+      return (<li key={index} className={e.type === 'meal'? 'meal': 'symptom'}>{e.name}@ {Date(e.time).toLocaleString()} | {e.severity}</li>)
     })
     return (
     <div>
