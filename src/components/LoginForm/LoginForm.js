@@ -1,6 +1,7 @@
 import React from 'react';
 import AuthApiService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
+import './LoginForm.css'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -50,7 +51,7 @@ class LoginForm extends React.Component {
           {error && <p>{error}</p>}
         </div>
         <div className="login-input">
-          <label htmlFor="login-username-input ">Username:</label>
+          <label htmlFor="login-username-input " className='loginLabel'>Username:</label>
           <input
             onChange={this.handleChange}
             ref={this.firstInput}
@@ -61,7 +62,7 @@ class LoginForm extends React.Component {
           />
         </div>
         <div className="login-input">
-          <label htmlFor="login-password-input">Password:</label>
+          <label htmlFor="login-password-input" className='loginLabel'>Password:</label>
           <input
           onChange={this.handleChange}
             id="login-password-input"
