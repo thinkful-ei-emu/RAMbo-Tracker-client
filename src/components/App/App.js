@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import './App.css';
 import Header from '../Header/Header'
 import TokenService from '../../services/token-service'
-// import PrivateRoute from '../PrivateRoute/PrivateRoute'
+import PrivateRoute from '../PrivateRoute/PrivateRoute'
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 // import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
@@ -61,7 +61,7 @@ class App extends Component {
                 path={'/login'}
                 component={LoginRoute}
               />
-              <Route path={'/meal'}
+              <PrivateRoute path={'/meal'}
                 component={MealRoute}
               />
               {/* <Route
