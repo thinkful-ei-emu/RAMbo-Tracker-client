@@ -5,7 +5,8 @@ import './Header.css'
 
 class Header extends Component {
   state={
-    refresh:true
+    refresh:true,
+    isHidden: false
   }
   handleLogoutClick = () => {
     TokenService.clearAuthToken();this.setState({

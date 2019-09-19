@@ -56,7 +56,7 @@ class App extends Component {
               /> */}
               <PublicOnlyRoute
                 path={'/register'}
-                component={RegistrationRoute} 
+                component={RegistrationRoute}
               />
                <PublicOnlyRoute
                 path={'/login'}
