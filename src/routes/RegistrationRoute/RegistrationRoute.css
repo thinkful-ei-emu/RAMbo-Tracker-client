@@ -5,10 +5,25 @@
   padding-top: 30px;
 }
 
+.mission {
+  text-align: left;
+  width: 50%;
+  align-self: center;
+}
+
+
 .reg-photo {
   max-width: 400px;
   box-shadow: 25px -25px 0 0 rgb(2, 11, 92);
+  margin-bottom: 5%;
 }
+.reg-photo-2 {
+ margin-top: 10%;
+ margin-bottom: 10%;
+  max-width: 400px;
+  box-shadow: -25px 25px 0 0 rgb(2, 11, 92);
+}
+
 
 .reg-description {
   margin-top: 0px;
@@ -19,4 +34,12 @@
   margin-top: 30px;
   margin-bottom: 5px;
   width: 90%;
+  font-size: 42px;
+  font-family: cursive;
+}
+
+.emphasis {
+  font-weight: bold;
+  font-family: cursive;
+  font-size: 28px;
 }
