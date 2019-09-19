@@ -1,0 +1,11 @@
+.meal{
+  background-color: orange;
+}
+.symptom{
+  background-color: purple;
+}
+.events > li {
+  color:white;
+  border: 2px solid black;
+  width:fit-content;
+}
