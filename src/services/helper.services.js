@@ -10,6 +10,36 @@ module.exports = {
       { label: 'Nausea', value: 'Nausea' },
       { label: 'Diarrhea', value: 'Diarrhea' },
     ];
+  },
+  getUserEvents(){
+    return {
+      username:'testUser',
+      display_name:'Jim Carey',
+      events: 
+        [
+          {
+            type: 'meal', 
+            items: [
+              {
+                name: 'hamburger',
+                ingredients: ['wheat', 'beef', 'salt', 'spices']
+              },
+              {
+                name: 'fries',
+                ingredients: ['palm oil', 'potato', 'salt']
+              }
+            ],
+            time: 2134234
+          }, 
+          {
+            type: 'symptom', 
+            symptom: 'bloating', 
+            severity: 4, 
+            time: Date.now()
+          }
+        ],
+        symptoms: ['bloating', 'headaches']
+    }
   }
 
 }
