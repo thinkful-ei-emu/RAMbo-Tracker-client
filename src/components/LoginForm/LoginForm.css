@@ -1,3 +1,15 @@
 .Link {
   margin: auto;
 }
+
+.loginLabel{
+  display: inline-block;
+  text-align: center;
+  margin: 5px;
+}
+
+.login-input{
+
+}
+
+/*work on inputs*/
