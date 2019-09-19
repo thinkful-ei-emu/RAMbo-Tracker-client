@@ -53,7 +53,7 @@ class RegistrationForm extends React.Component {
           {error && <p>{error}</p>}
         </div>
         <div className="registration-input">
-          <label htmlFor="registration-name-input" className='regLabel'>Enter your name:</label>
+          <label htmlFor="registration-name-input" className='regLabel'>Enter your name:</label><br></br>
           <input
             onChange={this.handleChange}
             type="text"
@@ -66,7 +66,7 @@ class RegistrationForm extends React.Component {
         <div className="registration-input">
           <label htmlFor="registration-username-input" className='regLabel'>
             Choose a username:
-          </label>
+          </label><br></br>
           <input
             onChange={this.handleChange}
             type="text"
@@ -79,7 +79,7 @@ class RegistrationForm extends React.Component {
         <div className="registration-input">
           <label htmlFor="registration-password-input1" className='regLabel'>
             Choose a password:
-          </label>
+          </label><br></br>
           <input
             onChange={this.handleChange}
             id="registration-password-input1"
@@ -92,7 +92,7 @@ class RegistrationForm extends React.Component {
         <div className="registration-input">
           <label htmlFor="registration-password-input2" className='regLabel'>
             Re-enter your password:
-          </label>
+          </label><br></br>
           <input
             onChange={this.handleChange}
             id="registration-password-input2"
@@ -102,7 +102,7 @@ class RegistrationForm extends React.Component {
             required
           />
         </div>
-        <button type="submit">Sign up!</button>
+        <button className="user-button" type="submit">Sign up!</button>
         <p><Link to="/login">Already have an account?</Link></p>
       </form>
     );
