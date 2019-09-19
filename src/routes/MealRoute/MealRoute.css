@@ -1,0 +1,49 @@
+.AddMealDiv{
+  box-sizing: border-box;
+  min-width:300px;
+  max-width:900px;
+  margin:auto;
+  margin-top:7vh;
+  padding:10px;
+  background-color:gainsboro;
+}
+.AddMealForm{
+
+}
+#AddMealNameInput{
+
+}
+
+.react-datepicker__input-container{
+  display:inline-block;
+}
+
+.InlineBlockTheDate{
+  display:inline-block;
+}
+
+.AddMealFoodsDisplayContainer{
+}
+.AddMealFoodsDisplayRow{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.AddMealFoodsDisplayRow div{
+  word-break: normal; 
+  word-wrap: normal;
+  display:inline-block;
+}
+.AddMealFoodsDisplayName{
+  flex-basis:60%;
+  flex-grow:1;
+}
+.AddMealFoodsDisplaySpace{
+  flex-basis:20px;
+  flex-grow:1;
+}
+.AddMealFoodsDisplayRemove{
+  flex-grow:0;
+  height:25px;
+  color:red;
+}
