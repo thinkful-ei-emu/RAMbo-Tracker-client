@@ -9,8 +9,8 @@ import "./Dashboard.css";
 //to be removed for final product
 import helper from "../../services/helper.services";
 
-Modal.setAppElement('#root')
-export default class DashBoard extends React.Component{
+Modal.setAppElement("#root");
+export default class DashBoard extends React.Component {
   state = {
     addMealModal: false,
     addSymptomsModal: false,
@@ -34,18 +34,18 @@ export default class DashBoard extends React.Component{
             ingredients: []
           }
         ]
-    }
-  ]
-}
-  componentDidMount(){
-    API.doFetch('/event')
-      .then(res=>{
+      }
+    ]
+  };
+  componentDidMount() {
+    API.doFetch("/event")
+      .then(res => {
         this.setState({
-          user: {username : res.username,display_name: res.display_name},
+          user: { username: res.username, display_name: res.display_name },
           events: res.events
-        })
+        });
       })
-      .catch(e=>this.setState({error:e}));
+      .catch(e => this.setState({ error: e }));
   }
 
   closeModal = modal => {
@@ -53,28 +53,39 @@ export default class DashBoard extends React.Component{
   };
   openModal = (e, modal) => {
     e.preventDefault();
-    this.setState({[modal]:true});
-  }
-  updateEvents= (e)=>{
-    this.setState({events:[e,...this.state.events]})
-  }
-  render(){
-    let events = this.state.events.map((e,index)=>{
-      return (<li key={index} className={e.type === 'meal'? 'meal': 'symptom'}>{e.name}@ {new Date(e.time).toDateString()} | {e.severity}</li>)
-    })
+    this.setState({ [modal]: true });
+  };
+  updateEvents = e => {
+    this.setState({ events: [e, ...this.state.events] });
+  };
+  render() {
+    let events = this.state.events.map((e, index) => {
+      return (
+        <li key={index} className={e.type === "meal" ? "meal" : "symptom"}>
+          {e.name}@ {new Date(e.time).toDateString()} | {e.severity}
+        </li>
+      );
+    });
     return (
-    <div>
-      {/*add meal modal*/}
-      <Modal isOpen={this.state.addMealModal} onRequestClose={(e)=>this.closeModal('addMealModal')}>
-        <Meal closeModal={this.closeModal} updateEvents={this.updateEvents}/>
-      </Modal>
-      <Modal isOpen={this.state.addSymptomsModal} onRequestClose={()=>this.closeModal('addSymptomsModal')}>
-      <Symptoms closeModal={this.closeModal} updateEvents={this.updateEvents}/>
-      </Modal>
-      Welcome back <strong>{this.state.user.display_name}</strong>
-      <div className="events">
-        {events}
-      </div>
+      <div>
+        {/*add meal modal*/}
+        <Modal
+          isOpen={this.state.addMealModal}
+          onRequestClose={e => this.closeModal("addMealModal")}
+        >
+          <Meal closeModal={this.closeModal} updateEvents={this.updateEvents} />
+        </Modal>
+        <Modal
+          isOpen={this.state.addSymptomsModal}
+          onRequestClose={() => this.closeModal("addSymptomsModal")}
+        >
+          <Symptoms
+            closeModal={this.closeModal}
+            updateEvents={this.updateEvents}
+          />
+        </Modal>
+        <h3 id='user-welcome'>Welcome back, {this.state.user.display_name}</h3>
+        <div className="events">{events}</div>
       </div>
     );
   }
