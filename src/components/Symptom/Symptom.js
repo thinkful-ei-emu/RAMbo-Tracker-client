@@ -30,19 +30,18 @@ class Symptom extends Component {
 
   handleSymptomSubmit = (e) => {
     e.preventDefault();
-    
-    let newUserSymptom = e.target['user-symptom'].value;
-    let userSeverity = this.state.symptomSeverity;
-    let userTime = this.state.symptomTime;
-    let pastSymptom = this.state.pastSymptomVal;
-
-    console.log(newUserSymptom, userSeverity, userTime, pastSymptom);
+    let sym = {};
+    sym.name = e.target['user-symptom'].value;
+    sym.severity = this.state.symptomSeverity;
+    sym.time = this.state.symptomTime;
+    sym.name= this.state.pastSymptomVal ? this.state.pastSymptomVal : sym.name  ;
     // API.doFetch(/*'TODO',*/ 'POST', {userSymptom, userSeverity})
     // .then(res => {
     //   //TODO
     // })
     // .catch(e => console.log(e));
     e.target['user-symptom'].value = '';
+    this.props.updateEvents(sym);
     this.props.closeModal('addSymptomsModal');//this functions is passed in from dashboard to close the modal, it should be placed int the 'then' of api call to ensure it only runs in happy case 
   }
 
