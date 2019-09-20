@@ -9,9 +9,10 @@ class LoginRoute extends Component {
     }
   };
 
-  handleLoginSuccess = () => {
+  handleLoginSuccess = (username) => {
     const { history } = this.props;
     history.push('/dash');
+    this.props.processLogin(username);
   };
 
   render() {

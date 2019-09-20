@@ -32,8 +32,6 @@ export default class MealRoute extends React.Component{
     });
   }
   handleTimeChange = date => {
-    console.log(this.state.mealTime);
-    console.log(typeof this.state.mealTime);
     this.setState({
       mealTime: date
     });
