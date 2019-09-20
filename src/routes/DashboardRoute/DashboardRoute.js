@@ -71,7 +71,7 @@ export default class DashBoard extends React.Component{
         <Meal closeModal={this.closeModal}/>
       </Modal>
       <Modal isOpen={this.state.addSymptomsModal} onRequestClose={()=>this.closeModal('addSymptomsModal')}>
-      <Symptoms closeModal={this.closeModal}/>
+      <Symptoms closeModal={this.closeModal} prevSymptoms = {this.state.events.filter(e=>e.type==='symptom')}/>
       </Modal>
       Welcome back <strong>{this.state.user.display_name}</strong>
       <div className="events">
