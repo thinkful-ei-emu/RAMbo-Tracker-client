@@ -5,7 +5,8 @@ import './Header.css'
 
 class Header extends Component {
   state={
-    refresh:true
+    refresh:true,
+    isHidden: false
   }
   handleLogoutClick = () => {
     TokenService.clearAuthToken();this.setState({
@@ -17,7 +18,7 @@ class Header extends Component {
     return (
       <div className='user-container'>
         <nav>
-          <Link
+          <Link id="logoutlink"
             onClick={this.handleLogoutClick}
             to='/login'>
             Logout
@@ -50,6 +51,7 @@ class Header extends Component {
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
           : this.renderLoginLink()}
+          <div id='box'></div>
       </header>
     );
   }

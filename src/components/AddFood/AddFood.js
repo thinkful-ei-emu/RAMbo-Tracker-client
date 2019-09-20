@@ -148,7 +148,9 @@ export default class AddFood extends React.Component {
   render() {
     return (
       <div className='AddFoodDiv'>
-        <div className='SearchFoodForm'>
+        
+          <label htmlFor='searchTermInput'>Search for a food:</label><br></br>
+          <div className='SearchFoodForm'>
           <input
             type='text'
             onChange={(e) => this.handleSearchChange(e.target.value)}
@@ -157,10 +159,10 @@ export default class AddFood extends React.Component {
             value={this.state.searchTerm}
             form='sub-form'
           />
-          <button 
+          <button className="user-button" id="search-food-button"
             form='sub-form' htmlFor='searchTermInput' 
             onClick={this.handleFoodSubmit}>
-            Search for food
+            Search for Food
           </button>
         </div>
 
@@ -190,7 +192,7 @@ export default class AddFood extends React.Component {
                       </div>
                       <div className='AddFoodSearchResultsSpace'>
                       </div>
-                      <button onClick={e => { this.handleAddFood(e,food) }} className='AddFoodSearchResultsAddButton'>
+                      <button id='add-food-button' className='user-button' onClick={e => { this.handleAddFood(e,food) }} >
                         Add Food
                       </button>
                     </div>

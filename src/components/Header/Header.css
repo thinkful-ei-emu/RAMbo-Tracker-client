@@ -16,29 +16,43 @@ a{
 .nav-container{
     /* border: 1px solid grey; */
     padding: 0px;
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
   }
-  .Header {
-  /* border: 2px solid black; */
+.user-container{
+ padding-right: 2%;
   width: 100%;
+  margin: 0 auto;
+  font-weight: bold;
+
+}
+#logoutlink:hover{
+  color: #002ba0
+}
+.Header {
+/* border: 2px solid black; */
+  width: 40%;
 }
 
 .nav-container{
   /* border: 1px solid grey; */
-  padding: 10px;
-  width: 100%;
+  padding: 0px;
+  width: 100vw;
+  height: 110px;
   margin: 0 auto;
+  background-color: rgb(255, 123, 0);
+  color: white;
+  border-radius: 0px 0px 0px 10px;
 }
 header {
-  border-bottom: 2px solid black;
   margin: 0px;
-  padding: 0 20px 0 20px;
+  padding: 0px;
   font-size: 20px;
   display: flex;
   align-items: center;
-  background: rgb(219, 248, 219);
+  width: 100%;
 }
+
 #user-name{
   font-size: 27px;
   color: #3369ff;
@@ -47,6 +61,18 @@ header {
 .user-container{
   text-align: right;
 }
+
+#box {
+  display: block;
+  position: absolute;
+  background-color: rgb(255, 123, 0);
+  top: 87px;
+  right: 0px;
+  width: 500px;
+  height: 100px;
+  z-index: -1;
+}
+
 @media only screen and (min-width: 600px) {
 
 .LoginLogout{
@@ -58,11 +84,13 @@ header {
 }
 
 #loginlink{
-  padding: 0 10px;
+  padding: 28px 10px;
+  color: white;
 }
 
 #signuplink{
-  padding: 0 10px;
+  padding: 0px 10px;
+  color: white;
 }
 
  

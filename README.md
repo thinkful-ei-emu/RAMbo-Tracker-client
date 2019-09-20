@@ -1,15 +1,15 @@
-# RAMbo Health Tracker
+# RAMbo Symptom Tracker
 
 
-## What is Tracker?
+## What is Symptom Tracker?
 
-The RAMbo health tracker is an online food diary designed to help users take control of their health. By tracking foods they eat and symptoms they experience, Symptom Tracker will help you draw relationships between the food you eat and way you feel.
+Symptom tracker is an online food diary designed to help users take control of their health. By tracking foods they eat and symptoms they experience, Symptom Tracker will help you draw relationships between the food you eat and way you feel.
 
 > - Add a meal
 > - Add multiple food items to a meal
-> - Food item details come straight from the USDA
-> - Add a symptom to the meal
-> - Track daily meals and update previous meals with symptoms
+> - Utilizes USDA Food Database search to find food items, storing ingredient data for analysis
+> - Add a symptom, and rate severity of the symptom
+> - Track daily meals and update previous meals and symptoms
 
 
 ## Setup
