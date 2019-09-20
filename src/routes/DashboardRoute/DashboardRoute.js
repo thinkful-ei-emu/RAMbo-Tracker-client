@@ -92,7 +92,6 @@ export default class DashBoard extends React.Component {
       <button className="user-button" onClick={(e)=>this.openModal(e,'addSymptomsModal')}>Log New Symptoms</button>
       </div>
         <div className="events"><div className='events-list'>{events}</div></div>
-       
       </div>
     );
   }
