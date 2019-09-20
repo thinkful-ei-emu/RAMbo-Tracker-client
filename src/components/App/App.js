@@ -18,7 +18,6 @@ class App extends Component {
     hasError: false,
     username:'',
     processLogin : (username) => {
-      TokenService.saveAuthToken()
       this.setState({
         username
       })

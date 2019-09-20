@@ -32,7 +32,7 @@ class LoginForm extends React.Component {
       password
     })
       .then((res) => {
-        TokenService.saveAuthToken(res.authToken)
+        TokenService.saveAuthToken(res.authToken);
         this.props.onLoginSuccess(username);
       })
       .catch(res => {
