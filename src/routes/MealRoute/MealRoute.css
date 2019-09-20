@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: space-around;
   min-width: 300px;
-  max-width: 900px;
+  max-width: 100%;
   margin: 0 auto;
   background-color: rgb(255, 253, 253);
 }
@@ -66,3 +66,7 @@
 #remove-food-button:hover{
 background-color: rgb(150, 0, 0)
 }
+
+@media only screen and (max-width: 600px) {
+  
+} 
