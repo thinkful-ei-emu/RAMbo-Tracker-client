@@ -9,7 +9,8 @@ import "./Dashboard.css";
 //to be removed for final product
 import helper from "../../services/helper.services";
 
-export default class DashBoard extends React.Component {
+Modal.setAppElement('#root')
+export default class DashBoard extends React.Component{
   state = {
     addMealModal: false,
     addSymptomsModal: false,
@@ -33,24 +34,18 @@ export default class DashBoard extends React.Component {
             ingredients: []
           }
         ]
-      },
-      {
-        type: "",
-        name: "",
-        severity: 0,
-        time: null
-      }
-    ],
-    symptoms: []
-  };
-  componentDidMount() {
-    /*  API.doFetch('events')
-      .then(res=>) */
-    let test = helper.getUserEvents();
-    this.setState({
-      user: { username: test.username, display_name: test.display_name },
-      events: test.events
-    });
+    }
+  ]
+}
+  componentDidMount(){
+    API.doFetch('/event')
+      .then(res=>{
+        this.setState({
+          user: {username : res.username,display_name: res.display_name},
+          events: res.events
+        })
+      })
+      .catch(e=>this.setState({error:e}));
   }
 
   closeModal = modal => {
@@ -58,52 +53,28 @@ export default class DashBoard extends React.Component {
   };
   openModal = (e, modal) => {
     e.preventDefault();
-    this.setState({ [modal]: true });
-  };
-  render() {
-    let events = this.state.events.map((e, index) => {
-      return (
-        <div className="events-list">
-        <li key={index} className={e.type === "meal" ? "meal" : "symptom"}>
-          {e.name} at {e.time} | severity: {e.severity}
-        </li>
-        </div>
-      );
-    });
+    this.setState({[modal]:true});
+  }
+  updateEvents= (e)=>{
+    this.setState({events:[e,...this.state.events]})
+  }
+  render(){
+    let events = this.state.events.map((e,index)=>{
+      return (<li key={index} className={e.type === 'meal'? 'meal': 'symptom'}>{e.name}@ {new Date(e.time).toDateString()} | {e.severity}</li>)
+    })
     return (
-      <div className="user-dashboard">
-        {/*add meal modal*/}
-        <Modal
-          isOpen={this.state.addMealModal}
-          onRequestClose={e => this.closeModal("addMealModal")}
-        >
-          <Meal closeModal={this.closeModal} />
-        </Modal>
-        <Modal
-          isOpen={this.state.addSymptomsModal}
-          onRequestClose={() => this.closeModal("addSymptomsModal")}
-        >
-          <Symptoms closeModal={this.closeModal} />
-        </Modal>
-        <h3 id="user-welcome">Welcome back, {this.state.user.display_name}</h3>
-        <div id="dash-button-container">
-        <button
-          className="user-button"
-          id="meal-button"
-          onClick={e => this.openModal(e, "addMealModal")}
-        >
-          Add New Meal
-        </button>
-        <button
-          className="user-button"
-          id="symptom-button"
-          onClick={e => this.openModal(e, "addSymptomsModal")}
-        >
-          Add New Symptoms
-        </button>
-        </div>
-        <div className="events">{events}</div>
-       
+    <div>
+      {/*add meal modal*/}
+      <Modal isOpen={this.state.addMealModal} onRequestClose={(e)=>this.closeModal('addMealModal')}>
+        <Meal closeModal={this.closeModal} updateEvents={this.updateEvents}/>
+      </Modal>
+      <Modal isOpen={this.state.addSymptomsModal} onRequestClose={()=>this.closeModal('addSymptomsModal')}>
+      <Symptoms closeModal={this.closeModal} updateEvents={this.updateEvents}/>
+      </Modal>
+      Welcome back <strong>{this.state.user.display_name}</strong>
+      <div className="events">
+        {events}
+      </div>
       </div>
     );
   }
