@@ -19,12 +19,12 @@ class Symptom extends Component {
 
   
   componentDidMount() {
-    /* Api.doFetch('TODO')
-    .then(res => { */
-      //})
+    Api.doFetch('TODO')
+    .then(res => { 
+      
       this.setState({pastUserSymptoms: helper.preExisting()});
-    //})
-    //.catch(e => console.log(e))
+    })
+    .catch(e => console.log(e))
   }
  
 
