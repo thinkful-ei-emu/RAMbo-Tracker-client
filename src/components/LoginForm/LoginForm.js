@@ -31,9 +31,9 @@ class LoginForm extends React.Component {
       username,
       password
     })
-      .then(res => {
+      .then((res) => {
         TokenService.saveAuthToken(res.authToken);
-        this.props.onLoginSuccess();
+        this.props.onLoginSuccess(username);
       })
       .catch(res => {
         this.setState({ error: res.error });
