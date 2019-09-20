@@ -6,6 +6,7 @@ import FoodApiService from "../../services/food-api-service";
 import MealApiService from "../../services/meal-api-service";
 import ProcessFoodName from "../../services/process-food-name";
 import ValidationError from "../../components/ValidationError/ValidationError";
+import trashCan from '../../Media/trash-can.jpg'
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -124,7 +125,11 @@ export default class MealRoute extends React.Component {
                         this.handleRemoveFood(e, index);
                       }}
                     >
-                      Remove Food
+                      <img
+                        className="remove-trash-can"
+                        src={trashCan}
+                        alt="Remove food item"
+                      />
                     </button>
                   </div>
                   <hr></hr>
