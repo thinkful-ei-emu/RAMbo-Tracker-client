@@ -17,10 +17,9 @@ class App extends Component {
   state = { 
     hasError: false,
     username:'',
-    processLogin : (authToken,username) => {
-      TokenService.saveAuthToken(authToken)
+    processLogin : (username) => {
+      TokenService.saveAuthToken()
       this.setState({
-        authToken,
         username
       })
     },
@@ -38,7 +37,7 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-          <Header />
+          <Header refreshesWhenAppStateDoes={this.state}/>
         <main>
           {this.state.hasError && (
             <p>There was an error! Rut Roh!</p>
@@ -50,6 +49,7 @@ class App extends Component {
                 component={RegistrationRoute}
               />
                <PublicOnlyRoute
+                processLogin={this.state.processLogin}
                 path={'/login'}
                 component={LoginRoute}
               />
