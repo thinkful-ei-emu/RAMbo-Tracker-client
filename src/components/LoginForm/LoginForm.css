@@ -1,15 +1,22 @@
 .Link {
   margin: auto;
 }
+.login-form{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 10px;
+  width: 350px;
+  justify-content: flex-start;
+  margin: 0 auto;
+}
 
 .loginLabel{
-  display: inline-block;
-  text-align: center;
-  margin: 5px;
+ padding: 2%;
 }
 
 .login-input{
-
+padding: 2%;
 }
 
 /*work on inputs*/

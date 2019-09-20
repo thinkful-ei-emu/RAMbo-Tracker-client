@@ -44,8 +44,11 @@
 
 input{
   padding: 5px;
-  border-radius: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(131, 132, 146)
 }
+
+
 
 button{
   padding: 5px;

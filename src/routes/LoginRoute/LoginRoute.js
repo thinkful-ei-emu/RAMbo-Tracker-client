@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import {Link} from 'react-router-dom';
+import './LoginRoute.css'
+import grape from '../../Media/grapes.jpg'
+
 
 class LoginRoute extends Component {
   static defaultProps = {
@@ -16,11 +19,20 @@ class LoginRoute extends Component {
 
   render() {
     return (
+      
       <section aria-live="polite">
-        <p>Welcome back!</p>
-        <p>Don't have an account? Register <Link to="/register">here.</Link></p>
+        <div className="login-section">
+          <div className="login-header">
+        <h2>Welcome back!</h2>
+        <p>Don't have an account? <Link id="register-link-login" to="/register">Register here.</Link></p>
+        </div>
+        <div className="login-content">
+       {/*  <img className="reg-photo-3" src={grape} alt="grape"/> */}
         <LoginForm onLoginSuccess={this.handleLoginSuccess}/>
+        </div>
+        </div>
       </section>
+    
     );
   }
 }

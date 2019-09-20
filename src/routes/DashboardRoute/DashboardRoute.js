@@ -77,8 +77,8 @@ export default class DashBoard extends React.Component{
       <div className="events">
         {events}
       </div>
-      <button onClick={(e)=>this.openModal(e,'addMealModal')}>New Meal</button>
-      <button onClick={(e)=>this.openModal(e,'addSymptomsModal')}>New symptoms</button>
+      <button className="user-button" onClick={(e)=>this.openModal(e,'addMealModal')}>New Meal</button>
+      <button className="user-button" onClick={(e)=>this.openModal(e,'addSymptomsModal')}>New symptoms</button>
     </div>)
   }
 }
