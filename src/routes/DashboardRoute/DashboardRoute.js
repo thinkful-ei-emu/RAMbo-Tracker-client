@@ -62,7 +62,7 @@ export default class DashBoard extends React.Component{
     this.setState({[modal]:true});
   }
   updateEvents= (e)=>{
-    this.setState({events:[...this.state.events, e]})
+    this.setState({events:[e,...this.state.events]})
   }
   render(){
     let events = this.state.events.map((e,index)=>{
