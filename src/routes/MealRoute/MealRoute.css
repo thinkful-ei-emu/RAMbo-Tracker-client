@@ -66,3 +66,21 @@
 #remove-food-button:hover{
 background-color: rgb(150, 0, 0)
 }
+
+@media screen and (max-width: 500px){
+  #AddMealNameInput, #AddMealDateInput, #searchTermInput {
+    max-width: 190px;
+    font-size: 1em;
+  }
+  .AddMealFoodsDisplayContainer, .AddFoodDiv {
+    max-width: 200px;
+  }
+  #add-meal-button {
+    width: auto;
+    font-size: 1em;
+  }
+  #search-food-button {
+    padding: 1%;
+    font-size: 1em;
+  }
+}
