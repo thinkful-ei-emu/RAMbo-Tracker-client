@@ -81,10 +81,10 @@ export default class DashBoard extends React.Component {
           isOpen={this.state.addSymptomsModal}
           onRequestClose={() => this.closeModal("addSymptomsModal")}
         >
-          <Symptoms
-            closeModal={this.closeModal}
-            updateEvents={this.updateEvents}
-          />
+          <Symptoms 
+          closeModal={this.closeModal} 
+          prevSymptoms = {this.state.events.filter(e=>e.type==='symptom')} 
+          updateEvents={this.updateEvents}/>
         </Modal>
        <div id='user-welcome'> <h3>Welcome back, {this.state.user.display_name}</h3></div>
         <div  id='dash-button-container'>
