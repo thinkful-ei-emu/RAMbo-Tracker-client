@@ -1,11 +1,42 @@
+.user-dashboard{
+  display: flex;
+  flex-direction: column;
+}
+
+#dash-button-container {
+  display: inherit;
+  flex-direction: row;
+  align-content: space-between;
+  width: 50%;
+  margin: 0 auto;
+  padding-bottom: 2%;
+}
+#user-welcome {
+  text-align: left;
+  padding-left: 8%;
+}
+#user-name{
+  color: blue;
+  
+}
 .meal{
-  background-color: orange;
+  background-color: rgb(255, 123, 0);
 }
 .symptom{
-  background-color: purple;
+  background-color: rgb(88, 0, 88);
 }
 .events > li {
   color:white;
   border: 2px solid black;
   width:fit-content;
+  
+}
+li {
+  list-style-type: none;
+  color: white;
+  padding: 2%;
+}
+.events-list {
+  width: 50%;
+  margin: 0 auto;
 }
