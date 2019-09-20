@@ -8,7 +8,6 @@ import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
-// import SymptomRoute from '../Symptom/Symptom'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import MealRoute from '../../routes/MealRoute/MealRoute';
 
@@ -55,9 +54,6 @@ class App extends Component {
               <PrivateRoute path={'/meal'}
                 component={MealRoute}
               />
-              {/* <Route
-                // component={NotFoundRoute}
-              /> */}
               { <Route
                  component={NotFoundRoute}
               /> }
