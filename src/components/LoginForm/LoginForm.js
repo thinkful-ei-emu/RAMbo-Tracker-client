@@ -49,7 +49,7 @@ class LoginForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="login-form">
         <div className="error" role="alert">
-          {error && <p>{error}</p>}
+          {error && <p>{error.message}</p>}
         </div>
         <div className="login-input">
           <label htmlFor="login-username-input " className="loginLabel">
