@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import API from '../../services/Api-service';
+import API from '../../services/Api-service';
 import DatePicker from 'react-datepicker';
 // import helper from '../../services/helper.services';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -7,6 +7,7 @@ import './Symptom.css';
 
 class Symptom extends Component {
   state = {
+    error: '',
     name : '',
     severity : null,
     time : new Date(),
@@ -26,17 +27,15 @@ class Symptom extends Component {
     sym.prevSymptom = sym.prevSymptom === undefined ? '' : sym.prevSymptom.value
 
     sym.name = sym.prevSymptom === '' ? sym.name : sym.prevSymptom
-    console.log(sym)
+    sym.type = 'symptom';
+    sym.symptom = sym.name;
     
-    // API.doFetch('/event', 'POST', {name, severity, time})
-    // .then(res => {
-      
-    // })
-    // .catch(e => console.log(e));
-    e.target['user-symptom'].value = '';
-    this.props.updateEvents(sym);
+    API.doFetch('/event','POST',sym).then(res=>{
+    res.name = res.type;
+    this.props.updateEvents(res);
     this.props.closeModal('addSymptomsModal');//this functions is passed in from dashboard to close the modal, it should be placed int the 'then' of api call to ensure it only runs in happy case 
-  }
+   }).catch(e=>this.setState({error: e})); 
+}
 
   addSymptomClick = (e) => { 
     e.preventDefault(); 
