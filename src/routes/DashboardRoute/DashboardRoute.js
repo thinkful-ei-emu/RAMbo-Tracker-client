@@ -60,6 +60,9 @@ export default class DashBoard extends React.Component{
     e.preventDefault();
     this.setState({[modal]:true});
   }
+  updateEvents= (e)=>{
+    this.setState({events:[...this.state.events, e]})
+  }
   render(){
     let events = this.state.events.map((e,index)=>{
       return (<li key={index} className={e.type === 'meal'? 'meal': 'symptom'}>{e.name}@ {Date(e.time).toLocaleString()} | {e.severity}</li>)
@@ -68,10 +71,10 @@ export default class DashBoard extends React.Component{
     <div>
       {/*add meal modal*/}
       <Modal isOpen={this.state.addMealModal} onRequestClose={(e)=>this.closeModal('addMealModal')}>
-        <Meal closeModal={this.closeModal}/>
+        <Meal closeModal={this.closeModal} updateEvents={this.updateEvents}/>
       </Modal>
       <Modal isOpen={this.state.addSymptomsModal} onRequestClose={()=>this.closeModal('addSymptomsModal')}>
-      <Symptoms closeModal={this.closeModal}/>
+      <Symptoms closeModal={this.closeModal} updateEvents={this.updateEvents}/>
       </Modal>
       Welcome back <strong>{this.state.user.display_name}</strong>
       <div className="events">
