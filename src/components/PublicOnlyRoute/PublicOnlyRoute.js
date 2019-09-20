@@ -9,7 +9,7 @@ export default function PublicOnlyRoute({ component, ...props }) {
     render={componentProps => ( 
       TokenService.hasAuthToken() ? 
       <Redirect to={{ pathname: '/', state: { from: componentProps.location } }} /> :  
-      <Component {...componentProps} />  
+      <Component {...componentProps} {...props}/>  
       )}
     />
   )
