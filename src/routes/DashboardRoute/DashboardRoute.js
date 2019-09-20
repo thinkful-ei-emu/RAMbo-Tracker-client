@@ -61,9 +61,11 @@ export default class DashBoard extends React.Component {
   render() {
     let events = this.state.events.map((e, index) => {
       return (
+        
         <li key={index} className={e.type === "meal" ? "meal" : "symptom"}>
-          {e.name}@ {new Date(e.time).toDateString()} | {e.severity}
+          {e.name} at {new Date(e.time).toDateString()} {e.severity}
         </li>
+        
       );
     });
     return (
@@ -84,8 +86,13 @@ export default class DashBoard extends React.Component {
             updateEvents={this.updateEvents}
           />
         </Modal>
-        <h3 id='user-welcome'>Welcome back, {this.state.user.display_name}</h3>
-        <div className="events">{events}</div>
+       <div id='user-welcome'> <h3>Welcome back, {this.state.user.display_name}</h3></div>
+        <div  id='dash-button-container'>
+        <button className="user-button" onClick={(e)=>this.openModal(e,'addMealModal')}>Log New Meal</button>
+      <button className="user-button" onClick={(e)=>this.openModal(e,'addSymptomsModal')}>Log New Symptoms</button>
+      </div>
+        <div className="events"><div className='events-list'>{events}</div></div>
+       
       </div>
     );
   }

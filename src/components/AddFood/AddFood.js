@@ -192,7 +192,7 @@ export default class AddFood extends React.Component {
                       </div>
                       <div className='AddFoodSearchResultsSpace'>
                       </div>
-                      <button onClick={e => { this.handleAddFood(e,food) }} className='AddFoodSearchResultsAddButton'>
+                      <button id='add-food-button' className='user-button' onClick={e => { this.handleAddFood(e,food) }} >
                         Add Food
                       </button>
                     </div>

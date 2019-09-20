@@ -88,7 +88,7 @@ export default class MealRoute extends React.Component {
   render() {
     return (
       <div className="add-meal-div">
-        <h2>Add a Meal!</h2>
+        <h2>Log a Meal</h2>
         <form className="add-meal-form" onSubmit={this.handleMealSubmit}>
           <label className="add-meal-labels" htmlFor="AddMealNameInput">Meal Name:</label>
           <br></br>
@@ -121,11 +121,12 @@ export default class MealRoute extends React.Component {
                     <div className="AddMealFoodsDisplaySpace"></div>
                     <button
                       className="user-button"
+                      id="remove-food-button"
                       onClick={e => {
                         this.handleRemoveFood(e, index);
                       }}
                     >
-                      Remove
+                      Remove Food
                     </button>
                   </div>
                   <hr></hr>
@@ -135,6 +136,7 @@ export default class MealRoute extends React.Component {
           </div>
           <AddFood addFood={this.state.handleAddFood} />
           <br></br>
+          <ValidationError message={this.verifyFoodNonempty()} />
           <button
             disabled={this.verify() ? true : false}
             className="user-button"
@@ -142,7 +144,7 @@ export default class MealRoute extends React.Component {
           >
             Add Meal
           </button>
-          <ValidationError message={this.verifyFoodNonempty()} />
+         
         </form>
       </div>
     );
