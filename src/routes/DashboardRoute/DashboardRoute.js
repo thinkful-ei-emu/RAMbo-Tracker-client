@@ -89,12 +89,14 @@ export default class DashBoard extends React.Component {
         <div id="dash-button-container">
         <button
           className="user-button"
+          id="meal-button"
           onClick={e => this.openModal(e, "addMealModal")}
         >
           Add New Meal
         </button>
         <button
           className="user-button"
+          id="symptom-button"
           onClick={e => this.openModal(e, "addSymptomsModal")}
         >
           Add New Symptoms

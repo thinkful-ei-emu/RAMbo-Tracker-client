@@ -157,7 +157,7 @@ export default class AddFood extends React.Component {
             value={this.state.searchTerm}
             form='sub-form'
           />
-          <button 
+          <button className="user-button"
             form='sub-form' htmlFor='searchTermInput' 
             onClick={this.handleFoodSubmit}>
             Search for food

@@ -19,11 +19,17 @@
   color: blue;
   
 }
+#meal-button{
+  background-color: rgb(255, 123, 0);;
+}
+#symptom-button{
+  background-color: rgb(54, 1, 54);
+}
 .meal{
   background-color: rgb(255, 123, 0);
 }
 .symptom{
-  background-color: rgb(88, 0, 88);
+  background-color: rgb(54, 1, 54);
 }
 .events > li {
   color:white;
@@ -35,6 +41,7 @@ li {
   list-style-type: none;
   color: white;
   padding: 2%;
+  
 }
 .events-list {
   width: 50%;

@@ -18,7 +18,7 @@ class Header extends Component {
     return (
       <div className='user-container'>
         <nav>
-          <Link
+          <Link id="logoutlink"
             onClick={this.handleLogoutClick}
             to='/login'>
             Logout

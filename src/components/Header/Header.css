@@ -23,7 +23,11 @@ a{
  padding-right: 2%;
   width: 100%;
   margin: 0 auto;
+  font-weight: bold;
 
+}
+#logoutlink:hover{
+  color: #002ba0
 }
 .Header {
 /* border: 2px solid black; */
