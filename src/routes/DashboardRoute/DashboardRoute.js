@@ -66,7 +66,7 @@ export default class DashBoard extends React.Component{
   }
   render(){
     let events = this.state.events.map((e,index)=>{
-      return (<li key={index} className={e.type === 'meal'? 'meal': 'symptom'}>{e.name}@ {Date(e.time).toLocaleString()} | {e.severity}</li>)
+      return (<li key={index} className={e.type === 'meal'? 'meal': 'symptom'}>{e.name}@ {new Date(e.time).toDateString()} | {e.severity}</li>)
     })
     return (
     <div>
