@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: space-around;
   min-width: 300px;
-  max-width: 900px;
+  max-width: 100%;
   margin: 0 auto;
   background-color: rgb(255, 253, 253);
 }
@@ -61,10 +61,15 @@
 #remove-food-button{
   width: 25%;
   padding: 1%;
-  background-color: rgb(219, 8, 8)
+  background-color: rgb(255, 255, 255)
 }
 #remove-food-button:hover{
-background-color: rgb(150, 0, 0)
+background-color: rgb(150, 0, 0);
+}
+
+.remove-trash-can{
+  width: 40px;
+  height: 50px;
 }
 
 @media screen and (max-width: 500px){
