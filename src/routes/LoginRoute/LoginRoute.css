@@ -1,0 +1,30 @@
+.login-section {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; 
+  padding-top: 5%;
+  justify-content: center;
+  width: 70%;
+}
+
+.login-content {
+  display: inherit;
+  align-content: flex-start
+}
+/* .reg-photo-3 {
+margin-right: -50%;
+  margin-bottom: 10%;
+
+   max-width: 400px;
+   box-shadow: -25px 25px 0 0 rgb(24, 16, 104);
+}   */
+
+#register-link-login {
+  font-weight: bold;
+  text-decoration: black underline
+}
+#register-link-login:hover {
+color: rgb(29, 16, 175)
+}
+
+

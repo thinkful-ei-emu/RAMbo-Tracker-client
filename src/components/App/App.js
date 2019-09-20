@@ -46,7 +46,7 @@ class App extends Component {
            <PrivateRoute exact path={'/dash'} component = {DashboardRoute} />
               <PublicOnlyRoute
                 path={'/register'}
-                component={RegistrationRoute} 
+                component={RegistrationRoute}
               />
                <PublicOnlyRoute
                 processLogin={this.state.processLogin}
