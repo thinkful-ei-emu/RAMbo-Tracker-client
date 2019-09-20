@@ -44,7 +44,7 @@ class Symptom extends Component {
 
   handleTimeChange = date => { 
     this.setState({ 
-      symptomTime: date 
+      time: date 
     }); 
   }
 
@@ -78,7 +78,7 @@ class Symptom extends Component {
 
         <div id='date'>
           <label htmlFor='date-select'>When?</label>
-            <DatePicker name='time' id='date-select' selected={this.state.symptomTime} showTimeSelect withPortal dateFormat="Pp" onChange={this.handleTimeChange} />
+            <DatePicker name='time' id='date-select' selected={this.state.time} showTimeSelect withPortal dateFormat="Pp" onChange={this.handleTimeChange} />
         </div>
 
         <div id='severity-radio'>
