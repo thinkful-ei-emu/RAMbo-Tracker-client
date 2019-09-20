@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, BrowserRouter } from 'react-router-dom'
 import './App.css';
 import Header from '../Header/Header'
 import TokenService from '../../services/token-service'
@@ -35,6 +35,7 @@ class App extends Component {
 
   render(){
     return (
+      <BrowserRouter>
       <div className="App">
           <Header refreshesWhenAppStateDoes={this.state}/>
         <main>
@@ -64,6 +65,7 @@ class App extends Component {
           </Switch> 
         </main>
       </div>
+      </BrowserRouter>
     );
   }
 }
