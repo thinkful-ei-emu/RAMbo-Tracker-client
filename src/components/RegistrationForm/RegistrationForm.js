@@ -53,8 +53,9 @@ class RegistrationForm extends React.Component {
           {error && <p>{error}</p>}
         </div>
         <div className="registration-input">
-          <label htmlFor="registration-name-input" className='regLabel'>Enter your name:</label>
+          <label htmlFor="registration-name-input" className='regLabel'>Enter your name:</label><br></br>
           <input
+          className="registration-input-field"
             onChange={this.handleChange}
             type="text"
             id="registration-name-input"
@@ -66,8 +67,10 @@ class RegistrationForm extends React.Component {
         <div className="registration-input">
           <label htmlFor="registration-username-input" className='regLabel'>
             Choose a username:
-          </label>
+          </label><br></br>
           <input
+                    className="registration-input-field"
+
             onChange={this.handleChange}
             type="text"
             id="registration-username-input"
@@ -79,9 +82,11 @@ class RegistrationForm extends React.Component {
         <div className="registration-input">
           <label htmlFor="registration-password-input1" className='regLabel'>
             Choose a password:
-          </label>
+          </label><br></br>
           <input
             onChange={this.handleChange}
+            className="registration-input-field"
+
             id="registration-password-input1"
             name="password1"
             type="password"
@@ -92,9 +97,11 @@ class RegistrationForm extends React.Component {
         <div className="registration-input">
           <label htmlFor="registration-password-input2" className='regLabel'>
             Re-enter your password:
-          </label>
+          </label><br></br>
           <input
             onChange={this.handleChange}
+            className="registration-input-field"
+
             id="registration-password-input2"
             name="password2"
             type="password"
@@ -102,7 +109,7 @@ class RegistrationForm extends React.Component {
             required
           />
         </div>
-        <button type="submit">Sign up!</button>
+        <button className="user-button" type="submit">Sign up!</button>
         <p><Link to="/login">Already have an account?</Link></p>
       </form>
     );

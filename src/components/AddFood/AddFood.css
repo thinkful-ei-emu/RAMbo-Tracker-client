@@ -1,7 +1,15 @@
 .AddFoodDiv{
-  position:relative;
-  padding:10px;
-  background-color:rgb(202, 227, 235);
+  display:flex;
+/*   position:relative;
+ */  padding:10px;
+ flex-direction: column;
+}
+
+.SearchFoodForm {
+  display: inherit;
+  flex-direction: row;
+  
+  width: 50%;
 }
 
 .AddFoodSearchResultsRow{
@@ -29,4 +37,17 @@
 }
 .AddFoodSearchResultsManu{
   font-weight:550;
+}
+
+#search-food-button{
+margin:1%;
+padding:3%;
+}
+
+#add-food-button{
+  background-color: rgb(255, 138, 5);
+  width: 25%
+}
+#add-food-button:hover{
+  background-color: rgb(255, 84, 5);
 }
