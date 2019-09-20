@@ -1,0 +1,10 @@
+.not-found {
+ max-width: 500px;
+ margin: 0 auto;
+}
+
+
+.not-found-img {
+  height: 400px;
+  padding-top: 2%;
+}

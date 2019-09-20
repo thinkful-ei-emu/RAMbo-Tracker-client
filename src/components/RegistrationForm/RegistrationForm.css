@@ -1,19 +1,25 @@
 .registration-form {
-  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   padding: 10px;
   width: 350px;
+  justify-content: center;
 }
 
 .regLabel {
-  display: inline-block;
-  clear: left;
-  text-align: right;
+  text-align: left;
   width: 55%;
-  margin-right: 5px;
+ 
 }
 
 .registration-input {
-  margin-bottom: 10px;
+padding: 2%;
+
+}
+
+.registration-input-field {
+  height: 20px;
 }
 
 .registration-form > p {
@@ -21,7 +27,20 @@
   text-align: center;
   margin: auto;
 }
+.user-button {
+  border-radius: 5px;
+  border: 1px solid white;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 2%;
+  padding: 2%;
+  background-color: rgb(2, 16, 63);
+  color: white;
+}
+.user-button:hover{
+  background-color: rgb(24, 16, 104)
 
+}
 a {
   display: inline-block;
   margin: auto;

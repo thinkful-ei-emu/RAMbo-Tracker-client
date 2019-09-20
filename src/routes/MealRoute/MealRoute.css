@@ -1,49 +1,68 @@
-.AddMealDiv{
-  box-sizing: border-box;
-  min-width:300px;
-  max-width:900px;
-  margin:auto;
-  margin-top:7vh;
-  padding:10px;
-  background-color:gainsboro;
+.add-meal-div {
+  /*   box-sizing: border-box; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-width: 300px;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: rgb(255, 253, 253);
 }
-.AddMealForm{
+/* .add-meal-form {
+  padding: 2%;
+  
+} */
+/* .add-meal-labels {
+  padding: 2%;
+  color: rgb(0, 0, 87);
+} */
 
-}
-#AddMealNameInput{
-
-}
-
-.react-datepicker__input-container{
-  display:inline-block;
+.react-datepicker__input-container {
+  display: inline-block;
 }
 
-.InlineBlockTheDate{
-  display:inline-block;
+.InlineBlockTheDate {
+  display: inline-block;
 }
 
-.AddMealFoodsDisplayContainer{
+.AddMealFoodsDisplayContainer {
 }
-.AddMealFoodsDisplayRow{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.AddMealFoodsDisplayRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.AddMealFoodsDisplayRow div{
-  word-break: normal; 
+.AddMealFoodsDisplayRow div {
+  word-break: normal;
   word-wrap: normal;
-  display:inline-block;
+  display: inline-block;
 }
-.AddMealFoodsDisplayName{
-  flex-basis:60%;
-  flex-grow:1;
+.AddMealFoodsDisplayName {
+  flex-basis: 60%;
+  flex-grow: 1;
 }
-.AddMealFoodsDisplaySpace{
-  flex-basis:20px;
-  flex-grow:1;
+.AddMealFoodsDisplaySpace {
+  flex-basis: 20px;
+  flex-grow: 1;
 }
-.AddMealFoodsDisplayRemove{
-  flex-grow:0;
-  height:25px;
-  color:red;
+.AddMealFoodsDisplayRemove {
+  flex-grow: 0;
+  height: 25px;
+  color: red;
+}
+#AddMealNameInput, #AddMealDateInput, #searchTermInput {
+  font-size: 1.2em;
+  margin: 1%;
+}
+
+#add-meal-button{
+  width: 25%;
+}
+#remove-food-button{
+  width: 25%;
+  padding: 1%;
+  background-color: rgb(219, 8, 8)
+}
+#remove-food-button:hover{
+background-color: rgb(150, 0, 0)
 }

@@ -16,12 +16,12 @@ const MealApiService={
         name:meal.name
 
       })
-    })/* 
+    })
       .then(res =>
         (!res.ok)
           ? res.json().then(err => Promise.reject(err))
           : res.json()
-      ) */
+      )
   }
 
 }

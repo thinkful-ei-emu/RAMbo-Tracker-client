@@ -3,11 +3,34 @@
   flex-flow: row wrap;
   justify-content: space-around;
   padding-top: 30px;
+  max-width: 1092px;
 }
+
+.mission {
+  text-align: left;
+  width: 50%;
+  align-self: center;
+}
+
 
 .reg-photo {
   max-width: 400px;
-  box-shadow: 13px -13px 0 0px aqua;
+  border-radius: 0px 5px 5px 5px;
+  /* border-top: 30px solid rgb(251, 177, 2); */
+  box-shadow: 0px -30px 0 0 rgb(251, 177, 2);
+  border-right: 30px solid rgb(251, 177, 2);
+}
+
+.reg-photo-container{
+box-shadow: 5px 50px 20px -20px rgb(219, 219, 219);
+margin-bottom: 50px;
+}
+
+.reg-photo-2 {
+  margin-top: 10%;
+  margin-bottom: 10%;
+   max-width: 400px;
+   box-shadow: -25px 25px 0 0 rgb(24, 16, 104);
 }
 
 .reg-description {
@@ -19,4 +42,12 @@
   margin-top: 30px;
   margin-bottom: 5px;
   width: 90%;
+  font-size: 42px;
+  font-family: cursive;
+}
+
+.emphasis {
+  font-weight: bold;
+  font-family: cursive;
+  font-size: 28px;
 }
