@@ -1,3 +1,8 @@
-.results > li{
+li{
     background-color: black;
+}
+
+.results {
+    display: flex;
+    border: 1px solid black;
 }
