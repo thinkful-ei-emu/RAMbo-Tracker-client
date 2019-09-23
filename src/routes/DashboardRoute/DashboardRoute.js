@@ -1,5 +1,5 @@
 import React from "react";
-import API from "../../services/Api-service";
+import API from "../../services/api-service";
 import Modal from "react-modal";
 //components
 import Symptoms from "../../components/Symptom/Symptom";

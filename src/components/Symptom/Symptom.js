@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import API from '../../services/Api-service';
+import API from '../../services/api-service';
 import DatePicker from "react-datepicker";
 import helper from "../../services/helper.services";
 import "react-datepicker/dist/react-datepicker.css";
@@ -33,9 +33,14 @@ class Symptom extends Component {
     sym.severity = this.state.symptomSeverity;
     sym.time = this.state.symptomTime;
     sym.symptom = this.state.pastSymptomVal ? this.state.pastSymptomVal : sym.symptom;
+<<<<<<< HEAD
     API.doFetch('/event','POST',sym).then(res=>{
       /* res.name = res.type; */
       console.log(res);
+=======
+    API.doFetch('/event', 'POST', sym).then(res=>{
+      res.name = res.type;
+>>>>>>> 2b20caeeffb3aaacd530bb8d2c8533df93a55a74
       this.props.updateEvents(res);
       this.props.closeModal('addSymptomsModal');//this functions is passed in from dashboard to close the modal, it should be placed int the 'then' of api call to ensure it only runs in happy case 
      }).catch(e=>this.setState({error: e})); 
