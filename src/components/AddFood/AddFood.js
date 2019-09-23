@@ -1,5 +1,5 @@
 import React from 'react';
-import API from '../../services/Api-service'
+import API from '../../services/api-service'
 import ProcessFoodName from '../../services/process-food-name'
 import './AddFood.css';
 

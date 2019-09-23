@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import API from '../../services/Api-service';
+import API from '../../services/api-service';
 import DatePicker from "react-datepicker";
 import helper from "../../services/helper.services";
 import "react-datepicker/dist/react-datepicker.css";

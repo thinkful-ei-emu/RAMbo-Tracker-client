@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import API from '../../services/Api-service';
+import API from '../../services/api-service';
 import './RegistrationForm.css';
 
 class RegistrationForm extends React.Component {
