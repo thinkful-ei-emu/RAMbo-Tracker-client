@@ -64,11 +64,9 @@ export default class DashBoard extends React.Component {
   render() {
     let events = this.state.events.map((e, index) => {
       return (
-        
         <li key={index} className={e.type === "meal" ? "meal" : "symptom"}>
           {e.name} at {new Date(e.time).toDateString()} {e.severity}
         </li>
-        
       );
     });
     return (
@@ -84,19 +82,36 @@ export default class DashBoard extends React.Component {
           isOpen={this.state.addSymptomsModal}
           onRequestClose={() => this.closeModal("addSymptomsModal")}
         >
-          <Symptoms 
-          closeModal={this.closeModal} 
-          prevSymptoms = {this.state.events.filter(e=>e.type==='symptom')} 
-          updateEvents={this.updateEvents}/>
+          <Symptoms
+            closeModal={this.closeModal}
+            prevSymptoms={this.state.events.filter(e => e.type === "symptom")}
+            updateEvents={this.updateEvents}
+          />
         </Modal>
-       <div id='user-welcome'> <h3>Welcome back, {this.state.user.display_name}</h3></div>
-       <Result/>
-        <div  id='dash-button-container'>
-        <button className="user-button" onClick={(e)=>this.openModal(e,'addMealModal')}>Log New Meal</button>
-      <button className="user-button" onClick={(e)=>this.openModal(e,'addSymptomsModal')}>Log New Symptoms</button>
-      </div>
-        <div className="events"><div className='events-list'>{events}</div></div>
-       
+        <div id="user-welcome">
+          {" "}
+          <h3>Welcome back, {this.state.user.display_name}</h3>
+          <Result/>
+        </div>
+        <div className="dashboard-content">
+          <div id="dash-button-container">
+            <button
+              className="user-button"
+              onClick={e => this.openModal(e, "addMealModal")}
+            >
+              Log New Meal
+            </button>
+            <button
+              className="user-button"
+              onClick={e => this.openModal(e, "addSymptomsModal")}
+            >
+              Log New Symptoms
+            </button>
+          </div>
+          <div className="events">
+            <div className="events-list">{events}</div>
+          </div>
+        </div>
       </div>
     );
   }
