@@ -2,7 +2,6 @@ import React from "react";
 import "./MealRoute.css";
 import DatePicker from "react-datepicker";
 import AddFood from "../../components/AddFood/AddFood";
-import FoodApiService from "../../services/food-api-service";
 import API from "../../services/api-service";
 import ProcessFoodName from "../../services/process-food-name";
 import ValidationError from "../../components/ValidationError/ValidationError";
