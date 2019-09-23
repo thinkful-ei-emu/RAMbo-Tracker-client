@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AuthApiService from '../../services/auth-api-service';
+import API from '../../services/api-service';
 import './RegistrationForm.css';
 
 class RegistrationForm extends React.Component {
@@ -30,7 +30,7 @@ class RegistrationForm extends React.Component {
     }
     else {
       const { name, username, password1 } = this.state;
-      AuthApiService.postUser({
+      API.doFetch('/user', 'POST', {
         display_name: name,
         username: username,
         password: password1

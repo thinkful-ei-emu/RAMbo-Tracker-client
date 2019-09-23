@@ -2,8 +2,7 @@ import React from "react";
 import "./MealRoute.css";
 import DatePicker from "react-datepicker";
 import AddFood from "../../components/AddFood/AddFood";
-import FoodApiService from "../../services/food-api-service";
-import MealApiService from "../../services/meal-api-service";
+import API from "../../services/api-service";
 import ProcessFoodName from "../../services/process-food-name";
 import ValidationError from "../../components/ValidationError/ValidationError";
 import trashCan from '../../Media/trash-can.jpg'
@@ -17,7 +16,7 @@ export default class MealRoute extends React.Component {
     foodsInMeal: [],
 
     handleAddFood: food => {
-      FoodApiService.postFood(food.ndbno, food.name).then(res => {
+      API.doFetch('/food', 'POST', {ndbno: food.ndbno, name: food.name}).then(res => {
         console.log(...this.state.foodsInMeal, food);
         this.setState({
           foodsInMeal: [...this.state.foodsInMeal, food]
@@ -69,11 +68,12 @@ export default class MealRoute extends React.Component {
         items: this.state.foodsInMeal.map(food=>food.ndbno)
       }); */
       let meal ={
+        type: 'meal',
         time:this.state.mealTime,
         name:this.state.mealName,
         items: this.state.foodsInMeal.map(food=>food.ndbno)
       };
-      MealApiService.postMeal(meal)
+      API.doFetch('/event', 'POST', meal)
         .then((res)=>{
           //this.props.history.push('/')
           meal.items= null;
