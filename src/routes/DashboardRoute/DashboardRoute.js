@@ -6,6 +6,7 @@ import Symptoms from "../../components/Symptom/Symptom";
 import Meal from "../MealRoute/MealRoute";
 //css
 import "./Dashboard.css";
+import Result from '../../components/Result/Result';
 //to be removed for final product
 import helper from "../../services/helper.services";
 
@@ -90,6 +91,7 @@ export default class DashBoard extends React.Component {
         <div id="user-welcome">
           {" "}
           <h3>Welcome back, {this.state.user.display_name}</h3>
+          <Result/>
         </div>
         <div className="dashboard-content">
           <div id="dash-button-container">
