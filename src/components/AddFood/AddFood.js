@@ -19,7 +19,7 @@ export default class AddFood extends React.Component {
 
 
   goFirstPage =()=>{
-    API.doFetch(`/food/search/${this.state.lockedInSearchTerm}`)
+    API.doFetch(`/food/search&q=${this.state.lockedInSearchTerm}`)
     .then((res) => {
       res = JSON.parse(res);
       if (res['list']) {
@@ -92,7 +92,7 @@ export default class AddFood extends React.Component {
     e.preventDefault();
     e.stopPropagation();
     if(this.state.searchTerm){
-      API.doFetch(`/food/search/${this.state.searchTerm}`)
+      API.doFetch(`/food/search&q=${this.state.searchTerm}`)
       .then((res) => {
         res = JSON.parse(res);
 
