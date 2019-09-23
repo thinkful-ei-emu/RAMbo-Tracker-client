@@ -70,10 +70,12 @@
     background-color:white;
   }
 
-  input{
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid rgb(123, 123, 123)
-  }
 
+}
+
+
+input{
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(123, 123, 123)
 }
