@@ -1,7 +1,7 @@
 import TokenService from './token-service';
 import config from '../config';
 
-export default class Api {
+export default class API {
   static doFetch(endpoint, method = 'GET', body = null) {
     let url = config.API_ENDPOINT;
     let options = {
