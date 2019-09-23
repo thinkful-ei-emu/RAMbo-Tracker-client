@@ -16,7 +16,7 @@ export default class Result extends React.Component{
         }).catch(console.log)
     }
     render(){
-        let results = this.state.results.length < 2 ? <p>click refresh to see correlation</p> : this.state.results.map((item,key)=>{
+        let results = this.state.results.length < 2 ? <h3>Click Refresh To See Correlation</h3> : this.state.results.map((item,key)=>{
             return <li key={key}><strong>{item.symptomType.type}</strong> <i>triggered by:</i> {item.mostCommonFoods.map(food=>food.name).join(',')}</li>
         });
     return (
@@ -24,7 +24,7 @@ export default class Result extends React.Component{
          <ul>
              {results}
          </ul>
-
+{' '}
          <button onClick={(e)=>this.refreshResuls(e)}>refresh</button>
         
         

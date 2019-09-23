@@ -91,9 +91,9 @@ export default class DashBoard extends React.Component {
         <div id="user-welcome">
           {" "}
           <h3>Welcome back, {this.state.user.display_name}</h3>
-          <Result/>
         </div>
         <div className="dashboard-content">
+        <Result/>
           <div id="dash-button-container">
             <button
               className="user-button"

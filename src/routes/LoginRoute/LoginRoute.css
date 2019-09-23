@@ -6,7 +6,12 @@
   justify-content: center;
   width: 70%;
 }
+section{
+  width: 50%;
+  margin: 0 auto;
+  background-color: rgb(231, 238, 240);
 
+}
 .login-content {
   display: inherit;
   align-content: flex-start
