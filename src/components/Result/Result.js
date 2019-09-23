@@ -1,5 +1,5 @@
 import React from 'react';
-import Api from '../../services/Api-service';
+import Api from '../../services/api-service';
 import './Result.css';
 
 
