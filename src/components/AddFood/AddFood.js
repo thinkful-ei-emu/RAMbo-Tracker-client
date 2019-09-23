@@ -19,7 +19,7 @@ export default class AddFood extends React.Component {
 
 
   goFirstPage =()=>{
-    API.doFetch(`/food/search&q=${this.state.lockedInSearchTerm}&offset=${0}`)
+    API.doFetch(`/food/search?search=${this.state.lockedInSearchTerm}&offset=${0}`)
     .then((res) => {
       res = JSON.parse(res);
       if (res['list']) {
@@ -36,7 +36,7 @@ export default class AddFood extends React.Component {
     //considered making lastPage a state variable, decided that I didn't want to think
     //through cases where this can go bad
     let lastPage=Math.ceil(this.state.foodsFromSearch.total/this.state.resultsPerPage);
-    API.doFetch(`/food/search/q=${this.state.lockedInSearchTerm}&offset=${lastPage * 25}`)
+    API.doFetch(`/food/search?search=${this.state.lockedInSearchTerm}&offset=${lastPage * 25}`)
     .then((res) => {
       res = JSON.parse(res);
       if (res['list']) {
@@ -51,7 +51,7 @@ export default class AddFood extends React.Component {
 
   goNextPage = ()=>{
     if(this.state.page!==Math.ceil(this.state.foodsFromSearch.total/this.state.resultsPerPage)){
-      API.doFetch(`/food/search/q=${this.state.lockedInSearchTerm}&offset=${(this.state.page + 1) * 25}`)
+      API.doFetch(`/food/search?search=${this.state.lockedInSearchTerm}&offset=${(this.state.page + 1) * 25}`)
         .then((res) => {
           res = JSON.parse(res);
           if (res['list']) {
@@ -68,7 +68,7 @@ export default class AddFood extends React.Component {
 
   goPrevPage = ()=>{
     if(this.state.page!==1){
-      API.doFetch(`/food/search/${this.state.lockedInSearchTerm}&offset=${(this.state.page - 1) * 25}`)
+      API.doFetch(`/food/search?search=${this.state.lockedInSearchTerm}&offset=${(this.state.page - 1) * 25}`)
         .then((res) => {
           res = JSON.parse(res);
           if (res['list']) {
@@ -92,7 +92,7 @@ export default class AddFood extends React.Component {
     e.preventDefault();
     e.stopPropagation();
     if(this.state.searchTerm){
-      API.doFetch(`/food/search&q=${this.state.searchTerm}`)
+      API.doFetch(`/food/search?search=${this.state.searchTerm}`)
       .then((res) => {
         res = JSON.parse(res);
 
@@ -201,6 +201,8 @@ export default class AddFood extends React.Component {
                 )
               }
               <div className='AddFoodSearchResultsPaginate'>
+                {this.state.page !== 1 && <button onClick={this.goPrevPage}>Back</button>}
+                <button onClick={this.goNextPage}>Next</button>
               </div>
 
             </div>)
