@@ -33,7 +33,7 @@ class Symptom extends Component {
     sym.severity = this.state.symptomSeverity;
     sym.time = this.state.symptomTime;
     sym.symptom = this.state.pastSymptomVal ? this.state.pastSymptomVal : sym.symptom;
-    API.doFetch('/event','POST',sym).then(res=>{
+    API.doFetch('/event', 'POST', sym).then(res=>{
       res.name = res.type;
       this.props.updateEvents(res);
       this.props.closeModal('addSymptomsModal');//this functions is passed in from dashboard to close the modal, it should be placed int the 'then' of api call to ensure it only runs in happy case 

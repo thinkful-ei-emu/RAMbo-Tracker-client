@@ -16,6 +16,7 @@ const FoodApiService={
           : res.json()
       )
   },
+  
   postFood(id,name) {
     return fetch(`${config.API_ENDPOINT}/food/`, {
       method: 'POST',

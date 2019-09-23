@@ -9,13 +9,7 @@ const MealApiService={
         'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
-      body:JSON.stringify({
-        time:meal.time,
-        type:'meal',
-        items:meal.items,
-        name:meal.name
-
-      })
+      body:JSON.stringify(meal)
     })
       .then(res =>
         (!res.ok)

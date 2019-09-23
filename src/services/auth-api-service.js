@@ -18,6 +18,7 @@ const AuthApiService = {
           : res.json()
       )
   },
+
   postLogin({ username, password }) {
     return fetch(`${config.API_ENDPOINT}/auth/token`, {
       method: 'POST',
@@ -32,6 +33,7 @@ const AuthApiService = {
           : res.json()
       )
   },
+  
   refreshToken() {
     return fetch(`${config.API_ENDPOINT}/auth/token`, {
       method: 'PUT',

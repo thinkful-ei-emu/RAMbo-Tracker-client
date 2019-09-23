@@ -1,19 +1,22 @@
 /* import jwtDecode from 'jwt-decode' */
 import config from '../config'
 
-let _timeoutId
-const _TEN_SECONDS_IN_MS = 10000
+// let _timeoutId
+// const _TEN_SECONDS_IN_MS = 10000
 
 const TokenService = {
   saveAuthToken(token) {
     window.localStorage.setItem(config.TOKEN_KEY, token)
   },
+  
   getAuthToken() {
     return window.localStorage.getItem(config.TOKEN_KEY)
   },
+
   clearAuthToken() {
     window.localStorage.removeItem(config.TOKEN_KEY)
   },
+
   hasAuthToken() {
     return !!TokenService.getAuthToken()
   },

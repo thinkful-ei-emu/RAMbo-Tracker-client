@@ -1,5 +1,5 @@
 import React from 'react';
-import FoodApiService from '../../services/food-api-service'
+import API from '../../services/Api-service'
 import ProcessFoodName from '../../services/process-food-name'
 import './AddFood.css';
 
@@ -19,7 +19,7 @@ export default class AddFood extends React.Component {
 
 
   goFirstPage =()=>{
-    FoodApiService.getFoods(this.state.lockedInSearchTerm,1)
+    API.doFetch(`/food/search/${this.state.lockedInSearchTerm}`)
     .then((res) => {
       res = JSON.parse(res);
       if (res['list']) {
@@ -36,7 +36,7 @@ export default class AddFood extends React.Component {
     //considered making lastPage a state variable, decided that I didn't want to think
     //through cases where this can go bad
     let lastPage=Math.ceil(this.state.foodsFromSearch.total/this.state.resultsPerPage);
-    FoodApiService.getFoods(this.state.lockedInSearchTerm,lastPage)
+    API.doFetch(`/food/search/${this.state.lockedInSearchTerm}`)
     .then((res) => {
       res = JSON.parse(res);
       if (res['list']) {
@@ -51,7 +51,7 @@ export default class AddFood extends React.Component {
 
   goNextPage = ()=>{
     if(this.state.page!==Math.ceil(this.state.foodsFromSearch.total/this.state.resultsPerPage)){
-      FoodApiService.getFoods(this.state.lockedInSearchTerm,this.state.page+1)
+      API.doFetch(`/food/search/${this.state.lockedInSearchTerm}`)
         .then((res) => {
           res = JSON.parse(res);
           if (res['list']) {
@@ -68,7 +68,7 @@ export default class AddFood extends React.Component {
 
   goPrevPage = ()=>{
     if(this.state.page!==1){
-      FoodApiService.getFoods(this.state.lockedInSearchTerm,this.state.page-1)
+      API.doFetch(`/food/search/${this.state.lockedInSearchTerm}`)
         .then((res) => {
           res = JSON.parse(res);
           if (res['list']) {
@@ -92,7 +92,7 @@ export default class AddFood extends React.Component {
     e.preventDefault();
     e.stopPropagation();
     if(this.state.searchTerm){
-      FoodApiService.getFoods(this.state.searchTerm)
+      API.doFetch(`/food/search/${this.state.searchTerm}`)
       .then((res) => {
         res = JSON.parse(res);
 
