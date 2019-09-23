@@ -8,7 +8,7 @@ import "./Symptom.css";
 class Symptom extends Component {
   state = {
     symptomName: "",
-    symptomSeverity: null,
+    symptomSeverity: 4,
     symptomTime: new Date(),
     pastUserSymptoms: [],
     pastSymptomVal: "",
@@ -33,8 +33,9 @@ class Symptom extends Component {
     sym.severity = this.state.symptomSeverity;
     sym.time = this.state.symptomTime;
     sym.symptom = this.state.pastSymptomVal ? this.state.pastSymptomVal : sym.symptom;
-    API.doFetch('/event', 'POST', sym).then(res=>{
-      res.name = res.type;
+    API.doFetch('/event','POST',sym).then(res=>{
+      /* res.name = res.type; */
+      console.log(res);
       this.props.updateEvents(res);
       this.props.closeModal('addSymptomsModal');//this functions is passed in from dashboard to close the modal, it should be placed int the 'then' of api call to ensure it only runs in happy case 
      }).catch(e=>this.setState({error: e})); 
@@ -131,6 +132,7 @@ class Symptom extends Component {
               step="1"
               min="1"
               max="5"
+              defaultValue={this.state.symptomSeverity}
               onChange={e => this.handleSeverityChange(e)}
             />
           </div>
