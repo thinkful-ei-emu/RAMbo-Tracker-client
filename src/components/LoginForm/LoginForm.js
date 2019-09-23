@@ -1,5 +1,5 @@
 import React from "react";
-import AuthApiService from "../../services/auth-api-service";
+import API from "../../services/api-service";
 import TokenService from "../../services/token-service";
 import "./LoginForm.css";
 
@@ -27,7 +27,7 @@ class LoginForm extends React.Component {
 
     this.setState({ error: null });
 
-    AuthApiService.postLogin({
+    API.doFetch('/auth/token', 'POST', {
       username,
       password
     })
@@ -49,7 +49,7 @@ class LoginForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="login-form">
         <div className="error" role="alert">
-          {error && <p>{error}</p>}
+          {error && <p>{error.message}</p>}
         </div>
         <div className="login-input">
           <label htmlFor="login-username-input " className="loginLabel">

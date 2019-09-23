@@ -1,5 +1,5 @@
 import React from "react";
-import API from "../../services/Api-service";
+import API from "../../services/api-service";
 import Modal from "react-modal";
 //components
 import Symptoms from "../../components/Symptom/Symptom";
@@ -56,7 +56,9 @@ export default class DashBoard extends React.Component {
     this.setState({ [modal]: true });
   };
   updateEvents = e => {
-    this.setState({ events: [e, ...this.state.events] });
+    let temp=[e, ...this.state.events];
+    temp.sort((a,b)=>new Date(b.time).getTime()-new Date(a.time).getTime())
+    this.setState({ events: temp });
   };
   render() {
     let events = this.state.events.map((e, index) => {
@@ -83,11 +85,10 @@ export default class DashBoard extends React.Component {
           isOpen={this.state.addSymptomsModal}
           onRequestClose={() => this.closeModal("addSymptomsModal")}
         >
-          <Symptoms
-          // className='Modal-symptom'
-            closeModal={this.closeModal}
-            updateEvents={this.updateEvents}
-          />
+          <Symptoms 
+          closeModal={this.closeModal} 
+          prevSymptoms = {this.state.events.filter(e=>e.type==='symptom')} 
+          updateEvents={this.updateEvents}/>
         </Modal>
        <div id='user-welcome'> <h3>Welcome back, {this.state.user.display_name}</h3></div>
         <div  id='dash-button-container'>
