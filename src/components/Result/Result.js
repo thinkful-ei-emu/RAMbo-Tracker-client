@@ -16,8 +16,8 @@ export default class Result extends React.Component{
         }).catch(console.log)
     }
     render(){
-        let results = this.state.results.map(item=>{
-            return <li><strong>{item.symptomType.type}</strong> triggered by: {item.mostCommonFoods.map(food=>food.name).join(',')}</li>
+        let results = this.state.results.length < 2 ? <p>click refresh to see correlation</p> : this.state.results.map((item,key)=>{
+            return <li key={key}><strong>{item.symptomType.type}</strong> <i>triggered by:</i> {item.mostCommonFoods.map(food=>food.name).join(',')}</li>
         });
     return (
     <div className="results">
