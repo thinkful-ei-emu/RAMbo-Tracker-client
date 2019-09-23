@@ -99,7 +99,7 @@ export default class MealRoute extends React.Component {
           />
           <ValidationError message={this.verifyMealName()} />
           <br></br>
-          <label className="add-meal-labels" htmlFor="AddMealTimeInput">Date:</label>
+          <label className="add-meal-labels" htmlFor="AddMealTimeInput">Date and Time:</label>
           <DatePicker
             id='AddMealDateInput'
             selected={this.state.mealTime}

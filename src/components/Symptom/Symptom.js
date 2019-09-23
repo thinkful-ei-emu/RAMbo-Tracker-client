@@ -80,6 +80,7 @@ class Symptom extends Component {
 
     return (
       <section className="symptom-container">
+        <h2>Log a Symptom</h2>
         <form onSubmit={e => this.handleSymptomSubmit(e)}>
           <div id="user-input-container">
             <label htmlFor="user-symptom">Add New Symptom</label>
@@ -114,7 +115,7 @@ class Symptom extends Component {
           </div>
 
           <div id="date">
-            <label htmlFor="date-select">When?</label>
+            <label htmlFor="date-select">Date and Time:</label>
             <DatePicker
               id="date-select"
               selected={this.state.symptomTime}
@@ -126,8 +127,13 @@ class Symptom extends Component {
           </div>
 
           <div id="severity-radio">
-            <p>Rate the Severity</p>
+            <label 
+              htmlFor='severity-slider'>
+              Rate the Severity
+            </label><br/>
+            
             <input
+              id='severity-slider'
               type="range"
               step="1"
               min="1"
@@ -137,9 +143,11 @@ class Symptom extends Component {
           </div>
 
           <br />
-          <button className="user-button" type="submit">
-            Submit Symptom
-          </button>
+          <div id='submit-button'>
+            <button className="user-button" type="submit">
+              Submit Symptom
+            </button>
+          </div>
         </form>
       </section>
     );
