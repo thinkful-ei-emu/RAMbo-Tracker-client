@@ -13,23 +13,23 @@
 }
 #user-welcome {
   text-align: left;
-  /* padding-left: 8%; */
+  padding-left: 3%;
 }
-#user-name{
+/* #user-name{
   color: blue;
   
-}
-#meal-button{
+} */
+/* #meal-button{
   background-color: rgb(255, 123, 0);;
 }
 #symptom-button{
   background-color: rgb(54, 1, 54);
-}
+} */
 .meal{
-  background-color: rgb(255, 123, 0);
+  background-color: #49797B;
 }
 .symptom{
-  background-color: rgb(54, 1, 54);
+  background-color: #7B4A48;
 }
 .events > li {
   color:white;
@@ -69,7 +69,13 @@ li {
   
 } 
 
-
 .symptom-modal{
   opacity: 0.5;
+}
+
+.dashboard-content {
+  background-image: url('../../Media/dash-background.jpg');
+  background-size: cover;
+  padding: 5%;
+  margin: 0 5%;
 }
