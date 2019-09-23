@@ -1,6 +1,6 @@
 a{
   text-decoration: none;
-  color: black;
+  color: rgb(0, 0, 0);
   display:block;
   text-align: right;
 }
@@ -10,6 +10,8 @@ a{
   text-align:left;
   border:none;
   font-size: 36px;
+  font-family: 'Dancing Script', cursive;
+
   color: black;
 }
 
@@ -40,10 +42,11 @@ a{
   width: 100vw;
   height: 110px;
   margin: 0 auto;
-  background-color: rgb(255, 123, 0);
+  background-color: #798630;
   color: white;
   border-radius: 0px 0px 0px 10px;
 }
+
 header {
   margin: 0px;
   padding: 0px;
@@ -65,7 +68,7 @@ header {
 #box {
   display: block;
   position: absolute;
-  background-color: rgb(255, 123, 0);
+  background-color: #798630;
   top: 87px;
   right: 0px;
   width: 500px;
