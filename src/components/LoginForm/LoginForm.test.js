@@ -27,7 +27,7 @@ it('renders the UI as expected', () => {
             // mock a focus function
             return {
               focus: () => {
-                let focused = true;
+             /*    let focused = true; */
               }
             };
           }
