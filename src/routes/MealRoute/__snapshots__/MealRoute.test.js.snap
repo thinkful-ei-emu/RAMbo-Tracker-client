@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div
+  className="add-meal-div"
+>
+  <h2>
+    Log a Meal
+  </h2>
+  <form
+    className="add-meal-form"
+    onSubmit={[Function]}
+  >
+    <label
+      className="add-meal-labels"
+      htmlFor="AddMealNameInput"
+    >
+      Meal Name:
+    </label>
+    <br />
+    <input
+      id="AddMealNameInput"
+      onChange={[Function]}
+      type="text"
+      value="A Meal"
+    />
+    <br />
+    <label
+      className="add-meal-labels"
+      htmlFor="AddMealTimeInput"
+    >
+      Date and Time:
+    </label>
+    <div>
+      <div
+        className="react-datepicker__input-container"
+      >
+        <input
+          className=""
+          disabled={false}
+          id="AddMealDateInput"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          readOnly={false}
+          type="text"
+          value="09/24/2019, 9:43 AM"
+        />
+      </div>
+    </div>
+    <div
+      className="AddMealFoodsDisplayContainer"
+    >
+      <h3>
+        Meal Contents
+      </h3>
+      <div
+        className="AddMealFoodsDisplay"
+      />
+    </div>
+    <div
+      className="AddFoodDiv"
+    >
+      <label
+        htmlFor="searchTermInput"
+      >
+        Search for a food:
+      </label>
+      <br />
+      <div
+        className="SearchFoodForm"
+      >
+        <input
+          form="sub-form"
+          id="searchTermInput"
+          onChange={[Function]}
+          onKeyPress={[Function]}
+          type="text"
+          value=""
+        />
+        <button
+          className="user-button"
+          form="sub-form"
+          htmlFor="searchTermInput"
+          id="search-food-button"
+          onClick={[Function]}
+        >
+          Search for Food
+        </button>
+      </div>
+    </div>
+    <br />
+    <div
+      className="ValidationError"
+    >
+      Meal contents can't be empty
+    </div>
+    <button
+      className="user-button"
+      disabled={true}
+      id="add-meal-button"
+    >
+      Add Meal
+    </button>
+  </form>
+</div>
+`;

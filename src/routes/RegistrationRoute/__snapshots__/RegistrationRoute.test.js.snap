@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<section
+  aria-live="polite"
+  className="registration-view"
+>
+  <form
+    className="registration-form"
+    onSubmit={[Function]}
+  >
+    <h2>
+      Register for an account
+    </h2>
+    <div
+      className="error"
+      role="alert"
+    />
+    <div
+      className="registration-input"
+    >
+      <label
+        className="regLabel"
+        htmlFor="registration-name-input"
+      >
+        Enter your name:
+      </label>
+      <br />
+      <input
+        className="registration-input-field"
+        id="registration-name-input"
+        name="name"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="registration-input"
+    >
+      <label
+        className="regLabel"
+        htmlFor="registration-username-input"
+      >
+        Choose a username:
+      </label>
+      <br />
+      <input
+        className="registration-input-field"
+        id="registration-username-input"
+        name="username"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="registration-input"
+    >
+      <label
+        className="regLabel"
+        htmlFor="registration-password-input1"
+      >
+        Choose a password:
+      </label>
+      <br />
+      <input
+        className="registration-input-field"
+        id="registration-password-input1"
+        name="password1"
+        onChange={[Function]}
+        required={true}
+        type="password"
+        value=""
+      />
+    </div>
+    <div
+      className="registration-input"
+    >
+      <label
+        className="regLabel"
+        htmlFor="registration-password-input2"
+      >
+        Re-enter your password:
+      </label>
+      <br />
+      <input
+        className="registration-input-field"
+        id="registration-password-input2"
+        name="password2"
+        onChange={[Function]}
+        required={true}
+        type="password"
+        value=""
+      />
+    </div>
+    <button
+      className="user-button"
+      type="submit"
+    >
+      Sign up!
+    </button>
+    <p>
+      <a
+        href="/login"
+        onClick={[Function]}
+      >
+        Already have an account?
+      </a>
+    </p>
+  </form>
+  <div
+    className="reg-photo-container"
+  >
+    <img
+      alt="A lemon"
+      className="reg-photo"
+      src="Lemons.jpg"
+    />
+  </div>
+  <img
+    alt="Carrot"
+    className="reg-photo-2"
+    src="carrot.jpg"
+  />
+  <div
+    className="mission"
+  >
+    <h3
+      className="reg-description-header"
+    >
+      Our mission
+    </h3>
+    <p
+      className="reg-description"
+    >
+      The RAMbo health tracker is an online food diary designed to help you take control of your health.
+       
+    </p>
+  </div>
+  <div
+    className="mission"
+  >
+    <p>
+       
+      <span
+        className="emphasis"
+      >
+        By tracking foods
+      </span>
+       you eat and symptoms you experience, Symptom Tracker will help draw relationships between the what you eat and how you feel.
+    </p>
+  </div>
+  <img
+    alt="bunch of grapes"
+    className="reg-photo-2"
+    src="grapes.jpg"
+  />
+  <img
+    alt="lettuce"
+    className="reg-photo-2"
+    src="lettuce.jpg"
+  />
+  <div
+    className="mission"
+  >
+    <p>
+       
+      <span
+        className="emphasis"
+      >
+        You can now
+      </span>
+       be better prepared to talk with your doctor about how to take your next steps to wellness. 
+      <br />
+       Happy tracking!
+    </p>
+  </div>
+</section>
+`;
