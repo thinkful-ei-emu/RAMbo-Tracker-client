@@ -6,6 +6,7 @@ import "./LoginForm.css";
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
+    this.firstInput = React.createRef();
     this.state = {
       error: null,
       username: "",
@@ -14,7 +15,6 @@ class LoginForm extends React.Component {
     this.firstInput = React.createRef();
 
   }
-
 
   handleChange = e => {
     this.setState({
