@@ -6,14 +6,13 @@ import "./LoginForm.css";
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
+    this.firstInput = React.createRef();
     this.state = {
       error: null,
       username: "",
       password: ""
     };
   }
-
-  firstInput = React.createRef();
 
   handleChange = e => {
     this.setState({
