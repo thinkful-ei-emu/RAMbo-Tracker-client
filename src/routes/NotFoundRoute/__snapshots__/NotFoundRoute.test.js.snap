@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<section
+  className="not-found"
+>
+  <h2>
+    404 - Page not found
+  </h2>
+  <div
+    className="not-found-image"
+  >
+    <img
+      alt="child in pumpkin costume"
+      className="not-found-img"
+      src="infant-pumpkin-costume.jpg"
+    />
+  </div>
+  <p>
+    Try going back to your previous page.
+  </p>
+</section>
+`;

@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div
+  className="AddFoodDiv"
+>
+  <label
+    htmlFor="searchTermInput"
+  >
+    Search for a food:
+  </label>
+  <br />
+  <div
+    className="SearchFoodForm"
+  >
+    <input
+      form="sub-form"
+      id="searchTermInput"
+      onChange={[Function]}
+      onKeyPress={[Function]}
+      type="text"
+      value=""
+    />
+    <button
+      className="user-button"
+      form="sub-form"
+      htmlFor="searchTermInput"
+      id="search-food-button"
+      onClick={[Function]}
+    >
+      Search for Food
+    </button>
+  </div>
+</div>
+`;
