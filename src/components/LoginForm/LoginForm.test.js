@@ -26,9 +26,7 @@ it('renders the UI as expected', () => {
           if (element.type === 'input') {
             // mock a focus function
             return {
-              focus: () => {
-                let focused = true;
-              }
+              focus: () => {}
             };
           }
           return null;
