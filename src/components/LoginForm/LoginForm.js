@@ -12,6 +12,8 @@ class LoginForm extends React.Component {
       username: "",
       password: ""
     };
+    this.firstInput = React.createRef();
+
   }
 
   handleChange = e => {
