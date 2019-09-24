@@ -175,7 +175,7 @@ export default class AddFood extends React.Component {
             :
             (<div className='AddFoodSearchResults'>
               <div>
-                Only the first {this.state.foodsFromSearch.item.length} items shown, total of {this.state.foodsFromSearch.total}
+                Only at most {this.state.resultsPerPage} items shown at once, total of {this.state.foodsFromSearch.total}
               </div>
               <hr></hr>
               {
