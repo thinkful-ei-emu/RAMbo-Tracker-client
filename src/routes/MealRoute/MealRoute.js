@@ -78,7 +78,7 @@ export default class MealRoute extends React.Component {
           //this.props.history.push('/')
           meal.items= null;
           meal.type='meal';
-          this.props.updateEvents(meal);
+          this.props.updateEvents(res);
           this.props.closeModal('addMealModal');//this functions is passed in from dashboard to close the modal, it should be placed int the 'then' of api call to ensure it only runs in happy case 
         });
     }
@@ -99,7 +99,7 @@ export default class MealRoute extends React.Component {
           />
           <ValidationError message={this.verifyMealName()} />
           <br></br>
-          <label className="add-meal-labels" htmlFor="AddMealTimeInput">Date:</label>
+          <label className="add-meal-labels" htmlFor="AddMealTimeInput">Date and Time:</label>
           <DatePicker
             id='AddMealDateInput'
             selected={this.state.mealTime}

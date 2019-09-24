@@ -58,19 +58,26 @@
 #add-meal-button{
   width: 25%;
 }
+
 #remove-food-button{
-  width: 25%;
-  padding: 1%;
-  background-color: rgb(255, 255, 255)
+  width: 80px;
+  padding: 0px;
+  margin: 0px;
+  background-color: rgb(255, 255, 255);
+  transition: all 1s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
 }
+
 #remove-food-button:hover{
-background-color: rgb(150, 0, 0);
+  transform: rotateY(180deg);
 }
 
 .remove-trash-can{
   width: 40px;
   height: 50px;
 }
+
 
 @media screen and (max-width: 500px){
   #AddMealNameInput, #AddMealDateInput, #searchTermInput {

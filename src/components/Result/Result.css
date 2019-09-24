@@ -1,14 +1,40 @@
-li{
-    background-color: black;
+#result-list {
+    /* background-color: rgb(131, 120, 103); */
+    background-color: rgb(204, 204, 204);
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    line-height: 1.7;
 }
 
-.results {
-    display: flex;
-    flex-direction: column;
-    color: white;
-    margin: 0 auto;
-    border: 1px solid black;
-    background-color: rgb(65, 63, 50);
-    max-width: 50%;
+li {
+    border-radius: 10px;
+    margin: 10px;
+}
 
+ul {
+    padding-inline-start: 0px;
+}
+/*^ fixes issue with default browser styling*/
+
+.results {
+    display: block;
+    width: 100%;
+}
+
+#results-button{
+    padding: 10px;
+    text-align: center;
+}
+
+#results-button button{
+    border-radius: 5px;
+    border: 1px solid white;
+    width: 20%;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: #121D17;
+    color: white;
 }

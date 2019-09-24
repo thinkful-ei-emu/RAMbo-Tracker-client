@@ -8,9 +8,9 @@ import Meal from "../MealRoute/MealRoute";
 import "./Dashboard.css";
 import Result from '../../components/Result/Result';
 //to be removed for final product
-import helper from "../../services/helper.services";
+//import helper from "../../services/helper.services";
 
-Modal.setAppElement("#root");
+if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#root');
 export default class DashBoard extends React.Component {
   state = {
     addMealModal: false,
@@ -79,6 +79,8 @@ export default class DashBoard extends React.Component {
           <Meal closeModal={this.closeModal} updateEvents={this.updateEvents} />
         </Modal>
         <Modal
+        className='Modal'
+        // overlayClassName="Overlay"
           isOpen={this.state.addSymptomsModal}
           onRequestClose={() => this.closeModal("addSymptomsModal")}
         >
