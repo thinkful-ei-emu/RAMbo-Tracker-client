@@ -1,8 +1,9 @@
 import React from 'react';
 import Api from '../../services/api-service';
 import './Result.css';
+import chart from 'chart.js';
 
-
+let scatter;
 export default class Result extends React.Component{
 
     state = {
@@ -12,6 +13,15 @@ export default class Result extends React.Component{
     refreshResuls= ()=>{
         Api.doFetch('/results').then(res=>{
             this.setState({results:res});
+            //res.map(item=>{})
+            scatter = new chart(document.getElementById('result_chart').getContext('2d'),{
+                type:'scatter',
+                data:{
+                    datasets:[{
+                        data:[{x:10,y:new Date().getHours()}]
+                    }]
+                }
+            });
 
         }).catch(console.log)
     }
@@ -26,6 +36,7 @@ export default class Result extends React.Component{
          </ul>
 
          <button onClick={(e)=>this.refreshResuls(e)}>refresh</button>
+         <canvas id="result_chart"></canvas>
         
         
         </div>)

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "chart.js": "^2.8.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
     "prop-types": "^15.7.2",
