@@ -17,9 +17,24 @@ it('renders without crashing', () => {
 
 it('renders the UI as expected', () => {
   const tree = renderer
-    .create(<BrowserRouter>
-      <LoginForm onLoginSuccess={() => {}} />
-    </BrowserRouter>)
+    .create(
+      <BrowserRouter>
+        <LoginForm onLoginSuccess={() => {}} />
+      </BrowserRouter>,
+      {
+        createNodeMock: (element) => {
+          if (element.type === 'input') {
+            // mock a focus function
+            return {
+              focus: () => {
+                let focused = true;
+              }
+            };
+          }
+          return null;
+        }
+      }
+    )
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
