@@ -23,7 +23,7 @@ export default class Result extends React.Component {
         this.state.results.map((item, key) => {
           return (
             <li id="result-list" key={key}>
-              <strong>{item.symptomType.type}</strong> <i>triggered by:</i>{" "}
+              <strong>{item.symptomType.type}</strong> <i>is experienced most frequently after eating foods with:</i>{" "}
               {item.mostCommonIngredients
                 .map((food) => {
                   if (food.ingredient.name !== "WATER"){
