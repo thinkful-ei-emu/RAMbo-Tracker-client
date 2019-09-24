@@ -6,6 +6,7 @@ import Symptoms from "../../components/Symptom/Symptom";
 import Meal from "../MealRoute/MealRoute";
 //css
 import "./Dashboard.css";
+import Result from '../../components/Result/Result';
 //to be removed for final product
 import helper from "../../services/helper.services";
 
@@ -56,16 +57,16 @@ export default class DashBoard extends React.Component {
     this.setState({ [modal]: true });
   };
   updateEvents = e => {
-    this.setState({ events: [e, ...this.state.events] });
+    let temp=[e, ...this.state.events];
+    temp.sort((a,b)=>new Date(b.time).getTime()-new Date(a.time).getTime())
+    this.setState({ events: temp });
   };
   render() {
     let events = this.state.events.map((e, index) => {
       return (
-        
         <li key={index} className={e.type === "meal" ? "meal" : "symptom"}>
           {e.name} at {new Date(e.time).toDateString()} {e.severity}
         </li>
-        
       );
     });
     return (
@@ -78,21 +79,41 @@ export default class DashBoard extends React.Component {
           <Meal closeModal={this.closeModal} updateEvents={this.updateEvents} />
         </Modal>
         <Modal
+        className='Modal'
+        // overlayClassName="Overlay"
           isOpen={this.state.addSymptomsModal}
           onRequestClose={() => this.closeModal("addSymptomsModal")}
         >
-          <Symptoms 
-          closeModal={this.closeModal} 
-          prevSymptoms = {this.state.events.filter(e=>e.type==='symptom')} 
-          updateEvents={this.updateEvents}/>
+          <Symptoms
+            closeModal={this.closeModal}
+            prevSymptoms={this.state.events.filter(e => e.type === "symptom")}
+            updateEvents={this.updateEvents}
+          />
         </Modal>
-       <div id='user-welcome'> <h3>Welcome back, {this.state.user.display_name}</h3></div>
-        <div  id='dash-button-container'>
-        <button className="user-button" onClick={(e)=>this.openModal(e,'addMealModal')}>Log New Meal</button>
-      <button className="user-button" onClick={(e)=>this.openModal(e,'addSymptomsModal')}>Log New Symptoms</button>
-      </div>
-        <div className="events"><div className='events-list'>{events}</div></div>
-       
+        <div id="user-welcome">
+          {" "}
+          <h3>Welcome back, {this.state.user.display_name}</h3>
+          <Result/>
+        </div>
+        <div className="dashboard-content">
+          <div id="dash-button-container">
+            <button
+              className="user-button"
+              onClick={e => this.openModal(e, "addMealModal")}
+            >
+              Log New Meal
+            </button>
+            <button
+              className="user-button"
+              onClick={e => this.openModal(e, "addSymptomsModal")}
+            >
+              Log New Symptoms
+            </button>
+          </div>
+          <div className="events">
+            <div className="events-list">{events}</div>
+          </div>
+        </div>
       </div>
     );
   }

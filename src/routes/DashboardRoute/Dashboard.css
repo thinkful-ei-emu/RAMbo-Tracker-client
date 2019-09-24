@@ -13,23 +13,23 @@
 }
 #user-welcome {
   text-align: left;
-  /* padding-left: 8%; */
+  padding: 5%;
 }
-#user-name{
+/* #user-name{
   color: blue;
   
-}
-#meal-button{
+} */
+/* #meal-button{
   background-color: rgb(255, 123, 0);;
 }
 #symptom-button{
   background-color: rgb(54, 1, 54);
-}
+} */
 .meal{
-  background-color: rgb(255, 123, 0);
+  background-color: #49797B;
 }
 .symptom{
-  background-color: rgb(54, 1, 54);
+  background-color: #7B4A48;
 }
 .events > li {
   color:white;
@@ -46,4 +46,36 @@ li {
 .events-list {
   width: 50%;
   margin: 0 auto;
+}
+
+.Modal{
+  display: flex;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  background-color: white;
+  
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(224, 224, 224); 
+  
+} 
+
+.symptom-modal{
+  opacity: 0.5;
+}
+
+.dashboard-content {
+  background-image: url('../../Media/dash-background.jpg');
+  background-size: cover;
+  padding: 5%;
+  margin: 0 5%;
 }

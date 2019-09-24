@@ -8,7 +8,7 @@ import "./Symptom.css";
 class Symptom extends Component {
   state = {
     symptomName: "",
-    symptomSeverity: null,
+    symptomSeverity: 4,
     symptomTime: new Date(),
     pastUserSymptoms: [],
     pastSymptomVal: "",
@@ -33,8 +33,9 @@ class Symptom extends Component {
     sym.severity = this.state.symptomSeverity;
     sym.time = this.state.symptomTime;
     sym.symptom = this.state.pastSymptomVal ? this.state.pastSymptomVal : sym.symptom;
-    API.doFetch('/event', 'POST', sym).then(res=>{
-      res.name = res.type;
+    API.doFetch('/event','POST',sym).then(res=>{
+      /* res.name = res.type; */
+      console.log(res);
       this.props.updateEvents(res);
       this.props.closeModal('addSymptomsModal');//this functions is passed in from dashboard to close the modal, it should be placed int the 'then' of api call to ensure it only runs in happy case 
      }).catch(e=>this.setState({error: e})); 
@@ -79,6 +80,7 @@ class Symptom extends Component {
 
     return (
       <section className="symptom-container">
+        <h2>Log a Symptom</h2>
         <form onSubmit={e => this.handleSymptomSubmit(e)}>
           <div id="user-input-container">
             <label htmlFor="user-symptom">Add New Symptom</label>
@@ -113,7 +115,7 @@ class Symptom extends Component {
           </div>
 
           <div id="date">
-            <label htmlFor="date-select">When?</label>
+            <label htmlFor="date-select">Date and Time:</label>
             <DatePicker
               id="date-select"
               selected={this.state.symptomTime}
@@ -125,20 +127,28 @@ class Symptom extends Component {
           </div>
 
           <div id="severity-radio">
-            <p>Rate the Severity</p>
+            <label 
+              htmlFor='severity-slider'>
+              Rate the Severity
+            </label><br/>
+            
             <input
+              id='severity-slider'
               type="range"
               step="1"
               min="1"
               max="5"
+              defaultValue={this.state.symptomSeverity}
               onChange={e => this.handleSeverityChange(e)}
             />
           </div>
 
           <br />
-          <button className="user-button" type="submit">
-            Submit Symptom
-          </button>
+          <div id='submit-button'>
+            <button className="user-button" type="submit">
+              Submit Symptom
+            </button>
+          </div>
         </form>
       </section>
     );
