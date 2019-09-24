@@ -27,17 +27,17 @@ export default class Result extends React.Component{
     }
     render(){
         let results = this.state.results.length < 2 ? <p>click refresh to see correlation</p> : this.state.results.map((item,key)=>{
-            return <li key={key}><strong>{item.symptomType.type}</strong> <i>triggered by:</i> {item.mostCommonFoods.map(food=>food.name).join(',')}</li>
+            return <li id='result-list' key={key}><strong>{item.symptomType.type}</strong> <i>triggered by:</i> {item.mostCommonFoods.map(food=>food.name).join(',')}</li>
         });
     return (
     <div className="results">
          <ul>
              {results}
          </ul>
-
-         <button onClick={(e)=>this.refreshResuls(e)}>refresh</button>
-         <canvas id="result_chart"></canvas>
-        
+        <div id='results-button'>
+         <button  onClick={(e)=>this.refreshResuls(e)}>Refresh Results</button>
+        </div>
+        <canvas id="result_chart"></canvas>
         
         </div>)
 }
