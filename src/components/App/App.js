@@ -46,7 +46,7 @@ class App extends Component {
             />
             <PublicOnlyRoute
               processLogin={this.state.processLogin}
-              path={'/login'}
+              path={"/login"}
               component={LoginRoute}
             />
             <PrivateRoute path={'/meal'} component={MealRoute} />
