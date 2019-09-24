@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<form
+  className="registration-form"
+  onSubmit={[Function]}
+>
+  <h2>
+    Register for an account
+  </h2>
+  <div
+    className="error"
+    role="alert"
+  />
+  <div
+    className="registration-input"
+  >
+    <label
+      className="regLabel"
+      htmlFor="registration-name-input"
+    >
+      Enter your name:
+    </label>
+    <br />
+    <input
+      className="registration-input-field"
+      id="registration-name-input"
+      name="name"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="registration-input"
+  >
+    <label
+      className="regLabel"
+      htmlFor="registration-username-input"
+    >
+      Choose a username:
+    </label>
+    <br />
+    <input
+      className="registration-input-field"
+      id="registration-username-input"
+      name="username"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="registration-input"
+  >
+    <label
+      className="regLabel"
+      htmlFor="registration-password-input1"
+    >
+      Choose a password:
+    </label>
+    <br />
+    <input
+      className="registration-input-field"
+      id="registration-password-input1"
+      name="password1"
+      onChange={[Function]}
+      required={true}
+      type="password"
+      value=""
+    />
+  </div>
+  <div
+    className="registration-input"
+  >
+    <label
+      className="regLabel"
+      htmlFor="registration-password-input2"
+    >
+      Re-enter your password:
+    </label>
+    <br />
+    <input
+      className="registration-input-field"
+      id="registration-password-input2"
+      name="password2"
+      onChange={[Function]}
+      required={true}
+      type="password"
+      value=""
+    />
+  </div>
+  <button
+    className="user-button"
+    type="submit"
+  >
+    Sign up!
+  </button>
+  <p>
+    <a
+      href="/login"
+      onClick={[Function]}
+    >
+      Already have an account?
+    </a>
+  </p>
+</form>
+`;

@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<section
+  className="symptom-container"
+>
+  <h2>
+    Log a Symptom
+  </h2>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      id="user-input-container"
+    >
+      <label
+        htmlFor="user-symptom"
+      >
+        Add New Symptom
+      </label>
+      <br />
+      <input
+        disabled={false}
+        id="user-symptom"
+        name="symptom"
+        placeholder="bloated.."
+        type="text"
+      />
+    </div>
+    <div
+      id="select"
+    >
+      <button
+        className="user-button"
+        id="select-preexisting"
+        onClick={[Function]}
+      >
+        Choose Saved Symptom
+      </button>
+    </div>
+    <div
+      id="date"
+    >
+      <label
+        htmlFor="date-select"
+      >
+        Date and Time:
+      </label>
+      <div>
+        <div
+          className="react-datepicker__input-container"
+        >
+          <input
+            className=""
+            disabled={false}
+            id="date-select"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            readOnly={false}
+            type="text"
+            value="09/24/2019, 11:53 AM"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      id="severity-radio"
+    >
+      <label
+        htmlFor="severity-slider"
+      >
+        Rate the Severity
+      </label>
+      <br />
+      <input
+        defaultValue={4}
+        id="severity-slider"
+        max="5"
+        min="1"
+        onChange={[Function]}
+        step="1"
+        type="range"
+      />
+    </div>
+    <br />
+    <div
+      id="submit-button"
+    >
+      <button
+        className="user-button"
+        type="submit"
+      >
+        Submit Symptom
+      </button>
+    </div>
+  </form>
+</section>
+`;
