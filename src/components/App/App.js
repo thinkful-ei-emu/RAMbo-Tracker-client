@@ -1,28 +1,28 @@
-import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
-import "./App.css";
-import Header from "../Header/Header";
-import TokenService from "../../services/token-service";
-import PrivateRoute from "../PrivateRoute/PrivateRoute";
-import PublicOnlyRoute from "../PublicOnlyRoute/PublicOnlyRoute";
-import RegistrationRoute from "../../routes/RegistrationRoute/RegistrationRoute";
-import LoginRoute from "../../routes/LoginRoute/LoginRoute";
-import DashboardRoute from "../../routes/DashboardRoute/DashboardRoute";
-import NotFoundRoute from "../../routes/NotFoundRoute/NotFoundRoute";
-import MealRoute from "../../routes/MealRoute/MealRoute";
+import React, { Component } from 'react';
+import { Route, Switch, Router } from 'react-router-dom';
+import './App.css';
+import Header from '../Header/Header';
+import TokenService from '../../services/token-service';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute';
+import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute';
+import LoginRoute from '../../routes/LoginRoute/LoginRoute';
+import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
+import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
+import MealRoute from '../../routes/MealRoute/MealRoute';
 
 class App extends Component {
   state = {
     hasError: false,
-    username: "",
-    processLogin: username => {
+    username: '',
+    processLogin: (username) => {
       this.setState({
         username
       });
     },
     processLogout: () => {
       TokenService.clearAuthToken();
-      this.setState({ username: "" });
+      this.setState({ username: '' });
     }
   };
 
@@ -34,17 +34,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
         <Header refreshesWhenAppStateDoes={this.state} />
-        </header>
         <main>
+          {this.state.hasError && <p>There was an error! Rut Roh!</p>}
           <Switch>
-            {this.state.hasError && <p>There was an error! Rut Roh!</p>}
-
-            <PrivateRoute exact path={"/dash"} component={DashboardRoute} />
+            <PrivateRoute exact path={'/dash'} component={DashboardRoute} />
             <PublicOnlyRoute
               exact
-              path={["/register", "/"]}
+              path={['/register', '/']}
               component={RegistrationRoute}
             />
             <PublicOnlyRoute
@@ -52,7 +49,7 @@ class App extends Component {
               path={"/login"}
               component={LoginRoute}
             />
-            <PrivateRoute path={"/meal"} component={MealRoute} />
+            <PrivateRoute path={'/meal'} component={MealRoute} />
             {<Route component={NotFoundRoute} />}
           </Switch>
         </main>
