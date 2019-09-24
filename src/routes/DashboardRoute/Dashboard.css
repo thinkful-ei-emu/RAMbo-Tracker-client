@@ -26,20 +26,20 @@
   background-color: rgb(54, 1, 54);
 } */
 .meal{
-  background-color: #49797B;
+  background-color: rgb(216, 227, 231);
 }
 .symptom{
-  background-color: #7B4A48;
+  background-color: rgb(219, 203, 203);
 }
 .events > li {
-  color:white;
+  color:rgb(24, 22, 22);
   border: 2px solid black;
   width:fit-content;
   
 }
 li {
   list-style-type: none;
-  color: white;
+  color: rgb(31, 27, 27);
   padding: 2%;
   
 }

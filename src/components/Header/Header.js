@@ -17,33 +17,34 @@ class Header extends Component {
   renderLogoutLink() {
     return (
       <div className='user-container'>
-        {/* <nav> */}
+        <nav> 
           <Link id="logoutlink"
             onClick={this.handleLogoutClick}
             to='/login'>
             Logout
           </Link>
-{/*         </nav>
- */}      </div>
+         </nav>
+       </div>
     )
   }
 
   renderLoginLink() {
     return (
       <div className='nav-container'>
-     
+     <nav className="LoginLogout">
         <Link id='loginlink' to='/login'>Login</Link>
         {' '}
         <Link id='signuplink' to='/register'>Sign up</Link>
-      
+        </nav>
       </div>
     )
   }
 
   render() {
     return (
-      <div>
-        <nav>
+      <header>
+      
+        
         <h1 className='Header'>
           <Link id='main-title' to='/'>
             Symptom Tracker
@@ -53,8 +54,8 @@ class Header extends Component {
           ? this.renderLogoutLink()
           : this.renderLoginLink()}
           <div id='box'></div>
-          </nav>
-      </div>
+        
+      </header>
     );
   }
 }
