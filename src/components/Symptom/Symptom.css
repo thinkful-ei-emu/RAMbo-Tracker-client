@@ -16,6 +16,12 @@
   text-align: center;
 }
 
+.symptom-error{
+  color: red;
+  margin: 0;
+  text-align: center;
+}
+
 .user-button{
   padding: 15px;
 }
@@ -42,7 +48,7 @@
 }
 
 #severity-radio{
-  padding: 20px;
+  padding: 0px 20px;
 }
 
 #symptom-select{
