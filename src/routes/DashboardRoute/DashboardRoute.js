@@ -76,13 +76,23 @@ export default class DashBoard extends React.Component {
     this.setState({ events: temp });
   };
   render() {
+    console.log(this.state.events);
     let events = this.state.events.map((e, index) => {
       if (e.type === "meal") {
         return(
           <div id="dashmealcontainer">
           <li key={index} className={"meal"}>
             {e.name} at {new Date(e.time).toDateString()}
-            {this.state.expanded === index && <ul>{e.items.map((item, index)=> <li key={index}>{item.name}</li>)}</ul>}
+            {this.state.expanded === index && <ul>{
+              e.items.map((item, index)=> {
+                return (
+                  <li key={index}>
+                    <p>{item.name}</p>
+                    <p>Ingredients: {item.ingredients.join(', ')}</p>
+                  </li>
+                )
+              })
+            }</ul>}
             <button id="expand-toggle" onClick={() => this.handleExpandToggle(index)}>{this.state.expanded === index ? '-' : '+'}</button>
           </li>
           </div>
