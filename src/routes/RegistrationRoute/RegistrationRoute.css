@@ -22,17 +22,17 @@
 }
 
 .reg-photo-container{
-box-shadow: 5px 50px 20px -20px rgb(219, 219, 219);
-margin-bottom: 50px;
-height: max-content;
+  box-shadow: 5px 50px 20px -20px rgb(219, 219, 219);
+  margin-bottom: 50px;
+  height: max-content;
 }
 
 .reg-photo-2 {
   margin-top: 10%;
   margin-bottom: 10%;
-   max-width: 400px;
-   border-radius: 5px 0px 5px 5px;
-   box-shadow: -25px 25px 0 0 rgb(72, 57, 87);
+  max-width: 400px;
+  border-radius: 5px 0px 5px 5px;
+  box-shadow: -25px 25px 0 0 rgb(72, 57, 87);
 }
 
 .reg-description {
@@ -56,12 +56,109 @@ height: max-content;
 
 @media screen and (max-width: 480px) and (min-width: 310px){
 
+  .registration-view {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding:  0;
+    max-width: 90vw;
+  }
 
-  
+  .registration-form{
+    padding: 0 0 60px 0;
+  }
+
+  .reg-photo-container{
+    box-shadow: 5px 50px 20px -20px rgb(230, 230, 230);
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    /* height: max-content; */
+    }
+
+  .reg-photo {
+    max-width: 200px;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0px 0px 10px #ffd103;
+    /* border-right: 20px solid #798630; */
+  }
+
+  .reg-photo-2 {
+    display: none;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    max-width: 200px;
+    border-radius: 5px 0px 5px 5px;
+    box-shadow: -25px 25px 0 0 rgb(72, 57, 87);
+  }
+
+  .mission {
+    text-align: left;
+    width: 100%;
+    align-self: center;
+  }
 }
 
 @media screen and (max-width: 780px) and (min-width: 481px){
 
-
+  .registration-view {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding-top: 30px;
+    max-width: 780px;
+  }
   
+  .mission {
+    text-align: left;
+    width: 100%;
+    margin: 0 20px 0 20px;
+    align-self: center;
+  }
+  
+  .registration-form{
+    padding: 0 0 60px 0;
+  }
+
+  .reg-photo {
+    max-width: 220px;
+    border-radius: 0px 5px 5px 5px;
+    /* border-top: 30px solid E1A23B; */
+    box-shadow: 0px -30px 0 #565f22;
+    border-right: 30px solid #565f22;
+  }
+  
+  .reg-photo-container{
+    box-shadow: 5px 50px 20px -20px rgb(219, 219, 219);
+    margin-bottom: 50px;
+    height: max-content;
+  }
+  
+  .reg-photo-2 {
+    display: none;
+    width: 100%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    max-width: 400px;
+    border-radius: 5px 0px 5px 5px;
+    box-shadow: -25px 25px 0 0 rgb(72, 57, 87);
+  }
+  
+  .reg-description {
+    margin-top: 0px;
+    width: 90%;
+  }
+  
+  .reg-description-header {
+    margin-top: 30px;
+    margin-bottom: 5px;
+    width: 90%;
+    font-size: 42px;
+    font-family: cursive;
+  }
+  
+  .emphasis {
+    font-weight: bold;
+    font-family: cursive;
+    font-size: 28px;
+  }
 }
