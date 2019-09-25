@@ -135,7 +135,7 @@ export default class DashBoard extends React.Component {
       else {
         return (
         <li key={index} className="symptom">
-          {{e.name} at {this.formatDate(e.time)} {e.type ==="symptom" ? `Severity: ${e.severity}` : '' }
+          {e.name} at {this.formatDate(e.time)} {e.type ==="symptom" ? `Severity: ${e.severity}` : '' }
         </li>
       );
     }});
