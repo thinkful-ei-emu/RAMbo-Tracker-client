@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, Router } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Header from '../Header/Header';
 import TokenService from '../../services/token-service';
