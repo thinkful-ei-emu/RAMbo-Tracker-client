@@ -19,6 +19,7 @@ a{
     padding: 0px;
     width: 100%;
     margin: 0 auto;
+    margin-top: -5%;
   }
 .user-container{
  padding-right: 2%;
@@ -33,6 +34,8 @@ a{
 .Header {
 /* border: 2px solid black; */
   width: 40%;
+  padding-left:1%;
+  margin: 0px;
 }
 
 .nav-container{
@@ -75,7 +78,24 @@ header {
   z-index: -1;
 }
 
-@media screen and (max-width: 500px){
+.LoginLogout{
+  padding: 10px;
+  font-size: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#loginlink{
+  padding: 28px 10px;
+  color: white;
+}
+
+#signuplink{
+  padding: 0px 10px;
+  color: white;
+}
+
+@media screen and (max-width: 380px) and (min-width: 310px){
 
   .LoginLogout{
     padding: 10px;
@@ -84,7 +104,12 @@ header {
     justify-content: flex-end;
     
   }
-
+  
+  .Header{
+  width: 80%;
+  padding-left: 1%;
+  }
+  
   #loginlink{
     padding: 28px 10px;
     color: white;
@@ -109,14 +134,85 @@ header {
   }
 
   header {
-    margin: 0px;
     padding: 0px;
     font-size: 20px;
     display: flex;
     align-items: center;
     width: 100%;
-    height: 18%;
+  }
+
+  .nav-container{
+    padding: 0px;
+    width: 100vw;
+    height: 118x;
+    margin: -10px -1px 0px 0px;
+    background-color: #798630;
+    color: white;
+    border-radius: 0px 0px 0px 10px;
   }
  
 } 
+
+@media screen and (min-width: 381px) and (max-width: 950px){
+
+  .LoginLogout{
+    padding: 10px;
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-end;
+    
+  }
+  
+  .Header{
+  width: 80%;
+  padding-left: 1%;
+  }
+  
+  #loginlink{
+    padding: 28px 10px;
+    color: white;
+  }
+
+  #signuplink{
+    padding: 0px 10px;
+    color: white;
+  }
+
+  #logoutlink{
+    margin-right: 5px;
+  }
+
+  #main-title{
+    text-align:left;
+    border:none;
+    font-size: 36px;
+    font-family: 'Dancing Script', cursive;
+    color: black;
+    margin-left: 10px;
+  }
+
+  header {
+    margin: -2px -5px 0px 0px;
+    padding: 0px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+
+  .nav-container{
+    padding: 0px;
+    width: 100vw;
+    height: 118px;
+    margin: 0px -1px 0px 0px;
+    background-color: #798630;
+    color: white;
+    border-radius: 0px 0px 0px 10px;
+  }
+
+  
+ 
+} 
+
   
