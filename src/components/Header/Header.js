@@ -23,6 +23,9 @@ class Header extends Component {
             to='/login'>
             Logout
           </Link>
+          {' '}
+          <Link id="aboutlink"
+          to="/about">About</Link>
          </nav>
        </div>
     )
@@ -35,6 +38,9 @@ class Header extends Component {
         <Link id='loginlink' to='/login'>Login</Link>
         {' '}
         <Link id='signuplink' to='/register'>Sign up</Link>
+        {' '}
+        <Link id="aboutlink"
+          to="/about">About</Link>
         </nav>
       </div>
     )
