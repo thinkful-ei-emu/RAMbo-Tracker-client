@@ -11,7 +11,6 @@ a{
   border:none;
   font-size: 36px;
   font-family: 'Dancing Script', cursive;
-
   color: black;
 }
 
@@ -76,26 +75,38 @@ header {
   z-index: -1;
 }
 
-@media only screen and (min-width: 600px) {
+@media screen and (max-width: 500px){
 
-.LoginLogout{
-  padding: 10px;
-  /* border: 1px solid black; */
-  font-size: 20px;
-  display: flex;
-  justify-content: flex-end;
-}
+  .LoginLogout{
+    padding: 10px;
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-end;
+    
+  }
 
-#loginlink{
-  padding: 28px 10px;
-  color: white;
-}
+  #loginlink{
+    padding: 28px 10px;
+    color: white;
+  }
 
-#signuplink{
-  padding: 0px 10px;
-  color: white;
-}
+  #signuplink{
+    padding: 0px 10px;
+    color: white;
+  }
 
+  #logoutlink{
+    margin-right: 5px;
+  }
+
+  #main-title{
+    text-align:left;
+    border:none;
+    font-size: 36px;
+    font-family: 'Dancing Script', cursive;
+    color: black;
+    margin-left: 10px;
+  }
  
 } 
   
