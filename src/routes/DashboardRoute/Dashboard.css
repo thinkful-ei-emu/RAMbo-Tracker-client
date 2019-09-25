@@ -41,10 +41,15 @@
   width:fit-content;
   
 }
-#dashmealcontainer {
+.dash-event-container {
   position: relative;
 }
 .expand-toggle {
+  position: absolute;
+  top: 8px;
+  right: 45px;
+}
+.delete-event {
   position: absolute;
   top: 8px;
   right: 15px;

@@ -7,6 +7,8 @@ import Meal from "../MealRoute/MealRoute";
 //css
 import "./Dashboard.css";
 import Result from "../../components/Result/Result";
+import trashCan from '../../Media/trash-can.jpg'
+
 //to be removed for final product
 //import helper from "../../services/helper.services";
 
@@ -16,7 +18,7 @@ export default class DashBoard extends React.Component {
     addMealModal: false,
     addSymptomsModal: false,
     expanded:  false,
-    itemExpanded : false,
+    itemExpanded : [],
 
     user: {
       username: "",
@@ -51,30 +53,48 @@ export default class DashBoard extends React.Component {
       .catch(e => this.setState({ error: e }));
   }
 
+  handleDelete = (id, type, index) => {
+    API.doFetch('/event', 'DELETE', {
+      id,
+      type
+    })
+    .then(() => {
+      const newEvents = [...this.state.events];
+      newEvents.splice(index, 1);
+      this.setState({
+        events: newEvents
+      })
+    })
+  }
+
   handleExpandToggle = (index) => {
     if (this.state.expanded === index) {
       this.setState({
         expanded: false,
-        itemExpanded: false
+        itemExpanded: []
       })
     }
     else {
       this.setState({
         expanded: index,
-        itemExpanded: false
+        itemExpanded: []
       })
     }
   }
 
   handleIngredientsToggle = (index) => {
-    if (this.state.itemExpanded === index) {
+    if (this.state.itemExpanded.includes(index)) {
+      const newItemExpanded = [...this.state.itemExpanded];
+      newItemExpanded.splice(newItemExpanded.indexOf(index), 1)
       this.setState({
-        itemExpanded: false
+        itemExpanded: newItemExpanded
       })
     }
     else {
+      const newItemExpanded = [...this.state.itemExpanded];
+      newItemExpanded.push(index)
       this.setState({
-        itemExpanded: index
+        itemExpanded: newItemExpanded
       })
     }
   }
@@ -111,17 +131,18 @@ export default class DashBoard extends React.Component {
     let events = this.state.events.map((e, index) => {
       if (e.type === "meal") {
         return(
-          <div key={index} id="dashmealcontainer">
+          <div key={index} className="dash-event-container">
           <li className={"meal"}>
             {e.name} at {new Date(e.time).toDateString()}
             <button className="expand-toggle" onClick={() => this.handleExpandToggle(index)}>{this.state.expanded === index ? '-' : '+'}</button>
+            <button className="delete-event" onClick={()=>this.handleDelete(e.id, e.type, index)}><i class="fa fa-trash" aria-hidden="true"></i></button>
             {this.state.expanded === index && <ul>{
               e.items.map((item, index)=> {
                 return (
                   <li key={index} className="food-item-in-dash">
                     <p className="food-info-in-dash">{item.name}</p>
                     <p className="ingredients-list-in-dash">
-                    {this.state.itemExpanded===index }{this.state.itemExpanded===index && item.ingredients.map(ingredient => ingredient.toLowerCase()).join(', ')}<button className="ingredients-expand" onClick={() => this.handleIngredientsToggle(index)}>{this.state.itemExpanded === index ? 'Hide ingredients' : 'Show ingredients'}</button>
+                    {this.state.itemExpanded.includes(index) && item.ingredients.map(ingredient => ingredient.toLowerCase()).join(', ')}<button className="ingredients-expand" onClick={() => this.handleIngredientsToggle(index)}>{this.state.itemExpanded.includes(index) ? 'Hide ingredients' : 'Show ingredients'}</button>
                     </p>
                   </li>
                 )
@@ -134,9 +155,13 @@ export default class DashBoard extends React.Component {
       }
       else {
         return (
-        <li key={index} className="symptom">
+          <div key={index} className="dash-event-container">
+<li className="symptom">
           {e.name} at {this.formatDate(e.time)} {e.type ==="symptom" ? `Severity: ${e.severity}` : '' }
+          <button className="delete-event" onClick={()=>this.handleDelete(e.id, e.type, index)}><i class="fa fa-trash" aria-hidden="true"></i></button>
         </li>
+          </div>
+        
       );
     }});
     return (
