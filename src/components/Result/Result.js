@@ -25,10 +25,11 @@ export default class Result extends React.Component {
             <li id="result-list" key={key}>
               <strong>{item.symptomType.type}</strong> <i>is experienced most frequently after eating foods with:</i>{" "}
               {item.mostCommonIngredients
-                .map((food) => {
-                  if (food.ingredient.name !== "WATER"){
-                    return food.ingredient.name.toLowerCase();
-                  }
+                .filter((food) => {
+                  return food.name !== "WATER" }).map((food) => {
+                      
+                    return food.name.toLowerCase();
+                  
                   
                 })
                 .join(", ")}
