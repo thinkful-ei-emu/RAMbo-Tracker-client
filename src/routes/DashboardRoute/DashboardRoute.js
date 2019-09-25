@@ -121,7 +121,7 @@ export default class DashBoard extends React.Component {
                   <li key={index} className="food-item-in-dash">
                     <p className="food-info-in-dash">{item.name}</p>
                     <p className="ingredients-list-in-dash">
-                    Ingredients: {this.state.itemExpanded===index && item.ingredients.map(ingredient => ingredient.toLowerCase()).join(', ')}<button className="ingredients-expand" onClick={() => this.handleIngredientsToggle(index)}>{this.state.itemExpanded === index ? 'Hide' : 'Show'}</button>
+                    {this.state.itemExpanded===index && 'Ingredients: '}{this.state.itemExpanded===index && item.ingredients.map(ingredient => ingredient.toLowerCase()).join(', ')}<button className="ingredients-expand" onClick={() => this.handleIngredientsToggle(index)}>{this.state.itemExpanded === index ? 'Hide' : 'Show ingredients'}</button>
                     </p>
                   </li>
                 )
