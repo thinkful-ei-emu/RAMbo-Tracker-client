@@ -6,11 +6,11 @@ import Symptoms from "../../components/Symptom/Symptom";
 import Meal from "../MealRoute/MealRoute";
 //css
 import "./Dashboard.css";
-import Result from '../../components/Result/Result';
+import Result from "../../components/Result/Result";
 //to be removed for final product
 //import helper from "../../services/helper.services";
 
-if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#root');
+if (process.env.NODE_ENV !== "test") Modal.setAppElement("#root");
 export default class DashBoard extends React.Component {
   state = {
     addMealModal: false,
@@ -57,15 +57,31 @@ export default class DashBoard extends React.Component {
     this.setState({ [modal]: true });
   };
   updateEvents = e => {
-    let temp=[e, ...this.state.events];
-    temp.sort((a,b)=>new Date(b.time).getTime()-new Date(a.time).getTime())
+    let temp = [e, ...this.state.events];
+    temp.sort(
+      (a, b) => new Date(b.time).getTime() - new Date(a.time).getTime()
+    );
     this.setState({ events: temp });
+  };
+  formatDate = time => {
+    let date = new Date(time);
+    let formatted_date =
+      (date.getMonth() + 1) +
+      "-" +
+      date.getDate() +
+      "-" +
+      date.getFullYear() +
+      " " +
+      date.getHours() +
+      ":" +
+      date.getMinutes();
+      return formatted_date
   };
   render() {
     let events = this.state.events.map((e, index) => {
       return (
         <li key={index} className={e.type === "meal" ? "meal" : "symptom"}>
-          {e.name} at {new Date(e.time).toString()} {e.severity}
+          {e.name} at {this.formatDate(e.time)} {e.type ==="symptom" ? `Severity: ${e.severity}` : '' }
         </li>
       );
     });
@@ -79,8 +95,8 @@ export default class DashBoard extends React.Component {
           <Meal closeModal={this.closeModal} updateEvents={this.updateEvents} />
         </Modal>
         <Modal
-        className='Modal'
-        // overlayClassName="Overlay"
+          className="Modal"
+          // overlayClassName="Overlay"
           isOpen={this.state.addSymptomsModal}
           onRequestClose={() => this.closeModal("addSymptomsModal")}
         >
@@ -95,7 +111,7 @@ export default class DashBoard extends React.Component {
           <h3>Welcome back, {this.state.user.display_name}</h3>
         </div>
         <div className="dashboard-content">
-        <Result/>
+          <Result />
           <div id="dash-button-container">
             <button
               className="user-button"
