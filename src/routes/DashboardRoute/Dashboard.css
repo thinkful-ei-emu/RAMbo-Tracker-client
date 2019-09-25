@@ -11,6 +11,7 @@
   margin: 0 auto;
   padding-bottom: 2%;
 }
+
 #user-welcome {
   text-align: left;
   padding: 5%;
@@ -25,12 +26,15 @@
 #symptom-button{
   background-color: rgb(54, 1, 54);
 } */
+
 .meal{
   background-color: rgb(216, 227, 231);
 }
+
 .symptom{
   background-color: rgb(219, 203, 203);
 }
+
 .events > li {
   color:rgb(24, 22, 22);
   border: 2px solid black;
@@ -86,4 +90,43 @@ li {
   background-size: cover;
   padding: 5%;
   margin: 0 5%;
+}
+
+@media screen and (max-width: 500px){
+
+  #dash-button-container {
+    display: inherit;
+    flex-direction: row;
+    align-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 2%;
+  }
+
+  .meal{
+    background-color: rgb(216, 227, 231);
+  }
+  
+  .symptom{
+    background-color: rgb(219, 203, 203);
+  }
+
+  .events-list {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .dashboard-content {
+    background-image: url('../../Media/dash-background.jpg');
+    background-size: cover;
+    padding: 1% 0 1% 0;
+    margin: 0 0%;
+  }
+
+  #user-welcome {
+    text-align: left;
+    padding: 0 0 0 10px;
+  }
+
+
 }
