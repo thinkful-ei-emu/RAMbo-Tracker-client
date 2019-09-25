@@ -19,6 +19,7 @@ a{
     padding: 0px;
     width: 100%;
     margin: 0 auto;
+    margin-top: -5%;
   }
 .user-container{
  padding-right: 2%;
@@ -33,6 +34,7 @@ a{
 .Header {
 /* border: 2px solid black; */
   width: 40%;
+  padding-left:1%;
 }
 
 .nav-container{
@@ -75,6 +77,23 @@ header {
   z-index: -1;
 }
 
+.LoginLogout{
+  padding: 10px;
+  font-size: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#loginlink{
+  padding: 28px 10px;
+  color: white;
+}
+
+#signuplink{
+  padding: 0px 10px;
+  color: white;
+}
+
 @media screen and (max-width: 500px){
 
   .LoginLogout{
@@ -84,7 +103,10 @@ header {
     justify-content: flex-end;
     
   }
-
+.Header{
+  width: 80%;
+  padding-left: 1%;
+}
   #loginlink{
     padding: 28px 10px;
     color: white;
