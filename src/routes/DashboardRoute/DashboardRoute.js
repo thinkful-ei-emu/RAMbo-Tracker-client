@@ -15,6 +15,7 @@ export default class DashBoard extends React.Component {
   state = {
     addMealModal: false,
     addSymptomsModal: false,
+    expanded:  false,
 
     user: {
       username: "",
@@ -49,6 +50,19 @@ export default class DashBoard extends React.Component {
       .catch(e => this.setState({ error: e }));
   }
 
+  handleExpandToggle = (index) => {
+    if (this.state.expanded === index) {
+      this.setState({
+        expanded: false
+      })
+    }
+    else {
+      this.setState({
+        expanded: index
+      })
+    }
+  }
+
   closeModal = modal => {
     this.setState({ [modal]: false });
   };
@@ -63,12 +77,24 @@ export default class DashBoard extends React.Component {
   };
   render() {
     let events = this.state.events.map((e, index) => {
-      return (
-        <li key={index} className={e.type === "meal" ? "meal" : "symptom"}>
+      if (e.type === "meal") {
+        return(
+          <div id="dashmealcontainer">
+          <li key={index} className={"meal"}>
+            {e.name} at {new Date(e.time).toDateString()}
+            {this.state.expanded === index && <ul>{e.items.map((item, index)=> <li key={index}>{item.name}</li>)}</ul>}
+            <button id="expand-toggle" onClick={() => this.handleExpandToggle(index)}>{this.state.expanded === index ? '-' : '+'}</button>
+          </li>
+          </div>
+        )
+      }
+      else {
+        return (
+        <li key={index} className="symptom">
           {e.name} at {new Date(e.time).toDateString()} {e.severity}
         </li>
       );
-    });
+    }});
     return (
       <div>
         {/*add meal modal*/}

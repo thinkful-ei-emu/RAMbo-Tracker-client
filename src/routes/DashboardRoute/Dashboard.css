@@ -37,6 +37,14 @@
   width:fit-content;
   
 }
+#dashmealcontainer {
+  position: relative;
+}
+#expand-toggle {
+  position: absolute;
+  top: 8px;
+  right: 15px;
+}
 li {
   list-style-type: none;
   color: rgb(31, 27, 27);
