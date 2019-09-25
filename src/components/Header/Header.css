@@ -33,6 +33,7 @@ a{
 .Header {
 /* border: 2px solid black; */
   width: 40%;
+  padding-left:1%;
 }
 
 .nav-container{
@@ -101,7 +102,10 @@ header {
     justify-content: flex-end;
     
   }
-
+.Header{
+  width: 80%;
+  padding-left: 1%;
+}
   #loginlink{
     padding: 28px 10px;
     color: white;
