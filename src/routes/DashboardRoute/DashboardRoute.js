@@ -76,7 +76,6 @@ export default class DashBoard extends React.Component {
     this.setState({ events: temp });
   };
   render() {
-    console.log(this.state.events);
     let events = this.state.events.map((e, index) => {
       if (e.type === "meal") {
         return(
