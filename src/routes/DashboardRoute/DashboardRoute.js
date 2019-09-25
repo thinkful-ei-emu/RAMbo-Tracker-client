@@ -15,6 +15,8 @@ export default class DashBoard extends React.Component {
   state = {
     addMealModal: false,
     addSymptomsModal: false,
+    expanded:  false,
+    itemExpanded : false,
 
     user: {
       username: "",
@@ -49,6 +51,34 @@ export default class DashBoard extends React.Component {
       .catch(e => this.setState({ error: e }));
   }
 
+  handleExpandToggle = (index) => {
+    if (this.state.expanded === index) {
+      this.setState({
+        expanded: false,
+        itemExpanded: false
+      })
+    }
+    else {
+      this.setState({
+        expanded: index,
+        itemExpanded: false
+      })
+    }
+  }
+
+  handleIngredientsToggle = (index) => {
+    if (this.state.itemExpanded === index) {
+      this.setState({
+        itemExpanded: false
+      })
+    }
+    else {
+      this.setState({
+        itemExpanded: index
+      })
+    }
+  }
+
   closeModal = modal => {
     this.setState({ [modal]: false });
   };
@@ -79,12 +109,36 @@ export default class DashBoard extends React.Component {
   };
   render() {
     let events = this.state.events.map((e, index) => {
-      return (
-        <li key={index} className={e.type === "meal" ? "meal" : "symptom"}>
+      if (e.type === "meal") {
+        return(
+          <div key={index} id="dashmealcontainer">
+          <li className={"meal"}>
+            {e.name} at {new Date(e.time).toDateString()}
+            <button className="expand-toggle" onClick={() => this.handleExpandToggle(index)}>{this.state.expanded === index ? '-' : '+'}</button>
+            {this.state.expanded === index && <ul>{
+              e.items.map((item, index)=> {
+                return (
+                  <li key={index} className="food-item-in-dash">
+                    <p className="food-info-in-dash">{item.name}</p>
+                    <p className="ingredients-list-in-dash">
+                    {this.state.itemExpanded===index }{this.state.itemExpanded===index && item.ingredients.map(ingredient => ingredient.toLowerCase()).join(', ')}<button className="ingredients-expand" onClick={() => this.handleIngredientsToggle(index)}>{this.state.itemExpanded === index ? 'Hide ingredients' : 'Show ingredients'}</button>
+                    </p>
+                  </li>
+                )
+              })
+            }</ul>}
+            
+          </li>
+          </div>
+        )
+      }
+      else {
+        return (
+        <li key={index} className="symptom">
           {e.name} at {this.formatDate(e.time)} {e.type ==="symptom" ? `Severity: ${e.severity}` : '' }
         </li>
       );
-    });
+    }});
     return (
       <div>
         {/*add meal modal*/}
