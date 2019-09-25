@@ -7,11 +7,11 @@ export default class AddFood extends React.Component {
   state = {
     isInSearch:false,
     displaySearchResults: false,
-    foodsFromSearch: [],
+    foodsFromSearch: {},
     searchTerm: '',
     lockedInSearchTerm:'',
     gotNoResults: true,
-    resultsPerPage:25,
+    resultsPerPage:50,
     page:1,
   }
 
@@ -19,12 +19,12 @@ export default class AddFood extends React.Component {
 
 
   goFirstPage =()=>{
-    API.doFetch(`/food/search?search=${this.state.lockedInSearchTerm}&offset=${0}`)
+    API.doFetch(`/food/search?search=${this.state.lockedInSearchTerm}&pageNumber=${1}`)
     .then((res) => {
       res = JSON.parse(res);
-      if (res['list']) {
-        this.setState({
-          foodsFromSearch: res['list'],
+      if (res) {
+        return this.setState({
+          foodsFromSearch: res,
           displaySearchResults: true,
           page:1
         })
@@ -35,13 +35,13 @@ export default class AddFood extends React.Component {
   goLastPage =()=>{
     //considered making lastPage a state variable, decided that I didn't want to think
     //through cases where this can go bad
-    let lastPage=Math.ceil(this.state.foodsFromSearch.total/this.state.resultsPerPage);
-    API.doFetch(`/food/search?search=${this.state.lockedInSearchTerm}&offset=${lastPage * 25}`)
+    let lastPage=Math.ceil(this.state.foodsFromSearch.totalHits/this.state.resultsPerPage);
+    API.doFetch(`/food/search?search=${this.state.lockedInSearchTerm}&pageNumber=${lastPage}`)
     .then((res) => {
       res = JSON.parse(res);
-      if (res['list']) {
-        this.setState({
-          foodsFromSearch: res['list'],
+      if (res) {
+        return this.setState({
+          foodsFromSearch: res,
           displaySearchResults: true,
           page:lastPage
         })
@@ -50,13 +50,14 @@ export default class AddFood extends React.Component {
   }
 
   goNextPage = ()=>{
-    if(this.state.page!==Math.ceil(this.state.foodsFromSearch.total/this.state.resultsPerPage)){
-      API.doFetch(`/food/search?search=${this.state.lockedInSearchTerm}&offset=${(this.state.page + 1) * 25}`)
+    if(this.state.page!==Math.ceil(this.state.foodsFromSearch.totalHits/this.state.resultsPerPage)){
+      API.doFetch(`/food/search?search=${this.state.lockedInSearchTerm}&pageNumber=${(this.state.page + 1)}`)
         .then((res) => {
           res = JSON.parse(res);
-          if (res['list']) {
-            this.setState({
-              foodsFromSearch: res['list'],
+          console.log(res);
+          if (res) {
+            return this.setState({
+              foodsFromSearch: res,
               displaySearchResults: true,
               page:this.state.page+1
             })
@@ -68,12 +69,13 @@ export default class AddFood extends React.Component {
 
   goPrevPage = ()=>{
     if(this.state.page!==1){
-      API.doFetch(`/food/search?search=${this.state.lockedInSearchTerm}&offset=${(this.state.page - 1) * 25}`)
+      API.doFetch(`/food/search?search=${this.state.lockedInSearchTerm}&pageNumber=${(this.state.page - 1)}`)
         .then((res) => {
           res = JSON.parse(res);
-          if (res['list']) {
-            this.setState({
-              foodsFromSearch: res['list'],
+          console.log(res);
+          if (res) {
+            return this.setState({
+              foodsFromSearch: res,
               displaySearchResults: true,
               page:this.state.page-1
             })
@@ -95,12 +97,11 @@ export default class AddFood extends React.Component {
       API.doFetch(`/food/search?search=${this.state.searchTerm}`)
       .then((res) => {
         res = JSON.parse(res);
-
-        console.log(res['list']);
-        if (res['list']) {
-          this.setState({
-            foodsFromSearch: res['list'],
-            gotNoResults: false,
+        console.log(res)
+        if (res.foods) {
+          return this.setState({
+            foodsFromSearch: res,
+            gotNoResults: res.foods.length===0? true:false,
             displaySearchResults: true,
             lockedInSearchTerm: this.state.searchTerm,
             page:1
@@ -108,7 +109,7 @@ export default class AddFood extends React.Component {
         }
         //If the usda server bugs out gives me back error
         else {
-          this.setState({
+          return this.setState({
             gotNoResults: true,
             displaySearchResults: true,
             lockedInSearchTerm:'',
@@ -128,6 +129,7 @@ export default class AddFood extends React.Component {
   handleAddFood=(e,food)=>{
     e.preventDefault();
     this.setState({
+      foodsFromSearch:{},
       displaySearchResults:false,
       lockedInSearchTerm:'',
       page:1
@@ -137,13 +139,6 @@ export default class AddFood extends React.Component {
 
   }
 
-  //Removing some UPC and GTIN, could put it back in
-  processFoodName = (name) => {
-    let arr = name.split(',');
-    if (arr[arr.length - 1].includes('UPC: ') || arr[arr.length - 1].includes('GTIN: '))
-      arr.pop();
-    return arr.join(',')
-  }
 
   render() {
     return (
@@ -175,19 +170,24 @@ export default class AddFood extends React.Component {
             :
             (<div className='AddFoodSearchResults'>
               <div>
-                Only at most {this.state.resultsPerPage} items shown at once, total of {this.state.foodsFromSearch.total}
+                Only at most {this.state.resultsPerPage} items shown at once, total of {this.state.foodsFromSearch.totalHits}
               </div>
+              
               <hr></hr>
               {
-                this.state.foodsFromSearch.item.map((food, index) =>
+                this.state.foodsFromSearch.foods.map((food, index) =>
                   <div key={index} className='AddFoodSearchResultsDiv'>
                     <div className='AddFoodSearchResultsRow'>
                       <div className='AddFoodSearchResultsFoodInfo'>
                         <div className='AddFoodSearchResultsManu'>
-                          {ProcessFoodName(food.manu)}
+                          {
+                            food.brandOwner?
+                            ProcessFoodName(food.brandOwner):
+                            food.dataType
+                          }
                         </div>
                         <div className='AddFoodSearchResultsName'>
-                          {ProcessFoodName(food.name)}
+                          {ProcessFoodName(food.description)}
                         </div>
                       </div>
                       <div className='AddFoodSearchResultsSpace'>
@@ -201,8 +201,9 @@ export default class AddFood extends React.Component {
                 )
               }
               <div className='AddFoodSearchResultsPaginate'>
-                {this.state.page !== 1 && <button onClick={this.goPrevPage}>Back</button>}
-                <button onClick={this.goNextPage}>Next</button>
+                {this.state.page !== 1 && <button form='sub-form2' onClick={this.goPrevPage}>Back</button>}
+                <span>{this.state.foodsFromSearch.currentPage}</span>
+                <button form='sub-form3' onClick={this.goNextPage}>Next</button>
               </div>
 
             </div>)
