@@ -16,6 +16,7 @@ export default class DashBoard extends React.Component {
     addMealModal: false,
     addSymptomsModal: false,
     expanded:  false,
+    itemExpanded : false,
 
     user: {
       username: "",
@@ -53,12 +54,27 @@ export default class DashBoard extends React.Component {
   handleExpandToggle = (index) => {
     if (this.state.expanded === index) {
       this.setState({
-        expanded: false
+        expanded: false,
+        itemExpanded: false
       })
     }
     else {
       this.setState({
-        expanded: index
+        expanded: index,
+        itemExpanded: false
+      })
+    }
+  }
+
+  handleIngredientsToggle = (index) => {
+    if (this.state.itemExpanded === index) {
+      this.setState({
+        itemExpanded: false
+      })
+    }
+    else {
+      this.setState({
+        itemExpanded: index
       })
     }
   }
@@ -82,17 +98,20 @@ export default class DashBoard extends React.Component {
           <div key={index} id="dashmealcontainer">
           <li className={"meal"}>
             {e.name} at {new Date(e.time).toDateString()}
+            <button className="expand-toggle" onClick={() => this.handleExpandToggle(index)}>{this.state.expanded === index ? '-' : '+'}</button>
             {this.state.expanded === index && <ul>{
               e.items.map((item, index)=> {
                 return (
-                  <li key={index}>
-                    <p>{item.name}</p>
-                    <p>Ingredients: {item.ingredients.map(ingredient => ingredient.toLowerCase()).join(', ')}</p>
+                  <li key={index} className="food-item-in-dash">
+                    <p className="food-info-in-dash">{item.name}</p>
+                    <p className="ingredients-list-in-dash">
+                    Ingredients: {this.state.itemExpanded===index && item.ingredients.map(ingredient => ingredient.toLowerCase()).join(', ')}<button className="ingredients-expand" onClick={() => this.handleIngredientsToggle(index)}>{this.state.itemExpanded === index ? 'Hide' : 'Show'}</button>
+                    </p>
                   </li>
                 )
               })
             }</ul>}
-            <button id="expand-toggle" onClick={() => this.handleExpandToggle(index)}>{this.state.expanded === index ? '-' : '+'}</button>
+            
           </li>
           </div>
         )

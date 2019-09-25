@@ -44,11 +44,32 @@
 #dashmealcontainer {
   position: relative;
 }
-#expand-toggle {
+.expand-toggle {
   position: absolute;
   top: 8px;
   right: 15px;
 }
+.ingredients-expand {
+  margin-left: 5px;
+}
+
+.food-item-in-dash {
+  margin-bottom: 5px;
+  padding: 0;
+}
+
+
+
+.ingredients-list-in-dash {
+  margin: 0px;
+  padding: 0;
+}
+
+.food-info-in-dash {
+  margin: 0;
+  padding: 0;
+}
+
 li {
   list-style-type: none;
   color: rgb(31, 27, 27);
