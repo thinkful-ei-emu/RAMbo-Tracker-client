@@ -54,7 +54,13 @@ height: max-content;
   font-size: 28px;
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 480px) and (min-width: 310px){
+
+
+  
+}
+
+@media screen and (max-width: 780px) and (min-width: 481px){
 
 
   
