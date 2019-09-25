@@ -81,6 +81,7 @@ class Symptom extends Component {
     });
 
     return (
+      <div className="symptom-container">
       <section className="symptom-container">
         <h2>Log a Symptom</h2>
         <form onSubmit={e => this.handleSymptomSubmit(e)}>
@@ -140,9 +141,18 @@ class Symptom extends Component {
               step="1"
               min="1"
               max="5"
+              list="tickmarks"
               defaultValue={this.state.symptomSeverity}
               onChange={e => this.handleSeverityChange(e)}
             />
+            <datalist id="tickmarks">
+              <option value="1" label="low"></option>
+              <option value="2"></option>
+              <option value="3" label="3"></option>
+              <option value="4"></option>
+              <option value="5" label="5"></option>
+            </datalist>
+            <p id="severity-desc">(Scale of 1-5: 1 being low, 5 being extreme)</p>
           </div>
           <br />
           {this.state.error && <h3 className='symptom-error'>{this.state.error}</h3>}
@@ -153,6 +163,7 @@ class Symptom extends Component {
           </div>
         </form>
       </section>
+      </div>
     );
   }
 }
