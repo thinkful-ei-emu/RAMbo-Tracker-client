@@ -32,14 +32,17 @@
   justify-content: space-between;
   align-items: center;
 }
-.AddMealFoodsDisplayRow div {
+.AddMealFoodsDisplayRow>div {
   word-break: normal;
   word-wrap: normal;
   display: inline-block;
 }
-.AddMealFoodsDisplayName {
+.AddMealFoodsDisplayInfo{
   flex-basis: 60%;
   flex-grow: 1;
+}
+.AddMealFoodsDisplayManu {
+  font-weight:550;
 }
 .AddMealFoodsDisplaySpace {
   flex-basis: 20px;
