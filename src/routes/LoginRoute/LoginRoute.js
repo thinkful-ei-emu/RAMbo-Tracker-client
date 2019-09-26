@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import {Link} from 'react-router-dom';
 import './LoginRoute.css'
-import grape from '../../Media/grapes.jpg'
 
 
 class LoginRoute extends Component {
