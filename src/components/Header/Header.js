@@ -16,8 +16,8 @@ class Header extends Component {
 
   renderLogoutLink() {
     return (
-      <div className='user-container'>
-        <nav>
+      <div className='nav-container'>
+        <nav className="LoginLogout">
         <Link id="aboutlink"
           to="/about">About</Link>
           {' '}
@@ -38,7 +38,6 @@ class Header extends Component {
      <Link id="aboutlink"
           to="/about">About</Link>
           {' '}
-        
         <Link id='loginlink' to='/login'>Login</Link>
         {' '}
         <Link id='signuplink' to='/register'>Sign up</Link>

@@ -42,11 +42,11 @@
 }
 
 .dash-event-container:nth-child(odd) {
-background-color: white;
+background-color: rgb(245, 245, 245);
 }
 .dash-event-container {
   position: relative;
-  background-color: lightgrey;
+  background-color: rgb(224, 226, 226);
 }
 .expand-toggle {
   position: absolute;

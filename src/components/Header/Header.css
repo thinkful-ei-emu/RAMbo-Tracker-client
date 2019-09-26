@@ -28,6 +28,9 @@ a{
   font-weight: bold;
 
 }
+#logoutlink{
+  color: white;
+}
 #logoutlink:hover{
   color: #002ba0
 }
@@ -146,9 +149,6 @@ header {
     width: 100vw;
     height: 118x;
     margin: -10px -1px 0px 0px;
-    background-color: #798630;
-    color: white;
-    border-radius: 0px 0px 0px 10px;
   }
  
 } 
@@ -175,7 +175,6 @@ header {
 
   #signuplink{
     padding: 0px 10px;
-    color: white;
   }
 
   #logoutlink{
@@ -187,7 +186,6 @@ header {
     border:none;
     font-size: 36px;
     font-family: 'Dancing Script', cursive;
-    color: black;
     margin-left: 10px;
   }
 
@@ -206,10 +204,7 @@ header {
     width: 100vw;
     height: 118px;
     margin: 0px -1px 0px 0px;
-    background-color: #798630;
-    color: white;
-    border-radius: 0px 0px 0px 10px;
-  }
+      }
 
   
  
