@@ -30,3 +30,29 @@
   border:none;
   background: none;
 }
+
+@media screen and (max-width: 420px) and (min-width: 310px){
+
+  .about {
+    max-width: 75%;
+    margin: 0 auto;
+    margin-top: 50px;
+    background-color: white;
+    padding: 1%;
+    text-align: left;
+  }
+
+}
+
+@media screen and (min-width: 421px) and (max-width: 1020px){
+
+  .about {
+    max-width: 75%;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: white;
+    padding: 1%;
+    text-align: left;
+  }
+
+}

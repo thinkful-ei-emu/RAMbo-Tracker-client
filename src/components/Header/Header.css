@@ -24,13 +24,6 @@ a{
   font-weight: bold;
   
 }
-#logoutlink{
-  color: white;
-}
-
-#logoutlink:hover{
-  color: #002ba0
-}
 .Header {/*/////////TESTING//////////*/
   display: flex;
   width: 40%;
@@ -38,6 +31,9 @@ a{
 }
 
 .nav-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   padding: 0px;
   width: 80vw;
   height: 110px;
@@ -65,22 +61,22 @@ header {
   text-align: right;
 }
 
-/* #box {
-  display: block;
-  position: absolute;
-  background-color: #798630;
-  top: 87px;
-  right: 0px;
-  width: 500px;
-  height: 100px;
-  z-index: -1;
-} */
-
 .LoginLogout{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   padding: 10px;
   font-size: 20px;
-  display: flex;
-  justify-content: flex-end;
+}
+
+#logoutlink{
+  color: white;
+  margin: 0 auto;
+}
+
+#logoutlink:hover{
+  color: #002ba0
 }
 
 #loginlink{
@@ -88,9 +84,14 @@ header {
   color: white;
 }
 
+#aboutlink{
+  margin: 0 auto;
+}
+
 #signuplink{
   padding: 0px 10px;
   color: white;
+  margin: 0 auto;
 }
 
 .header-photo{/*/////////TESTING//////////*/
@@ -118,7 +119,8 @@ header {
   }
 
   .LoginLogout{
-    display: flex;
+    /* display: flex;
+    justify-content: space-evenly; */
     padding: 10px;
     font-size: 20px;
   }
@@ -133,15 +135,21 @@ header {
   #loginlink{
     padding: 0 0 0 0;
     color: white;
+    margin: 0 20px 0 20px;
   }
 
   #signuplink{
     padding: 0px 0px;
     color: white;
+    margin: 0 20px 0 20px;
+  }
+
+  #aboutlink{
+    margin: 0 20px 0 20px;
   }
 
   #logoutlink{
-    margin-right: 5px;
+    margin: 0 20px 0 20px;
   }
 
   #main-title{
@@ -155,6 +163,8 @@ header {
   }
 
   .nav-container{
+    display: flex;
+    justify-content: space-around;
     position: absolute;
     top: 65px;
     padding: 0px;
@@ -162,6 +172,7 @@ header {
     height: 50px;
     margin: 0px 0px 0px 0px;
     border-radius: 0px;
+
   }
 
   .registration-form{
@@ -181,9 +192,10 @@ header {
   .LoginLogout{
     padding: 10px;
     font-size: 20px;
+    width: 100%;
     display: flex;
-    justify-content: flex-end;
-    
+    align-items: center;
+    justify-content: space-evenly;
   }
   
   .Header{
@@ -201,7 +213,13 @@ header {
   }
 
   #logoutlink{
-    margin-right: 5px;
+    /* margin-right: 10px; */
+    margin: 0 auto;
+  }
+
+  #aboutlink{
+    /* margin: 0 30px 0 30px; */
+    margin: 0 auto;
   }
 
   #main-title{
@@ -225,11 +243,13 @@ header {
 
 
   .nav-container{
+    display: flex;
+    align-items: center;
     padding: 0px;
     width: 100vw;
     height: 118px;
     margin: 0px -1px 0px 0px;
-      }
+  }
 
   
  
