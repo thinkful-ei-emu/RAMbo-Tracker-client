@@ -27,22 +27,26 @@
   background-color: rgb(54, 1, 54);
 } */
 
-.meal{
+/* .meal{
   background-color: rgb(216, 227, 231);
 }
 
 .symptom{
   background-color: rgb(219, 203, 203);
-}
+} */
 
 .events > li {
   color:rgb(24, 22, 22);
   border: 2px solid black;
   width:fit-content;
-  
+}
+
+.dash-event-container:nth-child(odd) {
+background-color: white;
 }
 .dash-event-container {
   position: relative;
+  background-color: lightgrey;
 }
 .expand-toggle {
   position: absolute;
@@ -112,8 +116,8 @@ li {
 }
 
 .dashboard-content {
-  background-image: url('../../Media/dash-background.jpg');
-  background-size: cover;
+/*   background-image: url('../../Media/dash-background.jpg');
+ */  background-size: cover;
   padding: 5%;
   margin: 0 5%;
 }

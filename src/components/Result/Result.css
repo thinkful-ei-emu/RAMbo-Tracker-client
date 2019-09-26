@@ -35,10 +35,12 @@ ul {
     width: 20%;
     margin: 0 auto;
     padding: 15px;
-    background-color: #121D17;
+    background-color: #32936F;
     color: white;
 }
-
+#results-button button:hover{
+    background-color: rgb(31, 97, 73)
+}
 @media screen and (max-width: 500px){
 
     #results-button button{
