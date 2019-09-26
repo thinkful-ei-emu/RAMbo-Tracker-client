@@ -14,7 +14,7 @@
 
 #user-welcome {
   text-align: left;
-  padding: 5%;
+  margin: 2%;
 }
 /* #user-name{
   color: blue;
@@ -67,7 +67,17 @@ background-color: rgb(245, 245, 245);
   padding: 0;
 }
 
+.new-meal, .new-symptom{
+background-color: rgb(255, 255, 255);
+color: black;
+font-weight: bold;
+padding: 1%;
+}
 
+.new-meal:hover, .new-symptom:hover{
+  border: 1px solid rgb(151, 151, 151);
+  background-color: rgb(255, 255, 255);
+}
 
 .ingredients-list-in-dash {
   margin: 0px;
