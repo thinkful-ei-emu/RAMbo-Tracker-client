@@ -1,6 +1,15 @@
 .about {
   max-width: 75%;
-  margin: 0 auto;
+  margin: 10% auto;
   background-color: white;
   padding: 1%;
+  text-align: left;
+}
+
+.about-header{
+  text-align: center;
+}
+
+.app-instructions > li {
+  padding: 0px;
 }
