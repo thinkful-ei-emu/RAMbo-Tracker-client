@@ -45,14 +45,23 @@ background-color: rgb(245, 245, 245);
   position: absolute;
   top: 8px;
   right: 45px;
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  color: rgb(22, 86, 184)
 }
 .delete-event {
   position: absolute;
   top: 8px;
   right: 15px;
+ 
+  border: none;
+    background-color: transparent;
 }
 .ingredients-expand {
   margin-left: 5px;
+  border: none;
+  background-color: transparent;
 }
 
 .food-item-in-dash {
@@ -89,7 +98,6 @@ li {
   
 }
 .events-list {
-  width: 75%;
   margin: 0 auto;
 }
 
