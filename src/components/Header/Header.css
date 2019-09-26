@@ -9,51 +9,46 @@ a{
 #main-title{
   text-align:left;
   border:none;
-  font-size: 36px;
+  font-size: 40px;
   font-family: 'Dancing Script', cursive;
   color: black;
+  position: relative;
+  top: -5px;
+  /* white-space: nowrap; */
 }
 
-.nav-container{
-    /* border: 1px solid grey; */
-    padding: 0px;
-    width: 100%;
-    margin: 0 auto;
-    margin-top: -5%;
-  }
 .user-container{
- padding-right: 2%;
+  padding-right: 2%;
   width: 100%;
   margin: 0 auto;
   font-weight: bold;
-
+  
 }
 #logoutlink{
   color: white;
 }
+
 #logoutlink:hover{
   color: #002ba0
 }
-.Header {
-/* border: 2px solid black; */
+.Header {/*/////////TESTING//////////*/
+  display: flex;
   width: 40%;
-  padding-left:1%;
-  margin: 0px;
+  margin: 0 0 0 10px;
 }
 
 .nav-container{
-  /* border: 1px solid grey; */
   padding: 0px;
-  width: 100vw;
+  width: 80vw;
   height: 110px;
-  margin: 0 auto;
+  margin-left: 10px;
   background-color: #2274A5;
   color: white;
   border-radius: 0px 0px 0px 10px;
 }
 
 header {
-  margin: 0px;
+  /* height: 8%; */
   padding: 0px;
   font-size: 20px;
   display: flex;
@@ -70,7 +65,7 @@ header {
   text-align: right;
 }
 
-#box {
+/* #box {
   display: block;
   position: absolute;
   background-color: #798630;
@@ -79,7 +74,7 @@ header {
   width: 500px;
   height: 100px;
   z-index: -1;
-}
+} */
 
 .LoginLogout{
   padding: 10px;
@@ -98,28 +93,50 @@ header {
   color: white;
 }
 
-@media screen and (max-width: 380px) and (min-width: 310px){
+.header-photo{/*/////////TESTING//////////*/
+  width: 90px;
+  height: 100px;
+  margin: -10px 0px 0px -10px;
+}
 
-  .LoginLogout{
-    padding: 10px;
+@media screen and (max-width: 420px) and (min-width: 310px){
+
+  .header-photo{/*/////////TESTING//////////*/
+    width: 60px;
+    height: 70px;
+    margin: -10px 0px 0px -5px;
+  }
+  
+  header {
+    padding: 0px;
+    margin: 10px 0 0 0;
     font-size: 20px;
     display: flex;
-    justify-content: flex-end;
-    
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  .LoginLogout{
+    display: flex;
+    padding: 10px;
+    font-size: 20px;
   }
   
   .Header{
-  width: 80%;
-  padding-left: 1%;
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    width: 100%;
   }
   
   #loginlink{
-    padding: 28px 10px;
+    padding: 0 0 0 0;
     color: white;
   }
 
   #signuplink{
-    padding: 0px 10px;
+    padding: 0px 0px;
     color: white;
   }
 
@@ -128,32 +145,38 @@ header {
   }
 
   #main-title{
-    text-align:left;
-    border:none;
+    text-align:center;
+    white-space: nowrap;
+    border: none;
     font-size: 36px;
     font-family: 'Dancing Script', cursive;
     color: black;
-    margin-left: 10px;
-  }
-
-  header {
-    padding: 0px;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    width: 100%;
+    margin: 0 5px 0 0;
   }
 
   .nav-container{
+    position: absolute;
+    top: 65px;
     padding: 0px;
     width: 100vw;
-    height: 118x;
-    margin: -10px -1px 0px 0px;
+    height: 50px;
+    margin: 0px 0px 0px 0px;
+    border-radius: 0px;
+  }
+
+  .registration-form{
+    margin-top: 50px;
   }
  
 } 
 
-@media screen and (min-width: 381px) and (max-width: 950px){
+@media screen and (min-width: 421px) and (max-width: 1020px){
+
+  .header-photo{/*/////////TESTING//////////*/
+    width: 80px;
+    height: 90px;
+    margin: -20px 0px 0px 5px;
+  }
 
   .LoginLogout{
     padding: 10px;
@@ -164,8 +187,8 @@ header {
   }
   
   .Header{
-  width: 80%;
-  padding-left: 1%;
+    width: 80%;
+    margin: 0 0 0 10px;
   }
   
   #loginlink{
@@ -187,6 +210,8 @@ header {
     font-size: 36px;
     font-family: 'Dancing Script', cursive;
     margin-left: 10px;
+    position: relative;
+    top: -10px;
   }
 
   header {

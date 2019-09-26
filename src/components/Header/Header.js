@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import './Header.css'
+import logo from '../../Media/logo2.png'
 
 class Header extends Component {
   state={
@@ -53,6 +54,11 @@ class Header extends Component {
       
         
         <h1 className='Header'>
+        <img
+          className="header-photo"
+          src={logo}
+          alt="logo"
+        />
           <Link id='main-title' to='/'>
             Symptom Tracker
           </Link>

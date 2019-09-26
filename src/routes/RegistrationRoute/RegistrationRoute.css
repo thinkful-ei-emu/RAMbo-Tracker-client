@@ -98,14 +98,14 @@
   }
 }
 
-@media screen and (max-width: 780px) and (min-width: 481px){
+@media screen and (max-width: 1020px) and (min-width: 481px){
 
   .registration-view {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
     padding-top: 30px;
-    max-width: 780px;
+    /* max-width: 1080px; */
   }
   
   .mission {
@@ -123,8 +123,8 @@
     max-width: 220px;
     border-radius: 0px 5px 5px 5px;
     /* border-top: 30px solid E1A23B; */
-    box-shadow: 0px -30px 0 #565f22;
-    border-right: 30px solid #565f22;
+    box-shadow: 0px -30px 0 #2274A5;
+    border-right: 30px solid #2274A5;
   }
   
   .reg-photo-container{
