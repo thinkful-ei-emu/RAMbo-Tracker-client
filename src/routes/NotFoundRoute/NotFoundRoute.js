@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import pumpkin from '../../Media/infant-pumpkin-costume.jpg'
 import '../NotFoundRoute/NotFound.css'
 
 class NotFoundRoute extends Component {

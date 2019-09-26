@@ -7,7 +7,6 @@ import Meal from "../MealRoute/MealRoute";
 //css
 import "./Dashboard.css";
 import Result from "../../components/Result/Result";
-import trashCan from "../../Media/trash-can.jpg";
 
 //to be removed for final product
 //import helper from "../../services/helper.services";
