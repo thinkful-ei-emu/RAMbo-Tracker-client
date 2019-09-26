@@ -16,9 +16,10 @@ export default class Result extends React.Component {
       .catch(console.log);
   };
   render() {
+    console.log(this.state.results)
     let results =
-      this.state.results.length < 2 ? (
-        <h2>Click refresh to see your analysis</h2>
+      this.state.results[0].mostCommonFoods.length === 0 ? (
+        <h2>Click Analyze to See Results</h2>
       ) : (
         this.state.results.map((item, key) => {
           return (
@@ -39,9 +40,12 @@ export default class Result extends React.Component {
       );
     return (
       <div className="results">
+                  <h2>My Results</h2>
+
         <ul>{results}</ul>
+        
         <div id="results-button">
-          <button onClick={e => this.refreshResuls(e)}>Refresh Results</button>
+          <button onClick={e => this.refreshResuls(e)}>Analyze my Log</button>
         </div>
       </div>
     );

@@ -1,6 +1,6 @@
 .about {
   max-width: 75%;
-  margin: 10% auto;
+  margin: 0 auto;
   background-color: white;
   padding: 1%;
   text-align: left;
@@ -16,4 +16,17 @@
 
 .app-instructions > li {
   padding: 0px;
+}
+
+.info-head{
+  padding: 0 1%;
+  display: flex;
+  justify-content: space-between;
+  border: 0.5px solid rgb(211, 211, 211)
+}
+
+.info-button {
+  font-weight: bold;
+  border:none;
+  background: none;
 }
