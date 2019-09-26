@@ -17,7 +17,8 @@ export default class PieChart extends React.Component {
     this.myChart = new Chart(this.canvasRef.current, {
       type: 'doughnut',
       options: {
-	      maintainAspectRatio: false
+        maintainAspectRatio: true,
+        responsive: true
       },
       data: {
         labels: this.props.data.map(d => d.label),
@@ -32,6 +33,6 @@ export default class PieChart extends React.Component {
 
 
   render() {
-    return <canvas ref={this.canvasRef} />;
+    return <canvas className="chart-canvas" ref={this.canvasRef} />;
   }
 }

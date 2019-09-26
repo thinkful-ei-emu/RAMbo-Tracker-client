@@ -41,6 +41,7 @@ export default class Result extends React.Component {
                 })
                 .join(', ')}
             </i>
+            <div className='pie-area'>
             <PieChart
               data={data}
               title={item.symptomType.type}
@@ -53,6 +54,8 @@ export default class Result extends React.Component {
                 '#BBB6DF'
               ]}
             />
+            </div>
+            
           </li>
         );
       })
