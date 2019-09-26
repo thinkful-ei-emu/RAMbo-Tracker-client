@@ -24,6 +24,10 @@ ul {
     width: 100%;
 }
 
+.pie-area {
+    text-align: center;
+}
+
 #results-button{
     padding: 10px;
     text-align: center;
