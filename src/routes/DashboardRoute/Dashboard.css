@@ -118,7 +118,13 @@ li {
   opacity: 0.5;
 }
 
-
+@media screen and (max-width: 800px){
+  .dashboard-content{
+   align-items: center;
+    flex-direction: column;
+ 
+  }
+}
 
 @media screen and (max-width: 500px){
 
