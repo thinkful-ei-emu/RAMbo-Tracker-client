@@ -48,7 +48,8 @@ background-color: rgb(245, 245, 245);
   border: none;
   background-color: transparent;
   font-weight: bold;
-  color: rgb(22, 86, 184)
+  color: rgb(22, 86, 184);
+  padding-right: 20%;
 }
 .delete-event {
   position: absolute;
@@ -74,6 +75,10 @@ background-color: rgb(255, 255, 255);
 color: black;
 font-weight: bold;
 padding: 1%;
+display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .new-meal:hover, .new-symptom:hover{
@@ -125,7 +130,10 @@ li {
 .symptom-modal{
   opacity: 0.5;
 }
-
+.button-logo{
+  width: 20px;
+  padding-right:5px;
+}
 @media screen and (max-width: 800px){
   .dashboard-content{
    align-items: center;

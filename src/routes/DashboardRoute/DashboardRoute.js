@@ -7,7 +7,8 @@ import Meal from "../MealRoute/MealRoute";
 //css
 import "./Dashboard.css";
 import Result from "../../components/Result/Result";
-
+import Plate from '../../Media/plate.png'
+import Symptom from '../../Media/symptom.png'
 //to be removed for final product
 //import helper from "../../services/helper.services";
 
@@ -223,12 +224,14 @@ export default class DashBoard extends React.Component {
                 className="user-button new-meal"
                 onClick={e => this.openModal(e, "addMealModal")}
               >
+                <img className='button-logo' src={Plate} alt=''></img>
                 Log Meal
               </button>
               <button
                 className="user-button new-symptom"
                 onClick={e => this.openModal(e, "addSymptomsModal")}
               >
+                <img className='button-logo' src={Symptom} alt=''></img>
                 Log Symptom
               </button>
             </div>
