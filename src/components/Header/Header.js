@@ -22,6 +22,8 @@ class Header extends Component {
         <Link id="aboutlink"
           to="/about">About</Link>
           {' '}
+          <Link id='dashlink'
+          to='/dash'>Dashboard</Link>
           <Link id="logoutlink"
             onClick={this.handleLogoutClick}
             to='/login'>

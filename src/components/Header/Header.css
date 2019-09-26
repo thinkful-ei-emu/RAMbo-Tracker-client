@@ -203,7 +203,7 @@ header {
     margin: 0 0 0 10px;
   }
   
-  #loginlink{
+  #loginlink, #dashlink{
     padding: 28px 10px;
     color: white;
   }
