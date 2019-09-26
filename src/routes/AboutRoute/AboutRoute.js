@@ -7,12 +7,16 @@ function AboutRoute() {
       <div className="about">
         <h2 className="about-header">The Fine Details</h2>
         <h3 className="about-header">a.k.a How this app works</h3>
+
+        <h4>What we are:</h4>
         <p>
           We are so happy you're here. We made this application for those who
           are looking for a detailed way to investigate diet-related symptoms
           they experience. You can log and track meals, the symptoms you
           specifically are experiencing, and draw connections between diet and
-          symptoms. <br></br>
+          symptoms. </p>
+          <h4>What we are not:</h4>
+          <p>
           This application is not to be used to replace medical advice from a
           professional, as we are not medical professionals. However, this
           application can be used to assist you in your conversation with your
