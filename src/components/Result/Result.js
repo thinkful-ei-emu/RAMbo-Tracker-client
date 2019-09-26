@@ -13,13 +13,24 @@ export default class Result extends React.Component{
     refreshResuls= ()=>{
         Api.doFetch('/results').then(res=>{
             this.setState({results:res});
-            //res.map(item=>{})
+            let data = res.map(item=>{
+                let datasets= {};
+                datasets.data =item.mostCommonFoods.map(food=>{
+                    return food.frequency;
+                });
+                datasets.stack = item.symptomType.type;
+                return datasets;
+            })
             scatter = new chart(document.getElementById('result_chart').getContext('2d'),{
-                type:'scatter',
+                type:'bar',
                 data:{
                     datasets:[{
-                        data:[{x:10,y:new Date().getHours()}]
+                        data:[...data]
                     }]
+                },
+                options:{
+                    scales:[{
+                        xAxes:[{stacked:true}]
                 }
             });
 
