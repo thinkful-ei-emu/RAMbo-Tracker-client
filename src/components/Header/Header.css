@@ -150,6 +150,8 @@ header {
 
   #logoutlink{
     margin: 0 20px 0 20px;
+    color: white;
+
   }
 
   #main-title{
@@ -205,7 +207,7 @@ header {
   
   #loginlink, #dashlink{
     padding: 28px 10px;
-    color: white;
+    
   }
 
   #signuplink{

@@ -104,6 +104,7 @@ li {
 }
 .events-list {
   margin: 0 auto;
+  width: 95%;
 }
 
 .Modal{
