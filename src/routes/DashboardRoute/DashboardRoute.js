@@ -7,7 +7,6 @@ import Meal from "../MealRoute/MealRoute";
 //css
 import "./Dashboard.css";
 import Result from "../../components/Result/Result";
-import trashCan from '../../Media/trash-can.jpg'
 
 //to be removed for final product
 //import helper from "../../services/helper.services";
@@ -135,7 +134,7 @@ export default class DashBoard extends React.Component {
           <li className={"meal"}>
             {e.name} at {new Date(e.time).toDateString()}
             <button className="expand-toggle" onClick={() => this.handleExpandToggle(index)}>{this.state.expanded === index ? '-' : '+'}</button>
-            <button className="delete-event" onClick={()=>this.handleDelete(e.id, e.type, index)}><i class="fa fa-trash" aria-hidden="true"></i></button>
+            <button className="delete-event" onClick={()=>this.handleDelete(e.id, e.type, index)}><i className="fa fa-trash" aria-hidden="true"></i></button>
             {this.state.expanded === index && <ul>{
               e.items.map((item, index)=> {
                 return (
