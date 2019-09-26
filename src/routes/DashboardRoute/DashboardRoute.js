@@ -141,7 +141,7 @@ export default class DashBoard extends React.Component {
                 className="delete-event"
                 onClick={() => this.handleDelete(e.id, e.type, index)}
               >
-                <i class="fa fa-trash" aria-hidden="true"></i>
+                <i className="fa fa-trash" aria-hidden="true"></i>
               </button>
               {this.state.expanded === index && (
                 <ul>
@@ -181,7 +181,7 @@ export default class DashBoard extends React.Component {
                 className="delete-event"
                 onClick={() => this.handleDelete(e.id, e.type, index)}
               >
-                <i class="fa fa-trash" aria-hidden="true"></i>
+                <i className="fa fa-trash" aria-hidden="true"></i>
               </button>
             </li>
           </div>
