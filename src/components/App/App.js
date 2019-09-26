@@ -10,6 +10,7 @@ import LoginRoute from '../../routes/LoginRoute/LoginRoute';
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
 import MealRoute from '../../routes/MealRoute/MealRoute';
+import AboutRoute from '../../routes/AboutRoute/AboutRoute'
 
 class App extends Component {
   state = {
@@ -50,6 +51,8 @@ class App extends Component {
               component={LoginRoute}
             />
             <PrivateRoute path={'/meal'} component={MealRoute} />
+            <Route exact path={"/about"} component={AboutRoute}/>
+
             {<Route component={NotFoundRoute} />}
           </Switch>
         </main>
