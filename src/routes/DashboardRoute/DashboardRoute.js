@@ -164,6 +164,7 @@ export default class DashBoard extends React.Component {
         
       );
     }});
+    console.log(events)
     return (
       <div>
         {/*add meal modal*/}
@@ -206,7 +207,7 @@ export default class DashBoard extends React.Component {
             </button>
           </div>
           <div className="events">
-            <div className="events-list">{events}</div>
+            <div className="events-list">{events == '' ? `Your log is empty` : events}</div>
           </div>
         </div>
       </div>
