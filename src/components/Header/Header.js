@@ -38,11 +38,11 @@ class Header extends Component {
      <Link id="aboutlink"
           to="/about">About</Link>
           {' '}
-        </nav>
+        
         <Link id='loginlink' to='/login'>Login</Link>
         {' '}
         <Link id='signuplink' to='/register'>Sign up</Link>
-        
+        </nav>
         
       </div>
     )
