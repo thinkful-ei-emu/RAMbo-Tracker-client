@@ -43,3 +43,16 @@
   }
 
 }
+
+@media screen and (min-width: 421px) and (max-width: 1020px){
+
+  .about {
+    max-width: 75%;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: white;
+    padding: 1%;
+    text-align: left;
+  }
+
+}
