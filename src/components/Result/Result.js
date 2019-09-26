@@ -19,7 +19,7 @@ export default class Result extends React.Component {
   render() {
     console.log('re-rendering!');
     let results = !this.state.results ? (
-      <h2>Click refresh to see your analysis</h2>
+      <h2>Click Analyze to See Results</h2>
     ) : (
       this.state.results.map((item, key) => {
         let data = [];
@@ -62,12 +62,12 @@ export default class Result extends React.Component {
     );
     return (
       <div className="results">
-        <ul>{results}</ul>
+                  <h2>My Results</h2>
 
+        <ul>{results}</ul>
+        
         <div id="results-button">
-          <button onClick={(e) => this.refreshResuls(e)}>
-            Refresh Results
-          </button>
+          <button onClick={e => this.refreshResuls(e)}>Analyze my Log</button>
         </div>
       </div>
     );
