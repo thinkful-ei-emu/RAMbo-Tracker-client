@@ -1,5 +1,6 @@
 import React from "react";
 import Api from "../../services/api-service";
+import PieChart from '../PieChart/PieChart';
 import "./Result.css";
 
 export default class Result extends React.Component {
@@ -21,10 +22,11 @@ export default class Result extends React.Component {
         <h2>Click refresh to see your analysis</h2>
       ) : (
         this.state.results.map((item, key) => {
+          console.log(item);
           return (
             <li id="result-list" key={key}>
-              <strong>{item.symptomType.type}</strong> <i>is experienced most frequently after eating foods with:</i>{" "}
-              {item.mostCommonIngredients
+              <strong>{item.symptomType.type}</strong> is experienced most frequently after eating foods with:{" "}
+              <i>{item.mostCommonIngredients
                 .filter((food) => {
                   return food.name !== "WATER" }).map((food) => {
                       
@@ -32,7 +34,17 @@ export default class Result extends React.Component {
                   
                   
                 })
-                .join(", ")}
+                .join(", ")}</i>
+                <PieChart
+            data={item.mostCommonIngredients.map(ing => {
+              return {
+                label: ing.name,
+                value: ing.weight
+              }
+            })}
+            title={item.symptomType.type}
+            colors={['#a8e0ff', '#8ee3f5', '#70cad1', '#3e517a', '#b08ea2', '#BBB6DF']}
+          />
             </li>
           );
         })
@@ -40,6 +52,7 @@ export default class Result extends React.Component {
     return (
       <div className="results">
         <ul>{results}</ul>
+      
         <div id="results-button">
           <button onClick={e => this.refreshResuls(e)}>Refresh Results</button>
         </div>
