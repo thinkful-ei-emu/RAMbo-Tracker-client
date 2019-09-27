@@ -79,7 +79,7 @@ header {
   color: #002ba0
 }
 
-#loginlink{
+#loginlink, #dashlink{
   padding: 28px 10px;
   color: white;
 }
@@ -132,7 +132,7 @@ header {
     width: 100%;
   }
   
-  #loginlink{
+  #loginlink, #dashlink{
     padding: 0 0 0 0;
     color: white;
     margin: 0 20px 0 20px;
