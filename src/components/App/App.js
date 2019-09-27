@@ -11,6 +11,7 @@ import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
 import MealRoute from '../../routes/MealRoute/MealRoute';
 import AboutRoute from '../../routes/AboutRoute/AboutRoute'
+import Footer from '../Footer/Footer';
 
 class App extends Component {
   state = {
@@ -56,6 +57,7 @@ class App extends Component {
             {<Route component={NotFoundRoute} />}
           </Switch>
         </main>
+        <Footer />
       </div>
     );
   }

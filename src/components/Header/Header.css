@@ -14,7 +14,6 @@ a{
   color: black;
   position: relative;
   top: -5px;
-  /* white-space: nowrap; */
 }
 
 .user-container{
@@ -24,7 +23,7 @@ a{
   font-weight: bold;
   
 }
-.Header {/*/////////TESTING//////////*/
+.Header {
   display: flex;
   width: 40%;
   margin: 0 0 0 10px;
@@ -44,12 +43,12 @@ a{
 }
 
 header {
-  /* height: 8%; */
   padding: 0px;
   font-size: 20px;
   display: flex;
   align-items: center;
   width: 100%;
+  margin-top: 0px;
 }
 
 #user-name{
@@ -94,7 +93,7 @@ header {
   margin: 0 auto;
 }
 
-.header-photo{/*/////////TESTING//////////*/
+.header-photo{
   width: 90px;
   height: 100px;
   margin: -10px 0px 0px -10px;
@@ -102,7 +101,7 @@ header {
 
 @media screen and (max-width: 420px) and (min-width: 310px){
 
-  .header-photo{/*/////////TESTING//////////*/
+  .header-photo{
     width: 60px;
     height: 70px;
     margin: -10px 0px 0px -5px;
@@ -119,8 +118,6 @@ header {
   }
 
   .LoginLogout{
-    /* display: flex;
-    justify-content: space-evenly; */
     padding: 10px;
     font-size: 20px;
   }
@@ -183,7 +180,7 @@ header {
 
 @media screen and (min-width: 421px) and (max-width: 1020px){
 
-  .header-photo{/*/////////TESTING//////////*/
+  .header-photo{
     width: 80px;
     height: 90px;
     margin: -20px 0px 0px 5px;
@@ -213,12 +210,10 @@ header {
   }
 
   #logoutlink{
-    /* margin-right: 10px; */
     margin: 0 auto;
   }
 
   #aboutlink{
-    /* margin: 0 30px 0 30px; */
     margin: 0 auto;
   }
 
