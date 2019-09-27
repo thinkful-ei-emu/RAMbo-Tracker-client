@@ -7,8 +7,9 @@ import Meal from "../MealRoute/MealRoute";
 //css
 import "./Dashboard.css";
 import Result from "../../components/Result/Result";
-import Plate from '../../Media/plate.png'
-import Symptom from '../../Media/symptom.png'
+import Plate from "../../Media/plate.png";
+import Symptom from "../../Media/symptom.png";
+import Printer from '../../Media/print.png'
 //to be removed for final product
 //import helper from "../../services/helper.services";
 
@@ -125,13 +126,53 @@ export default class DashBoard extends React.Component {
       date.getMinutes();
     return formatted_date;
   };
+ 
+  print = () => { 
+     window.print() 
+  };
   render() {
+    let printEvents =
+    this.state.events.map((e, index) => {
+      if (e.type === "meal") {
+        return (
+          <div key={index} className="print-container">
+            <li className="meal">
+              {e.name} at {this.formatDate(e.time)}
+              <ul className="food-ingredient-print">
+                {e.items.map((item, index) => {
+                  return (
+                    <li key={index} className="food-item-in-dash">
+                      <p className="food-info-in-dash">{item.name}:{' '}
+                        {item.ingredients
+                          .map(ingredient => ingredient.toLowerCase())
+                          .join(", ")}
+                          
+                      </p>
+                    </li>
+                  );
+                })}
+              </ul>
+              
+            </li>
+          </div>
+        );
+      } else{
+        return (
+          <div key={index} className="print-container">
+            <li className="symptom">
+              {e.name} at {this.formatDate(e.time)}{" "}
+              {e.type === "symptom" ? `Severity: ${e.severity}` : ""}
+            </li>
+          </div>
+        );
+      }
+    });
     let events = this.state.events.map((e, index) => {
       if (e.type === "meal") {
         return (
           <div key={index} className="dash-event-container">
             <li className={"meal"}>
-              {e.name} at {new Date(e.time).toDateString()}
+              {e.name} at {this.formatDate(e.time)}
               <button
                 className="expand-toggle"
                 onClick={() => this.handleExpandToggle(index)}
@@ -145,7 +186,7 @@ export default class DashBoard extends React.Component {
                 <i className="fa fa-trash" aria-hidden="true"></i>
               </button>
               {this.state.expanded === index && (
-                <ul>
+                <ul className="food-toggle">
                   {e.items.map((item, index) => {
                     return (
                       <li key={index} className="food-item-in-dash">
@@ -189,7 +230,6 @@ export default class DashBoard extends React.Component {
         );
       }
     });
-    console.log(events);
     return (
       <div>
         {/*add meal modal*/}
@@ -216,7 +256,9 @@ export default class DashBoard extends React.Component {
           <h3>Welcome back, {this.state.user.display_name}</h3>
         </div>
         <div className="dashboard-content">
+      
           <Result />
+       
           <div className="log-container">
             <h2>My Log</h2>
             <div id="dash-button-container">
@@ -224,16 +266,24 @@ export default class DashBoard extends React.Component {
                 className="user-button new-meal"
                 onClick={e => this.openModal(e, "addMealModal")}
               >
-                <img className='button-logo' src={Plate} alt=''></img>
+                <img className="button-logo" src={Plate} alt=""></img>
                 Log Meal
               </button>
               <button
                 className="user-button new-symptom"
                 onClick={e => this.openModal(e, "addSymptomsModal")}
               >
-                <img className='button-logo' src={Symptom} alt=''></img>
+                <img className="button-logo" src={Symptom} alt=""></img>
                 Log Symptom
               </button>
+          <button className="user-button print-button" onClick={() => this.print()}>
+            <img className="button-logo" src={Printer} alt=""></img>
+            Print Logs
+          </button>
+          <div className=".print-container">
+
+        {printEvents}
+          </div>
             </div>
             <div className="events">
               <div className="events-list">
