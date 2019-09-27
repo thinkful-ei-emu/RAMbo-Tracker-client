@@ -38,7 +38,7 @@ class App extends Component {
       <div className="App">
         <Header refreshesWhenAppStateDoes={this.state} />
         <main>
-          {this.state.hasError && <p>There was an error! Rut Roh!</p>}
+          {this.state.hasError && <p className='error'>There was an error! Rut Roh!</p>}
           <Switch>
             <PrivateRoute exact path={'/dash'} component={DashboardRoute} />
             <PublicOnlyRoute
