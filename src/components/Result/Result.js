@@ -61,8 +61,8 @@ export default class Result extends React.Component {
       })
     );
     return (
-      <div className="results">
-                  <h2>My Results</h2>
+      <div id="results">
+        <h2>My Results</h2>
 
         <ul>{results}</ul>
         

@@ -18,7 +18,7 @@ justify-content: space-between;
   display: inherit;
   flex-direction: row;
   align-content: space-between;
-  width: 75%;
+  width: 100%;
   margin: 0 auto;
   padding-bottom: 2%;
 }
@@ -70,7 +70,7 @@ background-color: rgb(245, 245, 245);
   padding: 0;
 }
 
-.new-meal, .new-symptom{
+.new-meal, .new-symptom, .print-button{
 background-color: rgb(255, 255, 255);
 color: black;
 font-weight: bold;
@@ -81,7 +81,7 @@ display: flex;
     justify-content: center;
 }
 
-.new-meal:hover, .new-symptom:hover{
+.new-meal:hover, .new-symptom:hover, .print-button:hover{
   border: 1px solid rgb(151, 151, 151);
   background-color: rgb(255, 255, 255);
 }
@@ -170,5 +170,37 @@ li {
     padding: 0 0 0 10px;
   }
 
+
+}
+
+.print-container {
+  display: none;
+}
+
+@media print {
+  #user-welcome, header, #results, .delete-event, .events, .new-meal, .new-symptom, .print-button, #results-button {
+    display: none;
+  }
+  .dashboard-content {
+    flex-direction: column;
+  }
+
+
+  .print-container{
+    display: block;
+    text-align: left;
+  }
+  .food-ingredient-print, .meal, .symptom {
+    list-style-type: disc;
+    margin: 0;
+  }
+  .log-container{
+    width: 100%;
+  }
+ 
+
+/*   .symptom, .meal {
+    /* font-weight: bold; */
+  
 
 }
