@@ -16,7 +16,7 @@ export default class MealRoute extends React.Component {
     foodsInMeal: [],
 
     handleAddFood: food => {
-      API.doFetch('/food', 'POST', {ndbno: food.ndbno, name: food.name}).then(res => {
+      API.doFetch('/food', 'POST', {ndbno: food.fdcId}).then(res => {
         console.log(...this.state.foodsInMeal, food);
         this.setState({
           foodsInMeal: [...this.state.foodsInMeal, food]
@@ -62,16 +62,11 @@ export default class MealRoute extends React.Component {
   handleMealSubmit = e => {
     e.preventDefault();
     if (!this.verifyMealName() && !this.verifyFoodNonempty()) {
-      /* console.log({
-        time:this.state.mealTime,
-        name:this.state.mealName,
-        items: this.state.foodsInMeal.map(food=>food.ndbno)
-      }); */
       let meal ={
         type: 'meal',
         time:this.state.mealTime,
         name:this.state.mealName,
-        items: this.state.foodsInMeal.map(food=>food.ndbno)
+        items: this.state.foodsInMeal.map(food=>food.fdcId)
       };
       API.doFetch('/event', 'POST', meal)
         .then((res)=>{
@@ -114,10 +109,20 @@ export default class MealRoute extends React.Component {
               {this.state.foodsInMeal.map((food, index) => (
                 <div key={index}>
                   <div className="AddMealFoodsDisplayRow">
-                    <div className="AddMealFoodsDisplayName">
-                      {ProcessFoodName(food.name)}
+                    <div className="AddMealFoodsDisplayInfo">
+                      <div className='AddMealFoodsDisplayManu'>
+                        {food.brandOwner?
+                            ProcessFoodName(food.brandOwner):
+                            food.dataType
+                        }
+                      </div>
+                      <div className="AddMealFoodsDisplayName">
+                        {ProcessFoodName(food.description)}
+                      </div>
                     </div>
+
                     <div className="AddMealFoodsDisplaySpace"></div>
+
                     <button
                       className="user-button"
                       id="remove-food-button"

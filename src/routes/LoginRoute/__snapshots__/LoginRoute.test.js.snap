@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<section
+  aria-live="polite"
+>
+  <div
+    className="login-section"
+  >
+    <div
+      className="login-header"
+    >
+      <h2>
+        Welcome back!
+      </h2>
+      <p>
+        Don't have an account? 
+        <a
+          href="/register"
+          id="register-link-login"
+          onClick={[Function]}
+        >
+          Register here.
+        </a>
+      </p>
+    </div>
+    <div
+      className="login-content"
+    >
+      <form
+        className="login-form"
+        onSubmit={[Function]}
+      >
+        <div
+          className="error"
+          role="alert"
+        />
+        <div
+          className="login-input"
+        >
+          <label
+            className="loginLabel"
+            htmlFor="login-username-input"
+          >
+            Username:
+          </label>
+          <br />
+          <input
+            id="login-username-input"
+            name="username"
+            onChange={[Function]}
+            required={true}
+            value=""
+          />
+        </div>
+        <div
+          className="login-input"
+        >
+          <label
+            className="loginLabel"
+            htmlFor="login-password-input"
+          >
+            Password:
+          </label>
+          <br />
+          <input
+            id="login-password-input"
+            name="password"
+            onChange={[Function]}
+            required={true}
+            type="password"
+            value=""
+          />
+          <button
+            className="user-button"
+            type="submit"
+          >
+            Login
+          </button>
+           
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+`;

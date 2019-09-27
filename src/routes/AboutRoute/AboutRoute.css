@@ -1,0 +1,58 @@
+.about {
+  max-width: 75%;
+  margin: 0 auto;
+  background-color: white;
+  padding: 1%;
+  text-align: left;
+}
+
+#aboutlink{
+  color: white;
+}
+
+.about-header{
+  text-align: center;
+}
+
+.app-instructions > li {
+  padding: 0px;
+}
+
+.info-head{
+  padding: 0 1%;
+  display: flex;
+  justify-content: space-between;
+  border: 0.5px solid rgb(211, 211, 211)
+}
+
+.info-button {
+  font-weight: bold;
+  border:none;
+  background: none;
+}
+
+@media screen and (max-width: 420px) and (min-width: 310px){
+
+  .about {
+    max-width: 75%;
+    margin: 0 auto;
+    margin-top: 50px;
+    background-color: white;
+    padding: 1%;
+    text-align: left;
+  }
+
+}
+
+@media screen and (min-width: 421px) and (max-width: 1020px){
+
+  .about {
+    max-width: 75%;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: white;
+    padding: 1%;
+    text-align: left;
+  }
+
+}

@@ -1,50 +1,108 @@
-.user-dashboard{
+
+
+.dashboard-content{
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
+justify-content: space-between;
 }
+
+.log-container{
+  display: inherit;
+  flex-direction: column;
+  width: 60%;
+  
+}
+
 
 #dash-button-container {
   display: inherit;
   flex-direction: row;
   align-content: space-between;
-  width: 50%;
+  width: 75%;
   margin: 0 auto;
   padding-bottom: 2%;
 }
+
 #user-welcome {
   text-align: left;
-  padding: 5%;
+  margin: 2%;
 }
-/* #user-name{
-  color: blue;
-  
-} */
-/* #meal-button{
-  background-color: rgb(255, 123, 0);;
-}
-#symptom-button{
-  background-color: rgb(54, 1, 54);
-} */
-.meal{
-  background-color: #49797B;
-}
-.symptom{
-  background-color: #7B4A48;
-}
+
 .events > li {
-  color:white;
+  color:rgb(24, 22, 22);
   border: 2px solid black;
   width:fit-content;
-  
 }
+
+.dash-event-container:nth-child(odd) {
+background-color: rgb(245, 245, 245);
+}
+.dash-event-container {
+  position: relative;
+  background-color: rgb(224, 226, 226);
+}
+.expand-toggle {
+  position: absolute;
+  top: 8px;
+  right: 45px;
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  color: rgb(22, 86, 184);
+  padding-right: 20%;
+}
+.delete-event {
+  position: absolute;
+  top: 8px;
+  right: 15px;
+ 
+  border: none;
+    background-color: transparent;
+}
+.ingredients-expand {
+  margin-left: 5px;
+  border: none;
+  background-color: transparent;
+}
+
+.food-item-in-dash {
+  margin-bottom: 5px;
+  padding: 0;
+}
+
+.new-meal, .new-symptom{
+background-color: rgb(255, 255, 255);
+color: black;
+font-weight: bold;
+padding: 1%;
+display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.new-meal:hover, .new-symptom:hover{
+  border: 1px solid rgb(151, 151, 151);
+  background-color: rgb(255, 255, 255);
+}
+
+.ingredients-list-in-dash {
+  margin: 0px;
+  padding: 0;
+}
+
+.food-info-in-dash {
+  margin: 0;
+  padding: 0;
+}
+
 li {
   list-style-type: none;
-  color: white;
+  color: rgb(31, 27, 27);
   padding: 2%;
   
 }
 .events-list {
-  width: 50%;
   margin: 0 auto;
 }
 
@@ -72,10 +130,45 @@ li {
 .symptom-modal{
   opacity: 0.5;
 }
+.button-logo{
+  width: 20px;
+  padding-right:5px;
+}
+@media screen and (max-width: 800px){
+  .dashboard-content{
+   align-items: center;
+    flex-direction: column;
+ 
+  }
+}
 
-.dashboard-content {
-  background-image: url('../../Media/dash-background.jpg');
-  background-size: cover;
-  padding: 5%;
-  margin: 0 5%;
+@media screen and (max-width: 500px){
+
+  #dash-button-container {
+    display: inherit;
+    flex-direction: row;
+    align-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 2%;
+  }
+
+
+  .events-list {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .dashboard-content {
+
+    padding: 1% 0 1% 0;
+    margin: 0 0%;
+  }
+
+  #user-welcome {
+    text-align: left;
+    padding: 0 0 0 10px;
+  }
+
+
 }

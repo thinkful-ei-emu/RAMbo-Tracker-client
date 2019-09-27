@@ -34,11 +34,11 @@ padding: 2%;
   margin: 0 auto;
   margin-top: 2%;
   padding: 2%;
-  background-color: #121D17;
+  background-color: #32936F;
   color: white;
 }
 .user-button:hover{
-  background-color: rgb(49, 78, 63);
+  background-color: rgb(31, 97, 73);
 }
 a {
   display: inline-block;

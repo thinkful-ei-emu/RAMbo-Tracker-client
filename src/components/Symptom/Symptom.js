@@ -38,7 +38,9 @@ class Symptom extends Component {
       console.log(res);
       this.props.updateEvents(res);
       this.props.closeModal('addSymptomsModal');//this functions is passed in from dashboard to close the modal, it should be placed int the 'then' of api call to ensure it only runs in happy case 
-     }).catch(e=>this.setState({error: e})); 
+     }).catch((res)=> {
+     console.log(res)
+     this.setState({error: res.error})}); 
   };
 
   handleTimeChange = date => {
@@ -79,6 +81,7 @@ class Symptom extends Component {
     });
 
     return (
+      <div className="symptom-container">
       <section className="symptom-container">
         <h2>Log a Symptom</h2>
         <form onSubmit={e => this.handleSymptomSubmit(e)}>
@@ -138,12 +141,21 @@ class Symptom extends Component {
               step="1"
               min="1"
               max="5"
+              list="tickmarks"
               defaultValue={this.state.symptomSeverity}
               onChange={e => this.handleSeverityChange(e)}
             />
+            <datalist id="tickmarks">
+              <option value="1" label="low"></option>
+              <option value="2"></option>
+              <option value="3" label="3"></option>
+              <option value="4"></option>
+              <option value="5" label="5"></option>
+            </datalist>
+            <p id="severity-desc">(Scale of 1-5: 1 being low, 5 being extreme)</p>
           </div>
-
           <br />
+          {this.state.error && <h3 className='symptom-error'>{this.state.error}</h3>}
           <div id='submit-button'>
             <button className="user-button" type="submit">
               Submit Symptom
@@ -151,6 +163,7 @@ class Symptom extends Component {
           </div>
         </form>
       </section>
+      </div>
     );
   }
 }

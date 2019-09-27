@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div
+  className="results"
+>
+  <ul>
+    <p>
+      click refresh to see correlation
+    </p>
+  </ul>
+  <button
+    onClick={[Function]}
+  >
+    refresh
+  </button>
+</div>
+`;

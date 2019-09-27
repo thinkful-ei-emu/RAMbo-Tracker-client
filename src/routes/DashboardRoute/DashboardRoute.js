@@ -6,15 +6,19 @@ import Symptoms from "../../components/Symptom/Symptom";
 import Meal from "../MealRoute/MealRoute";
 //css
 import "./Dashboard.css";
-import Result from '../../components/Result/Result';
+import Result from "../../components/Result/Result";
+import Plate from '../../Media/plate.png'
+import Symptom from '../../Media/symptom.png'
 //to be removed for final product
-import helper from "../../services/helper.services";
+//import helper from "../../services/helper.services";
 
-Modal.setAppElement("#root");
+if (process.env.NODE_ENV !== "test") Modal.setAppElement("#root");
 export default class DashBoard extends React.Component {
   state = {
     addMealModal: false,
     addSymptomsModal: false,
+    expanded: false,
+    itemExpanded: [],
 
     user: {
       username: "",
@@ -49,6 +53,49 @@ export default class DashBoard extends React.Component {
       .catch(e => this.setState({ error: e }));
   }
 
+  handleDelete = (id, type, index) => {
+    API.doFetch("/event", "DELETE", {
+      id,
+      type
+    }).then(() => {
+      const newEvents = [...this.state.events];
+      newEvents.splice(index, 1);
+      this.setState({
+        events: newEvents
+      });
+    });
+  };
+
+  handleExpandToggle = index => {
+    if (this.state.expanded === index) {
+      this.setState({
+        expanded: false,
+        itemExpanded: []
+      });
+    } else {
+      this.setState({
+        expanded: index,
+        itemExpanded: []
+      });
+    }
+  };
+
+  handleIngredientsToggle = index => {
+    if (this.state.itemExpanded.includes(index)) {
+      const newItemExpanded = [...this.state.itemExpanded];
+      newItemExpanded.splice(newItemExpanded.indexOf(index), 1);
+      this.setState({
+        itemExpanded: newItemExpanded
+      });
+    } else {
+      const newItemExpanded = [...this.state.itemExpanded];
+      newItemExpanded.push(index);
+      this.setState({
+        itemExpanded: newItemExpanded
+      });
+    }
+  };
+
   closeModal = modal => {
     this.setState({ [modal]: false });
   };
@@ -57,18 +104,92 @@ export default class DashBoard extends React.Component {
     this.setState({ [modal]: true });
   };
   updateEvents = e => {
-    let temp=[e, ...this.state.events];
-    temp.sort((a,b)=>new Date(b.time).getTime()-new Date(a.time).getTime())
+    let temp = [e, ...this.state.events];
+    temp.sort(
+      (a, b) => new Date(b.time).getTime() - new Date(a.time).getTime()
+    );
     this.setState({ events: temp });
+  };
+  formatDate = time => {
+    let date = new Date(time);
+    let formatted_date =
+      date.getMonth() +
+      1 +
+      "-" +
+      date.getDate() +
+      "-" +
+      date.getFullYear() +
+      " " +
+      date.getHours() +
+      ":" +
+      date.getMinutes();
+    return formatted_date;
   };
   render() {
     let events = this.state.events.map((e, index) => {
-      return (
-        <li key={index} className={e.type === "meal" ? "meal" : "symptom"}>
-          {e.name} at {new Date(e.time).toDateString()} {e.severity}
-        </li>
-      );
+      if (e.type === "meal") {
+        return (
+          <div key={index} className="dash-event-container">
+            <li className={"meal"}>
+              {e.name} at {new Date(e.time).toDateString()}
+              <button
+                className="expand-toggle"
+                onClick={() => this.handleExpandToggle(index)}
+              >
+                {this.state.expanded === index ? "-" : "+"}
+              </button>
+              <button
+                className="delete-event"
+                onClick={() => this.handleDelete(e.id, e.type, index)}
+              >
+                <i className="fa fa-trash" aria-hidden="true"></i>
+              </button>
+              {this.state.expanded === index && (
+                <ul>
+                  {e.items.map((item, index) => {
+                    return (
+                      <li key={index} className="food-item-in-dash">
+                        <p className="food-info-in-dash">{item.name}</p>
+                        <p className="ingredients-list-in-dash">
+                          {this.state.itemExpanded.includes(index) &&
+                            item.ingredients
+                              .map(ingredient => ingredient.toLowerCase())
+                              .join(", ")}
+                          <button
+                            className="ingredients-expand"
+                            onClick={() => this.handleIngredientsToggle(index)}
+                          >
+                            {this.state.itemExpanded.includes(index)
+                              ? "Hide ingredients"
+                              : "Show ingredients"}
+                          </button>
+                        </p>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+            </li>
+          </div>
+        );
+      } else {
+        return (
+          <div key={index} className="dash-event-container">
+            <li className="symptom">
+              {e.name} at {this.formatDate(e.time)}{" "}
+              {e.type === "symptom" ? `Severity: ${e.severity}` : ""}
+              <button
+                className="delete-event"
+                onClick={() => this.handleDelete(e.id, e.type, index)}
+              >
+                <i className="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </li>
+          </div>
+        );
+      }
     });
+    console.log(events);
     return (
       <div>
         {/*add meal modal*/}
@@ -79,8 +200,8 @@ export default class DashBoard extends React.Component {
           <Meal closeModal={this.closeModal} updateEvents={this.updateEvents} />
         </Modal>
         <Modal
-        className='Modal'
-        // overlayClassName="Overlay"
+          className="Modal"
+          // overlayClassName="Overlay"
           isOpen={this.state.addSymptomsModal}
           onRequestClose={() => this.closeModal("addSymptomsModal")}
         >
@@ -93,25 +214,32 @@ export default class DashBoard extends React.Component {
         <div id="user-welcome">
           {" "}
           <h3>Welcome back, {this.state.user.display_name}</h3>
-          <Result/>
         </div>
         <div className="dashboard-content">
-          <div id="dash-button-container">
-            <button
-              className="user-button"
-              onClick={e => this.openModal(e, "addMealModal")}
-            >
-              Log New Meal
-            </button>
-            <button
-              className="user-button"
-              onClick={e => this.openModal(e, "addSymptomsModal")}
-            >
-              Log New Symptoms
-            </button>
-          </div>
-          <div className="events">
-            <div className="events-list">{events}</div>
+          <Result />
+          <div className="log-container">
+            <h2>My Log</h2>
+            <div id="dash-button-container">
+              <button
+                className="user-button new-meal"
+                onClick={e => this.openModal(e, "addMealModal")}
+              >
+                <img className='button-logo' src={Plate} alt=''></img>
+                Log Meal
+              </button>
+              <button
+                className="user-button new-symptom"
+                onClick={e => this.openModal(e, "addSymptomsModal")}
+              >
+                <img className='button-logo' src={Symptom} alt=''></img>
+                Log Symptom
+              </button>
+            </div>
+            <div className="events">
+              <div className="events-list">
+                {events == "" ? `Your log is empty` : events}
+              </div>
+            </div>
           </div>
         </div>
       </div>
