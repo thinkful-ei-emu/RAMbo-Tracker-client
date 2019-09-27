@@ -28,23 +28,3 @@
 #copy-footer{
   margin: 0 10px 3px 10px;
 }
-
-
-/* @media screen and (min-width: 760px) {
-  #phantom-footer{
-    display: block;
-    padding: 0px;
-    min-height: 21vh;
-    bottom: 10px;
-    margin-top: 0 auto;
-  }
-
-  #footer{
-    position: absolute;
-    left: 0;
-    bottom: 15px;
-    height: 15px;
-    width: 100%;
-    overflow: hidden;
-  }
-} */
