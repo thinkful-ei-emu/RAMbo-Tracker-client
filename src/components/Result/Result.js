@@ -2,7 +2,6 @@ import React from 'react';
 import Api from '../../services/api-service';
 import PieChart from '../PieChart/PieChart';
 import './Result.css';
-import chart from 'chart.js';
 
 export default class Result extends React.Component {
   state = {
