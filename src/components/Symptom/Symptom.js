@@ -129,31 +129,63 @@ class Symptom extends Component {
             />
           </div>
 
-          <div id="severity-radio">
-            <label 
-              htmlFor='severity-slider'>
+          <label 
+              id='radio-label'
+              htmlFor='radio'>
               Rate the Severity
-            </label><br/>
+            </label>
+            <br/>
+          <div className='radio-container'>
+
+              <div className='radio-buttons'>
+                <label> 
+                  <input type='radio' value='1' 
+                    checked={this.state.symptomSeverity === '1'}
+                    onChange={e => this.handleSeverityChange(e)} />
+                  1
+                </label>
+              </div>
+
+              <div className='radio-buttons'>
+                <label> 
+                  <input type='radio' value='2'
+                  checked={this.state.symptomSeverity === '2'}
+                  onChange={e => this.handleSeverityChange(e)} />
+                  2
+                </label>
+              </div>
+
+              <div className='radio-buttons'>
+                <label> 
+                  <input type='radio' value='3'
+                  checked={this.state.symptomSeverity === '3'}
+                  onChange={e => this.handleSeverityChange(e)} />
+                  3
+                </label>
+              </div>
+
+              <div className='radio-buttons'>
+                <label> 
+                  <input type='radio' value='4'
+                  checked={this.state.symptomSeverity === '4'}
+                  onChange={e => this.handleSeverityChange(e)} />
+                  4
+                </label>
+              </div>
+
+              <div className='radio-buttons'>
+                <label> 
+                  <input type='radio' value='5'
+                  checked={this.state.symptomSeverity === '5'}
+                  onChange={e => this.handleSeverityChange(e)} />
+                  5
+                </label>
+              </div>
             
-            <input
-              id='severity-slider'
-              type="range"
-              step="1"
-              min="1"
-              max="5"
-              list="tickmarks"
-              defaultValue={this.state.symptomSeverity}
-              onChange={e => this.handleSeverityChange(e)}
-            />
-            <datalist id="tickmarks">
-              <option value="1" label="low"></option>
-              <option value="2"></option>
-              <option value="3" label="3"></option>
-              <option value="4"></option>
-              <option value="5" label="5"></option>
-            </datalist>
-            <p id="severity-desc">(Scale of 1-5: 1 being low, 5 being extreme)</p>
           </div>
+            <p id="severity-desc">(Low - Extreme)</p>  
+          
+
           <br />
           {this.state.error && <h3 className='symptom-error'>{this.state.error}</h3>}
           <div id='submit-button'>

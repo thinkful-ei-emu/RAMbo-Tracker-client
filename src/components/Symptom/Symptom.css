@@ -15,9 +15,6 @@
 #submit-button{
   text-align: center;
 }
-/* datalist{
-  display: flex;
-} */
 
 .symptom-error{
   color: red;
@@ -55,10 +52,30 @@
 }
 
 #symptom-select{
-  border: 1px solid black;
+  border-radius: 3px;
   margin: 10px 0px;
+  height: 35px;
   width: 60%;
 }
+
+.radio-container{
+  padding: 0px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#radio-label{
+  line-height: 60px;
+  padding: 10px 0 0 20px;
+  margin: 20px 0 0 0;
+}
+
+#severity-desc{
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 0 0;
+}
+
 @media screen and (max-width: 500px){
   #select-preexisting{
   width: 75%;
