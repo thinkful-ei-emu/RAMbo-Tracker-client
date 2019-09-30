@@ -180,6 +180,7 @@ export default class DashBoard extends React.Component {
           <div key={index} className="dash-event-container">
             <li className={"meal"}>
               {e.name} at {this.formatDate(e.time)}
+              <div className='meal-toggle-cont'>
               <button
                 className="expand-toggle"
                 onClick={() => this.handleExpandToggle(index)}
@@ -192,6 +193,7 @@ export default class DashBoard extends React.Component {
               >
                 <i className="fa fa-trash" aria-hidden="true"></i>
               </button>
+              </div>
               {this.state.expanded === index && (
                 <ul className="food-toggle">
                   {e.items.map((item, index) => {
@@ -228,14 +230,15 @@ export default class DashBoard extends React.Component {
           <div key={index} className="dash-event-container">
             <li className="symptom">
               {e.name} at {this.formatDate(e.time)}{" "}
-              {e.type === "symptom" ? `Severity: ${e.severity}` : ""}
-            </li>
-            <button
+              {e.type === "symptom" ? `Severity: ${e.severity}` : ""}{' '}
+              <button
                 className="delete-event"
                 onClick={() => this.handleDelete(e.id, e.type, index)}
               >
                 <i className="fa fa-trash" aria-hidden="true"></i>
               </button>
+            </li>
+           
           </div>
         );
       }
