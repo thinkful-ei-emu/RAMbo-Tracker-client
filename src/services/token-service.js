@@ -1,4 +1,4 @@
-/* import jwtDecode from 'jwt-decode' */
+import jwtDecode from 'jwt-decode'
 import config from '../config'
 
 let _timeoutId
@@ -17,7 +17,7 @@ const TokenService = {
   hasAuthToken() {
     return !!TokenService.getAuthToken()
   },
-  /* parseJwt(jwt) {
+  parseJwt(jwt) {
     return jwtDecode(jwt)
   },
   parseAuthToken() {
@@ -38,7 +38,7 @@ const TokenService = {
   },
   clearCallbackBeforeExpiry() {
     clearTimeout(_timeoutId)
-  }, */
+  },
 }
 
 export default TokenService

@@ -43,7 +43,11 @@ export default class DashBoard extends React.Component {
       }
     ]
   };
+  clearErrors=()=>{
+    this.setState({error: null})
+  }
   componentDidMount() {
+    this.clearErrors()
     API.doFetch("/event")
       .then(res => {
         this.setState({
@@ -51,10 +55,12 @@ export default class DashBoard extends React.Component {
           events: res.events
         });
       })
-      .catch(e => this.setState({ error: e }));
+      .catch(res => this.setState({ error: res.message }));
   }
 
   handleDelete = (id, type, index) => {
+    this.clearErrors()
+
     API.doFetch("/event", "DELETE", {
       id,
       type
@@ -64,7 +70,8 @@ export default class DashBoard extends React.Component {
       this.setState({
         events: newEvents
       });
-    });
+    })
+    .catch(res =>this.setState({error: res.message}));
   };
 
   handleExpandToggle = index => {
@@ -256,11 +263,12 @@ export default class DashBoard extends React.Component {
           <h3>Welcome back, {this.state.user.display_name}</h3>
         </div>
         <div className="dashboard-content">
-      
           <Result />
        
           <div className="log-container">
             <h2>My Log</h2>
+            {this.state.error && <p className="error">There Was An Error!</p>}
+
             <div id="dash-button-container">
               <button
                 className="user-button new-meal"

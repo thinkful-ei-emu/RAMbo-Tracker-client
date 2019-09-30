@@ -5,19 +5,20 @@ import './Result.css';
 
 export default class Result extends React.Component {
   state = {
-    results: null
+    results: null,
+    error: null
   };
   refreshResuls = () => {
-    console.log('refresh clicked!');
+    this.setState({error: null})
     Api.doFetch('/results')
+    
       .then((res) => {
-        console.log(res);
         this.setState({ results: res });
       })
-      .catch(console.log);
+      .catch(res=>
+        this.setState({error: res.message}));
   };
   render() {
-    console.log('re-rendering!');
     let results = !this.state.results ? (
       <h2>Click Analyze to See Results</h2>
     ) : (
@@ -61,9 +62,10 @@ export default class Result extends React.Component {
       })
     );
     return (
+      
       <div id="results">
         <h2>My Results</h2>
-
+{this.state.error && <p class="error">There Was An Error!</p>}
         <ul>{results}</ul>
         
         <div id="results-button">

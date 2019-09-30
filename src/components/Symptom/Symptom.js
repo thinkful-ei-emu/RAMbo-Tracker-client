@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import helper from "../../services/helper.services";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Symptom.css";
-
+let symptomName = document.getElementById('user-symptom')
 class Symptom extends Component {
   state = {
     symptomName: "",
@@ -13,10 +13,12 @@ class Symptom extends Component {
     pastUserSymptoms: [],
     pastSymptomVal: "",
     symptomSelectIsHidden: false,
-    symptomInputDisabled: false
+    symptomInputDisabled: false,
+    error: null
   };
 
   componentDidMount() {
+    this.setState({error: null})
     /* Api.doFetch('TODO')
     .then(res => { */
     //})
@@ -25,11 +27,14 @@ class Symptom extends Component {
     //.catch(e => console.log(e))
   }
 
+
   handleSymptomSubmit = e => {
     e.preventDefault();
+    this.setState({error: null})
+
     let sym = {};
     sym.type='symptom';
-    sym.symptom = e.target["user-symptom"].value;
+    sym.symptom = symptomName.value;
     sym.severity = this.state.symptomSeverity;
     sym.time = this.state.symptomTime;
     sym.symptom = this.state.pastSymptomVal ? this.state.pastSymptomVal : sym.symptom;
@@ -39,8 +44,8 @@ class Symptom extends Component {
       this.props.updateEvents(res);
       this.props.closeModal('addSymptomsModal');//this functions is passed in from dashboard to close the modal, it should be placed int the 'then' of api call to ensure it only runs in happy case 
      }).catch((res)=> {
-     console.log(res)
-     this.setState({error: res.error})}); 
+/*      console.log(res)
+ */     this.setState({error: res.error})}); 
   };
 
   handleTimeChange = date => {
@@ -84,20 +89,33 @@ class Symptom extends Component {
       <div className="symptom-container">
       <section className="symptom-container">
         <h2>Log a Symptom</h2>
-        <form onSubmit={e => this.handleSymptomSubmit(e)}>
+{/*         {this.state.error && <p className="error">There Was An Error</p>}
+ */}        <form onSubmit={e => this.handleSymptomSubmit(e)}>
           <div id="user-input-container">
             <label htmlFor="user-symptom">Add New Symptom</label>
             <br />
+            <datalist id="past-symptoms">
+              {this.state.pastUserSymptoms.map((sym,i)=><option key = {i} value={sym.label}/>)}
+            </datalist>
             <input
               name="symptom"
+              onFocus = {(e)=>symptomName = e.target}
               id="user-symptom"
               type="text"
               placeholder="bloated.."
+              list= "past-symptoms"
               disabled={this.state.symptomSelectIsHidden}
             />
+            <p id="auto-complete"></p>
           </div>
+    {this.props.prevSymptoms.map((s,i)=>{
+    if(i > 4)//limits to 5
+      return null;
+    return <input onFocus={(e)=>symptomName = e.target} name="pastSymptoms" value={s.name}/>
+    })
+    }
 
-          <div id="select">
+          {/* 
             <button id="select-preexisting" className='user-button' onClick={e => this.addSymptomClick(e)}>
               Choose Saved Symptom
             </button>
@@ -114,8 +132,7 @@ class Symptom extends Component {
               </>
             ) : (
               <></>
-            )}
-          </div>
+            )} */}
 
           <div id="date">
             <label htmlFor="date-select">Date and Time:</label>
@@ -155,7 +172,7 @@ class Symptom extends Component {
             <p id="severity-desc">(Scale of 1-5: 1 being low, 5 being extreme)</p>
           </div>
           <br />
-          {this.state.error && <h3 className='symptom-error'>{this.state.error}</h3>}
+          {this.state.error && <p className='symptom-error'>{this.state.error}</p>}
           <div id='submit-button'>
             <button className="user-button" type="submit">
               Submit Symptom
