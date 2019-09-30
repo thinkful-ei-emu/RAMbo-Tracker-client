@@ -229,13 +229,13 @@ export default class DashBoard extends React.Component {
             <li className="symptom">
               {e.name} at {this.formatDate(e.time)}{" "}
               {e.type === "symptom" ? `Severity: ${e.severity}` : ""}
-              <button
+            </li>
+            <button
                 className="delete-event"
                 onClick={() => this.handleDelete(e.id, e.type, index)}
               >
                 <i className="fa fa-trash" aria-hidden="true"></i>
               </button>
-            </li>
           </div>
         );
       }
