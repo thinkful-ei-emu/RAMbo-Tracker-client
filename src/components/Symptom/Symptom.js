@@ -101,10 +101,10 @@ class Symptom extends Component {
             />
             <p id="auto-complete"></p>
           </div>
-    {this.state.pastUserSymptoms.map((s,i)=>{
-    if(i > 4)
+    {this.props.prevSymptoms.map((s,i)=>{
+    if(i > 4)//limits to 5
       return null;
-    return <input name="pastSymptoms" value={s.label}/>
+    return <input name="pastSymptoms" value={s.name}/>
     })
     }
 
