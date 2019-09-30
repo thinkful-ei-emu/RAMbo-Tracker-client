@@ -101,8 +101,14 @@ class Symptom extends Component {
             />
             <p id="auto-complete"></p>
           </div>
+    {this.state.pastUserSymptoms.map((s,i)=>{
+    if(i > 4)
+      return null;
+    return <input name="pastSymptoms" value={s.label}/>
+    })
+    }
 
-          <div id="select">
+          {/* 
             <button id="select-preexisting" className='user-button' onClick={e => this.addSymptomClick(e)}>
               Choose Saved Symptom
             </button>
@@ -119,8 +125,7 @@ class Symptom extends Component {
               </>
             ) : (
               <></>
-            )}
-          </div>
+            )} */}
 
           <div id="date">
             <label htmlFor="date-select">Date and Time:</label>
