@@ -21,9 +21,7 @@ class App extends Component {
     username: '',
     processLogin: () => {
       const jwtPayload = TokenService.parseAuthToken()
-      this.setUser({
-        id: jwtPayload.user_id,
-        name: jwtPayload.name,
+      this.setState({
         username: jwtPayload.sub,
       })
       IdleService.regiserIdleTimerResets()
