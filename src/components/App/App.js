@@ -12,6 +12,8 @@ import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
 import MealRoute from '../../routes/MealRoute/MealRoute';
 import AboutRoute from '../../routes/AboutRoute/AboutRoute'
 import Footer from '../Footer/Footer';
+import IdleService from '../../services/idle-service'
+import AuthApiService from '../../services/api-service'
 
 class App extends Component {
   state = {
@@ -27,7 +29,26 @@ class App extends Component {
       this.setState({ username: '' });
     }
   };
+  componentDidMount() {
+    IdleService.setIdleCallback(this.logoutFromIdle);
+    if (TokenService.hasAuthToken()) {
+      IdleService.registerIdleTimerResets();
+      TokenService.queueCallbackBeforeExpiry(() => {
+        AuthApiService.postRefreshToken();
+      });
+    }
+  }
+  componentWillUnmount() {
+    IdleService.unRegisterIdleResets();
+    TokenService.clearCallbackBeforeExpiry();
+  }
 
+  logoutFromIdle = () => {
+    TokenService.clearAuthToken();
+    TokenService.clearCallbackBeforeExpiry();
+    IdleService.unRegisterIdleResets();
+    this.forceUpdate();
+  };
   static getDerivedStateFromError(error) {
     console.error(error);
     return { hasError: true };
