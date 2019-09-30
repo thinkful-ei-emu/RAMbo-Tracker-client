@@ -2,7 +2,7 @@ import React from 'react';
 import API from '../../services/api-service'
 import ProcessFoodName from '../../services/process-food-name'
 import './AddFood.css';
-
+import cart from '../../Media/cart.png'
 export default class AddFood extends React.Component {
   state = {
     isInSearch:false,
@@ -193,7 +193,7 @@ export default class AddFood extends React.Component {
                       <div className='AddFoodSearchResultsSpace'>
                       </div>
                       <button id='add-food-button' className='user-button' onClick={e => { this.handleAddFood(e,food) }} >
-                        Add Food
+                       <img id='add-food-logo'src={cart} alt=''/> Add Food
                       </button>
                     </div>
                     <hr></hr>
