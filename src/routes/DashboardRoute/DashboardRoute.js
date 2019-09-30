@@ -195,7 +195,7 @@ export default class DashBoard extends React.Component {
               {this.state.expanded === index && (
                 <ul className="food-toggle">
                   {e.items.map((item, index) => {
-                    return (
+                    return (<>
                       <li key={index} className="food-item-in-dash">
                         <p className="food-info-in-dash">{item.name}</p>
                         <p className="ingredients-list-in-dash">
@@ -203,6 +203,10 @@ export default class DashBoard extends React.Component {
                             item.ingredients
                               .map(ingredient => ingredient.toLowerCase())
                               .join(", ")}
+                          
+                        </p>
+                      </li>
+                      <div className='exp-hide-btn'>
                           <button
                             className="ingredients-expand"
                             onClick={() => this.handleIngredientsToggle(index)}
@@ -211,9 +215,8 @@ export default class DashBoard extends React.Component {
                               ? "Hide ingredients"
                               : "Show ingredients"}
                           </button>
-                        </p>
-                      </li>
-                    );
+                          </div>
+                    </>);
                   })}
                 </ul>
               )}
