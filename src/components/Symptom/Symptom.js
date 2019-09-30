@@ -94,13 +94,18 @@ class Symptom extends Component {
           <div id="user-input-container">
             <label htmlFor="user-symptom">Add New Symptom</label>
             <br />
+            <datalist id="past-symptoms">
+              {this.state.pastUserSymptoms.map((sym,i)=><option key = {i} value={sym.label}/>)}
+            </datalist>
             <input
               name="symptom"
               id="user-symptom"
               type="text"
               placeholder="bloated.."
+              list= "past-symptoms"
               disabled={this.state.symptomSelectIsHidden}
             />
+            <p id="auto-complete"></p>
           </div>
 
           <div id="select">
