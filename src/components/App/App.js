@@ -19,13 +19,22 @@ class App extends Component {
   state = {
     hasError: false,
     username: '',
-    processLogin: (username) => {
-      this.setState({
-        username
-      });
+    processLogin: () => {
+      const jwtPayload = TokenService.parseAuthToken()
+      this.setUser({
+        id: jwtPayload.user_id,
+        name: jwtPayload.name,
+        username: jwtPayload.sub,
+      })
+      IdleService.regiserIdleTimerResets()
+      TokenService.queueCallbackBeforeExpiry(() => {
+        this.fetchRefreshToken()
+      })
     },
     processLogout: () => {
-      TokenService.clearAuthToken();
+      TokenService.clearAuthToken()
+      TokenService.clearCallbackBeforeExpiry()
+      IdleService.unRegisterIdleResets()
       this.setState({ username: '' });
     }
   };
