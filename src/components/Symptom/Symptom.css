@@ -59,9 +59,15 @@
 }
 
 .radio-container{
+  /* border: 1px solid black; */
   padding: 0px;
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
+}
+
+.radio-label{
+  padding: 0px 20px 0px 20px;
+  border: 1px solid black;
 }
 
 #radio-label{
@@ -75,6 +81,49 @@
   justify-content: center;
   padding: 10px 0 0 0;
 }
+
+
+
+
+
+.radio-buttons-1{
+  color: black;
+  background-color: yellow;
+  border-color: blue;
+}
+
+#radio-1{
+  color: black;
+  background-color: green;
+  border-color: blue;
+  margin-right: 10px;
+}
+
+.radio-buttons-2{
+  color: black;
+  background-color: gold;
+}
+.radio-buttons-3{
+  color: black;
+  background-color: orange;
+}
+.radio-buttons-4{
+  color: black;
+  background-color: orangered;
+}
+.radio-buttons-5{
+  color: black;
+  background-color: red;
+}
+
+.wong-severity{
+  padding: 5px;
+  height: 89px;
+  max-width: 420px;
+}
+
+
+
 
 @media screen and (max-width: 500px){
   #select-preexisting{
