@@ -6,7 +6,6 @@ import "./LoginForm.css";
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    this.firstInput = React.createRef();
     this.state = {
       error: null,
       username: "",
@@ -27,18 +26,21 @@ class LoginForm extends React.Component {
     const { username, password } = this.state;
 
     this.setState({ error: null });
-
     API.doFetch('/auth/token', 'POST', {
       username,
       password
     })
       .then((res) => {
         TokenService.saveAuthToken(res.authToken);
+        console.log('hi1')
         this.props.onLoginSuccess(username);
+        console.log('hi')
       })
       .catch(res => {
         this.setState({ error: res.message });
       });
+
+    
   };
 
   componentDidMount() {
