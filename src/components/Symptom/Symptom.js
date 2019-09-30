@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import helper from "../../services/helper.services";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Symptom.css";
-
+let symptomName = document.getElementById('user-symptom')
 class Symptom extends Component {
   state = {
     symptomName: "",
@@ -34,7 +34,7 @@ class Symptom extends Component {
 
     let sym = {};
     sym.type='symptom';
-    sym.symptom = e.target["user-symptom"].value;
+    sym.symptom = symptomName.value;
     sym.severity = this.state.symptomSeverity;
     sym.time = this.state.symptomTime;
     sym.symptom = this.state.pastSymptomVal ? this.state.pastSymptomVal : sym.symptom;
@@ -94,16 +94,28 @@ class Symptom extends Component {
           <div id="user-input-container">
             <label htmlFor="user-symptom">Add New Symptom</label>
             <br />
+            <datalist id="past-symptoms">
+              {this.state.pastUserSymptoms.map((sym,i)=><option key = {i} value={sym.label}/>)}
+            </datalist>
             <input
               name="symptom"
+              onFocus = {(e)=>symptomName = e.target}
               id="user-symptom"
               type="text"
               placeholder="bloated.."
+              list= "past-symptoms"
               disabled={this.state.symptomSelectIsHidden}
             />
+            <p id="auto-complete"></p>
           </div>
+    {this.props.prevSymptoms.map((s,i)=>{
+    if(i > 4)//limits to 5
+      return null;
+    return <input onFocus={(e)=>symptomName = e.target} name="pastSymptoms" value={s.name}/>
+    })
+    }
 
-          <div id="select">
+          {/* 
             <button id="select-preexisting" className='user-button' onClick={e => this.addSymptomClick(e)}>
               Choose Saved Symptom
             </button>
@@ -120,8 +132,7 @@ class Symptom extends Component {
               </>
             ) : (
               <></>
-            )}
-          </div>
+            )} */}
 
           <div id="date">
             <label htmlFor="date-select">Date and Time:</label>

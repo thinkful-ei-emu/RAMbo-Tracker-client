@@ -12,22 +12,50 @@ import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
 import MealRoute from '../../routes/MealRoute/MealRoute';
 import AboutRoute from '../../routes/AboutRoute/AboutRoute'
 import Footer from '../Footer/Footer';
+import IdleService from '../../services/idle-service'
+import AuthService from '../../services/auth-service'
 
 class App extends Component {
   state = {
     hasError: false,
     username: '',
-    processLogin: (username) => {
+    processLogin: () => {
+      const jwtPayload = TokenService.parseAuthToken()
       this.setState({
-        username
-      });
+        username: jwtPayload.sub,
+      })
+      IdleService.regiserIdleTimerResets()
+      TokenService.queueCallbackBeforeExpiry(() => {
+        this.fetchRefreshToken()
+      })
     },
     processLogout: () => {
-      TokenService.clearAuthToken();
+      TokenService.clearAuthToken()
+      TokenService.clearCallbackBeforeExpiry()
+      IdleService.unRegisterIdleResets()
       this.setState({ username: '' });
     }
   };
+  componentDidMount() {
+    IdleService.setIdleCallback(this.logoutFromIdle);
+    if (TokenService.hasAuthToken()) {
+      IdleService.registerIdleTimerResets();
+      TokenService.queueCallbackBeforeExpiry(() => {
+        AuthService.refreshToken()
+      });
+    }
+  }
+  componentWillUnmount() {
+    IdleService.unRegisterIdleResets();
+    TokenService.clearCallbackBeforeExpiry();
+  }
 
+  logoutFromIdle = () => {
+    TokenService.clearAuthToken();
+    TokenService.clearCallbackBeforeExpiry();
+    IdleService.unRegisterIdleResets();
+    this.forceUpdate();
+  };
   static getDerivedStateFromError(error) {
     console.error(error);
     return { hasError: true };
