@@ -45,13 +45,22 @@
 margin:1%;
 padding:3%;
 }
-
+#add-food-logo{
+  width:15px;
+  padding:1%;
+}
 #add-food-button{
-  background-color: rgb(255, 138, 5);
-  width: 25%
+  background-color: rgb(255, 255, 255);
+  color:black;
+  width: 25%;
+  padding: 1%;
+display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 #add-food-button:hover{
-  background-color: rgb(255, 84, 5);
+border: 1px solid black;
 }
 
 @media screen and (max-width: 500px){
