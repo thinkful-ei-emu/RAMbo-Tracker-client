@@ -13,7 +13,7 @@ import MealRoute from '../../routes/MealRoute/MealRoute';
 import AboutRoute from '../../routes/AboutRoute/AboutRoute'
 import Footer from '../Footer/Footer';
 import IdleService from '../../services/idle-service'
-import AuthApiService from '../../services/api-service'
+import AuthService from '../../services/auth-service'
 
 class App extends Component {
   state = {
@@ -34,7 +34,7 @@ class App extends Component {
     if (TokenService.hasAuthToken()) {
       IdleService.registerIdleTimerResets();
       TokenService.queueCallbackBeforeExpiry(() => {
-        TokenService.getAuthToken();
+        AuthService.refreshToken()
       });
     }
   }
