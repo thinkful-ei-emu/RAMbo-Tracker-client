@@ -34,7 +34,7 @@ class App extends Component {
     if (TokenService.hasAuthToken()) {
       IdleService.registerIdleTimerResets();
       TokenService.queueCallbackBeforeExpiry(() => {
-        AuthApiService.postRefreshToken();
+        TokenService.getAuthToken();
       });
     }
   }
