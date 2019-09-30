@@ -29,6 +29,7 @@ class RegistrationForm extends React.Component {
       })
     }
     else {
+      this.setState({error: null})
       const { name, username, password1 } = this.state;
       API.doFetch('/user', 'POST', {
         display_name: name,
@@ -39,7 +40,7 @@ class RegistrationForm extends React.Component {
           this.props.onRegistrationSuccess();
         })
         .catch((res) => {
-          this.setState({ error: res.error });
+          this.setState({error: res.message});
         });
     }
   };
@@ -50,7 +51,7 @@ class RegistrationForm extends React.Component {
       <form onSubmit={this.handleSubmit} className="registration-form">
         <h2>Register for an account</h2>
         <div role="alert" className="error">
-          {error && <p>{error}</p>}
+          {error && <p>{this.state.error}</p>}
         </div>
         <div className="registration-input">
           <label htmlFor="registration-name-input" className='regLabel'>Enter your name:</label><br></br>
