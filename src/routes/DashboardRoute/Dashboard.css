@@ -3,13 +3,15 @@
 .dashboard-content{
   display: flex;
   flex-direction: row-reverse;
-justify-content: space-between;
+justify-content: space-around;
+padding-left:5%;
+padding-right:5%;
 }
 
 .log-container{
   display: inherit;
   flex-direction: column;
-  width: 60%;
+   width: 60%;
   
 }
 

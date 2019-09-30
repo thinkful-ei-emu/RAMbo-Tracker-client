@@ -11,6 +11,7 @@ import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
 import MealRoute from '../../routes/MealRoute/MealRoute';
 import AboutRoute from '../../routes/AboutRoute/AboutRoute'
+import Footer from '../Footer/Footer';
 
 class App extends Component {
   state = {
@@ -37,7 +38,7 @@ class App extends Component {
       <div className="App">
         <Header refreshesWhenAppStateDoes={this.state} />
         <main>
-          {this.state.hasError && <p>There was an error! Rut Roh!</p>}
+          {this.state.hasError && <p className='error'>There was an error! Rut Roh!</p>}
           <Switch>
             <PrivateRoute exact path={'/dash'} component={DashboardRoute} />
             <PublicOnlyRoute
@@ -56,6 +57,7 @@ class App extends Component {
             {<Route component={NotFoundRoute} />}
           </Switch>
         </main>
+        <Footer />
       </div>
     );
   }
