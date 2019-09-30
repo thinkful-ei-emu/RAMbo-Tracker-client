@@ -29,6 +29,7 @@ class RegistrationForm extends React.Component {
       })
     }
     else {
+      this.setState({error: null})
       const { name, username, password1 } = this.state;
       API.doFetch('/user', 'POST', {
         display_name: name,
