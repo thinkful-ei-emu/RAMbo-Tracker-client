@@ -24,6 +24,7 @@ export default class Result extends React.Component {
         let data = [];
         return (
           <li className="visual-list" id="result-list" key={key}>
+            
             <strong>{item.symptomType.type}</strong> is experienced most
             frequently after eating foods with:{' '}
             <i>
