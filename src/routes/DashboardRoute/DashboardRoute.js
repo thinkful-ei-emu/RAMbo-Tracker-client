@@ -180,6 +180,7 @@ export default class DashBoard extends React.Component {
           <div key={index} className="dash-event-container">
             <li className={"meal"}>
               {e.name} at {this.formatDate(e.time)}
+              <div className='meal-toggle-cont'>
               <button
                 className="expand-toggle"
                 onClick={() => this.handleExpandToggle(index)}
@@ -192,10 +193,11 @@ export default class DashBoard extends React.Component {
               >
                 <i className="fa fa-trash" aria-hidden="true"></i>
               </button>
+              </div>
               {this.state.expanded === index && (
                 <ul className="food-toggle">
                   {e.items.map((item, index) => {
-                    return (
+                    return (<>
                       <li key={index} className="food-item-in-dash">
                         <p className="food-info-in-dash">{item.name}</p>
                         <p className="ingredients-list-in-dash">
@@ -203,6 +205,10 @@ export default class DashBoard extends React.Component {
                             item.ingredients
                               .map(ingredient => ingredient.toLowerCase())
                               .join(", ")}
+                          
+                        </p>
+                      </li>
+                      <div className='exp-hide-btn'>
                           <button
                             className="ingredients-expand"
                             onClick={() => this.handleIngredientsToggle(index)}
@@ -211,9 +217,8 @@ export default class DashBoard extends React.Component {
                               ? "Hide ingredients"
                               : "Show ingredients"}
                           </button>
-                        </p>
-                      </li>
-                    );
+                          </div>
+                    </>);
                   })}
                 </ul>
               )}
@@ -225,7 +230,7 @@ export default class DashBoard extends React.Component {
           <div key={index} className="dash-event-container">
             <li className="symptom">
               {e.name} at {this.formatDate(e.time)}{" "}
-              {e.type === "symptom" ? `Severity: ${e.severity}` : ""}
+              {e.type === "symptom" ? `Severity: ${e.severity}` : ""}{' '}
               <button
                 className="delete-event"
                 onClick={() => this.handleDelete(e.id, e.type, index)}
@@ -233,6 +238,7 @@ export default class DashBoard extends React.Component {
                 <i className="fa fa-trash" aria-hidden="true"></i>
               </button>
             </li>
+           
           </div>
         );
       }

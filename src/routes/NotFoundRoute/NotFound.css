@@ -9,3 +9,12 @@
   width: 400px;
   padding-top: 2%;
 }
+
+@media screen and (max-width: 500px){
+  .not-found-img{
+    max-width: 250px;
+  }
+  .not-found{
+    padding-top:10%;
+  }
+}

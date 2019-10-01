@@ -10,54 +10,120 @@ exports[`renders the UI as expected 1`] = `
       Welcome back, 
       
     </h3>
-    <div
-      className="results"
-    >
-      <ul>
-        <p>
-          click refresh to see correlation
-        </p>
-      </ul>
-      <button
-        onClick={[Function]}
-      >
-        refresh
-      </button>
-    </div>
   </div>
   <div
     className="dashboard-content"
   >
     <div
-      id="dash-button-container"
+      id="results"
     >
-      <button
-        className="user-button"
-        onClick={[Function]}
+      <h2>
+        My Results
+      </h2>
+      <ul>
+        <h2>
+          Click Analyze to See Results
+        </h2>
+      </ul>
+      <div
+        id="results-button"
       >
-        Log New Meal
-      </button>
-      <button
-        className="user-button"
-        onClick={[Function]}
-      >
-        Log New Symptoms
-      </button>
+        <button
+          onClick={[Function]}
+        >
+          Analyze my Log
+        </button>
+      </div>
     </div>
     <div
-      className="events"
+      className="log-container"
     >
+      <h2>
+        My Log
+      </h2>
       <div
-        className="events-list"
+        id="dash-button-container"
       >
-        <li
-          className="symptom"
+        <button
+          className="user-button new-meal"
+          onClick={[Function]}
         >
-          
-           at 
-          Wed Dec 31 1969
-           
-        </li>
+          <img
+            alt=""
+            className="button-logo"
+            src="plate.png"
+          />
+          Log Meal
+        </button>
+        <button
+          className="user-button new-symptom"
+          onClick={[Function]}
+        >
+          <img
+            alt=""
+            className="button-logo"
+            src="symptom.png"
+          />
+          Log Symptom
+        </button>
+        <button
+          className="user-button print-button"
+          onClick={[Function]}
+        >
+          <img
+            alt=""
+            className="button-logo"
+            src="print.png"
+          />
+          Print Logs
+        </button>
+        <div
+          className=".print-container"
+        >
+          <div
+            className="print-container"
+          >
+            <li
+              className="symptom"
+            >
+              
+               at 
+              12-31-1969 18:35
+               
+              
+            </li>
+          </div>
+        </div>
+      </div>
+      <div
+        className="events"
+      >
+        <div
+          className="events-list"
+        >
+          <div
+            className="dash-event-container"
+          >
+            <li
+              className="symptom"
+            >
+              
+               at 
+              12-31-1969 18:35
+               
+              
+              <button
+                className="delete-event"
+                onClick={[Function]}
+              >
+                <i
+                  aria-hidden="true"
+                  className="fa fa-trash"
+                />
+              </button>
+            </li>
+          </div>
+        </div>
       </div>
     </div>
   </div>

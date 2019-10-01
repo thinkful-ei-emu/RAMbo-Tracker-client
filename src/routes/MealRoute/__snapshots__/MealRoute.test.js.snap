@@ -46,7 +46,7 @@ exports[`renders the UI as expected 1`] = `
           onKeyDown={[Function]}
           readOnly={false}
           type="text"
-          value="09/24/2019, 11:53 AM"
+          value="10/01/2019, 12:35 PM"
         />
       </div>
     </div>
@@ -77,6 +77,16 @@ exports[`renders the UI as expected 1`] = `
           id="searchTermInput"
           onChange={[Function]}
           onKeyPress={[Function]}
+          placeholder="food name"
+          type="text"
+          value=""
+        />
+        <input
+          form="sub-form"
+          id="brandTermInput"
+          onChange={[Function]}
+          onKeyPress={[Function]}
+          placeholder="brand"
           type="text"
           value=""
         />
