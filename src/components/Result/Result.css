@@ -1,5 +1,4 @@
 #result-list {
-    /* background-color: rgb(131, 120, 103); */
     background-color: rgb(204, 204, 204);
     border-radius: 5px;
     margin: 10px;
@@ -7,6 +6,10 @@
     font-weight: 600;
     color: black;
     line-height: 1.7;
+}
+
+.visual-list{
+    background-color: white;
 }
 
 li {

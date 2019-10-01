@@ -35,7 +35,7 @@ class LoginForm extends React.Component {
         this.props.onLoginSuccess(username);
       })
       .catch(res => {
-         this.setState({ error: res.error });
+         this.setState({ error: res.error});
       });
 
     
