@@ -6,7 +6,7 @@
 
 #footer{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
   background: linear-gradient(180deg, rgb(212, 212, 212) 10%, rgb(185, 185, 185) 150%, rgb(212, 212, 212) 10% );
   color: rgb(54, 53, 53);

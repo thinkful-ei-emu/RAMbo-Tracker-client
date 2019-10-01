@@ -22,12 +22,12 @@ class RegistrationRoute extends React.Component {
         <img
           className="reg-photo"
           src={popcorn}
-          alt="A painting of a burger"
+          alt="A painting of popcorn"
         /></div>
         <img
           className="reg-photo-2"
           src={burger}
-          alt="Carrot"
+          alt="A painting of a burger"
         />
         <div className="mission">
           <h3 className="reg-description-header emphasis">Our mission</h3>
@@ -49,12 +49,12 @@ class RegistrationRoute extends React.Component {
           <img
           className="reg-photo-2"
           src={pizza}
-          alt="half eaten pizza"
+          alt="painting of a half eaten pizza"
         />
              <img
           className="reg-photo-2"
            src={eggroll}
-           alt="eggroll"
+           alt="painting of an eggroll"
         />
         <div className="mission">
           <p>
