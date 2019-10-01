@@ -111,7 +111,7 @@ class Symptom extends Component {
     {this.props.prevSymptoms.map((s,i)=>{
     if(i > 4)//limits to 5
       return null;
-    return <input onFocus={(e)=>symptomName = e.target} name="pastSymptoms" value={s.name}/>
+    return <input type='button' key={i} onFocus={(e)=>symptomName = e.target} name="pastSymptoms" value={s.name}/>
     })
     }
 
