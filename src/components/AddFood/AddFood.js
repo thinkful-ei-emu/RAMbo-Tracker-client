@@ -201,9 +201,9 @@ export default class AddFood extends React.Component {
                 )
               }
               <div className='AddFoodSearchResultsPaginate'>
-                {this.state.page !== 1 && <button form='sub-form2' onClick={this.goPrevPage}>Back</button>}
+                {this.state.page !== 1 && <button form='sub-form2' id="back" onClick={this.goPrevPage}>Back</button>}
                 <span>{this.state.foodsFromSearch.currentPage}</span>
-                <button form='sub-form3' onClick={this.goNextPage}>Next</button>
+                <button form='sub-form3' id="next" onClick={this.goNextPage}>Next</button>
               </div>
 
             </div>)
