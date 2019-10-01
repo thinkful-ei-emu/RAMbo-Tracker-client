@@ -7,9 +7,9 @@
 #footer{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   background: linear-gradient(180deg, rgb(212, 212, 212) 10%, rgb(185, 185, 185) 150%, rgb(212, 212, 212) 10% );
-  color: black;
+  color: rgb(54, 53, 53);
   padding: 15px;
   position: relative;
   left: 0;
@@ -43,7 +43,8 @@ padding:1px;
 }
 
 #footer a {
-  text-decoration: underline;
+  color: black;
+  font-weight: 600;
 }
 #footer a:hover{
   color: rgb(8, 8, 94);

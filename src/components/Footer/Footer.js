@@ -18,9 +18,10 @@ export default function Footer() {
             </div>
             </div>
             <div id='developers'>
+              <p>Created By:</p>
               <ul>
                 <li>
-                  Colleen Higgins
+                  <a href="https://thinkful-ei-emu.github.io/portfolio-colleen/">Colleen Higgins</a>
                 </li>
                 <li>
                   Paul KHan
