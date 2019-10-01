@@ -2,13 +2,14 @@ import React from 'react';
 import API from '../../services/api-service'
 import ProcessFoodName from '../../services/process-food-name'
 import './AddFood.css';
-
+import cart from '../../Media/cart.png'
 export default class AddFood extends React.Component {
   state = {
     isInSearch:false,
     displaySearchResults: false,
     foodsFromSearch: {},
     searchTerm: '',
+    brandTerm: '',
     lockedInSearchTerm:'',
     gotNoResults: true,
     resultsPerPage:50,
@@ -89,20 +90,23 @@ export default class AddFood extends React.Component {
   handleSearchChange = (searchTerm) => {
     this.setState({ searchTerm })
   }
+  handleBrandChange = (brandTerm) => {
+    this.setState({ brandTerm })
+  }
 
   handleFoodSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
     if(this.state.searchTerm){
-      API.doFetch(`/food/search?search=${this.state.searchTerm}`)
+      API.doFetch(`/food/search?search=${this.state.searchTerm}&brand=${this.state.brandTerm}`)
       .then((res) => {
         res = JSON.parse(res);
-        console.log(res)
         if (res.foods) {
           return this.setState({
             foodsFromSearch: res,
             gotNoResults: res.foods.length===0? true:false,
             displaySearchResults: true,
+            brandTerm: this.state.brandTerm,
             lockedInSearchTerm: this.state.searchTerm,
             page:1
           })
@@ -153,6 +157,16 @@ export default class AddFood extends React.Component {
             id='searchTermInput'
             value={this.state.searchTerm}
             form='sub-form'
+            placeholder='food name'
+          />
+          <input
+            type='text'
+            onChange={(e) => this.handleBrandChange(e.target.value)}
+            onKeyPress={this.keyPressed}
+            id='brandTermInput'
+            value={this.state.brandTerm}
+            form='sub-form'
+            placeholder='brand'
           />
           <button className="user-button" id="search-food-button"
             form='sub-form' htmlFor='searchTermInput' 
@@ -193,7 +207,7 @@ export default class AddFood extends React.Component {
                       <div className='AddFoodSearchResultsSpace'>
                       </div>
                       <button id='add-food-button' className='user-button' onClick={e => { this.handleAddFood(e,food) }} >
-                        Add Food
+                       <img id='add-food-logo'src={cart} alt=''/> Add Food
                       </button>
                     </div>
                     <hr></hr>
@@ -201,9 +215,9 @@ export default class AddFood extends React.Component {
                 )
               }
               <div className='AddFoodSearchResultsPaginate'>
-                {this.state.page !== 1 && <button form='sub-form2' onClick={this.goPrevPage}>Back</button>}
+                {this.state.page !== 1 && <button form='sub-form2' id="back" onClick={this.goPrevPage}>Back</button>}
                 <span>{this.state.foodsFromSearch.currentPage}</span>
-                <button form='sub-form3' onClick={this.goNextPage}>Next</button>
+                <button form='sub-form3' id="next" onClick={this.goNextPage}>Next</button>
               </div>
 
             </div>)

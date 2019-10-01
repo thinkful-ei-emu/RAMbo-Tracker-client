@@ -12,22 +12,64 @@ import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
 import MealRoute from '../../routes/MealRoute/MealRoute';
 import AboutRoute from '../../routes/AboutRoute/AboutRoute'
 import Footer from '../Footer/Footer';
+import IdleService from '../../services/idle-service'
+import AuthService from '../../services/auth-service'
 
 class App extends Component {
   state = {
     hasError: false,
+    error:'',
     username: '',
     processLogin: (username) => {
+      const jwtPayload = TokenService.parseAuthToken()
       this.setState({
-        username
-      });
+        username/* : jwtPayload.sub */,
+      })
+      IdleService.registerIdleTimerResets()
+      TokenService.queueCallbackBeforeExpiry(() => {
+        this.fetchRefreshToken()
+      })
     },
     processLogout: () => {
-      TokenService.clearAuthToken();
+      TokenService.clearAuthToken()
+      TokenService.clearCallbackBeforeExpiry()
+      IdleService.unRegisterIdleResets()
       this.setState({ username: '' });
     }
   };
 
+  fetchRefreshToken = () => {
+    AuthService.refreshToken()
+      .then(res => {
+        TokenService.saveAuthToken(res.authToken)
+        TokenService.queueCallbackBeforeExpiry(() => {
+          this.fetchRefreshToken()
+        })
+      })
+      .catch(error => {
+        this.setState({error})
+      })
+  }
+  componentDidMount() {
+    IdleService.setIdleCallback(this.logoutFromIdle);
+    if (TokenService.hasAuthToken()) {
+      IdleService.registerIdleTimerResets();
+      TokenService.queueCallbackBeforeExpiry(() => {
+        AuthService.refreshToken()
+      });
+    }
+  }
+  componentWillUnmount() {
+    IdleService.unRegisterIdleResets();
+    TokenService.clearCallbackBeforeExpiry();
+  }
+
+  logoutFromIdle = () => {
+    TokenService.clearAuthToken();
+    TokenService.clearCallbackBeforeExpiry();
+    IdleService.unRegisterIdleResets();
+    this.forceUpdate();
+  };
   static getDerivedStateFromError(error) {
     console.error(error);
     return { hasError: true };

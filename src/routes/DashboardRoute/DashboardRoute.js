@@ -43,7 +43,11 @@ export default class DashBoard extends React.Component {
       }
     ]
   };
+  clearErrors=()=>{
+    this.setState({error: null})
+  }
   componentDidMount() {
+    this.clearErrors()
     API.doFetch("/event")
       .then(res => {
         this.setState({
@@ -51,10 +55,12 @@ export default class DashBoard extends React.Component {
           events: res.events
         });
       })
-      .catch(e => this.setState({ error: e }));
+      .catch(res => this.setState({ error: res.message }));
   }
 
   handleDelete = (id, type, index) => {
+    this.clearErrors()
+
     API.doFetch("/event", "DELETE", {
       id,
       type
@@ -64,7 +70,8 @@ export default class DashBoard extends React.Component {
       this.setState({
         events: newEvents
       });
-    });
+    })
+    .catch(res =>this.setState({error: res.message}));
   };
 
   handleExpandToggle = index => {
@@ -173,6 +180,7 @@ export default class DashBoard extends React.Component {
           <div key={index} className="dash-event-container">
             <li className={"meal"}>
               {e.name} at {this.formatDate(e.time)}
+              <div className='meal-toggle-cont'>
               <button
                 className="expand-toggle"
                 onClick={() => this.handleExpandToggle(index)}
@@ -185,10 +193,11 @@ export default class DashBoard extends React.Component {
               >
                 <i className="fa fa-trash" aria-hidden="true"></i>
               </button>
+              </div>
               {this.state.expanded === index && (
                 <ul className="food-toggle">
                   {e.items.map((item, index) => {
-                    return (
+                    return (<>
                       <li key={index} className="food-item-in-dash">
                         <p className="food-info-in-dash">{item.name}</p>
                         <p className="ingredients-list-in-dash">
@@ -196,6 +205,10 @@ export default class DashBoard extends React.Component {
                             item.ingredients
                               .map(ingredient => ingredient.toLowerCase())
                               .join(", ")}
+                          
+                        </p>
+                      </li>
+                      <div className='exp-hide-btn'>
                           <button
                             className="ingredients-expand"
                             onClick={() => this.handleIngredientsToggle(index)}
@@ -204,9 +217,8 @@ export default class DashBoard extends React.Component {
                               ? "Hide ingredients"
                               : "Show ingredients"}
                           </button>
-                        </p>
-                      </li>
-                    );
+                          </div>
+                    </>);
                   })}
                 </ul>
               )}
@@ -218,7 +230,7 @@ export default class DashBoard extends React.Component {
           <div key={index} className="dash-event-container">
             <li className="symptom">
               {e.name} at {this.formatDate(e.time)}{" "}
-              {e.type === "symptom" ? `Severity: ${e.severity}` : ""}
+              {e.type === "symptom" ? `Severity: ${e.severity}` : ""}{' '}
               <button
                 className="delete-event"
                 onClick={() => this.handleDelete(e.id, e.type, index)}
@@ -226,6 +238,7 @@ export default class DashBoard extends React.Component {
                 <i className="fa fa-trash" aria-hidden="true"></i>
               </button>
             </li>
+           
           </div>
         );
       }
@@ -254,11 +267,12 @@ export default class DashBoard extends React.Component {
           <h3>Welcome back, {this.state.user.display_name}</h3>
         </div>
         <div className="dashboard-content">
-      
           <Result />
        
           <div className="log-container">
             <h2>My Log</h2>
+            {this.state.error && <p className="error">There Was An Error!</p>}
+
             <div id="dash-button-container">
               <button
                 className="user-button new-meal"

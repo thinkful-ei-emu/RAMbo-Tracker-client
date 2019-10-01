@@ -7,7 +7,7 @@
   margin: auto;
   min-width: 200px;
   max-width: 100%;
-  font-size: 1.2em;
+  font-size: 1.0em;
 }
 .severity-active{
  background-color: rgba(255,255,0,1)

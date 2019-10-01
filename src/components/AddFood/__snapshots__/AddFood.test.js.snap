@@ -18,6 +18,16 @@ exports[`renders the UI as expected 1`] = `
       id="searchTermInput"
       onChange={[Function]}
       onKeyPress={[Function]}
+      placeholder="food name"
+      type="text"
+      value=""
+    />
+    <input
+      form="sub-form"
+      id="brandTermInput"
+      onChange={[Function]}
+      onKeyPress={[Function]}
+      placeholder="brand"
       type="text"
       value=""
     />

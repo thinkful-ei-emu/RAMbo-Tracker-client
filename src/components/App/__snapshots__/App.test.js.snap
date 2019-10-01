@@ -4,22 +4,37 @@ exports[`renders the UI as expected 1`] = `
 <div
   className="App"
 >
-  <div>
-    <nav>
-      <h1
-        className="Header"
+  <header>
+    <h1
+      className="Header"
+    >
+      <img
+        alt="logo"
+        className="header-photo"
+        src="logo2.png"
+      />
+      <a
+        href="/"
+        id="main-title"
+        onClick={[Function]}
+      >
+        Symptom Tracker
+      </a>
+    </h1>
+    <div
+      className="nav-container"
+    >
+      <nav
+        className="LoginLogout"
       >
         <a
-          href="/"
-          id="main-title"
+          href="/about"
+          id="aboutlink"
           onClick={[Function]}
         >
-          Symptom Tracker
+          About
         </a>
-      </h1>
-      <div
-        className="nav-container"
-      >
+         
         <a
           href="/login"
           id="loginlink"
@@ -35,12 +50,12 @@ exports[`renders the UI as expected 1`] = `
         >
           Sign up
         </a>
-      </div>
-      <div
-        id="box"
-      />
-    </nav>
-  </div>
+      </nav>
+    </div>
+    <div
+      id="box"
+    />
+  </header>
   <main>
     <section
       aria-live="polite"
@@ -221,5 +236,24 @@ exports[`renders the UI as expected 1`] = `
       </div>
     </section>
   </main>
+  <div>
+    <div
+      id="phantom-footer"
+    />
+    <div
+      id="footer"
+    >
+      <p
+        id="title-footer"
+      >
+        Symptom Tracker
+      </p>
+      <p
+        id="copy-footer"
+      >
+        RAMbo © 2019
+      </p>
+    </div>
+  </div>
 </div>
 `;
