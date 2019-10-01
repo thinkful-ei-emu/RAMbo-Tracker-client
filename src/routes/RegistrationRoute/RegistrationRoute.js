@@ -30,7 +30,7 @@ class RegistrationRoute extends React.Component {
           alt="Carrot"
         />
         <div className="mission">
-          <h3 className="reg-description-header">Our mission</h3>
+          <h3 className="reg-description-header emphasis">Our mission</h3>
           <p className="reg-description">
             The RAMbo health tracker is an online food diary designed to help
             you take control of your health.{" "}
