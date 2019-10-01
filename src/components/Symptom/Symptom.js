@@ -26,12 +26,7 @@ class Symptom extends Component {
 
   componentDidMount() {
     this.setState({error: null})
-    /* Api.doFetch('TODO')
-    .then(res => { */
-    //})
     this.setState({ pastUserSymptoms: helper.preExisting() });
-    //})
-    //.catch(e => console.log(e))
 
     //set colors
     let radioButtons = document.getElementById('symptom-form')['radio-face']
