@@ -27,6 +27,9 @@
   margin: 0 10px 3px 10px;
   text-align: right;
 }
+#created-head{
+  margin: 0 0px 0 10px
+}
 
 #developers{
 
@@ -37,7 +40,9 @@ text-align: right;
   margin:1px;
 padding:1px;
 }
-
+#developers ul{
+  margin: 0;
+}
 #app-info{
   text-align: left;
 }
@@ -50,3 +55,4 @@ padding:1px;
   color: rgb(8, 8, 94);
   text-decoration: underline;
 }
+
