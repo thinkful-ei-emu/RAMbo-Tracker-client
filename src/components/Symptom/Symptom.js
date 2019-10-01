@@ -118,7 +118,9 @@ class Symptom extends Component {
       <div className="symptom-container">
       <section className="symptom-container">
         <h2>Log a Symptom</h2>
-        <form id='symptom-form' onSubmit={e => this.handleSymptomSubmit(e)}>
+        <form id='symptom-form' 
+          onSubmit={e => this.handleSymptomSubmit(e)}
+          onReset = {()=>this.props.closeModal('addSymptomsModal')}>
           <div id="user-input-container">
             <label htmlFor="user-symptom">Add New Symptom</label>
             <br />

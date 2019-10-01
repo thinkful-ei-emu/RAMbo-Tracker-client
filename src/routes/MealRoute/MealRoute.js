@@ -83,7 +83,7 @@ export default class MealRoute extends React.Component {
     return (
       <div className="add-meal-div">
         <h2>Log a Meal</h2>
-        <form className="add-meal-form" onSubmit={this.handleMealSubmit}>
+        <form className="add-meal-form" onSubmit={this.handleMealSubmit}  onReset = {()=>this.props.closeModal('addMealModal')}>
           <label className="add-meal-labels" htmlFor="AddMealNameInput">Meal Name:</label>
           <br></br>
           <input
@@ -152,6 +152,7 @@ export default class MealRoute extends React.Component {
           >
             Add Meal
           </button>
+          <button className="user-button" type="reset">Cancel</button>
          
         </form>
       </div>
