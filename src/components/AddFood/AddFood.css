@@ -59,8 +59,12 @@ border: 1px solid black;
 border: 1px solid black;
 border-radius:5px;
 background-color: white;
-margin-left:2%;
-
+}
+#next{
+  margin-left:2%;
+}
+#back{
+  margin-right: 2%;
 }
 @media screen and (max-width: 500px){
   .AddFoodDiv{
