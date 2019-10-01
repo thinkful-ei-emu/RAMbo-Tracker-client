@@ -1,0 +1,30 @@
+#phantom-footer{
+  display: block;
+  padding: 0px;
+  height: 10vh;
+}
+
+#footer{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(180deg, rgb(212, 212, 212) 10%, rgb(185, 185, 185) 150%, rgb(212, 212, 212) 10% );
+  color: black;
+  border-Top: 1px solid rgb(184, 184, 184);
+  padding: 15px;
+
+  position: fixed;
+  left: 0;
+  bottom: 0px;
+  height: 15px;
+  width: 100%;
+  overflow: hidden;
+}
+
+#title-footer{
+  margin: 0 10px 3px 10px;
+}
+
+#copy-footer{
+  margin: 0 10px 3px 10px;
+}

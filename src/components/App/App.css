@@ -1,12 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
-  background-color: rgb(231, 238, 240);
-  height: 100vh;
-  background:  linear-gradient(0deg,rgb(228, 238, 241),rgb(231, 238, 240))
+  background-color: rgb(255, 255, 255);
+  min-height: 100vh;
 }
 
   main {
-  background-color: rgb(231, 238, 240);
+  background-color: rgb(255, 255, 255);
 } 
  
 .error{
@@ -14,6 +17,3 @@
   color: red;
   margin: 0;
 }
-
-/* 
- linear-gradient(0deg, #FFF 0%,transparent 100%),linear-gradient(90deg, #FFF 0%,transparent 100%),linear-gradient(135deg, rgba(51, 51, 51, 0.1) 0%, rgba(51, 51, 51, 0.1) 66%,rgba(249, 249, 249, 0.1) 66%, rgba(249, 249, 249, 0.1) 100%),linear-gradient(0deg, rgba(231, 231, 231, 0.05) 0%, rgba(231, 231, 231, 0.05) 83%,rgba(255, 255, 255, 0.05) 83%, rgba(255, 255, 255, 0.05) 100%),linear-gradient(0deg, rgba(32, 32, 32, 0.1) 0%, rgba(32, 32, 32, 0.1) 51%,rgba(138, 138, 138, 0.1) 51%, rgba(138, 138, 138, 0.1) 100%),linear-gradient(0deg, rgba(79, 79, 79, 0.07) 0%, rgba(79, 79, 79, 0.07) 9%,rgba(52, 52, 52, 0.07) 9%, rgba(52, 52, 52, 0.07) 100%),linear-gradient(135deg, rgba(154, 154, 154, 0.05) 0%, rgba(154, 154, 154, 0.05) 82%,rgba(76, 76, 76, 0.05) 82%, rgba(76, 76, 76, 0.05) 100%),linear-gradient(0deg, rgba(226, 226, 226, 0.1) 0%, rgba(226, 226, 226, 0.1) 87%,rgba(158, 158, 158, 0.1) 87%, rgba(158, 158, 158, 0.1) 100%),linear-gradient(45deg, rgba(177, 177, 177, 0.1) 0%, rgba(177, 177, 177, 0.1) 82%,rgba(199, 199, 199, 0.1) 82%, rgba(199, 199, 199, 0.1) 100%),linear-gradient(135deg, rgba(41, 41, 41, 0.04) 0%, rgba(41, 41, 41, 0.04) 10%,rgba(28, 28, 28, 0.04) 10%, rgba(28, 28, 28, 0.04) 100%),linear-gradient(90deg, rgb(174, 174, 174),rgb(181, 181, 181)) */

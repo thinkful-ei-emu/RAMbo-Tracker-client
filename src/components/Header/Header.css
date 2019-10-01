@@ -9,51 +9,46 @@ a{
 #main-title{
   text-align:left;
   border:none;
-  font-size: 36px;
+  font-size: 40px;
   font-family: 'Dancing Script', cursive;
-
   color: black;
+  position: relative;
+  top: -5px;
 }
 
-.nav-container{
-    /* border: 1px solid grey; */
-    padding: 0px;
-    width: 100%;
-    margin: 0 auto;
-  }
 .user-container{
- padding-right: 2%;
+  padding-right: 2%;
   width: 100%;
   margin: 0 auto;
   font-weight: bold;
-
-}
-#logoutlink:hover{
-  color: #002ba0
+  
 }
 .Header {
-/* border: 2px solid black; */
+  display: flex;
   width: 40%;
+  margin: 0 0 0 10px;
 }
 
 .nav-container{
-  /* border: 1px solid grey; */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   padding: 0px;
-  width: 100vw;
+  width: 80vw;
   height: 110px;
-  margin: 0 auto;
-  background-color: #798630;
+  margin-left: 10px;
+  background-color: rgb(11, 76, 114);
   color: white;
-  border-radius: 0px 0px 0px 10px;
+  border-radius: 0px 0px 0px 25px;
 }
 
 header {
-  margin: 0px;
   padding: 0px;
   font-size: 20px;
   display: flex;
   align-items: center;
   width: 100%;
+  margin-top: 0px;
 }
 
 #user-name{
@@ -65,37 +60,194 @@ header {
   text-align: right;
 }
 
-#box {
-  display: block;
-  position: absolute;
-  background-color: #798630;
-  top: 87px;
-  right: 0px;
-  width: 500px;
-  height: 100px;
-  z-index: -1;
-}
-
-@media only screen and (min-width: 600px) {
-
 .LoginLogout{
-  padding: 10px;
-  /* border: 1px solid black; */
-  font-size: 20px;
+  width: 100%;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px;
+  font-size: 20px;
 }
 
-#loginlink{
+#logoutlink{
+  color: white;
+  margin: 0 auto;
+}
+
+#logoutlink:hover{
+  color: white;
+}
+
+#loginlink, #dashlink{
   padding: 28px 10px;
   color: white;
+}
+
+#aboutlink{
+  margin: 0 auto;
 }
 
 #signuplink{
   padding: 0px 10px;
   color: white;
+  margin: 0 auto;
 }
 
+.header-photo{
+  width: 90px;
+  height: 100px;
+  margin: -10px 0px 0px -10px;
+}
+
+@media screen and (max-width: 420px) and (min-width: 310px){
+
+  .header-photo{
+    width: 60px;
+    height: 70px;
+    margin: -10px 0px 0px -5px;
+  }
+  
+  header {
+    padding: 0px;
+    margin: 10px 0 0 0;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  .LoginLogout{
+    padding: 10px;
+    font-size: 20px;
+  }
+  
+  .Header{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  
+  #loginlink, #dashlink{
+    padding: 0 0 0 0;
+    color: white;
+    margin: 0 20px 0 20px;
+  }
+
+  #signuplink{
+    padding: 0px 0px;
+    color: white;
+    margin: 0 20px 0 20px;
+  }
+
+  #aboutlink{
+    margin: 0 20px 0 20px;
+  }
+
+  #logoutlink{
+    margin: 0 20px 0 20px;
+  }
+
+  #main-title{
+    text-align:center;
+    white-space: nowrap;
+    border: none;
+    font-size: 36px;
+    font-family: 'Dancing Script', cursive;
+    color: black;
+    margin: 0 5px 0 0;
+  }
+
+  .nav-container{
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: 65px;
+    padding: 0px;
+    width: 100vw;
+    height: 50px;
+    margin: 0px 0px 0px 0px;
+    border-radius: 0px;
+
+  }
+
+  .registration-form{
+    margin-top: 50px;
+  }
  
 } 
+
+@media screen and (min-width: 421px) and (max-width: 1020px){
+
+  .header-photo{
+    width: 80px;
+    height: 90px;
+    margin: -20px 0px 0px 5px;
+  }
+
+  .LoginLogout{
+    padding: 10px;
+    font-size: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  .Header{
+    width: 80%;
+    margin: 0 0 0 10px;
+  }
+  
+  #loginlink, #dashlink{
+    padding: 28px 10px;
+    color: white;
+  }
+
+  #signuplink{
+    padding: 0px 10px;
+  }
+
+  #logoutlink{
+    margin: 0 auto;
+  }
+
+  #aboutlink{
+    margin: 0 auto;
+  }
+
+  #main-title{
+    text-align:left;
+    border:none;
+    font-size: 36px;
+    font-family: 'Dancing Script', cursive;
+    margin-left: 10px;
+    position: relative;
+    top: -10px;
+  }
+
+  header {
+    margin: -2px -5px 0px 0px;
+    padding: 0px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+
+  .nav-container{
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    width: 100vw;
+    height: 118px;
+    margin: 0px -1px 0px 0px;
+  }
+
+  
+ 
+} 
+
   

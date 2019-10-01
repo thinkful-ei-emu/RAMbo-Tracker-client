@@ -11,12 +11,20 @@
   margin: 0 auto;
 }
 
-.loginLabel{
+.loginLabel {
  padding: 2%;
 }
 
-.login-input{
-padding: 2%;
+.login-input  {
+  padding: 2%;
 }
 
-/*work on inputs*/
+@media screen and (max-width: 2560px) and (min-width: 450px){
+
+  .login-input  {
+    width: 300px;
+    margin: 0 auto;
+    padding: 2%;
+  }
+
+}
