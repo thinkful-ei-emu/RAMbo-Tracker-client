@@ -9,6 +9,7 @@ export default class AddFood extends React.Component {
     displaySearchResults: false,
     foodsFromSearch: {},
     searchTerm: '',
+    brandTerm: '',
     lockedInSearchTerm:'',
     gotNoResults: true,
     resultsPerPage:50,
@@ -89,20 +90,23 @@ export default class AddFood extends React.Component {
   handleSearchChange = (searchTerm) => {
     this.setState({ searchTerm })
   }
+  handleBrandChange = (brandTerm) => {
+    this.setState({ brandTerm })
+  }
 
   handleFoodSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
     if(this.state.searchTerm){
-      API.doFetch(`/food/search?search=${this.state.searchTerm}`)
+      API.doFetch(`/food/search?search=${this.state.searchTerm}&brand=${this.state.brandTerm}`)
       .then((res) => {
         res = JSON.parse(res);
-        console.log(res)
         if (res.foods) {
           return this.setState({
             foodsFromSearch: res,
             gotNoResults: res.foods.length===0? true:false,
             displaySearchResults: true,
+            brandTerm: this.state.brandTerm,
             lockedInSearchTerm: this.state.searchTerm,
             page:1
           })
@@ -153,6 +157,16 @@ export default class AddFood extends React.Component {
             id='searchTermInput'
             value={this.state.searchTerm}
             form='sub-form'
+            placeholder='food name'
+          />
+          <input
+            type='text'
+            onChange={(e) => this.handleBrandChange(e.target.value)}
+            onKeyPress={this.keyPressed}
+            id='brandTermInput'
+            value={this.state.brandTerm}
+            form='sub-form'
+            placeholder='brand'
           />
           <button className="user-button" id="search-food-button"
             form='sub-form' htmlFor='searchTermInput' 

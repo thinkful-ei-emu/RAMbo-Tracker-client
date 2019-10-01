@@ -11,9 +11,9 @@ exports[`renders the UI as expected 1`] = `
     className="not-found-image"
   >
     <img
-      alt="child in pumpkin costume"
+      alt="zelda error"
       className="not-found-img"
-      src="infant-pumpkin-costume.jpg"
+      src="https://professionalmorondotcom.files.wordpress.com/2015/03/zelda-ii-i-am-error.png"
     />
   </div>
   <p>
