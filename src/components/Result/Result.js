@@ -115,7 +115,7 @@ export default class Result extends React.Component {
         this.state.results.map((item, key) => {
           let data = [];
           return (
-            <div id="result-list" key={key}>
+            <div className="visual-list" id="result-list" key={key}>
               <form id='symptom-results-display-form'>
                 Tracked Symptom:
               <select
@@ -249,12 +249,16 @@ export default class Result extends React.Component {
                   data={data}
                   title={item.symptomType.type}
                   colors={[
-                    '#a8e0ff',
-                    '#8ee3f5',
-                    '#70cad1',
-                    '#3e517a',
-                    '#b08ea2',
-                    '#BBB6DF'
+                    '#8AD2D8',
+                    '#C6A68E',
+                    '#558AA4',
+                    '#F15E3D',
+                    '#56704B',
+                    '#CC3B7C',
+                    '#005594',
+                    '#89B65A',
+                    '#EBC9BE',
+                    '#EFCBE'
                   ]}
                 />
               </div>
@@ -279,7 +283,7 @@ export default class Result extends React.Component {
         }
 
         <div id="results-button">
-          <button onClick={e => this.refreshResults(e)}>Analyze my Log</button>
+          <button onClick={e => this.refreshResults(e)}>Refresh Results</button>
         </div>
       </div>
     );

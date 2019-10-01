@@ -7,24 +7,52 @@
 #footer{
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   background: linear-gradient(180deg, rgb(212, 212, 212) 10%, rgb(185, 185, 185) 150%, rgb(212, 212, 212) 10% );
-  color: black;
-  border-Top: 1px solid rgb(184, 184, 184);
+  color: rgb(54, 53, 53);
   padding: 15px;
-
-  position: fixed;
+  position: relative;
   left: 0;
   bottom: 0px;
-  height: 15px;
   width: 100%;
   overflow: hidden;
 }
 
-#title-footer{
+#title-footer, .login-footer{
   margin: 0 10px 3px 10px;
 }
 
 #copy-footer{
+  display:block;
   margin: 0 10px 3px 10px;
+  text-align: right;
 }
+#created-head{
+  margin: 0 0px 0 10px
+}
+
+#developers{
+
+text-align: right;
+}
+
+#developers li{
+  margin:1px;
+padding:1px;
+}
+#developers ul{
+  margin: 0;
+}
+#app-info{
+  text-align: left;
+}
+
+#footer a {
+  color: black;
+  font-weight: 600;
+}
+#footer a:hover{
+  color: rgb(8, 8, 94);
+  text-decoration: underline;
+}
+

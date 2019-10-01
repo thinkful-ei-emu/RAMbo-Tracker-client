@@ -1,10 +1,10 @@
 import React from 'react';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
 import './RegistrationRoute.css'
-import lemon from '../../Media/Lemons.jpg'
-import carrot from '../../Media/carrot.jpg'
-import grape from '../../Media/grapes.jpg'
-import lettuce from '../../Media/lettuce.jpg'
+import burger from '../../Media/burger.png'
+import pizza from '../../Media/pizza.png'
+import popcorn from '../../Media/popcorn.png'
+import eggroll from '../../Media/eggroll.png'
 
 class RegistrationRoute extends React.Component {
   handleRegistrationSuccess = () => {
@@ -21,16 +21,16 @@ class RegistrationRoute extends React.Component {
         <div className='reg-photo-container'>
         <img
           className="reg-photo"
-          src={lemon}
-          alt="A lemon"
+          src={popcorn}
+          alt="A painting of popcorn"
         /></div>
         <img
           className="reg-photo-2"
-          src={carrot}
-          alt="Carrot"
+          src={burger}
+          alt="A painting of a burger"
         />
         <div className="mission">
-          <h3 className="reg-description-header">Our mission</h3>
+          <h3 className="reg-description-header emphasis">Our mission</h3>
           <p className="reg-description">
             The RAMbo health tracker is an online food diary designed to help
             you take control of your health.{" "}
@@ -48,13 +48,13 @@ class RegistrationRoute extends React.Component {
           </div>
           <img
           className="reg-photo-2"
-          src={grape}
-          alt="bunch of grapes"
+          src={pizza}
+          alt="painting of a half eaten pizza"
         />
              <img
           className="reg-photo-2"
-          src={lettuce}
-          alt="lettuce"
+           src={eggroll}
+           alt="painting of an eggroll"
         />
         <div className="mission">
           <p>

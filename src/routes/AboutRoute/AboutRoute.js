@@ -1,6 +1,6 @@
 import "./AboutRoute.css";
-import React, { Component } from "react";
-
+import React from "react";
+import cupcake from '../../Media/cupcake.png'
 class AboutRoute extends React.Component {
   constructor( props ){
     super( props )
@@ -111,6 +111,9 @@ showHide=(index)=>{
         </ul></>}
        
       </div>
+      </div>
+      <div id='about-img-cont'>
+      <img id='about-img' src={cupcake} alt='picture of a cupcake'></img>
       </div>
     </section>
   );
