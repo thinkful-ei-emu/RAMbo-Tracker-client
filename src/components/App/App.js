@@ -18,13 +18,14 @@ import AuthService from '../../services/auth-service'
 class App extends Component {
   state = {
     hasError: false,
+    error:'',
     username: '',
-    processLogin: () => {
+    processLogin: (username) => {
       const jwtPayload = TokenService.parseAuthToken()
       this.setState({
-        username: jwtPayload.sub,
+        username/* : jwtPayload.sub */,
       })
-      IdleService.regiserIdleTimerResets()
+      IdleService.registerIdleTimerResets()
       TokenService.queueCallbackBeforeExpiry(() => {
         this.fetchRefreshToken()
       })
@@ -36,6 +37,19 @@ class App extends Component {
       this.setState({ username: '' });
     }
   };
+
+  fetchRefreshToken = () => {
+    AuthService.refreshToken()
+      .then(res => {
+        TokenService.saveAuthToken(res.authToken)
+        TokenService.queueCallbackBeforeExpiry(() => {
+          this.fetchRefreshToken()
+        })
+      })
+      .catch(error => {
+        this.setState({error})
+      })
+  }
   componentDidMount() {
     IdleService.setIdleCallback(this.logoutFromIdle);
     if (TokenService.hasAuthToken()) {
