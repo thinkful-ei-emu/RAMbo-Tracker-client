@@ -4,12 +4,12 @@ import DatePicker from "react-datepicker";
 import helper from "../../services/helper.services";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Symptom.css";
-import faces from '../../Media/FACES_NewBW.jpg'
-import face1 from '../../Media/single_face1.png'
-import face2 from '../../Media/single_face2.png'
-import face3 from '../../Media/single_face3.png'
-import face4 from '../../Media/single_face4.png'
-import face5 from '../../Media/single_face5.png'
+import face1 from '../../Media/wellness_face_1.png'
+import face2 from '../../Media/wellness_face_2.png'
+import face3 from '../../Media/wellness_face_3.png'
+import face4 from '../../Media/wellness_face_4.png'
+import face5 from '../../Media/wellness_face_5.png'
+
 
 class Symptom extends Component {
   state = {
@@ -145,7 +145,7 @@ class Symptom extends Component {
 
               <div className='radio-buttons-1'>
                 <label className='radio-label'> 
-                  <input id='radio-1' type='radio' value='1' 
+                  <input name='radio-face' id='radio-1' type='radio' value='1' 
                     checked={this.state.symptomSeverity === '1'}
                     onChange={e => this.handleSeverityChange(e)} />
                   <img className='face' src={face1} alt='face1'/>
@@ -154,7 +154,7 @@ class Symptom extends Component {
 
               <div className='radio-buttons-2'>
                 <label className='radio-label'> 
-                  <input id='radio-1' type='radio' value='2'
+                  <input name='radio-face' id='radio-1' type='radio' value='2'
                   checked={this.state.symptomSeverity === '2'}
                   onChange={e => this.handleSeverityChange(e)} />
                   <img className='face' src={face2} alt='face1'/>
@@ -163,7 +163,7 @@ class Symptom extends Component {
 
               <div className='radio-buttons-3'>
                 <label className='radio-label'> 
-                  <input id='radio-1' type='radio' value='3'
+                  <input name='radio-face' id='radio-1' type='radio' value='3'
                   checked={this.state.symptomSeverity === '3'}
                   onChange={e => this.handleSeverityChange(e)} />
                   <img className='face' src={face3} alt='face1'/>
@@ -172,7 +172,7 @@ class Symptom extends Component {
 
               <div className='radio-buttons-4'>
                 <label className='radio-label'> 
-                  <input id='radio-1' type='radio' value='4'
+                  <input name='radio-face' id='radio-1' type='radio' value='4'
                   checked={this.state.symptomSeverity === '4'}
                   onChange={e => this.handleSeverityChange(e)} />
                   <img className='face' src={face4} alt='face1'/>
@@ -181,17 +181,14 @@ class Symptom extends Component {
 
               <div className='radio-buttons-5'>
                 <label className='radio-label'> 
-                  <input id='radio-1' type='radio' value='5'
+                  <input name='radio-face' id='radio-1' type='radio' value='5'
                   checked={this.state.symptomSeverity === '5'}
                   onChange={e => this.handleSeverityChange(e)} />
                   <img className='face' src={face5} alt='face1'/>
                 </label>
               </div>
         
-              
           </div>
-              {/* <img className="wong-severity" src={faces} alt=""/> */}
-            {/* <p id="severity-desc">(Low - Extreme)</p>   */}
           
 
           <br />
