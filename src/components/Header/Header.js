@@ -52,9 +52,9 @@ class Header extends Component {
 
   render() {
     return (
+      
       <header>
       
-        
         <h1 className='Header'>
         <img
           className="header-photo"

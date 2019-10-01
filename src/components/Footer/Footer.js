@@ -33,7 +33,7 @@ export default function Footer() {
                   Corey Moore
                 </li>
                 <li>
-                  <a href="tarajpatel.com">T.J. Patel</a>
+                  <a href="https://tarajpatel.com">T.J. Patel</a>
                 </li>
                 <li>
                 David Queen Jr.
