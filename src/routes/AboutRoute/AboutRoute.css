@@ -31,6 +31,15 @@
   background: none;
 }
 
+#about-img-cont{
+  padding-top:2%;
+  width:100%;
+  display: block;
+  position: relative;
+}
+#about-img{
+  max-height:250px;
+}
 @media screen and (max-width: 420px) and (min-width: 310px){
 
   .about {
