@@ -8,7 +8,7 @@ export default class Result extends React.Component {
       { symptomType: "", mostCommonFoods: [], mostCommonIngredients: [] }
     ]
   };
-  refreshResuls = () => {
+  refreshResults = () => {
     Api.doFetch("/results")
       .then(res => {
         this.setState({ results: res });
@@ -41,7 +41,7 @@ export default class Result extends React.Component {
       <div className="results">
         <ul>{results}</ul>
         <div id="results-button">
-          <button onClick={e => this.refreshResuls(e)}>Refresh Results</button>
+          <button onClick={e => this.refreshResults(e)}>Refresh Results</button>
         </div>
       </div>
     );
