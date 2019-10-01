@@ -1,16 +1,12 @@
 #result-list {
-    background-color: rgb(204, 204, 204);
+    background-color: white;
     border-radius: 5px;
     margin: 10px;
-    font-size: 20px;
-    font-weight: 600;
     color: black;
     line-height: 1.7;
 }
 
-.visual-list{
-    background-color: white;
-}
+
 
 li {
     border-radius: 10px;

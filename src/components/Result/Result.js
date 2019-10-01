@@ -23,7 +23,7 @@ export default class Result extends React.Component {
       this.state.results.map((item, key) => {
         let data = [];
         return (
-          <li className="visual-list" key={key}>
+          <li className="visual-list" id="result-list" key={key}>
             <strong>{item.symptomType.type}</strong> is experienced most
             frequently after eating foods with:{' '}
             <i>
