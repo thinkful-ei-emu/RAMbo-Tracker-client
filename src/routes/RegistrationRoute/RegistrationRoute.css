@@ -3,7 +3,7 @@
   flex-flow: row wrap;
   justify-content: space-around;
   padding-top: 30px;
-  max-width: 1092px;
+  max-width: 1020px;
 }
 
 .mission {
@@ -14,21 +14,11 @@
 }
 
 
-.reg-photo {
-  max-width: 400px;
+.reg-photo, .reg-photo-2 {
+  max-height: 400px;
  
 }
 
-
-
-.reg-photo-2 {
-  margin-top: 10%;
-  margin-left: 50px;
-  margin-bottom: 10%;
-  max-width: 400px;
-/*   border-radius: 5px 0px 5px 5px;
-  box-shadow: -25px 25px 0 0 #FCAB10; */
-}
 
 .reg-description {
   margin-top: 0px;
