@@ -45,12 +45,17 @@ export default class Result extends React.Component {
               data={data}
               title={item.symptomType.type}
               colors={[
-                '#a8e0ff',
-                '#8ee3f5',
-                '#70cad1',
-                '#3e517a',
-                '#b08ea2',
-                '#BBB6DF'
+                '#FF810D',
+                '#03FF2B',
+                '#0C87E8',
+                '#AE00FF',
+                '#E83B0C',
+                '#FFCE0D',
+                '#E80CA0',
+                '#0116FF',
+                '#0CE8A0',
+                '#CAFF03'
+
               ]}
             />
             </div>
