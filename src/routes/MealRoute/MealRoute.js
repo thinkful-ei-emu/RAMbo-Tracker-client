@@ -14,14 +14,17 @@ export default class MealRoute extends React.Component {
     mealName: "A Meal",
     mealTime: new Date(),
     foodsInMeal: [],
+    error: null,
 
     handleAddFood: food => {
+      this.clearErrors()
       API.doFetch('/food', 'POST', {ndbno: food.fdcId}).then(res => {
-        console.log(...this.state.foodsInMeal, food);
         this.setState({
           foodsInMeal: [...this.state.foodsInMeal, food]
         });
-      });
+      })
+      .catch(res => 
+        {this.setState({ error: res.error })});;
     }
   };
 
@@ -48,7 +51,9 @@ export default class MealRoute extends React.Component {
     if (this.state.foodsInMeal.length === 0)
       return "Meal contents can't be empty";
   };
-
+  clearErrors=()=>{
+    this.setState({error: null})
+  };
   handleRemoveFood = (e, index) => {
     e.preventDefault();
     e.stopPropagation();
@@ -61,6 +66,7 @@ export default class MealRoute extends React.Component {
 
   handleMealSubmit = e => {
     e.preventDefault();
+    this.clearErrors()
     if (!this.verifyMealName() && !this.verifyFoodNonempty()) {
       let meal ={
         type: 'meal',
@@ -75,7 +81,8 @@ export default class MealRoute extends React.Component {
           meal.type='meal';
           this.props.updateEvents(res);
           this.props.closeModal('addMealModal');//this functions is passed in from dashboard to close the modal, it should be placed int the 'then' of api call to ensure it only runs in happy case 
-        });
+        })
+        .catch(res => this.setState({ error: res.error }));;
     }
   };
 

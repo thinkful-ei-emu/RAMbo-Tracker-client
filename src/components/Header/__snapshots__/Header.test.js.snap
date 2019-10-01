@@ -1,22 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders the UI as expected 1`] = `
-<div>
-  <nav>
-    <h1
-      className="Header"
+<header>
+  <h1
+    className="Header"
+  >
+    <img
+      alt="logo"
+      className="header-photo"
+      src="logo2.png"
+    />
+    <a
+      href="/"
+      id="main-title"
+      onClick={[Function]}
+    >
+      Symptom Tracker
+    </a>
+  </h1>
+  <div
+    className="nav-container"
+  >
+    <nav
+      className="LoginLogout"
     >
       <a
-        href="/"
-        id="main-title"
+        href="/about"
+        id="aboutlink"
         onClick={[Function]}
       >
-        Symptom Tracker
+        About
       </a>
-    </h1>
-    <div
-      className="nav-container"
-    >
+       
       <a
         href="/login"
         id="loginlink"
@@ -32,10 +47,10 @@ exports[`renders the UI as expected 1`] = `
       >
         Sign up
       </a>
-    </div>
-    <div
-      id="box"
-    />
-  </nav>
-</div>
+    </nav>
+  </div>
+  <div
+    id="box"
+  />
+</header>
 `;

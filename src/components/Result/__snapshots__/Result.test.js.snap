@@ -2,17 +2,24 @@
 
 exports[`renders the UI as expected 1`] = `
 <div
-  className="results"
+  id="results"
 >
+  <h2>
+    My Results
+  </h2>
   <ul>
-    <p>
-      click refresh to see correlation
-    </p>
+    <h2>
+      Click Analyze to See Results
+    </h2>
   </ul>
-  <button
-    onClick={[Function]}
+  <div
+    id="results-button"
   >
-    refresh
-  </button>
+    <button
+      onClick={[Function]}
+    >
+      Analyze my Log
+    </button>
+  </div>
 </div>
 `;

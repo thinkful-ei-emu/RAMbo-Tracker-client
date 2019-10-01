@@ -53,7 +53,7 @@
   height: 25px;
   color: red;
 }
-#AddMealNameInput, #AddMealDateInput, #searchTermInput {
+#AddMealNameInput, #AddMealDateInput, #searchTermInput,#brandTermInput {
   font-size: 1.2em;
   margin: 1%;
 }
@@ -83,7 +83,7 @@
 
 
 @media screen and (max-width: 500px){
-  #AddMealNameInput, #AddMealDateInput, #searchTermInput {
+  #AddMealNameInput, #AddMealDateInput, #searchTermInput,#brandTermInput {
     max-width: 190px;
     font-size: 1em;
   }
