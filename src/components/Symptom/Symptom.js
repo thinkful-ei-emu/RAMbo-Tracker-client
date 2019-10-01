@@ -72,6 +72,7 @@ class Symptom extends Component {
   handleSeverityChange = sev => {
     console.log(sev.target);
     let radioButtons = document.getElementById('symptom-form')['radio-face'];
+    this.setState({symptomSeverity:Number(sev.target.value)});
     radioButtons.forEach(radio => {
       if(radio.value <= radioButtons.value)
       {
@@ -147,7 +148,7 @@ class Symptom extends Component {
     {this.props.prevSymptoms.map((s,i)=>{
     if(i > 4)//limits to 5
       return null;
-    return <input type="button" onFocus={(e)=>symptomName = e.target} name="pastSymptoms" value={s.name}/>
+    return <input key={i} type="button" onFocus={(e)=>symptomName = e.target} name="pastSymptoms" value={s.name}/>
     })
     }
 
