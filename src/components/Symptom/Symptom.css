@@ -9,7 +9,9 @@
   max-width: 100%;
   font-size: 1.2em;
 }
-
+.severity-active{
+ background-color: rgba(255,255,0,1)
+}
 #submit-button{
   text-align: center;
 }
@@ -117,7 +119,7 @@ input[type='radio']:checked:before {
 .radio-buttons-1{
   flex-grow: 2;
   color: black;
-  background-color: yellow;
+  background-color:black;
 }
 
 .radio-buttons-2{
@@ -202,7 +204,7 @@ input[type='radio']:checked:before {
   
   .radio-buttons-1{
     color: black;
-    background-color: yellow;
+    background-color:black;
   }
   
   .radio-buttons-2{
@@ -393,7 +395,7 @@ input{
   
   .radio-buttons-1{
     color: black;
-    background-color: yellow;
+    background-color: rgba(255,255,0,0);
   }
   
   .radio-buttons-2{

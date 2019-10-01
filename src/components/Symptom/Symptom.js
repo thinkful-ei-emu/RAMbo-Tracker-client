@@ -29,6 +29,14 @@ class Symptom extends Component {
     this.setState({ pastUserSymptoms: helper.preExisting() });
     //})
     //.catch(e => console.log(e))
+
+    //set colors
+    let radioButtons = document.getElementById('symptom-form')['radio-face']
+    radioButtons[0].parentElement.style.backgroundColor = 'rgba(255,255,0,0)';
+    radioButtons[1].parentElement.style.backgroundColor = 'rgba(255,215,0,0)';
+    radioButtons[2].parentElement.style.backgroundColor = 'rgba(255,165,0,0)';
+    radioButtons[3].parentElement.style.backgroundColor = 'rgba(255,69,0,0)';
+    radioButtons[4].parentElement.style.backgroundColor = 'rgba(255,0,0,0)';
   }
 
   handleSymptomSubmit = e => {
@@ -57,8 +65,26 @@ class Symptom extends Component {
 
   handleSeverityChange = sev => {
     console.log(sev.target);
-    console.log(document.getElementById('symptom-form')['radio-face'].value);
-    
+    let radioButtons = document.getElementById('symptom-form')['radio-face'];
+    radioButtons.forEach(radio => {
+      if(radio.value <= radioButtons.value)
+      {
+        let color = radio.parentElement.style.backgroundColor;
+        let values = color.split(',');
+        values[3] = '0.99)';
+        color = values.join(',');
+        radio.parentElement.style.backgroundColor = color;
+        //that button should be lit up
+      }else{
+        let color = radio.parentElement.style.backgroundColor;
+        let values = color.split(',');
+        values[3] = '0)';
+        color = values.join(',');
+        radio.parentElement.style.backgroundColor = color;
+        //button should be transparent
+      }
+      
+    });
     this.setState({
       symptomSeverity: sev.target.value
     });
@@ -146,48 +172,40 @@ class Symptom extends Component {
           <div className='radio-container'>
 
               <div className='radio-buttons-1'>
-                <label className='radio-label'> 
                   <input className='radio-input' name='radio-face' id='radio-1' type='radio' value='1' 
                     checked={this.state.symptomSeverity === '1'}
                     onChange={e => this.handleSeverityChange(e)} />
                   <img className='face' src={face1} alt='face1'/>
-                </label>
+               
               </div>
 
               <div className='radio-buttons-2'>
-                <label className='radio-label'> 
+
                   <input className='radio-input' name='radio-face' id='radio-1' type='radio' value='2'
                   checked={this.state.symptomSeverity === '2'}
                   onChange={e => this.handleSeverityChange(e)} />
                   <img className='face' src={face2} alt='face1'/>
-                </label>
-              </div>
 
-              <div className='radio-buttons-3'>
-                <label className='radio-label'> 
+              </div>
+              <div className='radio-buttons-3'>    
                   <input className='radio-input' name='radio-face' id='radio-1' type='radio' value='3'
                   checked={this.state.symptomSeverity === '3'}
                   onChange={e => this.handleSeverityChange(e)} />
-                  <img className='face' src={face3} alt='face1'/>
-                </label>
+                  <img className='face' src={face3} alt='face1'/> 
               </div>
 
               <div className='radio-buttons-4'>
-                <label className='radio-label'> 
                   <input className='radio-input' name='radio-face' id='radio-1' type='radio' value='4'
                   checked={this.state.symptomSeverity === '4'}
                   onChange={e => this.handleSeverityChange(e)} />
                   <img className='face' src={face4} alt='face1'/>
-                </label>
               </div>
 
               <div className='radio-buttons-5'>
-                <label className='radio-label'> 
                   <input className='radio-input' name='radio-face' id='radio-1' type='radio' value='5'
                   checked={this.state.symptomSeverity === '5'}
                   onChange={e => this.handleSeverityChange(e)} />
                   <img className='face' src={face5} alt='face1'/>
-                </label>
               </div>
         
           </div>
@@ -199,6 +217,7 @@ class Symptom extends Component {
             <button className="user-button" type="submit">
               Submit Symptom
             </button>
+            <button className="user-button" type="reset">Cancel</button>
           </div>
         </form>
       </section>

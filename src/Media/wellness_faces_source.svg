@@ -29,9 +29,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
-     inkscape:cx="1711.3252"
-     inkscape:cy="734.43197"
+     inkscape:zoom="0.70000001"
+     inkscape:cx="731.25373"
+     inkscape:cy="967.42064"
      inkscape:document-units="mm"
      inkscape:current-layer="layer2"
      showgrid="false"
@@ -71,7 +71,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="Layer 2">
+     inkscape:label="Layer 2"
+     style="opacity:1">
     <ellipse
        id="path3725"
        cx="317.31036"
@@ -562,21 +563,29 @@
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
        d="m 466.98667,96.213767 -1.00224,3.875403 c 0,0 4.00901,-0.4009 1.00224,-3.875403 z"
        id="path1021"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
        d="m 488.90277,99.421002 c 0,0 -1.33634,4.677218 0.86862,4.276308 2.20499,-0.4009 -0.86862,-4.276308 -0.86862,-4.276308 z"
        id="path1023"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
        d="m 488.43506,94.075611 c 0,0 -1.9377,4.476766 0.66815,3.207234 2.60589,-1.269529 0.13365,-2.00452 -0.66815,-3.207234 z"
        id="path1027"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
        d="m 470.32753,94.075611 c 0,0 4.43699,-4.202308 -0.12012,-2.769327 0,0 -3.95576,-1.573804 0.12012,2.769327 z"
        id="path1029"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </g>
 </svg>
