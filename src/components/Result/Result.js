@@ -8,11 +8,9 @@ export default class Result extends React.Component {
     results: null,
     error: null
   };
-  refreshResuls = () => {
-    this.setState({error: null})
-    Api.doFetch('/results')
-    
-      .then((res) => {
+  refreshResults = () => {
+    Api.doFetch("/results")
+      .then(res => {
         this.setState({ results: res });
       })
       .catch(res=>
@@ -69,7 +67,7 @@ export default class Result extends React.Component {
         <ul>{results}</ul>
         
         <div id="results-button">
-          <button onClick={e => this.refreshResuls(e)}>Analyze my Log</button>
+          <button onClick={e => this.refreshResults(e)}>Refresh Results</button>
         </div>
       </div>
     );
