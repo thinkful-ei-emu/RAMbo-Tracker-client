@@ -177,37 +177,35 @@ class Symptom extends Component {
                   <input className='radio-input' name='radio-face' id='radio-1' type='radio' value='1' 
                     checked={this.state.symptomSeverity === '1'}
                     onChange={e => this.handleSeverityChange(e)} />
-                  <img className='face' src={face1} alt='face1'/>
-               
+                  <label htmlFor='radio-1' ><img className='face' src={face1} alt='face1'/></label>
               </div>
 
               <div className='radio-buttons-2'>
-
-                  <input className='radio-input' name='radio-face' id='radio-1' type='radio' value='2'
-                  checked={this.state.symptomSeverity === '2'}
-                  onChange={e => this.handleSeverityChange(e)} />
-                  <img className='face' src={face2} alt='face1'/>
-
+                  <input className='radio-input' name='radio-face' id='radio-2' type='radio' value='2'
+                    checked={this.state.symptomSeverity === '2'}
+                    onChange={e => this.handleSeverityChange(e)} />
+                  <label htmlFor='radio-2' ><img className='face' src={face2} alt='face1'/></label>
               </div>
+
               <div className='radio-buttons-3'>    
-                  <input className='radio-input' name='radio-face' id='radio-1' type='radio' value='3'
-                  checked={this.state.symptomSeverity === '3'}
-                  onChange={e => this.handleSeverityChange(e)} />
-                  <img className='face' src={face3} alt='face1'/> 
+                  <input className='radio-input' name='radio-face' id='radio-3' type='radio' value='3'
+                    checked={this.state.symptomSeverity === '3'}
+                    onChange={e => this.handleSeverityChange(e)} />
+                  <label htmlFor='radio-3' ><img className='face' src={face3} alt='face1'/></label>
               </div>
 
               <div className='radio-buttons-4'>
-                  <input className='radio-input' name='radio-face' id='radio-1' type='radio' value='4'
-                  checked={this.state.symptomSeverity === '4'}
-                  onChange={e => this.handleSeverityChange(e)} />
-                  <img className='face' src={face4} alt='face1'/>
+                  <input className='radio-input' name='radio-face' id='radio-4' type='radio' value='4'
+                    checked={this.state.symptomSeverity === '4'}
+                    onChange={e => this.handleSeverityChange(e)} />
+                    <label htmlFor='radio-4' ><img className='face' src={face4} alt='face1'/></label>
               </div>
 
               <div className='radio-buttons-5'>
-                  <input className='radio-input' name='radio-face' id='radio-1' type='radio' value='5'
-                  checked={this.state.symptomSeverity === '5'}
-                  onChange={e => this.handleSeverityChange(e)} />
-                  <img className='face' src={face5} alt='face1'/>
+                  <input className='radio-input' name='radio-face' id='radio-5' type='radio' value='5'
+                    checked={this.state.symptomSeverity === '5'}
+                    onChange={e => this.handleSeverityChange(e)} />
+                  <label htmlFor='radio-5' ><img className='face' src={face5} alt='face1'/></label>
               </div>
         
           </div>
