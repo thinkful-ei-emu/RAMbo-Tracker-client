@@ -138,6 +138,10 @@ li {
   width: 20px;
   padding-right: 5px;
 }
+.exitButton{
+  opacity: 0;
+  display: inline;
+}
 @media screen and (max-width: 1100px) {
   .dashboard-content {
     align-items: center;
@@ -146,6 +150,14 @@ li {
 }
 
 @media screen and (max-width: 500px) {
+  .exitButton{
+    opacity: 1;
+    color:red;
+    position: absolute;
+    top:25px;
+    right:25px;
+    
+  }
   .Modal {
     display: flex;
     position: absolute;
