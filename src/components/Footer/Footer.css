@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  background: linear-gradient(180deg, rgb(212, 212, 212) 10%, rgb(185, 185, 185) 150%, rgb(212, 212, 212) 10% );
+  background: linear-gradient(180deg, rgb(231, 231, 231) 10%, rgb(211, 209, 209) 150%, rgb(226, 226, 226) 10% );
   color: rgb(54, 53, 53);
   padding: 15px;
   position: relative;

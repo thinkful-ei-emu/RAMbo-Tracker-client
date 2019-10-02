@@ -1,19 +1,20 @@
 #result-list {
-    background-color: white;
+    /* background-color: rgb(131, 120, 103); */
     border-radius: 5px;
     margin: 10px;
+   /*  font-size: 20px;
+    font-weight: 600; */
     color: black;
     line-height: 1.7;
     border-radius: 10px;
     margin: 10px;
 }
 
-
-
-/* li {
+li {
     border-radius: 10px;
     margin: 10px;
-} */
+}
+
 #last-check-before-delete-symptom{
     border-radius:10px;
     background-color:rgb(231, 229, 229);
@@ -73,10 +74,20 @@ ul {
     background-color: rgb(31, 97, 73)
 }
 @media screen and (max-width: 500px){
-
+  
     #results-button button{
         width: 40%;
         padding: 5px;
     }
+    #result-list{
+        width: 320px;
+    }
+    .pie-area{
+        max-width: 300px;
+    }
+    .chartjs-render-monitor{
+        max-width: -webkit-fill-available;
+    }
+
 
 }
