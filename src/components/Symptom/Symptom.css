@@ -38,6 +38,10 @@
   font-size: 1.0em;
 }
 
+.recent-radio input[type="radio"]{
+  opacity: 0 !important;
+}
+
 #user-input-container{
   padding: 15px;
 }

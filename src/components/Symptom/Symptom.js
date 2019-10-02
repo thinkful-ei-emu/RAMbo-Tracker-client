@@ -10,10 +10,10 @@ import face3 from '../../Media/wellness_face_3.png';
 import face4 from '../../Media/wellness_face_4.png';
 import face5 from '../../Media/wellness_face_5.png';
 
-let symptomName = document.getElementById('user-symptom');
 class Symptom extends Component {
   state = {
-    symptomName: '',
+    selectedSymptom: '',
+    typedSymptom: '',
     symptomSeverity: 4,
     symptomTime: new Date(),
     pastUserSymptoms: [],
@@ -42,7 +42,7 @@ class Symptom extends Component {
 
     let sym = {};
     sym.type = 'symptom';
-    sym.symptom = symptomName.value;
+    sym.symptom = this.state.selectedSymptom || this.state.typedSymptom;
     sym.severity = this.state.symptomSeverity;
     sym.time = this.state.symptomTime;
     sym.symptom = this.state.pastSymptomVal
@@ -50,6 +50,10 @@ class Symptom extends Component {
       : sym.symptom;
     API.doFetch('/event', 'POST', sym)
       .then((res) => {
+        this.setState({
+          typedSymptom: '',
+          selectedSymptom: false
+        })
         this.props.updateEvents(res);
         this.props.closeModal('addSymptomsModal');
       })
@@ -91,9 +95,17 @@ class Symptom extends Component {
 
   handleSymptomChange = (sym) => {
     this.setState({
-      pastSymptomVal: sym.target.value
+      typedSymptom: '',
+      selectedSymptom: sym.target.value
     });
   };
+
+  handleSymptomInputChange = (sym) => {
+    this.setState({
+      selectedSymptom: false,
+      typedSymptom: sym.target.value
+    })
+  }
 
   addSymptomClick = (e) => {
     e.preventDefault();
@@ -105,6 +117,7 @@ class Symptom extends Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <div className="symptom-container">
         <section className="symptom-container">
@@ -116,57 +129,59 @@ class Symptom extends Component {
           >
             <h3>Choose from recent symptoms:</h3>
             {this.props.prevSymptoms.map((s, i) => {
-              if (i > 4)
+              if (i > 4 || !s)
                 //limits to 5
                 return null;
+                
               return (
-                <input
-                  key={i}
-                  type="button"
-                  onFocus={(e) => (symptomName = e.target)}
-                  name={s}
-                  value={s}
-                />
+                <div>
+                  <label className="recent-radios-label" htmlFor={`radio-${s}`}>{s}</label>
+                  <input
+                    className="recent-radio"
+                    id={`radio-${s}`}
+                    key={i}
+                    type="radio"
+                    onChange={this.handleSymptomChange}
+                    checked={this.state.selectedSymptom === s}
+                    name="symptom-type-name"
+                    value={s}
+                  />
+                </div>
               );
             })}
             <div id="user-input-container">
-              <h3><label htmlFor="user-symptom">Or type in a symptom:</label></h3>
+              <h3>
+                <label htmlFor="user-symptom">Or type in a symptom:</label>
+              </h3>
               <br />
-              <datalist id="past-symptoms">
-                {this.state.pastUserSymptoms.map((sym, i) => (
-                  <option key={i} value={sym.label} />
-                ))}
-              </datalist>
               <input
-                name="symptom"
-                onFocus={(e) => (symptomName = e.target)}
-                id="user-symptom"
-                type="text"
-                placeholder="bloated.."
-                list="past-symptoms"
-                disabled={this.state.symptomSelectIsHidden}
+                id="radio-other-input"
+                className="recent-radio"
+                type="radio"
+                name="symptom-type-name"
+                value={this.state.typedSymptom}
+                onChange={this.handleSymptomInputChange}
+                checked={this.state.typedSymptom}
               />
-              <p id="auto-complete"></p>
+              <label htmlFor="radio-other-input">
+                <datalist id="past-symptoms">
+                  {this.state.pastUserSymptoms.map((sym, i) => (
+                    <option key={i} value={sym.label} />
+                  ))}
+                </datalist>
+                <input
+                  name="symptom"
+                  value={this.state.typedSymptom}
+                  onChange={this.handleSymptomInputChange}
+                  id="user-symptom"
+                  type="text"
+                  placeholder="bloated.."
+                  list="past-symptoms"
+                  disabled={this.state.symptomSelectIsHidden}
+                />
+                <p id="auto-complete"></p>
+              </label>
             </div>
-
-            {/* 
-            <button id="select-preexisting" className='user-button' onClick={e => this.addSymptomClick(e)}>
-              Choose Saved Symptom
-            </button>
-            {this.state.symptomSelectIsHidden ? (
-              <>
-                <label htmlFor="symptom-select"></label>
-                <select
-                  id="symptom-select"
-                  onChange={this.handleSymptomChange}
-                  value={this.state.pastSymptomVal}
-                >
-                  {savedSymptoms}
-                </select>{" "}
-              </>
-            ) : (
-              <></>
-            )} */}
 
             <div id="date">
               <label htmlFor="date-select">Date and Time:</label>
