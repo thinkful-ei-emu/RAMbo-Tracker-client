@@ -10,17 +10,14 @@ export default class PieChart extends React.Component {
   componentWillReceiveProps(nextProps){
     if(nextProps.screenSize!==this.props.screenSize){
       if(nextProps.screenSize===2){
-        console.log('screensize 2');
         this.myChart.canvas.parentNode.style.height='600px';
         this.myChart.canvas.parentNode.style.width='700px';
       }
       else if(nextProps.screenSize===1){
-        console.log('screensize 1');
         this.myChart.canvas.parentNode.style.height='600px';
         this.myChart.canvas.parentNode.style.width='400px';
       }
       else if(nextProps.screenSize===0){
-        console.log('screensize 0');
         this.myChart.canvas.parentNode.style.height='500px';
         this.myChart.canvas.parentNode.style.width='300px';
       }
@@ -49,28 +46,16 @@ export default class PieChart extends React.Component {
         }],
        
       },
-      onResize: function(myChart, size){
-        console.log('RESIZING')
-
-        if(size.width > 1000){
-         myChart.canvas.parentNode.style.height = '800px';
-          myChart.canvas.parentNode.style.width = '800px';
-          this.update()
-        }
-      }
     });
     if(this.props.screenSize===2){
-      console.log('screensize 2 in mount');
       this.myChart.canvas.parentNode.style.height='600px';
       this.myChart.canvas.parentNode.style.width='700px';
     }
     else if(this.props.screenSize===1){
-      console.log('screensize 1 in mount');
       this.myChart.canvas.parentNode.style.height='600px';
       this.myChart.canvas.parentNode.style.width='400px';
     }
     else if(this.props.screenSize===0){
-      console.log('screensize 0 in mount');
       this.myChart.canvas.parentNode.style.height='500px';
       this.myChart.canvas.parentNode.style.width='300px';
     }
