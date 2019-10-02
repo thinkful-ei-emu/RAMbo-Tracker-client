@@ -192,7 +192,7 @@ export default class DashBoard extends React.Component {
     let events = this.state.events.map((e, index) => {
       if (e.type === "meal") {
         return (
-          <div key={index} className="dash-event-container-meal">
+          <ul key={index} className="dash-event-container-meal">
             <li className={"meal"}>
               {e.name} at {this.formatDate(e.time)}
               <div className='meal-toggle-cont'>
@@ -238,11 +238,11 @@ export default class DashBoard extends React.Component {
                 </ul>
               )}
             </li>
-          </div>
+          </ul>
         );
       } else {
         return (
-          <div key={index} className="dash-event-container-symptom">
+          <ul key={index} className="dash-event-container-symptom">
             <li className="symptom">
               {e.name} at {this.formatDate(e.time)}{" "}
               {e.type === "symptom" ? `Severity: ${e.severity}` : ""}{' '}
@@ -254,7 +254,7 @@ export default class DashBoard extends React.Component {
               </button>
             </li>
            
-          </div>
+          </ul>
         );
       }
     });
