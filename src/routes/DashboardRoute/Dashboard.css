@@ -128,7 +128,7 @@ li {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(224, 224, 224);
+  /* background-color: rgb(224, 224, 224); */
 }
 
 .symptom-modal {
