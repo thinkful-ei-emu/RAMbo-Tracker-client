@@ -8,8 +8,8 @@ export default function Footer() {
           <div id='footer' role='contentinfo'>
             <div id="app-info">
             <div id="title-and-links">
-            <p id='title-footer'>Symptom Tracker<br></br> <a href="https://github.com/thinkful-ei-emu/RAMbo-Tracker-client">Client Code</a>{' '} 
-            <br></br><a href="https://github.com/thinkful-ei-emu/RAMbo-Tracker-Server">Server Code</a>
+            <p id='title-footer'>Symptom Tracker<br></br> <a href="https://github.com/thinkful-ei-emu/RAMbo-Tracker-client" target="_blank" rel='noopener noreferrer'>Client Code</a>{' '} 
+            <br></br><a href="https://github.com/thinkful-ei-emu/RAMbo-Tracker-Server" target="_blank" rel='noopener noreferrer'>Server Code</a>
             </p>
             </div>
             <div id='demo-login'>
