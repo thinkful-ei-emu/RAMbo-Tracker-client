@@ -124,6 +124,8 @@ header {
     justify-content: center;
     justify-content: space-evenly;
     width: 100%;
+    margin-left:0px;
+
   }
   
   #loginlink, #dashlink{
