@@ -50,7 +50,6 @@ class Symptom extends Component {
     sym.symptom = this.state.pastSymptomVal ? this.state.pastSymptomVal : sym.symptom;
     API.doFetch('/event','POST',sym).then(res=>{
       /* res.name = res.type; */
-      console.log(res);
       this.props.updateEvents(res);
       this.props.closeModal('addSymptomsModal');//this functions is passed in from dashboard to close the modal, it should be placed int the 'then' of api call to ensure it only runs in happy case 
      }).catch((res)=> {
@@ -65,7 +64,6 @@ class Symptom extends Component {
   };
 
   handleSeverityChange = sev => {
-    console.log(sev.target);
     let radioButtons = document.getElementById('symptom-form')['radio-face'];
     this.setState({symptomSeverity:Number(sev.target.value)});
     radioButtons.forEach(radio => {
