@@ -1,3 +1,6 @@
+.entire-dashboard-div{
+
+}
 .dashboard-content {
   display: flex;
   flex-direction: row-reverse;
@@ -33,12 +36,19 @@
   width: fit-content;
 }
 
-.dash-event-container:nth-child(odd) {
-  background-color: rgb(245, 245, 245);
-}
-.dash-event-container {
+.dash-event-container-symptom {
+  border:2px solid #f15e3d;
+  margin:1%;
+  border-radius:10px;
   text-align: left;
-  background-color: rgb(224, 226, 226);
+
+}
+.dash-event-container-meal {
+  text-align: left;
+  border:2px solid #558AA4;
+  margin: 1%;
+  border-radius:10px
+
 }
 .expand-toggle {
   top: 8px;
@@ -138,7 +148,7 @@ li {
   width: 20px;
   padding-right: 5px;
 }
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 800px) {
   .dashboard-content {
     align-items: center;
     flex-direction: column;
