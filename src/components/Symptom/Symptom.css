@@ -30,6 +30,21 @@
   padding: 15px;
 }
 
+.recent-radio-container {
+  text-align: center;
+  position: relative;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 3px;
+  border-radius: 5px;
+  display: inline-block;
+  border: 1px solid rgb(123, 123, 123)
+}
+
+.selected {
+  border: 2px solid rgb(11, 76, 114);;
+}
+
 #date{
   padding: 20px;
 }
@@ -38,12 +53,18 @@
   font-size: 1.0em;
 }
 
-.recent-radio input[type="radio"]{
-  opacity: 0 !important;
+.recent-radio{
+  position: absolute;
+  opacity: 0;
+  background: transparent;
+  margin: auto;
+  z-index: -1;
+
 }
 
 #user-input-container{
   padding: 15px;
+  position: relative;
 }
 
 #date-select{
@@ -89,7 +110,7 @@
 }
 
 
-input[type='radio'] {
+.radio-input input[type='radio'] {
   display: flex;
   
   opacity: 0.5;

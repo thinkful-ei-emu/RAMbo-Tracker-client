@@ -14,7 +14,7 @@ class Symptom extends Component {
   state = {
     selectedSymptom: '',
     typedSymptom: '',
-    symptomSeverity: 4,
+    symptomSeverity: null,
     symptomTime: new Date(),
     pastUserSymptoms: [],
     pastSymptomVal: '',
@@ -134,7 +134,7 @@ class Symptom extends Component {
                 return null;
                 
               return (
-                <div>
+                <div className={`recent-radio-container ${this.state.selectedSymptom===s && 'selected'}`}>
                   <label className="recent-radios-label" htmlFor={`radio-${s}`}>{s}</label>
                   <input
                     className="recent-radio"
