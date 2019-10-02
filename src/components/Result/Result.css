@@ -69,7 +69,7 @@ ul {
 
 .pie-area {
     position: relative;
-
+    min-height:500px;
   text-align: center;
   margin: 0 auto;
 }
@@ -90,13 +90,13 @@ ul {
 #results-button button:hover {
   background-color: rgb(31, 97, 73);
 }
-@media screen and(min-width:800px) {
+@media screen and(min-width:1500px) {
   /* #result-list{
         max-width: 50%;
     } */
   .pie-area {
-    max-width: 50%;
-    height: 100vh;
+width:100px;
+height: 100vh;
   }
 }
 @media screen and (max-width: 500px) {

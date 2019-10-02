@@ -10,16 +10,13 @@ export default class PieChart extends React.Component {
  
 
   componentDidUpdate() {
-    console.log('UPDATING')
-     this.myChart.canvas.parentNode.style.height = '500px';
-    this.myChart.canvas.parentNode.style.maxWidth = '300px';
- 
     this.myChart.data.labels = this.props.data.map(d => d.label);
     this.myChart.data.datasets[0].data = this.props.data.map(d => d.value);
     this.myChart.update();
   }
 
   componentDidMount() {
+    
     this.myChart = new Chart(this.canvasRef.current, {
       type: 'doughnut',
       options: {
@@ -38,14 +35,14 @@ export default class PieChart extends React.Component {
       onResize: function(myChart, size){
         console.log('RESIZING')
 
-        if(size.width > 800){
+        if(size.width > 1000){
          myChart.canvas.parentNode.style.height = '800px';
           myChart.canvas.parentNode.style.width = '800px';
-          myChart.update()
+          this.update()
         }
       }
     });
-  
+
   }
 
 
