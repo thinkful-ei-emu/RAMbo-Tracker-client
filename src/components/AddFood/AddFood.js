@@ -191,7 +191,7 @@ export default class AddFood extends React.Component {
               {
                 this.state.foodsFromSearch.foods.map((food, index) =>
                   <div key={index} className='AddFoodSearchResultsDiv'>
-                    <div className='AddFoodSearchResultsRow'>
+                    <div className='AddFoodSearchResultsRow' onClick={e => { this.handleAddFood(e,food) }}>
                       <div className='AddFoodSearchResultsFoodInfo'>
                         <div className='AddFoodSearchResultsManu'>
                           {
@@ -206,11 +206,8 @@ export default class AddFood extends React.Component {
                       </div>
                       <div className='AddFoodSearchResultsSpace'>
                       </div>
-                      <button id='add-food-button' className='user-button' onClick={e => { this.handleAddFood(e,food) }} >
-                       <img id='add-food-logo'src={cart} alt=''/> Add Food
-                      </button>
+                       <img className='add-food-logo'src={cart} alt='shopping cart'/>
                     </div>
-                    <hr></hr>
                   </div>
                 )
               }

@@ -154,12 +154,11 @@ export default class MealRoute extends React.Component {
           <ValidationError message={this.verifyFoodNonempty()} />
           <button
             disabled={this.verify() ? true : false}
-            className="user-button"
-            id="add-meal-button"
+            className="user-button add-meal-button"
           >
             Add Meal
           </button>
-          <button className="user-button" type="reset">Cancel</button>
+          <button className="user-button add-meal-button" type="reset">Cancel</button>
          
         </form>
       </div>
