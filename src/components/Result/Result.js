@@ -222,7 +222,7 @@ export default class Result extends React.Component {
 
                     <br></br>
 
-                    <button>
+                    <button className='user-button'>
                       Submit
                     </button>
                   </form>
@@ -258,7 +258,17 @@ export default class Result extends React.Component {
                     '#005594',
                     '#89B65A',
                     '#EBC9BE',
-                    '#EFCBE'
+                    '#EFCBE',
+                    '#8AD2D8',
+                    '#C6A68E',
+                    '#558AA4',
+                    '#F15E3D',
+                    '#56704B',
+                    '#CC3B7C',
+                    '#005594',
+                    '#89B65A',
+                    '#EBC9BE'
+                  
                   ]}
                 />
               </div>
