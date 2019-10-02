@@ -1,36 +1,117 @@
 #result-list {
-    /* background-color: rgb(131, 120, 103); */
-    background-color: rgb(204, 204, 204);
-    border-radius: 5px;
-    margin: 10px;
-    font-size: 20px;
-    font-weight: 600;
-    color: black;
-    line-height: 1.7;
+  /* background-color: rgb(131, 120, 103); */
+  border-radius: 5px;
+  margin: 10px;
+  /*  font-size: 20px;
+    font-weight: 600; */
+  color: black;
+  line-height: 1.7;
+  border-radius: 10px;
+  margin: 10px;
 }
 
 li {
-    border-radius: 10px;
-    margin: 10px;
+  border-radius: 10px;
+  margin: 10px;
 }
 
+#last-check-before-delete-symptom {
+  border-radius: 10px;
+  border-radius: 10px;
+  border:2px solid red;
+  margin: 0 10px;
+  padding:10px 20px;
+}
+#edit-user-symptom-form {
+  width: fit-content;
+  margin: 20px auto;
+  max-width: 90%;
+  padding:10px 15px;
+  text-align:center;
+  border-radius: 10px;
+  border:2px solid rgb(231, 233, 235);
+}
+#edit-user-symptom-form>h3{
+    margin-top:0px;
+}
+
+
+.results-symptom-yes-delete{
+    border: 1px solid red;
+    background-color:white;
+    margin-right:2%;
+}
+.results-symptom-do-not-delete{
+background-color: white;
+border: 1px solid black;
+margin-left:2%;
+}
+.edit-user-symptom-setting-begin-div {
+  margin-left: 15px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.edit-user-symptom-setting-begin-div > button {
+  margin: 2px 2px;
+  background-color: white;
+  border: 1px solid rgb(236, 236, 236);
+  height: 25.95px;
+}
+.edit-user-symptom-setting-begin-div > button:hover {
+  border: 1px solid black;
+}
+.results-symptom-yes-delete {
+  color: red;
+}
+.edit-user-symptom-begin-div {
+  display: inline-block;
+}
+.edit-user-symptom-begin-icon {
+  width: 17.27px;
+}
+
+.delete-symptom-type {
+  height: 25.95px;
+}
+
+
+
+.edit-user-symptom-label-input-div{
+    display:flex;
+    margin:5px 10px;
+    justify-content:center;
+}
+.edit-user-symptom-minmax-label{
+    flex-basis:60px;
+    text-align:right;
+}
+.edit-user-symptom-minmax-input{
+    width:120px;
+    margin-left:5px;
+}
+
+
 ul {
-    padding-inline-start: 0px;
+  padding-inline-start: 0px;
 }
 /*^ fixes issue with default browser styling*/
 
 .results {
-    display: block;
-    width: 50%;
+  display: block;
+  max-width: 50%;
 }
 
 .pie-area {
     text-align: center;
+    position: relative;
+    margin:0 auto;
+    min-height:500px;
 }
 
-#results-button{
-    padding: 10px;
-    text-align: center;
+#results-button {
+  padding: 10px;
+  text-align: center;
 }
 
 #results-button button{
@@ -38,17 +119,46 @@ ul {
     border: 1px solid white;
     margin: 0 auto;
     padding: 15px;
-    background-color: #32936F;
+    background-color: rgb(42, 124, 94);
+    /* #32936F */
     color: white;
 }
-#results-button button:hover{
-    background-color: rgb(31, 97, 73)
+#results-button button:hover {
+  background-color: rgb(31, 97, 73);
+}
+@media screen and (min-width:800px){
+    /* #result-list{
+        max-width: 50%;
+    } */
+    /* .pie-area{
+        height: 50vh;
+    } */
+}
+@media screen and (max-width:800px){
+    /* #result-list{
+        max-width: 50%;
+    } */
+    /* .pie-area{
+        height: 50vh;
+    } */
 }
 @media screen and (max-width: 500px){
-
-    #results-button button{
-        width: 40%;
+  
+    /* #results-button button{
+        width: 120px;
         padding: 5px;
+    } */
+    /* #result-list{
+        width: 300px;
+       
     }
+    .pie-area{
+        max-width: 300px;
+        height:80vh;
+    }
+    .chartjs-render-monitor{
+        max-width: -webkit-fill-available;
+    } */
+
 
 }

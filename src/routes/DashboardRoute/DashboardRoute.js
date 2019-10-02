@@ -20,6 +20,7 @@ export default class DashBoard extends React.Component {
     addSymptomsModal: false,
     expanded: false,
     itemExpanded: [],
+    forceUpdateInResult: false,
 
     user: {
       username: '',
@@ -58,12 +59,31 @@ export default class DashBoard extends React.Component {
       .catch((res) => this.setState({ error: res.message }));
   }
 
+  updateAllEventsDueToResult = () => {
+    this.clearErrors()
+    API.doFetch("/event")
+      .then(res => {
+        this.setState({
+          user: { username: res.username, display_name: res.display_name },
+          events: res.events
+        });
+      })
+      .catch(res => this.setState({ error: res.message }));
+  }
+
   handleDelete = (id, type, index) => {
     this.clearErrors();
 
     API.doFetch('/event', 'DELETE', {
       id,
       type
+    }).then(() => {
+      const newEvents = [...this.state.events];
+      newEvents.splice(index, 1);
+      this.setState({
+        events: newEvents,
+        forceUpdateInResult: !this.state.forceUpdateInResult
+      });
     })
       .then(() => {
         const newEvents = [...this.state.events];
@@ -117,7 +137,10 @@ export default class DashBoard extends React.Component {
     temp.sort(
       (a, b) => new Date(b.time).getTime() - new Date(a.time).getTime()
     );
-    this.setState({ events: temp });
+    this.setState({
+      events: temp,
+      forceUpdateInResult: !this.state.forceUpdateInResult
+    });
   };
   formatDate = (time) => {
     let date = new Date(time);
@@ -176,24 +199,21 @@ export default class DashBoard extends React.Component {
     let events = this.state.events.map((e, index) => {
       if (e.type === 'meal') {
         return (
-          <div key={index} className="dash-event-container">
-            <li className={'meal'}>
-              <div className="dash-event-text">
-                <div className="event-name">{e.name}</div>
-                <div className="event-time">on {this.formatDate(e.time)}</div> 
-              </div>
-              <div className="meal-toggle-cont">
+          <ul key={index} className="dash-event-container-meal">
+            <li className={"meal"}>
+              {e.name} at {this.formatDate(e.time)}
+              <div className='meal-toggle-cont'>
                 <button
                   className="expand-toggle"
                   onClick={() => this.handleExpandToggle(index)}
                 >
-                  {this.state.expanded === index ? '-' : '+'}
+                  {this.state.expanded === index ? "-" : "+"}
                 </button>
                 <button
-                  className="delete-event"
+                  className="delete-event" aria-label="Delete item"
                   onClick={() => this.handleDelete(e.id, e.type, index)}
                 >
-                  <i className="fa fa-trash" aria-hidden="true"></i>
+                  <i className="fa fa-trash" aria-hidden="true" ></i>
                 </button>
               </div>
               {this.state.expanded === index && (
@@ -226,27 +246,28 @@ export default class DashBoard extends React.Component {
                 </ul>
               )}
             </li>
-          </div>
+          </ul>
         );
       } else {
         return (
-          <div key={index} className="dash-event-container">
+          <ul key={index} className="dash-event-container-symptom">
             <li className="symptom">
               {e.name} on {this.formatDate(e.time)}{' '}
               {e.type === 'symptom' ? `Severity: ${e.severity}` : ''}{' '}
               <button
-                className="delete-event"
+                className="delete-event" aria-label="Delete item"
                 onClick={() => this.handleDelete(e.id, e.type, index)}
               >
                 <i className="fa fa-trash" aria-hidden="true"></i>
               </button>
             </li>
-          </div>
+
+          </ul>
         );
       }
     });
     return (
-      <div>
+      <div className='entire-dashboard-div'>
         {/*add meal modal*/}
         <Modal
           isOpen={this.state.addMealModal}
@@ -255,8 +276,6 @@ export default class DashBoard extends React.Component {
           <Meal closeModal={this.closeModal} updateEvents={this.updateEvents} />
         </Modal>
         <Modal
-          className="Modal"
-          // overlayClassName="Overlay"
           isOpen={this.state.addSymptomsModal}
           onRequestClose={() => this.closeModal('addSymptomsModal')}
         >
@@ -267,12 +286,11 @@ export default class DashBoard extends React.Component {
           />
         </Modal>
         <div id="user-welcome">
-          {' '}
-          <h3>Welcome back, {this.state.user.display_name}</h3>
+          {" "}
+          <h2>Welcome back, {this.state.user.display_name}</h2>
         </div>
         <div className="dashboard-content">
-          <Result />
-
+          <Result refreshDash={this.updateAllEventsDueToResult} forceUpdate={this.state.forceUpdateInResult} />
           <div className="log-container">
             <h2>My Log</h2>
             {this.state.error && <p className="error">There Was An Error!</p>}
