@@ -111,6 +111,7 @@ header {
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
+    flex-direction: column;
   }
 
   .LoginLogout{
@@ -158,14 +159,11 @@ header {
   .nav-container{
     display: flex;
     justify-content: space-around;
-    position: absolute;
-    top: 65px;
     padding: 0px;
     width: 100vw;
     height: 50px;
     margin: 0px 0px 0px 0px;
     border-radius: 0px;
-
   }
 
   .registration-form{

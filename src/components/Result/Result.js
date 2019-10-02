@@ -49,7 +49,8 @@ export default class Result extends React.Component {
     window.removeEventListener("resize", this.resize)
   }
   resize=()=> {
-    let currentscreenSize = (window.innerWidth >= 550) ? (window.innerWidth >= 1400) ? 2 : 1 : 0;
+    console.log(window.innerWidth);
+    let currentscreenSize = (window.innerWidth >= 1000) ? (window.innerWidth >= 1400) ? 2 : 1 : 0;
     if (currentscreenSize !== this.state.screenSize) {
       this.setState({ screenSize: currentscreenSize });
     }
@@ -235,7 +236,7 @@ export default class Result extends React.Component {
 
                     <br></br>
 
-                    <button>
+                    <button className='user-button'>
                       Submit
                     </button>
                   </form>
@@ -272,7 +273,17 @@ export default class Result extends React.Component {
                     '#005594',
                     '#89B65A',
                     '#EBC9BE',
-                    '#EFCBE'
+                    '#EFCBE',
+                    '#8AD2D8',
+                    '#C6A68E',
+                    '#558AA4',
+                    '#F15E3D',
+                    '#56704B',
+                    '#CC3B7C',
+                    '#005594',
+                    '#89B65A',
+                    '#EBC9BE'
+                  
                   ]}
                 />
               </div>
