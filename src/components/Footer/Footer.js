@@ -5,7 +5,7 @@ export default function Footer() {
     return (
       <div >
         <div id='phantom-footer' />
-          <div id='footer'>
+          <div id='footer' role='contentinfo'>
             <div id="app-info">
             <div id="title-and-links">
             <p id='title-footer'>Symptom Tracker<br></br> <a href="https://github.com/thinkful-ei-emu/RAMbo-Tracker-client">Client Code</a>{' '} 

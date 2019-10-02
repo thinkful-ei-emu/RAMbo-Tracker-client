@@ -79,13 +79,14 @@ ul {
   text-align: center;
 }
 
-#results-button button {
-  border-radius: 5px;
-  border: 1px solid white;
-  margin: 0 auto;
-  padding: 15px;
-  background-color: #32936f;
-  color: white;
+#results-button button{
+    border-radius: 5px;
+    border: 1px solid white;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: rgb(42, 124, 94);
+    /* #32936F */
+    color: white;
 }
 #results-button button:hover {
   background-color: rgb(31, 97, 73);
