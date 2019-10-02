@@ -37,7 +37,8 @@ ul {
     border: 1px solid white;
     margin: 0 auto;
     padding: 15px;
-    background-color: #32936F;
+    background-color: rgb(42, 124, 94);
+    /* #32936F */
     color: white;
 }
 #results-button button:hover{
