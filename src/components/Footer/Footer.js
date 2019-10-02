@@ -30,7 +30,7 @@ export default function Footer() {
                   Blake Lowrey
                 </li>
                 <li>
-                  Corey Moore
+                  <a href='https://thinkful-ei-emu.github.io/portfolio-corey/'>Corey Moore</a> 
                 </li>
                 <li>
                   <a href="https://tarajpatel.com">T.J. Patel</a>
