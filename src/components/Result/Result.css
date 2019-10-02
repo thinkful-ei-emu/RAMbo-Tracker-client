@@ -28,7 +28,16 @@ li {
   margin: 0 auto;
   max-width: 50%;
 }
-
+.results-symptom-yes-delete{
+    border: 1px solid red;
+    background-color:white;
+    margin-right:2%;
+}
+.results-symptom-do-not-delete{
+background-color: white;
+border: 1px solid black;
+margin-left:2%;
+}
 .edit-user-symptom-setting-begin-div {
   margin-left: 15px;
   display: inline-flex;
