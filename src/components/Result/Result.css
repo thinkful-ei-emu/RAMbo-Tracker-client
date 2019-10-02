@@ -43,6 +43,14 @@ ul {
 #results-button button:hover{
     background-color: rgb(31, 97, 73)
 }
+@media screen and(min-width:800){
+    #result-list{
+        max-width: 50%;
+    }
+    .pie-area{
+        height: 75vh;
+    }
+}
 @media screen and (max-width: 500px){
   
     #results-button button{
@@ -50,10 +58,13 @@ ul {
         padding: 5px;
     }
     #result-list{
-        width: 320px;
+        width: 300px;
+       
     }
     .pie-area{
+        position: relative;
         max-width: 300px;
+        height:80vh;
     }
     .chartjs-render-monitor{
         max-width: -webkit-fill-available;
