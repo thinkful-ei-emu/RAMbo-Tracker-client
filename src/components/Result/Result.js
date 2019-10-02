@@ -172,7 +172,7 @@ export default class Result extends React.Component {
                 this.state.onLastCheckBeforeDelete &&
                 <div id="last-check-before-delete-symptom">
                   <p>
-                    Are you sure? Deleting this symptom here will delete all occurences of this symptom in your history.
+                    Are you sure? <br/> Deleting this symptom here will delete all occurences of this symptom in your history.
                   </p>
                   <button
                     type="button"
@@ -197,43 +197,60 @@ export default class Result extends React.Component {
                     <h3>Meals-to-Symptom settings</h3>
                     <span>
                       Minimum Time Elapsed required between meal and symptom
-                    </span>{/* 
-                    <br></br> */}
-                    <label htmlFor='edit-user-symptom-min-days'>
-                      Days:
-                    </label>
-                    <input type="number" min="0" step="1" pattern="\d+"id='edit-user-symptom-min-days' value={item.symptomType.min_time.days} onChange={(e) => this.handleTimeChange('min', 'days', e, item)} />
-                    {/* <br></br> */}
-                    <label htmlFor='edit-user-symptom-min-hours'>
+                    </span>
+                    <br></br>
+                    <div className='edit-user-symptom-label-input-div'>
+                      <label htmlFor='edit-user-symptom-min-days'
+                        className='edit-user-symptom-minmax-label'>
+                        Days:
+                      </label>
+                      <input type="number" min="0" step="1" pattern="\d+"id='edit-user-symptom-min-days' className='edit-user-symptom-minmax-input' value={item.symptomType.min_time.days} onChange={(e) => this.handleTimeChange('min', 'days', e, item)} />
+                    </div> 
+                    
+                    <div className='edit-user-symptom-label-input-div'>
+                    <label htmlFor='edit-user-symptom-min-hours'
+                    className='edit-user-symptom-minmax-label'>
                       Hours:
                     </label>
-                    <input type="number" min="0" step="1" pattern="\d+" id='edit-user-symptom-min-hours' value={item.symptomType.min_time.hours} onChange={(e) => this.handleTimeChange('min', 'hours', e, item)} />
-                    {/* <br></br> */}
-                    <label htmlFor='edit-user-symptom-min-minutes'>
+                    <input type="number" min="0" step="1" pattern="\d+" id='edit-user-symptom-min-hours' value={item.symptomType.min_time.hours}   className='edit-user-symptom-minmax-input'onChange={(e) => this.handleTimeChange('min', 'hours', e, item)} />
+                    </div> 
+
+                    <div className='edit-user-symptom-label-input-div'>
+                    <label htmlFor='edit-user-symptom-min-minutes' className='edit-user-symptom-minmax-label'>
                       Minutes:
                     </label>
-                    <input type="number" min="0" step="1" pattern="\d+" id='edit-user-symptom-min-minutes' value={item.symptomType.min_time.minutes} onChange={(e) => this.handleTimeChange('min', 'minutes', e, item)} />
+                    <input type="number" min="0" step="1" pattern="\d+" id='edit-user-symptom-min-minutes' value={item.symptomType.min_time.minutes} className='edit-user-symptom-minmax-input' onChange={(e) => this.handleTimeChange('min', 'minutes', e, item)} />
+                    </div>
                     <br></br>{/* 
                     <br></br> */}
 
                     <span>
                       Maximum Time Elapsed allowed between meal and symptom
-                    </span>{/* 
-                    <br></br> */}
-                    <label htmlFor='edit-user-symptom-max-days'>
+                    </span>
+                    <br></br>
+                    <div className='edit-user-symptom-label-input-div'>
+                    <label htmlFor='edit-user-symptom-max-days'
+                    className='edit-user-symptom-minmax-label'>
                       Days:
                     </label>
-                    <input type="number" min="0" step="1" pattern="\d+" id='edit-user-symptom-max-days' value={item.symptomType.max_time.days} onChange={(e) => this.handleTimeChange('max', 'days', e, item)} />
+                    <input type="number" min="0" step="1" pattern="\d+" id='edit-user-symptom-max-days' value={item.symptomType.max_time.days} onChange={(e) => this.handleTimeChange('max', 'days', e, item)} className='edit-user-symptom-minmax-input'/>
+                    </div>
                     {/* <br></br> */}
-                    <label htmlFor='edit-user-symptom-max-hours'>
+                    <div className='edit-user-symptom-label-input-div'>
+                    <label htmlFor='edit-user-symptom-max-hours'
+                    className='edit-user-symptom-minmax-label'>
                       Hours:
                     </label>
-                    <input type="number" min="0" step="1" pattern="\d+" id='edit-user-symptom-max-hours' value={item.symptomType.max_time.hours} onChange={(e) => this.handleTimeChange('max', 'hours', e, item)}  />
+                    <input type="number" min="0" step="1" pattern="\d+" id='edit-user-symptom-max-hours' value={item.symptomType.max_time.hours} onChange={(e) => this.handleTimeChange('max', 'hours', e, item)} className='edit-user-symptom-minmax-input' />
+                    </div>
                     {/* <br></br> */}
-                    <label htmlFor='edit-user-symptom-max-minutes'>
+                    <div className='edit-user-symptom-label-input-div'>
+                    <label htmlFor='edit-user-symptom-max-minutes'
+                    className='edit-user-symptom-minmax-label'>
                       Minutes:
                     </label>
-                    <input type="number" min="0" step="1" pattern="\d+" id='edit-user-symptom-max-minutes' value={item.symptomType.max_time.minutes} onChange={(e) => this.handleTimeChange('max', 'minutes', e, item)} />
+                    <input type="number" min="0" step="1" pattern="\d+" id='edit-user-symptom-max-minutes' value={item.symptomType.max_time.minutes} onChange={(e) => this.handleTimeChange('max', 'minutes', e, item)} className='edit-user-symptom-minmax-input'/>
+                    </div>
 
                     {/* <br></br> */}
 
@@ -274,10 +291,10 @@ export default class Result extends React.Component {
                     '#005594',
                     '#89B65A',
                     '#EBC9BE',
-                    '#EFCBE',
+                    '#EFCBE',/* 
                     '#8AD2D8',
                     '#C6A68E',
-                    '#558AA4',
+                    '#558AA4', */
                     '#F15E3D',
                     '#56704B',
                     '#CC3B7C',

@@ -20,13 +20,12 @@ li {
   border-radius: 10px;
   border:2px solid red;
   margin: 0 10px;
+  padding:10px 20px;
 }
 #edit-user-symptom-form {
-  display: flex;
-  flex-direction: column;
   width: fit-content;
   margin: 20px auto;
-  max-width: 80%;
+  max-width: 90%;
   padding:10px 15px;
   text-align:left;
   border-radius: 10px;
@@ -35,6 +34,8 @@ li {
 #edit-user-symptom-form>h3{
     margin-top:0px;
 }
+
+
 .results-symptom-yes-delete{
     border: 1px solid red;
     background-color:white;
@@ -72,6 +73,23 @@ margin-left:2%;
 .delete-symptom-type {
   height: 25.95px;
 }
+
+
+
+.edit-user-symptom-label-input-div{
+    display:flex;
+    margin:5px 10px;
+    justify-content:center;
+}
+.edit-user-symptom-minmax-label{
+    flex-basis:60px;
+    text-align:right;
+}
+.edit-user-symptom-minmax-input{
+    width:120px;
+    margin-left:5px;
+}
+
 
 ul {
   padding-inline-start: 0px;
