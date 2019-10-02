@@ -181,7 +181,7 @@ export default class DashBoard extends React.Component {
             <li className={'meal'}>
               <div className="dash-event-text">
                 <div className="event-name">{e.name}</div>
-                <div className="event-time">on {this.formatDate(e.time)}</div>
+                <div className="event-time">{' '}on {this.formatDate(e.time)}</div>
               </div>
               <div className="meal-toggle-cont">
                 <button
@@ -236,9 +236,12 @@ export default class DashBoard extends React.Component {
       } else {
         return (
           <div key={index} className="dash-event-container">
+            
             <li className="symptom">
+            <div className="dash-event-text">
               {e.name} on {this.formatDate(e.time)}{' '}
               {e.type === 'symptom' ? `Severity: ${e.severity}` : ''}{' '}
+              </div>
               <button
                 className="delete-event"
                 onClick={() => this.handleDelete(e.id, e.type, index)}
