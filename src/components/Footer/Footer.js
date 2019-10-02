@@ -21,7 +21,7 @@ export default function Footer() {
               <p id='created-head'>Created By:</p>
               <ul>
                 <li>
-                  <a href="https://thinkful-ei-emu.github.io/portfolio-colleen/">Colleen Higgins</a>
+                  <a href="https://thinkful-ei-emu.github.io/portfolio-colleen/" target="_blank" rel='noopener noreferrer'>Colleen Higgins</a>
                 </li>
                 <li>
                   Paul KHan
@@ -30,13 +30,13 @@ export default function Footer() {
                   Blake Lowrey
                 </li>
                 <li>
-                  <a href='https://thinkful-ei-emu.github.io/portfolio-corey/'>Corey Moore</a> 
+                  <a href='https://thinkful-ei-emu.github.io/portfolio-corey/' target="_blank" rel='noopener noreferrer'>Corey Moore</a> 
                 </li>
                 <li>
-                  <a href="https://tarajpatel.com">T.J. Patel</a>
+                  <a href="https://tarajpatel.com" target="_blank" rel='noopener noreferrer'>T.J. Patel</a>
                 </li>
                 <li>
-                David Queen Jr.
+                <a href='https://dcoollx.github.io/Portfolio/' target="_blank" rel='noopener noreferrer'>Queen Jr.</a> 
                 </li>
               </ul>
               <p id='copy-footer'>RAMbo &copy; 2019</p>
