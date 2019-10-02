@@ -119,12 +119,12 @@ ul {
     border: 1px solid white;
     margin: 0 auto;
     padding: 15px;
-    background-color: rgb(42, 124, 94);
+    background-color: rgb(32, 88, 68);
     /* #32936F */
     color: white;
 }
 #results-button button:hover {
-  background-color: rgb(31, 97, 73);
+  background-color: rgb(17, 51, 38);
 }
 @media screen and (min-width:800px){
     /* #result-list{
