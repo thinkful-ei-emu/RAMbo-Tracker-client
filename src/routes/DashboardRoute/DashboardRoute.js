@@ -247,12 +247,16 @@ export default class DashBoard extends React.Component {
       <div>
         {/*add meal modal*/}
         <Modal
+          className = "Modal"
+          overlayClassName = "Modal_Overlay"
           isOpen={this.state.addMealModal}
           onRequestClose={e => this.closeModal("addMealModal")}
         >
           <Meal closeModal={this.closeModal} updateEvents={this.updateEvents} />
         </Modal>
         <Modal
+          className = "Modal"
+          overlayClassName = "Modal_Overlay"
           isOpen={this.state.addSymptomsModal}
           onRequestClose={() => this.closeModal("addSymptomsModal")}
         >

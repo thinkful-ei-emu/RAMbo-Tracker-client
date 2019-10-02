@@ -146,6 +146,16 @@ li {
 }
 
 @media screen and (max-width: 500px) {
+  .Modal {
+    display: flex;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: white;
+  }
+  
   #dash-button-container {
     display: inherit;
     flex-direction: row;

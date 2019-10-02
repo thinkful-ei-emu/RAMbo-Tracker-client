@@ -1,6 +1,17 @@
 
-
+.add-food-logo{
+  opacity: 0;
+  height:35px;
+  float:right;
+  
+}
+.AddFoodSearchResultsDiv{
+  border-bottom: 1px solid grey;
+}
 @media screen and (min-width: 500px){
+  .add-food-logo{
+    width:35px;
+  }
  .SearchFoodForm {
   display: inherit;
   flex-direction: row;
@@ -29,9 +40,7 @@
   color:white;
   border: 1px solid black;
 }
-.AddFoodSearchResultsDiv{
-  border-bottom: 1px solid grey;
-}
+
 
 .AddFoodSearchResultsSpace{
   flex-basis:20px;
@@ -50,9 +59,7 @@
 margin:1%;
 padding:3%;
 }
-.add-food-logo{
-  width:35px;
-}
+
 #add-food-button{
   background-color: rgb(255, 255, 255);
   color:black;
