@@ -16,6 +16,10 @@
   width: 75%;
 }
 
+.event-name, .event-time {
+  display: inline-block;
+}
+
 #dash-button-container {
   display: inherit;
   flex-direction: row;
@@ -55,14 +59,29 @@
   right: 45px;
   border: none;
   background-color: transparent;
+  font-size: 18px;
   font-weight: bold;
   color: rgb(22, 86, 184);
 /*   padding-right: 20%;
  */}
 
  .meal-toggle-cont{
-
+  text-align: right;
+  padding: 0px;
+  margin-right: -8px;
+  display: inline-block;
+  width: 60px;
+  height: 100%;
  }
+
+ .dash-event-text {
+  display: inline-block;
+}
+
+.expanded-food-event {
+  width: 100%;
+}
+
 .delete-event {
   top: 8px;
   right: 15px;
@@ -80,9 +99,7 @@
   margin-bottom: 5px;
   padding: 0;
 }
-.exp-hide-btn{
-  
-}
+
 .new-meal,
 .new-symptom,
 .print-button {
@@ -117,6 +134,10 @@ li {
   list-style-type: none;
   color: rgb(31, 27, 27);
   padding: 2%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 .events-list {
   margin: 0 auto;
@@ -165,14 +186,26 @@ li {
     padding-bottom: 2%;
   }
 
+  .log-container {
+    width: 95%;
+  }
+
   .events-list {
     width: 100%;
     margin: 0 auto;
   }
 
+  li {
+    padding: 5px 1px;
+  }
+
   .dashboard-content {
     padding: 1% 0 1% 0;
     margin: 0 0%;
+  }
+
+  .dash-event-text {
+    max-width: 75%;
   }
 
   #user-welcome {
