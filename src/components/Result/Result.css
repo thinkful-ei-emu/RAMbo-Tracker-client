@@ -49,8 +49,11 @@ ul {
         width: 40%;
         padding: 5px;
     }
+    #result-list{
+        width: 320px;
+    }
     .pie-area{
-        
+        max-width: 300px;
     }
     .chartjs-render-monitor{
         max-width: -webkit-fill-available;
