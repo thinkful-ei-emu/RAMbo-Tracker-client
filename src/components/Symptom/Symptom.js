@@ -4,6 +4,13 @@ import DatePicker from "react-datepicker";
 import helper from "../../services/helper.services";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Symptom.css";
+import face1 from '../../Media/wellness_face_1.png'
+import face2 from '../../Media/wellness_face_2.png'
+import face3 from '../../Media/wellness_face_3.png'
+import face4 from '../../Media/wellness_face_4.png'
+import face5 from '../../Media/wellness_face_5.png'
+
+
 let symptomName = document.getElementById('user-symptom')
 class Symptom extends Component {
   state = {
@@ -19,12 +26,15 @@ class Symptom extends Component {
 
   componentDidMount() {
     this.setState({error: null})
-    /* Api.doFetch('TODO')
-    .then(res => { */
-    //})
     this.setState({ pastUserSymptoms: helper.preExisting() });
-    //})
-    //.catch(e => console.log(e))
+
+    //set colors
+    let radioButtons = document.getElementById('symptom-form')['radio-face']
+    radioButtons[0].parentElement.style.backgroundColor = 'rgba(255,255,0,0)';
+    radioButtons[1].parentElement.style.backgroundColor = 'rgba(255,215,0,0)';
+    radioButtons[2].parentElement.style.backgroundColor = 'rgba(255,165,0,0)';
+    radioButtons[3].parentElement.style.backgroundColor = 'rgba(255,69,0,0)';
+    radioButtons[4].parentElement.style.backgroundColor = 'rgba(255,0,0,0)';
   }
 
 
@@ -40,7 +50,6 @@ class Symptom extends Component {
     sym.symptom = this.state.pastSymptomVal ? this.state.pastSymptomVal : sym.symptom;
     API.doFetch('/event','POST',sym).then(res=>{
       /* res.name = res.type; */
-      console.log(res);
       this.props.updateEvents(res);
       this.props.closeModal('addSymptomsModal');//this functions is passed in from dashboard to close the modal, it should be placed int the 'then' of api call to ensure it only runs in happy case 
      }).catch((res)=> {
@@ -55,7 +64,27 @@ class Symptom extends Component {
   };
 
   handleSeverityChange = sev => {
-    console.log(sev.target.value);
+    let radioButtons = document.getElementById('symptom-form')['radio-face'];
+    this.setState({symptomSeverity:Number(sev.target.value)});
+    radioButtons.forEach(radio => {
+      if(radio.value <= radioButtons.value)
+      {
+        let color = radio.parentElement.style.backgroundColor;
+        let values = color.split(',');
+        values[3] = '0.99)';
+        color = values.join(',');
+        radio.parentElement.style.backgroundColor = color;
+        //that button should be lit up
+      }else{
+        let color = radio.parentElement.style.backgroundColor;
+        let values = color.split(',');
+        values[3] = '0)';
+        color = values.join(',');
+        radio.parentElement.style.backgroundColor = color;
+        //button should be transparent
+      }
+      
+    });
     this.setState({
       symptomSeverity: sev.target.value
     });
@@ -89,8 +118,9 @@ class Symptom extends Component {
       <div className="symptom-container">
       <section className="symptom-container">
         <h2>Log a Symptom</h2>
-{/*         {this.state.error && <p className="error">There Was An Error</p>}
- */}        <form onSubmit={e => this.handleSymptomSubmit(e)}>
+        <form id='symptom-form' 
+          onSubmit={e => this.handleSymptomSubmit(e)}
+          onReset = {()=>this.props.closeModal('addSymptomsModal')}>
           <div id="user-input-container">
             <label htmlFor="user-symptom">Add New Symptom</label>
             <br />
@@ -111,7 +141,7 @@ class Symptom extends Component {
     {this.props.prevSymptoms.map((s,i)=>{
     if(i > 4)//limits to 5
       return null;
-    return <input type='button' key={i} onFocus={(e)=>symptomName = e.target} name="pastSymptoms" value={s.name}/>
+    return <input key={i} type="button" onFocus={(e)=>symptomName = e.target} name="pastSymptoms" value={s.name}/>
     })
     }
 
@@ -146,37 +176,59 @@ class Symptom extends Component {
             />
           </div>
 
-          <div id="severity-radio">
-            <label 
-              htmlFor='severity-slider'>
+          <label 
+              id='radio-label'
+              htmlFor='radio'>
               Rate the Severity
-            </label><br/>
-            
-            <input
-              id='severity-slider'
-              type="range"
-              step="1"
-              min="1"
-              max="5"
-              list="tickmarks"
-              defaultValue={this.state.symptomSeverity}
-              onChange={e => this.handleSeverityChange(e)}
-            />
-            <datalist id="tickmarks">
-              <option value="1" label="low"></option>
-              <option value="2"></option>
-              <option value="3" label="3"></option>
-              <option value="4"></option>
-              <option value="5" label="5"></option>
-            </datalist>
-            <p id="severity-desc">(Scale of 1-5: 1 being low, 5 being extreme)</p>
+            </label>
+            <br/>
+          <div className='radio-container'>
+
+              <div className='radio-buttons-1'>
+                  <input className='radio-input' name='radio-face' id='radio-1' type='radio' value='1' 
+                    checked={this.state.symptomSeverity === '1'}
+                    onChange={e => this.handleSeverityChange(e)} />
+                  <label htmlFor='radio-1' ><img className='face' src={face1} alt='Severity Very Mild'/></label>
+              </div>
+
+              <div className='radio-buttons-2'>
+                  <input className='radio-input' name='radio-face' id='radio-2' type='radio' value='2'
+                    checked={this.state.symptomSeverity === '2'}
+                    onChange={e => this.handleSeverityChange(e)} />
+                  <label htmlFor='radio-2' ><img className='face' src={face2} alt='Severity Mild'/></label>
+              </div>
+
+              <div className='radio-buttons-3'>    
+                  <input className='radio-input' name='radio-face' id='radio-3' type='radio' value='3'
+                    checked={this.state.symptomSeverity === '3'}
+                    onChange={e => this.handleSeverityChange(e)} />
+                  <label htmlFor='radio-3' ><img className='face' src={face3} alt='Severity Medium'/></label>
+              </div>
+
+              <div className='radio-buttons-4'>
+                  <input className='radio-input' name='radio-face' id='radio-4' type='radio' value='4'
+                    checked={this.state.symptomSeverity === '4'}
+                    onChange={e => this.handleSeverityChange(e)} />
+                    <label htmlFor='radio-4' ><img className='face' src={face4} alt='Severity High'/></label>
+              </div>
+
+              <div className='radio-buttons-5'>
+                  <input className='radio-input' name='radio-face' id='radio-5' type='radio' value='5'
+                    checked={this.state.symptomSeverity === '5'}
+                    onChange={e => this.handleSeverityChange(e)} />
+                  <label htmlFor='radio-5' ><img className='face' src={face5} alt='Severity Extereme'/></label>
+              </div>
+        
           </div>
+          
+
           <br />
           {this.state.error && <p className='symptom-error'>{this.state.error}</p>}
           <div id='submit-button'>
             <button className="user-button" type="submit">
               Submit Symptom
             </button>
+            <button className="user-button" type="reset">Cancel</button>
           </div>
         </form>
       </section>
