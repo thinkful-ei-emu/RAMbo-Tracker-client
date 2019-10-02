@@ -10,7 +10,8 @@ export default class Result extends React.Component {
     error: null,
     selected: 0,
     onLastCheckBeforeDelete: false,
-    isEditting: false
+    isEditting: false,
+    screenSize:0
   };
   clearErrors=()=>{
     this.setState({error: null})
@@ -40,7 +41,19 @@ export default class Result extends React.Component {
       this.refreshResults();
     }
   }
-
+  componentDidMount() {
+    window.addEventListener("resize", this.resize);
+    this.resize();
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.resize)
+  }
+  resize=()=> {
+    let currentscreenSize = (window.innerWidth >= 550) ? (window.innerWidth >= 1400) ? 2 : 1 : 0;
+    if (currentscreenSize !== this.state.screenSize) {
+      this.setState({ screenSize: currentscreenSize });
+    }
+  }
 
   handleSelectedChange = (event) => {
     this.clearErrors();
@@ -246,6 +259,7 @@ export default class Result extends React.Component {
               </i>
               <div className='pie-area'>
                 <PieChart
+                  screenSize={this.state.screenSize}
                   data={data}
                   title={item.symptomType.type}
                   colors={[

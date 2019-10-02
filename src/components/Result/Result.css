@@ -55,6 +55,8 @@ ul {
 
 .pie-area {
     text-align: center;
+    position: relative;
+    margin:0 auto;
 }
 
 #results-button{
@@ -73,13 +75,21 @@ ul {
 #results-button button:hover{
     background-color: rgb(31, 97, 73)
 }
-@media screen and(min-width:800){
-    #result-list{
+@media screen and (min-width:800px){
+    /* #result-list{
         max-width: 50%;
-    }
-    .pie-area{
-        height: 75vh;
-    }
+    } */
+    /* .pie-area{
+        height: 50vh;
+    } */
+}
+@media screen and (max-width:800px){
+    /* #result-list{
+        max-width: 50%;
+    } */
+    /* .pie-area{
+        height: 50vh;
+    } */
 }
 @media screen and (max-width: 500px){
   
@@ -92,7 +102,6 @@ ul {
        
     }
     .pie-area{
-        position: relative;
         max-width: 300px;
         height:80vh;
     }
