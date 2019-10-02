@@ -69,7 +69,7 @@ export default class Result extends React.Component {
       <div id="results">
         <h2>My Results</h2>
 {this.state.error && <p class="error">There Was An Error!</p>}
-        <ul>{results}</ul>
+        <section>{results}</section>
         
         <div id="results-button">
           <button onClick={e => this.refreshResults(e)}>Refresh Results</button>

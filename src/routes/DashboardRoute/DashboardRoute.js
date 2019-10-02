@@ -188,10 +188,10 @@ export default class DashBoard extends React.Component {
                 {this.state.expanded === index ? "-" : "+"}
               </button>
               <button
-                className="delete-event"
+                className="delete-event" aria-label="Delete item"
                 onClick={() => this.handleDelete(e.id, e.type, index)}
               >
-                <i className="fa fa-trash" aria-hidden="true"></i>
+                <i className="fa fa-trash" aria-hidden="true" ></i>
               </button>
               </div>
               {this.state.expanded === index && (
@@ -232,7 +232,7 @@ export default class DashBoard extends React.Component {
               {e.name} at {this.formatDate(e.time)}{" "}
               {e.type === "symptom" ? `Severity: ${e.severity}` : ""}{' '}
               <button
-                className="delete-event"
+                className="delete-event" aria-label="Delete item"
                 onClick={() => this.handleDelete(e.id, e.type, index)}
               >
                 <i className="fa fa-trash" aria-hidden="true"></i>
@@ -264,7 +264,7 @@ export default class DashBoard extends React.Component {
         </Modal>
         <div id="user-welcome">
           {" "}
-          <h3>Welcome back, {this.state.user.display_name}</h3>
+          <h2>Welcome back, {this.state.user.display_name}</h2>
         </div>
         <div className="dashboard-content">
           <Result />
