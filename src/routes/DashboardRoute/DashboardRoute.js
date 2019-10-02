@@ -151,7 +151,8 @@ export default class DashBoard extends React.Component {
       date.getDate() +
       '-' +
       date.getFullYear() +
-      ' ' + 'at ' +
+      ' ' +
+      'at ' +
       date.getHours() +
       ':' +
       date.getMinutes();
@@ -200,9 +201,12 @@ export default class DashBoard extends React.Component {
       if (e.type === 'meal') {
         return (
           <ul key={index} className="dash-event-container-meal">
-            <li className={"meal"}>
-              {e.name} at {this.formatDate(e.time)}
-              <div className='meal-toggle-cont'>
+            <li className={'meal'}>
+              <div className="dash-event-text">
+                <div className="event-name">{e.name}</div>
+                <div className="event-time">{' '}on {this.formatDate(e.time)}</div>
+              </div>
+              <div className="meal-toggle-cont">
                 <button
                   className="expand-toggle"
                   onClick={() => this.handleExpandToggle(index)}
@@ -213,37 +217,41 @@ export default class DashBoard extends React.Component {
                   className="delete-event" aria-label="Delete item"
                   onClick={() => this.handleDelete(e.id, e.type, index)}
                 >
-                  <i className="fa fa-trash" aria-hidden="true" ></i>
+                  <i className="fa fa-trash fa-lg" aria-hidden="true"></i>
                 </button>
               </div>
               {this.state.expanded === index && (
-                <ul className="food-toggle">
-                  {e.items.map((item, index) => {
-                    return (
-                      <>
-                        <li key={index} className="food-item-in-dash">
-                          <p className="food-info-in-dash">{item.name}</p>
-                          <p className="ingredients-list-in-dash">
-                            {this.state.itemExpanded.includes(index) &&
-                              item.ingredients
-                                .map((ingredient) => ingredient.toLowerCase())
-                                .join(', ')}
-                          </p>
-                        </li>
-                        <div className="exp-hide-btn">
-                          <button
-                            className="ingredients-expand"
-                            onClick={() => this.handleIngredientsToggle(index)}
-                          >
-                            {this.state.itemExpanded.includes(index)
-                              ? 'Hide ingredients'
-                              : 'Show ingredients'}
-                          </button>
-                        </div>
-                      </>
-                    );
-                  })}
-                </ul>
+                <div className="expanded-food-event">
+                  <ul className="food-toggle">
+                    {e.items.map((item, index) => {
+                      return (
+                        <>
+                          <li key={index} className="food-item-in-dash">
+                            <p className="food-info-in-dash">{item.name}</p>
+                            <p className="ingredients-list-in-dash">
+                              {this.state.itemExpanded.includes(index) &&
+                                item.ingredients
+                                  .map((ingredient) => ingredient.toLowerCase())
+                                  .join(', ')}
+                            </p>
+                          </li>
+                          <div className="exp-hide-btn">
+                            <button
+                              className="ingredients-expand"
+                              onClick={() =>
+                                this.handleIngredientsToggle(index)
+                              }
+                            >
+                              {this.state.itemExpanded.includes(index)
+                                ? 'Hide ingredients'
+                                : 'Show ingredients'}
+                            </button>
+                          </div>
+                        </>
+                      );
+                    })}
+                  </ul>
+                </div>
               )}
             </li>
           </ul>
@@ -252,13 +260,15 @@ export default class DashBoard extends React.Component {
         return (
           <ul key={index} className="dash-event-container-symptom">
             <li className="symptom">
+            <div className="dash-event-text">
               {e.name} on {this.formatDate(e.time)}{' '}
               {e.type === 'symptom' ? `Severity: ${e.severity}` : ''}{' '}
+              </div>
               <button
                 className="delete-event" aria-label="Delete item"
                 onClick={() => this.handleDelete(e.id, e.type, index)}
               >
-                <i className="fa fa-trash" aria-hidden="true"></i>
+                <div className="meal-toggle-cont"><i className="fa fa-trash fa-lg" aria-hidden="true"></i></div>
               </button>
             </li>
 
