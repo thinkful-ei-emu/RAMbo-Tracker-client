@@ -155,7 +155,7 @@ export default class DashBoard extends React.Component {
       'at ' +
       date.getHours() +
       ':' +
-      date.getMinutes();
+      ((date.getMinutes() == '0') ? '00' : date.getMinutes());
     return formatted_date;
   };
 
@@ -200,11 +200,11 @@ export default class DashBoard extends React.Component {
     let events = this.state.events.map((e, index) => {
       if (e.type === 'meal') {
         return (
-          <ul key={index} className="dash-event-container-meal">
-            <li className={'meal'}>
+          // <ul key={index} className="dash-event-container-meal">
+            <li key={index} className={'dash-event-container-meal meal'}>
               <div className="dash-event-text">
-                <div className="event-name">{e.name}</div>
-                <div className="event-time">{' '}on {this.formatDate(e.time)}</div>
+                <div className="event-text-section">{e.name}</div>{' '}
+                <div className="event-text-section">on {this.formatDate(e.time)}</div>
               </div>
               <div className="meal-toggle-cont">
                 <button
@@ -254,25 +254,28 @@ export default class DashBoard extends React.Component {
                 </div>
               )}
             </li>
-          </ul>
+          // </ul>
         );
       } else {
         return (
-          <ul key={index} className="dash-event-container-symptom">
-            <li className="symptom">
+          // <ul key={index} className="dash-event-container-symptom">
+            <li key={index} className="symptom dash-event-container-symptom">
             <div className="dash-event-text">
-              {e.name} on {this.formatDate(e.time)}{' '}
-              {e.type === 'symptom' ? `Severity: ${e.severity}` : ''}{' '}
+              <div className="event-text-section">{e.name}</div>{' '}
+              <div className="event-text-section">on {this.formatDate(e.time)};</div>{' '}
+              <div className="event-text-section">{`Severity: ${e.severity}`}</div>{' '}
               </div>
+              <div className="meal-toggle-cont">
               <button
                 className="delete-event" aria-label="Delete item"
                 onClick={() => this.handleDelete(e.id, e.type, index)}
               >
-                <div className="meal-toggle-cont"><i className="fa fa-trash fa-lg" aria-hidden="true"></i></div>
+                <i className="fa fa-trash fa-lg" aria-hidden="true"></i>
               </button>
+              </div>
             </li>
 
-          </ul>
+          // </ul>
         );
       }
     });
@@ -331,7 +334,10 @@ export default class DashBoard extends React.Component {
             </div>
             <div className="events">
               <div className="events-list">
+                <ul>
                 {events == '' ? `Your log is empty` : events}
+                </ul>
+                
               </div>
             </div>
           </div>

@@ -1,13 +1,9 @@
-.entire-dashboard-div{
-
-}
 .dashboard-content {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
   padding-left: 5%;
   padding-right: 5%;
-  
 }
 
 .log-container {
@@ -16,7 +12,7 @@
   width: 75%;
 }
 
-.event-name, .event-time {
+.event-text-section {
   display: inline-block;
 }
 
@@ -45,15 +41,15 @@
   margin:1%;
   border-radius:10px;
   text-align: left;
-
 }
+
 .dash-event-container-meal {
   text-align: left;
   border:2px solid #558AA4;
   margin: 1%;
   border-radius:10px
-
 }
+
 .expand-toggle {
   top: 8px;
   right: 45px;
@@ -62,8 +58,7 @@
   font-size: 18px;
   font-weight: bold;
   color: rgb(22, 86, 184);
-/*   padding-right: 20%;
- */}
+}
 
  .meal-toggle-cont{
   text-align: right;
@@ -195,9 +190,9 @@ li {
     margin: 0 auto;
   }
 
-  li {
+  /* li {
     padding: 5px 1px;
-  }
+  } */
 
   .dashboard-content {
     padding: 1% 0 1% 0;
