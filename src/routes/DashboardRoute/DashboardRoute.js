@@ -155,6 +155,7 @@ export default class DashBoard extends React.Component {
       'at ' +
       date.getHours() +
       ':' +
+      // eslint-disable-next-line eqeqeq
       ((date.getMinutes() == '0') ? '00' : date.getMinutes());
     return formatted_date;
   };
@@ -335,7 +336,7 @@ export default class DashBoard extends React.Component {
             <div className="events">
               <div className="events-list">
                 <ul>
-                {events == '' ? `Your log is empty` : events}
+                {events === '' ? `Your log is empty` : events}
                 </ul>
                 
               </div>
