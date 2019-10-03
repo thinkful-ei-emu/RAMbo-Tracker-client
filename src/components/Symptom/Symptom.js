@@ -282,11 +282,11 @@ class Symptom extends Component {
               <p className="symptom-error">{this.state.error}</p>
             )}
             <div id="submit-button">
-              <button className="user-button" type="submit">
-                Submit Symptom
-              </button>
               <button id="back-button" type="reset">
                 Back
+              </button>
+              <button className="user-button" type="submit">
+                Submit Symptom
               </button>
             </div>
           </form>
