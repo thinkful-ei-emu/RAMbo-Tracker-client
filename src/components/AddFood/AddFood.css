@@ -25,7 +25,7 @@
     width:35px;
   }
  .SearchFoodForm {
-  display: inherit;
+  display: inline-block;
   flex-direction: row;
   
   
