@@ -271,7 +271,7 @@ class Symptom extends Component {
                   onChange={(e) => this.handleSeverityChange(e)}
                 />
                 <label htmlFor="radio-5">
-                  <img className="face" src={face5} alt="Severity Extereme" />
+                  <img className="face" src={face5} alt="Severity Extreme" />
                 </label>
               </div>
             </div>

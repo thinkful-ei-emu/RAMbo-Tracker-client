@@ -256,6 +256,9 @@ export default class Result extends React.Component {
                     <button className='user-button'>
                       Submit
                     </button>
+                    <button className="user-button" type="reset" onClick={this.handleToggleEdit}>
+                      Cancel
+                    </button>
                   </form>
               }
               
