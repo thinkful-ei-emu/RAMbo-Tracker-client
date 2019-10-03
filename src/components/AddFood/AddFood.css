@@ -23,6 +23,7 @@
 
 .AddFoodSearchResultsRow{
   display:flex;
+  flex-flow: row wrap;
   justify-content:space-between;
   padding-left:10%;
   padding-right:10%;

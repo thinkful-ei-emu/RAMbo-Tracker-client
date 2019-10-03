@@ -203,10 +203,12 @@ export default class AddFood extends React.Component {
                         <div className='AddFoodSearchResultsName'>
                           {ProcessFoodName(food.description)}
                         </div>
+                        <img className='add-food-logo'src={cart} alt='shopping cart'/>
                       </div>
+                      
                       <div className='AddFoodSearchResultsSpace'>
                       </div>
-                       <img className='add-food-logo'src={cart} alt='shopping cart'/>
+                      
                     </div>
                   </div>
                 )

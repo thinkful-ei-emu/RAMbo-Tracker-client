@@ -21,6 +21,8 @@
 }
 
 .AddFoodSearchResultsManu, .AddFoodSearchResultsName {
+  display: block;
+  width: 90%;
   text-align: left;
   padding-left: 5px;
 }
