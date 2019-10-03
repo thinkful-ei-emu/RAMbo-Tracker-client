@@ -31,12 +31,26 @@ run `npm run start`
 
 ## Screenshots
 
-![Landing Page](/src/Media/registeripadscreenshot.png)
+### Landing Page
+
+![Landing Page](/src/Media/landingpagescreenshot.png)
+
+### Login Page
 
 ![Login Page](/src/Media/loginscreenshot.png)
 
+### User Dashboard
+
 ![User Dashboard](/src/Media/dashboardscreenshot.png)
+
+### Log Symptom
 
 ![Log Symptom](/src/Media/symptomscreenshot.png)
 
+### Log Meal
+
 ![Log Meal](/src/Media/mealscreenshot.png)
+
+### About Page
+
+![About Page](/src/Media/aboutscreenshot.png)
