@@ -5,8 +5,8 @@
   max-width: 100%;
   text-align: center;
   overflow: auto;
+  padding-bottom:10px;
 }
-
 
 .react-datepicker__input-container .InlineBlockTheDate  {
   display: inline-block;

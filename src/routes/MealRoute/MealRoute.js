@@ -96,6 +96,7 @@ export default class MealRoute extends React.Component {
           <br></br>
           <input
             type="text"
+            maxlength="40"
             onChange={e => this.handleNameChange(e.target.value)}
             id="AddMealNameInput"
             value={this.state.mealName}

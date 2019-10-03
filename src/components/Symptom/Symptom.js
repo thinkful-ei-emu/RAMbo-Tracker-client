@@ -177,6 +177,7 @@ class Symptom extends Component {
                   id="user-symptom"
                   type="text"
                   placeholder="bloated.."
+                  maxlength="20"
                   list="past-symptoms"
                   disabled={this.state.symptomSelectIsHidden}
                 />
@@ -191,7 +192,6 @@ class Symptom extends Component {
                 selected={this.state.symptomTime}
                 onChange={this.handleTimeChange}
                 showTimeSelect
-                withPortal
                 dateFormat="Pp"
               />
             </div>

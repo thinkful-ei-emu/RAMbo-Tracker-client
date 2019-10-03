@@ -2,7 +2,9 @@
 .add-food-logo{
   opacity: 1;
   height:35px;
-  float:right;
+  position:absolute;
+  right:0;
+  top:0;
   
 }
 
@@ -10,6 +12,9 @@
   border-bottom: 1px solid grey;
 }
 
+.AddFoodSearchResultsRow{
+  position:relative;
+}
 #search-food-button{
   margin: 0 auto;
   color: rgb(0, 0, 0);
@@ -17,11 +22,11 @@
   border: 1px solid rgb(68, 68, 68);
   font-weight: 500;
   border-radius: 5px;
-  }
+}
 
 @media screen and (min-width: 800px){
   .add-food-logo{
-    opacity: 0;
+    opacity: 1;
     width:35px;
   }
  .SearchFoodForm {
