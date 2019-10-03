@@ -32,7 +32,7 @@ export default class Result extends React.Component {
       })
       .catch(res =>
         this.setState({
-          error: res.message,
+          error: res.error,
           onLastCheckBeforeDelete: false,
           isEditting: false
         }));
@@ -124,7 +124,7 @@ export default class Result extends React.Component {
             isEditting:false,
             selected: 0, */
         })
-        .catch(res => this.setState({ error: res.message }));
+        .catch(res => this.setState({ error: res.error }));
     }
     else {
       this.setState({
