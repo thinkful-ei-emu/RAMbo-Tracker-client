@@ -134,7 +134,7 @@ class Symptom extends Component {
                 return null;
                 
               return (
-                <div className={`recent-radio-container ${this.state.selectedSymptom===s && 'selected'}`}>
+                <div className={`recent-radio-container ${this.state.selectedSymptom===s && 'selected'}`} key={i} >
                   <label className="recent-radios-label" htmlFor={`radio-${s}`}>{s}</label>
                   <input
                     className="recent-radio"

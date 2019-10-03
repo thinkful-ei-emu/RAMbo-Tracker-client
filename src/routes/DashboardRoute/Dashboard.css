@@ -1,3 +1,6 @@
+.entire-dashboard-div{
+
+}
 .dashboard-content {
   display: flex;
   flex-direction: row-reverse;
@@ -11,6 +14,10 @@
   display: inherit;
   flex-direction: column;
   width: 75%;
+}
+
+.event-name, .event-time {
+  display: inline-block;
 }
 
 #dash-button-container {
@@ -33,26 +40,48 @@
   width: fit-content;
 }
 
-.dash-event-container:nth-child(odd) {
-  background-color: rgb(245, 245, 245);
-}
-.dash-event-container {
+.dash-event-container-symptom {
+  border:2px solid #f15e3d;
+  margin:1%;
+  border-radius:10px;
   text-align: left;
-  background-color: rgb(224, 226, 226);
+
+}
+.dash-event-container-meal {
+  text-align: left;
+  border:2px solid #558AA4;
+  margin: 1%;
+  border-radius:10px
+
 }
 .expand-toggle {
   top: 8px;
   right: 45px;
   border: none;
   background-color: transparent;
+  font-size: 18px;
   font-weight: bold;
   color: rgb(22, 86, 184);
 /*   padding-right: 20%;
  */}
 
  .meal-toggle-cont{
-
+  text-align: right;
+  padding: 0px;
+  margin-right: -8px;
+  display: inline-block;
+  width: 60px;
+  height: 100%;
  }
+
+ .dash-event-text {
+  display: inline-block;
+}
+
+.expanded-food-event {
+  width: 100%;
+}
+
 .delete-event {
   top: 8px;
   right: 15px;
@@ -70,9 +99,7 @@
   margin-bottom: 5px;
   padding: 0;
 }
-.exp-hide-btn{
-  
-}
+
 .new-meal,
 .new-symptom,
 .print-button {
@@ -107,6 +134,10 @@ li {
   list-style-type: none;
   color: rgb(31, 27, 27);
   padding: 2%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 .events-list {
   margin: 0 auto;
@@ -138,7 +169,7 @@ li {
   width: 20px;
   padding-right: 5px;
 }
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 800px) {
   .dashboard-content {
     align-items: center;
     flex-direction: column;
@@ -155,14 +186,26 @@ li {
     padding-bottom: 2%;
   }
 
+  .log-container {
+    width: 95%;
+  }
+
   .events-list {
     width: 100%;
     margin: 0 auto;
   }
 
+  li {
+    padding: 5px 1px;
+  }
+
   .dashboard-content {
     padding: 1% 0 1% 0;
     margin: 0 0%;
+  }
+
+  .dash-event-text {
+    max-width: 75%;
   }
 
   #user-welcome {

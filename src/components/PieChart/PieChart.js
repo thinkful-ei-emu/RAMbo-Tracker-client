@@ -7,6 +7,22 @@ export default class PieChart extends React.Component {
     this.canvasRef = React.createRef();
   }
 
+  componentWillReceiveProps(nextProps){
+    if(nextProps.screenSize!==this.props.screenSize){
+      if(nextProps.screenSize===2){
+        this.myChart.canvas.parentNode.style.height='600px';
+        this.myChart.canvas.parentNode.style.width='700px';
+      }
+      else if(nextProps.screenSize===1){
+        this.myChart.canvas.parentNode.style.height='600px';
+        this.myChart.canvas.parentNode.style.width='400px';
+      }
+      else if(nextProps.screenSize===0){
+        this.myChart.canvas.parentNode.style.height='500px';
+        this.myChart.canvas.parentNode.style.width='300px';
+      }
+    }
+  }
   componentDidUpdate() {
     this.myChart.data.labels = this.props.data.map(d => d.label);
     this.myChart.data.datasets[0].data = this.props.data.map(d => d.value);
@@ -14,22 +30,38 @@ export default class PieChart extends React.Component {
   }
 
   componentDidMount() {
+    
     this.myChart = new Chart(this.canvasRef.current, {
       type: 'doughnut',
       options: {
-        maintainAspectRatio: true,
-        responsive: true
+        maintainAspectRatio: false,
+        responsive: true,
+      
       },
       data: {
         labels: this.props.data.map(d => d.label),
         datasets: [{
           data: this.props.data.map(d => d.value),
           backgroundColor: this.props.colors
-        }]
-      }
+        }],
+       
+      },
     });
+    if(this.props.screenSize===2){
+      this.myChart.canvas.parentNode.style.height='600px';
+      this.myChart.canvas.parentNode.style.width='700px';
+    }
+    else if(this.props.screenSize===1){
+      this.myChart.canvas.parentNode.style.height='600px';
+      this.myChart.canvas.parentNode.style.width='400px';
+    }
+    else if(this.props.screenSize===0){
+      this.myChart.canvas.parentNode.style.height='500px';
+      this.myChart.canvas.parentNode.style.width='300px';
+    }
 
   }
+
 
 
   render() {
