@@ -56,7 +56,7 @@ export default class DashBoard extends React.Component {
           events: res.events
         });
       })
-      .catch((res) => this.setState({ error: res.message }));
+      .catch((res) => this.setState({ error: res.error }));
   }
 
   updateAllEventsDueToResult = () => {
@@ -68,7 +68,7 @@ export default class DashBoard extends React.Component {
           events: res.events
         });
       })
-      .catch((res) => this.setState({ error: res.message }));
+      .catch((res) => this.setState({ error: res.error }));
   }
 
   handleDelete = (id, type, index) => {
@@ -92,7 +92,7 @@ export default class DashBoard extends React.Component {
           events: newEvents
         });
       })
-      .catch((res) => this.setState({ error: res.message }));
+      .catch((res) => this.setState({ error: res.error }));
   };
 
   handleExpandToggle = (index) => {
