@@ -40,7 +40,7 @@ class RegistrationForm extends React.Component {
           this.props.onRegistrationSuccess();
         })
         .catch((res) => {
-          this.setState({error: res.message});
+          this.setState({error: res.error});
         });
     }
   };
