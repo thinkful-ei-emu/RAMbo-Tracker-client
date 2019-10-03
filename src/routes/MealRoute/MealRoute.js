@@ -108,7 +108,6 @@ export default class MealRoute extends React.Component {
             selected={this.state.mealTime}
             onChange={this.handleTimeChange}
             showTimeSelect
-            withPortal
             dateFormat="Pp"
           />
           <div className="AddMealFoodsDisplayContainer">
