@@ -80,7 +80,10 @@
   width: 40px;
   height: 50px;
 }
-
+.AddFoodSearchResults{
+  height: 200px;
+  overflow:scroll;
+} 
 
 @media screen and (max-width: 500px){
   #AddMealNameInput, #AddMealDateInput, #searchTermInput,#brandTermInput {
@@ -90,6 +93,10 @@
   .AddMealFoodsDisplayContainer, .AddFoodDiv {
     max-width: 200px;
   }
+  .AddFoodSearchResults{
+    height: 200px;
+    overflow:scroll;
+  } 
   #add-meal-button {
     width: auto;
     font-size: 1em;
