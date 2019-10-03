@@ -96,6 +96,7 @@ export default class MealRoute extends React.Component {
           <br></br>
           <input
             type="text"
+            maxlength="40"
             onChange={e => this.handleNameChange(e.target.value)}
             id="AddMealNameInput"
             value={this.state.mealName}
@@ -152,14 +153,16 @@ export default class MealRoute extends React.Component {
           <AddFood addFood={this.state.handleAddFood} />
           <br/>
           <ValidationError message={this.verifyFoodNonempty()} />
+          <div id='meal-form-btn-container'>
+            <button id="back-button" type="reset">Back</button>
           <button
             disabled={this.verify() ? true : false}
             className="user-button add-meal-button"
           >
             Add Meal
           </button>
-          <button className="user-button add-meal-button" type="reset">Cancel</button>
-         
+          
+          </div>
         </form>
       </div>
     );

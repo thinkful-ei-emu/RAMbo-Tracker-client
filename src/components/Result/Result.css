@@ -35,6 +35,9 @@ li {
     margin-top:0px;
 }
 
+#symptom-results-display-select {
+  margin-left: 5px;
+}
 
 .results-symptom-yes-delete{
     border: 1px solid red;
