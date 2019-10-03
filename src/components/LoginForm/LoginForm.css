@@ -5,10 +5,14 @@
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  padding: 10px;
+  padding: 20px;
   width: 350px;
   justify-content: flex-start;
   margin: 0 auto;
+  background-color: rgb(228, 228, 228);
+  border: 0px solid rgb(168, 168, 168);
+  border-radius: 20px;
+  box-shadow: 0 0px 0 #E0E0E0 inset, 0px 0px 3px rgba(0, 0, 0, 0.94)inset;
 }
 
 .loginLabel {
