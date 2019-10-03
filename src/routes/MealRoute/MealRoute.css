@@ -1,21 +1,13 @@
 .add-meal-div {
-  /*   box-sizing: border-box; */
   display: flex;
   width:100%;
   flex-direction: column;
-/*   justify-content: space-around;
- */  max-width: 100%;
+  max-width: 100%;
   text-align: center;
   overflow: auto;
 }
-/* .add-meal-form {
-  padding: 2%;
-  
-} */
-/* .add-meal-labels {
-  padding: 2%;
-  color: rgb(0, 0, 87);
-} */
+
+
 .react-datepicker__input-container .InlineBlockTheDate  {
   display: inline-block;
 }
