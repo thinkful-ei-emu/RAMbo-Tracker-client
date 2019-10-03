@@ -4,7 +4,6 @@ import './Footer.css';
 export default function Footer() {
     return (
       <div >
-        <div id='phantom-footer' />
           <div id='footer' role='contentinfo'>
             <div id="app-info">
             <div id="title-and-links">
@@ -36,7 +35,7 @@ export default function Footer() {
                   <a href="https://tarajpatel.com" target="_blank" rel='noopener noreferrer'>T.J. Patel</a>
                 </li>
                 <li>
-                <a href='https://dcoollx.github.io/Portfolio/' target="_blank" rel='noopener noreferrer'>Queen Jr.</a> 
+                <a href='https://dcoollx.github.io/Portfolio/' target="_blank" rel='noopener noreferrer'>David Queen Jr.</a> 
                 </li>
               </ul>
               <p id='copy-footer'>RAMbo &copy; 2019</p>
