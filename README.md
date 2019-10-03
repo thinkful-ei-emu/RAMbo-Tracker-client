@@ -14,20 +14,22 @@ Symptom tracker is an online food diary designed to help users take control of t
 
 Fork GIT
 
-run `NPM i`
+run `npm i`
 run `npm run start`
 
 ## Deploy
 
 1) change config.js to point to production server
-
+2) Add/update alias
 2) run `now`
 
 ## Tech Stack
 
->REACTJS
->REACT ROUTER
->HTML5, CSS, JS
+-->ReactJS
+-->React Router
+-->ChartJS
+-->DatePicker
+-->HTML5, CSS, JS
 
 ## Screenshots
 
