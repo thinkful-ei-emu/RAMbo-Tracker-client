@@ -2,13 +2,15 @@ module.exports = {
   preExisting(){
     return  [
       { label: '', value: '' },
-      { label: 'Bloated', value: 'Bloated' },
-      { label: 'Drowzey', value: 'Drowzey' },
-      { label: 'Heart Burn', value: 'Heart Burn' },
-      { label: 'Gas', value: 'Gas' },
-      { label: 'Vomiting', value: 'Vomiting' },
-      { label: 'Nausea', value: 'Nausea' },
-      { label: 'Diarrhea', value: 'Diarrhea' },
+      { label: 'bloating', value: 'bloating' },
+      { label: 'drowsiness', value: 'drowsiness' },
+      { label: 'heart burn', value: 'heart burn' },
+      { label: 'gas', value: 'gas' },
+      { label: 'vomiting', value: 'vomiting' },
+      { label: 'nausea', value: 'nausea' },
+      { label: 'diarrhea', value: 'diarrhea' },
+      { label: 'migraines', value: 'migraines'},
+      { label: }
     ];
   },
   getUserEvents(){
