@@ -68,7 +68,7 @@ export default class DashBoard extends React.Component {
           events: res.events
         });
       })
-      .catch(res => this.setState({ error: res.message }));
+      .catch((res) => this.setState({ error: res.message }));
   }
 
   handleDelete = (id, type, index) => {
@@ -201,8 +201,7 @@ export default class DashBoard extends React.Component {
     let events = this.state.events.map((e, index) => {
       if (e.type === 'meal') {
         return (
-          // <ul key={index} className="dash-event-container-meal">
-            <li key={index} className={'dash-event-container-meal meal'}>
+            <li key={index} className={'meal dash-event-container-meal'}>
               <div className="dash-event-text">
                 <div className="event-text-section">{e.name}</div>{' '}
                 <div className="event-text-section">on {this.formatDate(e.time)}</div>
@@ -255,11 +254,9 @@ export default class DashBoard extends React.Component {
                 </div>
               )}
             </li>
-          // </ul>
         );
       } else {
         return (
-          // <ul key={index} className="dash-event-container-symptom">
             <li key={index} className="symptom dash-event-container-symptom">
             <div className="dash-event-text">
               <div className="event-text-section">{e.name}</div>{' '}
@@ -275,11 +272,18 @@ export default class DashBoard extends React.Component {
               </button>
               </div>
             </li>
-
-          // </ul>
         );
       }
     });
+
+    let prevSymptoms = [];
+
+    for (let i = 0; i < this.state.events.length; i++) {
+      let curr = this.state.events[i];
+      if (!prevSymptoms.includes(curr.name) && curr.type === 'symptom') {
+        prevSymptoms.push(curr.name);
+      }
+    }
     return (
       <div className='entire-dashboard-div'>
         {/*add meal modal*/}
@@ -295,7 +299,9 @@ export default class DashBoard extends React.Component {
         >
           <Symptoms
             closeModal={this.closeModal}
-            prevSymptoms={this.state.events.filter((e) => e.type === 'symptom')}
+            prevSymptoms={this.state.events.filter((e) => e.type === 'symptom').map((e)=>
+              e.name
+            )}
             updateEvents={this.updateEvents}
           />
         </Modal>

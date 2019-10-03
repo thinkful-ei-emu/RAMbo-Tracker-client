@@ -9,7 +9,7 @@
 .log-container {
   display: inherit;
   flex-direction: column;
-  width: 75%;
+  flex-basis:50%
 }
 
 .event-text-section {
@@ -43,7 +43,6 @@
   text-align: left;
   padding: 2%;
   display: flex;
-  flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
 }
@@ -183,6 +182,9 @@ li {
   .dashboard-content {
     align-items: center;
     flex-direction: column;
+  }
+  .log-container{
+    width:75%;
   }
 }
 
