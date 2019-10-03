@@ -76,10 +76,10 @@
 }
 .AddFoodSearchResults{
   height: 200px;
-  overflow:scroll;
+  overflow:auto;
 } 
 .AddMealFoodsDisplayContainer{
-  overflow: scroll;
+  overflow: auto;
   max-height: 300px;
 }
 
