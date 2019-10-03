@@ -10,6 +10,15 @@
   border-bottom: 1px solid grey;
 }
 
+#search-food-button{
+  margin: 0 auto;
+  color: rgb(0, 0, 0);
+  background: linear-gradient(rgb(255, 255, 255), rgb(175, 175, 175));
+  border: 1px solid rgb(68, 68, 68);
+  font-weight: bold;
+  border-radius: 5px;
+  }
+
 @media screen and (min-width: 800px){
   .add-food-logo{
     opacity: 0;
@@ -60,11 +69,9 @@
 }
 
 #search-food-button{
-margin: 0 auto;
-color: rgb(0, 0, 0);
-background: linear-gradient(rgb(255, 255, 255), rgb(175, 175, 175));
-border: 1px solid rgb(68, 68, 68);
-font-weight: bold;
+  margin: 0 auto;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
 #add-food-logo{
