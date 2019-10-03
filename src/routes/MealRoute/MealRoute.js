@@ -159,7 +159,7 @@ export default class MealRoute extends React.Component {
           >
             Add Meal
           </button>
-          <button className="user-button" type="reset">Cancel</button>
+          <button id="back-button" type="reset">Back</button>
          
         </form>
       </div>

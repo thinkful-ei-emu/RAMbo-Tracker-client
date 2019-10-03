@@ -284,8 +284,8 @@ class Symptom extends Component {
               <button className="user-button" type="submit">
                 Submit Symptom
               </button>
-              <button className="user-button" type="reset">
-                Cancel
+              <button id="back-button" type="reset">
+                Back
               </button>
             </div>
           </form>

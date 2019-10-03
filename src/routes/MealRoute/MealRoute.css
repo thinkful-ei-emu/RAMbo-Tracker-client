@@ -62,6 +62,19 @@
   width: 25%;
 }
 
+#back-button{
+  margin: 1%;
+  padding: 1%;
+  color: rgb(0, 0, 0);
+  background: linear-gradient(rgb(255, 255, 255), rgb(175, 175, 175));
+  border: 1px solid rgb(68, 68, 68);
+  border-radius: 5px;
+  width: 60px;
+  height: 25px;
+  font-size: 1em;
+  font-weight: 600;
+}
+
 #remove-food-button{
   width: 80px;
   padding: 0px;
@@ -96,6 +109,16 @@
   }
   #search-food-button {
     padding: 1%;
+    font-size: 1em;
+  }
+  #back-button{
+    margin: 1%;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(rgb(255, 255, 255), rgb(175, 175, 175));
+    border: 1px solid rgb(68, 68, 68);
+    border-radius: 5px;
+    width: 60px;
+    height: 28px;
     font-size: 1em;
   }
 }

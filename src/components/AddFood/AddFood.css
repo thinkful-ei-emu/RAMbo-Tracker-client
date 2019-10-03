@@ -35,9 +35,14 @@
 }
 
 #search-food-button{
-margin:1%;
-padding:3%;
+margin: 1%;
+padding: 1%;
+color: rgb(0, 0, 0);
+background: linear-gradient(rgb(255, 255, 255), rgb(175, 175, 175));
+border: 1px solid rgb(68, 68, 68);
+font-weight: bold;
 }
+
 #add-food-logo{
   width:15px;
   padding:1%;
@@ -47,7 +52,7 @@ padding:3%;
   color:black;
   width: 25%;
   padding: 1%;
-display: flex;
+  display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
