@@ -190,9 +190,7 @@ class Symptom extends Component {
                 selected={this.state.symptomTime}
                 onChange={this.handleTimeChange}
                 showTimeSelect
-                // withPortal
                 dateFormat="Pp"
-                // inline
               />
             </div>
 
