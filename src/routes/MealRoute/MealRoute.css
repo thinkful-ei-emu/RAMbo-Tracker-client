@@ -3,10 +3,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  min-width: 300px;
   max-width: 100%;
-  text-align: center;
   margin: 0 auto;
+  text-align: center;
+  overflow: auto;
 }
 /* .add-meal-form {
   padding: 2%;
@@ -16,7 +16,9 @@
   padding: 2%;
   color: rgb(0, 0, 87);
 } */
-
+#foodAndMeals{
+  text-align: center;
+}
 .react-datepicker__input-container .InlineBlockTheDate  {
   display: inline-block;
 }
@@ -71,8 +73,8 @@
 }
 
 .remove-trash-can{
-  width: 40px;
-  height: 50px;
+  width: 20px;
+  height: 23px;
 }
 .AddFoodSearchResults{
   height: 200px;
@@ -82,9 +84,7 @@
   overflow: auto;
   max-height: 300px;
 }
-
-@media screen and (max-width: 500px){
-  #AddMealNameInput, #AddMealDateInput, #searchTermInput,#brandTermInput {
+#AddMealNameInput, #AddMealDateInput, #searchTermInput,#brandTermInput {
     max-width: 190px;
     font-size: 1em;
   }
@@ -102,5 +102,17 @@
   #search-food-button {
     padding: 1%;
     font-size: 1em;
+  }
+
+@media screen and (min-width: 800px){
+  .add-meal-div {
+    /*   box-sizing: border-box; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 100%;
+    margin:none;
+    text-align: center;
+    overflow: auto;
   }
 }

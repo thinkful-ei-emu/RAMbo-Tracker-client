@@ -25,6 +25,12 @@
   padding-left:10%;
   padding-right:10%;
   align-items:center;
+
+}
+.AddFoodSearchResultsRow::after{
+  content:url('../../Media/cart.png');
+  height: 26px;
+  transform: scale(0.03);
 }
 .AddFoodSearchResultsRow div{
   word-break: normal; 
