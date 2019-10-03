@@ -89,7 +89,8 @@ export default class MealRoute extends React.Component {
   render() {
     return (
       <div className="add-meal-div">
-        <h2>Log a Meal<p className="exitButton" onClick={()=>this.props.closeModal('addMealModal')}>X</p></h2>
+        <p className="exitButton" onClick={()=>this.props.closeModal('addMealModal')}>X</p>
+        <h2>Log a Meal</h2>
         <form className="add-meal-form" onSubmit={this.handleMealSubmit}  onReset = {()=>this.props.closeModal('addMealModal')}>
           <label className="add-meal-labels" htmlFor="AddMealNameInput">Meal Name:</label>
           <br></br>

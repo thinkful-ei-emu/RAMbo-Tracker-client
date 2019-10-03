@@ -167,10 +167,17 @@ li {
   width: 20px;
   padding-right: 5px;
 }
-  .dashboard-content {
-    align-items: center;
-    flex-direction: column;
-  }
+.dashboard-content {
+  align-items: center;
+  flex-direction: column;
+}
+.exitButton{
+  color:red;
+  font-size: 26px;
+  position: absolute;
+  right:30px;
+  top:10px;
+}
   /* .new-meal{
     z-index: 1;
     position: fixed;
@@ -183,7 +190,7 @@ li {
     color:white;
   } */
 @media screen and (min-width: 800px) {
-  .new-meal{
+  /* .new-meal{
     z-index: 0;
     position: relative;
     height:50px;
@@ -193,7 +200,7 @@ li {
     height:50px;
     width: 50px;
     color:white;
-  }
+  } */
   .Modal {
     display: flex;
     position: fixed;
