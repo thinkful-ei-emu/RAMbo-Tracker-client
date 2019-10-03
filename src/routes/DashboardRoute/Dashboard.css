@@ -41,13 +41,23 @@
   margin:1%;
   border-radius:10px;
   text-align: left;
+  padding: 2%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .dash-event-container-meal {
   text-align: left;
   border:2px solid #558AA4;
   margin: 1%;
-  border-radius:10px
+  border-radius:10px;
+  padding: 2%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .expand-toggle {
@@ -90,9 +100,19 @@
   background-color: transparent;
 }
 
+.food-info-in-dash {
+  display: block;
+  margin: 0px 3px 0px;
+}
+
 .food-item-in-dash {
   margin-bottom: 5px;
+  color: rgb(31, 27, 27);
   padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .new-meal,
@@ -121,18 +141,13 @@
 }
 
 .food-info-in-dash {
-  margin: 0;
   padding: 0;
 }
 
 li {
   list-style-type: none;
-  color: rgb(31, 27, 27);
-  padding: 2%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
+  
+
 }
 .events-list {
   margin: 0 auto;
@@ -189,10 +204,6 @@ li {
     width: 100%;
     margin: 0 auto;
   }
-
-  /* li {
-    padding: 5px 1px;
-  } */
 
   .dashboard-content {
     padding: 1% 0 1% 0;

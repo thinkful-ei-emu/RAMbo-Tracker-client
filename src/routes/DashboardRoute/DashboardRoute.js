@@ -230,7 +230,7 @@ export default class DashBoard extends React.Component {
                           <li key={index} className="food-item-in-dash">
                             <p className="food-info-in-dash">{item.name}</p>
                             <p className="ingredients-list-in-dash">
-                              {this.state.itemExpanded.includes(index) &&
+                              {this.state.itemExpanded.includes(index) && 
                                 item.ingredients
                                   .map((ingredient) => ingredient.toLowerCase())
                                   .join(', ')}
