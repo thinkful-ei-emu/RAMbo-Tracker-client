@@ -9,8 +9,17 @@ module.exports = {
       { label: 'vomiting', value: 'vomiting' },
       { label: 'nausea', value: 'nausea' },
       { label: 'diarrhea', value: 'diarrhea' },
-      { label: 'migraines', value: 'migraines'},
-      { label: }
+      { label: 'migraines', value: 'migraines' },
+      { label: 'constipation', value: 'constipation' },
+      { label: 'irritability', value: 'irritability' },
+      { label: 'twitching muscles', value: 'twitching muscles' },
+      { label: 'headaches', value: 'headaches' }, 
+      { label: 'congestion', value: 'congestion' },
+      { label: 'hives', value: 'hives' },
+      { label: 'vertigo', value: 'vertigo' },
+      { label: 'cough', value: 'cough' },
+      { label: 'swollen tongue', value: 'swollen tongue' },
+      { label: 'nightmares',  value: 'nightmares' }
     ];
   },
   getUserEvents(){
