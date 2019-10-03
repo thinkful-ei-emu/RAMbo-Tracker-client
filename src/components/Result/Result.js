@@ -10,7 +10,7 @@ export default class Result extends React.Component {
     error: null,
     selected: 0,
     onLastCheckBeforeDelete: false,
-    isEditting: false,
+    isEditing: false,
     screenSize:0
   };
   clearErrors=()=>{
@@ -25,14 +25,14 @@ export default class Result extends React.Component {
         this.setState({
           results: res,
           onLastCheckBeforeDelete: false,
-          isEditting: false
+          isEditing: false
         });
       })
       .catch(res =>
         this.setState({
           error: res.message,
           onLastCheckBeforeDelete: false,
-          isEditting: false
+          isEditing: false
         }));
   };
 
@@ -61,7 +61,7 @@ export default class Result extends React.Component {
     this.setState({
       selected: event.target.value,
       onLastCheckBeforeDelete: false,
-      isEditting:false
+      isEditing:false
     });
   }
   handleBeginDelete = () => {
@@ -73,7 +73,7 @@ export default class Result extends React.Component {
   handleToggleEdit = () => {
     this.clearErrors();
     this.setState({
-      isEditting: !this.state.isEditting
+      isEditing: !this.state.isEditing
     })
   }
   handleEdit = (event, item) => {
@@ -106,7 +106,7 @@ export default class Result extends React.Component {
           this.setState({
             results: newResults,
             onLastCheckBeforeDelete: false,
-            isEditting:false,
+            isEditing:false,
             selected: 0, */
         })
         .catch(res => this.setState({ error: res.message }));
@@ -114,7 +114,7 @@ export default class Result extends React.Component {
     else {
       this.setState({
         onLastCheckBeforeDelete: false,
-        isEditting:false
+        isEditing:false
       })
     }
   }
@@ -191,7 +191,7 @@ export default class Result extends React.Component {
                 </div>
               }
               {
-                this.state.isEditting && 
+                this.state.isEditing && 
                 !this.state.onLastCheckBeforeDelete &&
                 <form id="edit-user-symptom-form" onSubmit={e => this.handleEdit(e, item)}>
                     <h3>Meals-to-Symptom settings</h3>
@@ -256,6 +256,9 @@ export default class Result extends React.Component {
 
                     <button className='user-button'>
                       Submit
+                    </button>
+                    <button className="user-button" onClick={this.handleToggleEdit}>
+                      Cancel
                     </button>
                   </form>
               }
