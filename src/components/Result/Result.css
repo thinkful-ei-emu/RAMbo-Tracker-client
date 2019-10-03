@@ -97,9 +97,9 @@ ul {
 }
 /*^ fixes issue with default browser styling*/
 
-.results {
+#results {
   display: block;
-  max-width: 50%;
+  flex-basis:50%;
 }
 
 .pie-area {
