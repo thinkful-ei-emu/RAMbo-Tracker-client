@@ -56,7 +56,7 @@ export default class DashBoard extends React.Component {
           events: res.events
         });
       })
-      .catch((res) => this.setState({ error: res.message }));
+      .catch((res) => this.setState({ error: res.error }));
   }
 
   updateAllEventsDueToResult = () => {
@@ -68,7 +68,7 @@ export default class DashBoard extends React.Component {
           events: res.events
         });
       })
-      .catch((res) => this.setState({ error: res.message }));
+      .catch((res) => this.setState({ error: res.error }));
   }
 
   handleDelete = (id, type, index) => {
@@ -92,7 +92,7 @@ export default class DashBoard extends React.Component {
           events: newEvents
         });
       })
-      .catch((res) => this.setState({ error: res.message }));
+      .catch((res) => this.setState({ error: res.error }));
   };
 
   handleExpandToggle = (index) => {
@@ -155,7 +155,8 @@ export default class DashBoard extends React.Component {
       'at ' +
       date.getHours() +
       ':' +
-      date.getMinutes();
+      // eslint-disable-next-line eqeqeq
+      ((date.getMinutes() == '0') ? '00' : date.getMinutes());
     return formatted_date;
   };
 
@@ -200,11 +201,10 @@ export default class DashBoard extends React.Component {
     let events = this.state.events.map((e, index) => {
       if (e.type === 'meal') {
         return (
-          <ul key={index} className="dash-event-container-meal">
-            <li className={'meal'}>
+            <li key={index} className={'meal dash-event-container-meal'}>
               <div className="dash-event-text">
-                <div className="event-name">{e.name}</div>
-                <div className="event-time">{' '}on {this.formatDate(e.time)}</div>
+                <div className="event-text-section">{e.name}</div>{' '}
+                <div className="event-text-section">on {this.formatDate(e.time)}</div>
               </div>
               <div className="meal-toggle-cont">
                 <button
@@ -229,7 +229,7 @@ export default class DashBoard extends React.Component {
                           <li key={index} className="food-item-in-dash">
                             <p className="food-info-in-dash">{item.name}</p>
                             <p className="ingredients-list-in-dash">
-                              {this.state.itemExpanded.includes(index) &&
+                              {this.state.itemExpanded.includes(index) && 
                                 item.ingredients
                                   .map((ingredient) => ingredient.toLowerCase())
                                   .join(', ')}
@@ -254,25 +254,24 @@ export default class DashBoard extends React.Component {
                 </div>
               )}
             </li>
-          </ul>
         );
       } else {
         return (
-          <ul key={index} className="dash-event-container-symptom">
-            <li className="symptom">
-              <div className="dash-event-text">
-                {e.name} on {this.formatDate(e.time)}{' '}
-                {e.type === 'symptom' ? `Severity: ${e.severity}` : ''}{' '}
+            <li key={index} className="symptom dash-event-container-symptom">
+            <div className="dash-event-text">
+              <div className="event-text-section">{e.name}</div>{' '}
+              <div className="event-text-section">on {this.formatDate(e.time)};</div>{' '}
+              <div className="event-text-section">{`Severity: ${e.severity}`}</div>{' '}
               </div>
+              <div className="meal-toggle-cont">
               <button
                 className="delete-event" aria-label="Delete item"
                 onClick={() => this.handleDelete(e.id, e.type, index)}
               >
-                <div className="meal-toggle-cont"><i className="fa fa-trash fa-lg" aria-hidden="true"></i></div>
+                <i className="fa fa-trash fa-lg" aria-hidden="true"></i>
               </button>
+              </div>
             </li>
-
-          </ul>
         );
       }
     });
@@ -289,12 +288,16 @@ export default class DashBoard extends React.Component {
       <div className='entire-dashboard-div'>
         {/*add meal modal*/}
         <Modal
+          className = "Modal"
+          overlayClassName = "Modal_Overlay"
           isOpen={this.state.addMealModal}
           onRequestClose={(e) => this.closeModal('addMealModal')}
         >
           <Meal closeModal={this.closeModal} updateEvents={this.updateEvents} />
         </Modal>
         <Modal
+          className = "Modal"
+          overlayClassName = "Modal_Overlay"
           isOpen={this.state.addSymptomsModal}
           onRequestClose={() => this.closeModal('addSymptomsModal')}
         >
@@ -342,7 +345,10 @@ export default class DashBoard extends React.Component {
             </div>
             <div className="events">
               <div className="events-list">
-                {events == '' ? `Your log is empty` : events}
+                <ul>
+                {events === '' ? `Your log is empty` : events}
+                </ul>
+                
               </div>
             </div>
           </div>

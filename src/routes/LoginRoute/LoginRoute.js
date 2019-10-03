@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import {Link} from 'react-router-dom';
 import './LoginRoute.css'
+import donut from '../../Media/donuts.png'
 
 
 class LoginRoute extends Component {
@@ -27,9 +28,9 @@ class LoginRoute extends Component {
         <p>Don't have an account? <Link id="register-link-login" to="/register">Register here.</Link></p>
         </div>
         <div className="login-content">
-       {/*  <img className="reg-photo-3" src={grape} alt="grape"/> */}
         <LoginForm onLoginSuccess={this.handleLoginSuccess}/>
         </div>
+        <img id='donut-img' src={donut} alt='three donuts in a row'/>
         </div>
       </section>
     

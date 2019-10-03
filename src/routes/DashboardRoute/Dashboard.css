@@ -1,22 +1,18 @@
-.entire-dashboard-div{
-
-}
 .dashboard-content {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
   padding-left: 5%;
   padding-right: 5%;
-  
 }
 
 .log-container {
   display: inherit;
   flex-direction: column;
-  width: 75%;
+  flex-basis:50%
 }
 
-.event-name, .event-time {
+.event-text-section {
   display: inline-block;
 }
 
@@ -45,15 +41,24 @@
   margin:1%;
   border-radius:10px;
   text-align: left;
-
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 .dash-event-container-meal {
   text-align: left;
   border:2px solid #558AA4;
   margin: 1%;
-  border-radius:10px
-
+  border-radius:10px;
+  padding: 2%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
 }
+
 .expand-toggle {
   top: 8px;
   right: 45px;
@@ -62,8 +67,7 @@
   font-size: 18px;
   font-weight: bold;
   color: rgb(22, 86, 184);
-/*   padding-right: 20%;
- */}
+}
 
  .meal-toggle-cont{
   text-align: right;
@@ -95,11 +99,20 @@
   background-color: transparent;
 }
 
-.food-item-in-dash {
-  margin-bottom: 5px;
-  padding: 0;
+.food-info-in-dash {
+  display: block;
+  margin: 0px 3px 0px;
 }
 
+.food-item-in-dash {
+  margin-bottom: 5px;
+  color: rgb(31, 27, 27);
+  padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
 .new-meal,
 .new-symptom,
 .print-button {
@@ -126,41 +139,35 @@
 }
 
 .food-info-in-dash {
-  margin: 0;
   padding: 0;
 }
 
 li {
   list-style-type: none;
-  color: rgb(31, 27, 27);
-  padding: 2%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
+  
+
 }
 .events-list {
   margin: 0 auto;
 }
-
+/* Modals                       */
 .Modal {
   display: flex;
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  bottom: 40px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
   background-color: white;
 }
-
-.Overlay {
+.Modal_Overlay{
+  width:100%;
+  height:100%;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgb(224, 224, 224);
+  top:0px;
+  background-color: rgba(0,0,0,0.5)
 }
+
 
 .symptom-modal {
   opacity: 0.5;
@@ -169,14 +176,55 @@ li {
   width: 20px;
   padding-right: 5px;
 }
-@media screen and (max-width: 800px) {
-  .dashboard-content {
-    align-items: center;
-    flex-direction: column;
-  }
-}
 
-@media screen and (max-width: 500px) {
+.dashboard-content {
+  align-items: center;
+  flex-direction: column;
+}
+.exitButton{
+  color:red;
+  font-size: 26px;
+  position: absolute;
+  right:25px;
+  top:-7px;
+}
+  /* .new-meal{
+    z-index: 1;
+    position: fixed;
+    height:80px;
+    bottom:10px;
+  }
+  .new-meal >img{
+    height:50px;
+    width: 50px;
+    color:white;
+  } */
+@media screen and (min-width: 800px) {
+  /* .new-meal{
+    z-index: 0;
+    position: relative;
+    height:50px;
+    bottom:10px;
+  }
+  .new-meal >img{
+    height:50px;
+    width: 50px;
+    color:white;
+  } */
+  .Modal {
+    overflow: auto;
+    display: flex;
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    right: 15%;
+    bottom: 15%;
+    background-color: white;
+  }
+  
+ }
+
+@media screen and (min-width: 500px) {
   #dash-button-container {
     display: inherit;
     flex-direction: row;
@@ -193,10 +241,6 @@ li {
   .events-list {
     width: 100%;
     margin: 0 auto;
-  }
-
-  li {
-    padding: 5px 1px;
   }
 
   .dashboard-content {
