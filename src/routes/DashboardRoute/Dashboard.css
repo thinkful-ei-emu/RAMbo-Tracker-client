@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 
 .log-container {
   display: inherit;
   flex-direction: column;
-  flex-basis:50%
+  width: 100%;
 }
 
 .event-text-section {
@@ -43,15 +43,16 @@
   text-align: left;
   padding: 2%;
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
 }
 
 .dash-event-container-meal {
-  text-align: left;
   border:2px solid #558AA4;
-  margin: 1%;
+  margin:1%;
   border-radius:10px;
+  text-align: left;
   padding: 2%;
   display: flex;
   flex-flow: row wrap;
@@ -72,7 +73,7 @@
  .meal-toggle-cont{
   text-align: right;
   padding: 0px;
-  margin-right: -8px;
+  margin-right: -6px;
   display: inline-block;
   width: 60px;
   height: 100%;
@@ -80,9 +81,13 @@
 
  .dash-event-text {
   display: inline-block;
+
+    max-width: 75%;
+
 }
 
 .expanded-food-event {
+  display: block;
   width: 100%;
 }
 
@@ -108,10 +113,12 @@
   margin-bottom: 5px;
   color: rgb(31, 27, 27);
   padding: 0;
+  display: block;
+  width: 100%;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column ;
   justify-content: flex-start;
-  align-items: center;
+  align-items: left;
 }
 .new-meal,
 .new-symptom,
@@ -144,13 +151,12 @@
 
 li {
   list-style-type: none;
-  
-
 }
+
 .events-list {
   margin: 0 auto;
 }
-/* Modals                       */
+
 .Modal {
   display: flex;
   position: fixed;
@@ -188,41 +194,6 @@ li {
   right:25px;
   top:-7px;
 }
-  /* .new-meal{
-    z-index: 1;
-    position: fixed;
-    height:80px;
-    bottom:10px;
-  }
-  .new-meal >img{
-    height:50px;
-    width: 50px;
-    color:white;
-  } */
-@media screen and (min-width: 800px) {
-  /* .new-meal{
-    z-index: 0;
-    position: relative;
-    height:50px;
-    bottom:10px;
-  }
-  .new-meal >img{
-    height:50px;
-    width: 50px;
-    color:white;
-  } */
-  .Modal {
-    overflow: auto;
-    display: flex;
-    position: fixed;
-    top: 15%;
-    left: 15%;
-    right: 15%;
-    bottom: 15%;
-    background-color: white;
-  }
-  
- }
 
 @media screen and (min-width: 500px) {
   #dash-button-container {
@@ -233,30 +204,47 @@ li {
     margin: 0 auto;
     padding-bottom: 2%;
   }
-
-  .log-container {
-    width: 95%;
-  }
+  
 
   .events-list {
-    width: 100%;
     margin: 0 auto;
   }
 
   .dashboard-content {
-    padding: 1% 0 1% 0;
+    padding: 1% 1% 1% 1%;
     margin: 0 0%;
   }
 
-  .dash-event-text {
-    max-width: 75%;
-  }
+  
 
   #user-welcome {
     text-align: left;
     padding: 0 0 0 10px;
   }
 }
+
+@media screen and (min-width: 800px) {
+
+  .Modal {
+    overflow: auto;
+    display: flex;
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    right: 15%;
+    bottom: 15%;
+    background-color: white;
+  }
+  .log-container {
+    flex-basis: 50%;
+  }
+
+  .dashboard-content {
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    padding: 15px;
+  }
+ }
 
 .print-container {
   display: none;
@@ -291,7 +279,4 @@ li {
   .log-container {
     width: 100%;
   }
-
-  /*   .symptom, .meal {
-    /* font-weight: bold; */
 }
