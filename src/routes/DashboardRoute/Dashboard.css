@@ -50,9 +50,6 @@
 /*   padding-right: 20%;
  */}
 
- .meal-toggle-cont{
-
- }
 .delete-event {
   top: 8px;
   right: 15px;
@@ -69,9 +66,6 @@
 .food-item-in-dash {
   margin-bottom: 5px;
   padding: 0;
-}
-.exp-hide-btn{
-  
 }
 .new-meal,
 .new-symptom,
@@ -111,25 +105,17 @@ li {
 .events-list {
   margin: 0 auto;
 }
-
+/* Modals                       */
 .Modal {
   display: flex;
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  bottom: 40px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
   background-color: white;
 }
 
-.Overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* background-color: rgb(224, 224, 224); */
-}
 
 .symptom-modal {
   opacity: 0.5;
@@ -138,36 +124,46 @@ li {
   width: 20px;
   padding-right: 5px;
 }
-.exitButton{
-  opacity: 0;
-  display: inline;
-}
-@media screen and (max-width: 1100px) {
   .dashboard-content {
     align-items: center;
     flex-direction: column;
   }
-}
-
-@media screen and (max-width: 500px) {
-  .exitButton{
-    opacity: 1;
-    color:red;
-    position: absolute;
-    top:25px;
-    right:25px;
-    
+  /* .new-meal{
+    z-index: 1;
+    position: fixed;
+    height:80px;
+    bottom:10px;
+  }
+  .new-meal >img{
+    height:50px;
+    width: 50px;
+    color:white;
+  } */
+@media screen and (min-width: 800px) {
+  .new-meal{
+    z-index: 0;
+    position: relative;
+    height:50px;
+    bottom:10px;
+  }
+  .new-meal >img{
+    height:50px;
+    width: 50px;
+    color:white;
   }
   .Modal {
     display: flex;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    right: 15%;
+    bottom: 15%;
     background-color: white;
   }
   
+ }
+
+@media screen and (min-width: 500px) {
   #dash-button-container {
     display: inherit;
     flex-direction: row;
