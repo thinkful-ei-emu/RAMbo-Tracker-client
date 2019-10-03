@@ -16,9 +16,6 @@
   padding: 2%;
   color: rgb(0, 0, 87);
 } */
-#foodAndMeals{
-  text-align: center;
-}
 .react-datepicker__input-container .InlineBlockTheDate  {
   display: inline-block;
 }
@@ -88,9 +85,6 @@
     max-width: 190px;
     font-size: 1em;
   }
-  .AddMealFoodsDisplayContainer, .AddFoodDiv {
-    max-width: 200px;
-  }
   .AddFoodSearchResults{
     height: 200px;
     overflow:scroll;
@@ -102,9 +96,15 @@
   #search-food-button {
     padding: 1%;
     font-size: 1em;
+    display:block;
   }
 
 @media screen and (min-width: 800px){
+  #search-food-button {
+    padding: none;
+    font-size: 1em;
+    display:block;
+  }
   .add-meal-div {
     /*   box-sizing: border-box; */
     display: flex;

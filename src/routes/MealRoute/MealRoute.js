@@ -111,7 +111,6 @@ export default class MealRoute extends React.Component {
             withPortal
             dateFormat="Pp"
           />
-          <div id="foodAndMeals">
           <div className="AddMealFoodsDisplayContainer">
             <h3>Meal Contents</h3>
             <div className="AddMealFoodsDisplay">
@@ -153,7 +152,6 @@ export default class MealRoute extends React.Component {
           </div>
           <AddFood addFood={this.state.handleAddFood} />
           <br/>
-          </div>
           <ValidationError message={this.verifyFoodNonempty()} />
           <button
             disabled={this.verify() ? true : false}
