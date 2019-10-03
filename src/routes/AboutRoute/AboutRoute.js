@@ -167,9 +167,9 @@ class AboutRoute extends React.Component {
                     time interval with which we choose foods to factor into
                     results. You know your body best, so select a time window
                     that makes sense for that symptom and your body. For
-                    instance, when thinking about what is causing my migraines,
+                    instance, when thinking about what is causing one of my symptoms,
                     I might want to look at foods I ate between 1 hour and 8
-                    hours before my symptoms occurred.
+                    hours before my symptoms occurred. These values default to 30 minutes and 72 hours.
                   </li>
                 </ul>
               </>
