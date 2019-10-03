@@ -2,16 +2,23 @@
 .add-food-logo{
   opacity: 1;
   height:35px;
-  float:right;
+  position:absolute;
+  right:0;
+  top:0;
   
 }
 
 .AddFoodSearchResultsDiv{
   border-bottom: 1px solid grey;
 }
+
+.AddFoodSearchResultsRow{
+  position:relative;
+}
+
 @media screen and (min-width: 800px){
   .add-food-logo{
-    opacity: 0;
+    opacity: 1;
     width:35px;
   }
  .SearchFoodForm {
