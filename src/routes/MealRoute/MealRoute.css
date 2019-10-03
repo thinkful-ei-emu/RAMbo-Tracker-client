@@ -3,8 +3,8 @@
   display: flex;
   width:100%;
   flex-direction: column;
-  justify-content: space-around;
-  max-width: 100%;
+/*   justify-content: space-around;
+ */  max-width: 100%;
   text-align: center;
   overflow: auto;
 }
@@ -70,7 +70,6 @@
 
 #back-button{
   margin: 1%;
-  padding: 1%;
   color: rgb(0, 0, 0);
   background: linear-gradient(rgb(255, 255, 255), rgb(175, 175, 175));
   border: 1px solid rgb(68, 68, 68);
