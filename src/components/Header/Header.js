@@ -56,11 +56,13 @@ class Header extends Component {
       <header>
       
         <h1 className='Header'>
+          <a href="/">
         <img
           className="header-photo"
           src={logo}
-          alt="logo"
+          alt="Symptom Tracker"
         />
+        </a>
           <Link id='main-title' to='/'>
             Symptom Tracker
           </Link>
