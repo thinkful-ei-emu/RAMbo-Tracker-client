@@ -1,22 +1,18 @@
-.entire-dashboard-div{
-
-}
 .dashboard-content {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
   padding-left: 5%;
   padding-right: 5%;
-  
 }
 
 .log-container {
   display: inherit;
   flex-direction: column;
-  width: 75%;
+  flex-basis:50%
 }
 
-.event-name, .event-time {
+.event-text-section {
   display: inline-block;
 }
 
@@ -45,15 +41,24 @@
   margin:1%;
   border-radius:10px;
   text-align: left;
-
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 .dash-event-container-meal {
   text-align: left;
   border:2px solid #558AA4;
   margin: 1%;
-  border-radius:10px
-
+  border-radius:10px;
+  padding: 2%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
 }
+
 .expand-toggle {
   top: 8px;
   right: 45px;
@@ -62,8 +67,7 @@
   font-size: 18px;
   font-weight: bold;
   color: rgb(22, 86, 184);
-/*   padding-right: 20%;
- */}
+}
 
  .meal-toggle-cont{
   text-align: right;
@@ -95,9 +99,19 @@
   background-color: transparent;
 }
 
+.food-info-in-dash {
+  display: block;
+  margin: 0px 3px 0px;
+}
+
 .food-item-in-dash {
   margin-bottom: 5px;
+  color: rgb(31, 27, 27);
   padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
 }
 .new-meal,
 .new-symptom,
@@ -125,18 +139,13 @@
 }
 
 .food-info-in-dash {
-  margin: 0;
   padding: 0;
 }
 
 li {
   list-style-type: none;
-  color: rgb(31, 27, 27);
-  padding: 2%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
+  
+
 }
 .events-list {
   margin: 0 auto;
@@ -167,6 +176,7 @@ li {
   width: 20px;
   padding-right: 5px;
 }
+
 .dashboard-content {
   align-items: center;
   flex-direction: column;
@@ -231,10 +241,6 @@ li {
   .events-list {
     width: 100%;
     margin: 0 auto;
-  }
-
-  li {
-    padding: 5px 1px;
   }
 
   .dashboard-content {
