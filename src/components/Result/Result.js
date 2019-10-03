@@ -19,7 +19,7 @@ export default class Result extends React.Component {
     this.setState({error: null})
   }
   
-  refreshResults = () => {
+  refreshResults = (selectedReset=false) => {
     this.clearErrors();
     return API.doFetch('/results')
       .then((res) => {
@@ -27,14 +27,16 @@ export default class Result extends React.Component {
         this.setState({
           results: res,
           onLastCheckBeforeDelete: false,
-          isEditting: false
+          isEditting: false,
+          selected:selectedReset?0:this.state.selected
         });
       })
       .catch(res =>
         this.setState({
           error: res.error,
           onLastCheckBeforeDelete: false,
-          isEditting: false
+          isEditting: false,
+          selected:0
         }));
   };
 
@@ -114,7 +116,7 @@ export default class Result extends React.Component {
       return API.doFetch(`/symptom/${type_id}`, "DELETE")
         .then(() => {
 
-          return this.refreshResults();
+          return this.refreshResults(true);
 
           /* const newResults = [...this.state.results];
           newResults.splice(this.state.selected, 1)
