@@ -76,8 +76,7 @@
   border-radius: 5px;
   width: 60px;
   height: 25px;
-  font-size: 1em;
-  font-weight: 600;
+  
 }
 
 #remove-food-button{
@@ -132,7 +131,6 @@
     /*   box-sizing: border-box; */
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     max-width: 100%;
     margin:none;
     text-align: center;
@@ -140,12 +138,8 @@
   }
   #back-button{
     margin: 1%;
-    color: rgb(0, 0, 0);
-    background: linear-gradient(rgb(255, 255, 255), rgb(175, 175, 175));
-    border: 1px solid rgb(68, 68, 68);
     border-radius: 5px;
     width: 60px;
     height: 28px;
-    font-size: 1em;
   }
 }
