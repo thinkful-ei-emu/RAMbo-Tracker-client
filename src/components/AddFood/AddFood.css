@@ -15,7 +15,7 @@
   color: rgb(0, 0, 0);
   background: linear-gradient(rgb(255, 255, 255), rgb(175, 175, 175));
   border: 1px solid rgb(68, 68, 68);
-  font-weight: bold;
+  font-weight: 500;
   border-radius: 5px;
   }
 
@@ -70,7 +70,7 @@
 
 #search-food-button{
   margin: 0 auto;
-  font-weight: bold;
+  font-weight: 500;
   border-radius: 5px;
 }
 
