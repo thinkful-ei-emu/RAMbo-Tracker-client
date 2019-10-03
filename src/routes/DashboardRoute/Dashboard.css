@@ -6,6 +6,8 @@
   padding-right: 1%;
 }
 
+.event-text-section { display: inline-block; word-break: break-word; }
+
 .log-container {
   display: inherit;
   flex-direction: column;
