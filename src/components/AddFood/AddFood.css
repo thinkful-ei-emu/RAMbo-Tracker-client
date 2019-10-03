@@ -15,6 +15,14 @@
 .AddFoodSearchResultsRow{
   position:relative;
 }
+#search-food-button{
+  margin: 0 auto;
+  color: rgb(0, 0, 0);
+  background: linear-gradient(rgb(255, 255, 255), rgb(175, 175, 175));
+  border: 1px solid rgb(68, 68, 68);
+  font-weight: 500;
+  border-radius: 5px;
+}
 
 @media screen and (min-width: 800px){
   .add-food-logo{
@@ -22,10 +30,8 @@
     width:35px;
   }
  .SearchFoodForm {
-  display: inherit;
+  display: inline-block;
   flex-direction: row;
-  
-  
 }
 
 .AddFoodSearchResultsRow{
@@ -65,12 +71,22 @@
   font-weight:550;
 }
 
+#search-food-button{
+  margin: 0 auto;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+#add-food-logo{
+  width:15px;
+  padding:1%;
+}
 #add-food-button{
   background-color: rgb(255, 255, 255);
   color:black;
   width: 25%;
   padding: 1%;
-display: flex;
+  display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -87,4 +103,10 @@ background-color: white;
 #back{
   margin-right: 2%;
 }
+}
+
+@media screen and (max-width: 799px){
+  .SearchFoodForm{
+    display: inline-block;
+  }
 }
