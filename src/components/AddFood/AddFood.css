@@ -1,15 +1,17 @@
 
 .add-food-logo{
-  opacity: 0;
+  opacity: 1;
   height:35px;
   float:right;
   
 }
+
 .AddFoodSearchResultsDiv{
   border-bottom: 1px solid grey;
 }
-@media screen and (min-width: 500px){
+@media screen and (min-width: 800px){
   .add-food-logo{
+    opacity: 0;
     width:35px;
   }
  .SearchFoodForm {
@@ -26,11 +28,6 @@
   padding-right:10%;
   align-items:center;
 
-}
-.AddFoodSearchResultsRow::after{
-  content:url('../../Media/cart.png');
-  height: 26px;
-  transform: scale(0.03);
 }
 .AddFoodSearchResultsRow div{
   word-break: normal; 
