@@ -68,7 +68,7 @@ export default class DashBoard extends React.Component {
           events: res.events
         });
       })
-      .catch(res => this.setState({ error: res.message }));
+      .catch((res) => this.setState({ error: res.message }));
   }
 
   handleDelete = (id, type, index) => {
@@ -260,9 +260,9 @@ export default class DashBoard extends React.Component {
         return (
           <ul key={index} className="dash-event-container-symptom">
             <li className="symptom">
-            <div className="dash-event-text">
-              {e.name} on {this.formatDate(e.time)}{' '}
-              {e.type === 'symptom' ? `Severity: ${e.severity}` : ''}{' '}
+              <div className="dash-event-text">
+                {e.name} on {this.formatDate(e.time)}{' '}
+                {e.type === 'symptom' ? `Severity: ${e.severity}` : ''}{' '}
               </div>
               <button
                 className="delete-event" aria-label="Delete item"
@@ -276,6 +276,15 @@ export default class DashBoard extends React.Component {
         );
       }
     });
+
+    let prevSymptoms = [];
+
+    for (let i = 0; i < this.state.events.length; i++) {
+      let curr = this.state.events[i];
+      if (!prevSymptoms.includes(curr.name) && curr.type === 'symptom') {
+        prevSymptoms.push(curr.name);
+      }
+    }
     return (
       <div className='entire-dashboard-div'>
         {/*add meal modal*/}
@@ -291,7 +300,9 @@ export default class DashBoard extends React.Component {
         >
           <Symptoms
             closeModal={this.closeModal}
-            prevSymptoms={this.state.events.filter((e) => e.type === 'symptom')}
+            prevSymptoms={this.state.events.filter((e) => e.type === 'symptom').map((e)=>
+              e.name
+            )}
             updateEvents={this.updateEvents}
           />
         </Modal>

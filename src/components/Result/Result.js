@@ -49,7 +49,6 @@ export default class Result extends React.Component {
     window.removeEventListener("resize", this.resize)
   }
   resize=()=> {
-    console.log(window.innerWidth);
     let currentscreenSize = (window.innerWidth >= 1000) ? (window.innerWidth >= 1400) ? 2 : 1 : 0;
     if (currentscreenSize !== this.state.screenSize) {
       this.setState({ screenSize: currentscreenSize });
