@@ -1,12 +1,12 @@
 .add-meal-div {
   /*   box-sizing: border-box; */
   display: flex;
+  width:100%;
   flex-direction: column;
   justify-content: space-around;
-  min-width: 300px;
   max-width: 100%;
-  margin: 0 auto;
-  background-color: rgb(255, 253, 253);
+  text-align: center;
+  overflow: auto;
 }
 /* .add-meal-form {
   padding: 2%;
@@ -16,16 +16,15 @@
   padding: 2%;
   color: rgb(0, 0, 87);
 } */
-
-.react-datepicker__input-container {
+.react-datepicker__input-container .InlineBlockTheDate  {
   display: inline-block;
 }
 
-.InlineBlockTheDate {
-  display: inline-block;
-}
-
-.AddMealFoodsDisplayContainer {
+.AddFoodSearchResultsManu, .AddFoodSearchResultsName {
+  display: block;
+  width: 90%;
+  text-align: left;
+  padding-left: 5px;
 }
 .AddMealFoodsDisplayRow {
   display: flex;
@@ -43,6 +42,13 @@
 }
 .AddMealFoodsDisplayManu {
   font-weight:550;
+  text-align: left;
+  padding-left: 5px;
+}
+
+.AddMealFoodsDisplayName {
+  text-align: left;
+  padding-left: 5px;
 }
 .AddMealFoodsDisplaySpace {
   flex-basis: 20px;
@@ -58,7 +64,7 @@
   margin: 1%;
 }
 
-#add-meal-button{
+.add-meal-button{
   width: 25%;
 }
 
@@ -90,19 +96,23 @@
 }
 
 .remove-trash-can{
-  width: 40px;
-  height: 50px;
+  width: 20px;
+  height: 23px;
 }
-
-
-@media screen and (max-width: 500px){
-  #AddMealNameInput, #AddMealDateInput, #searchTermInput,#brandTermInput {
+.AddFoodSearchResults{
+  height: 270px;
+  overflow:auto;
+  padding: 0 1px;
+} 
+.AddMealFoodsDisplayContainer{
+  overflow: auto;
+  max-height: 300px;
+}
+#AddMealNameInput, #AddMealDateInput, #searchTermInput,#brandTermInput {
     max-width: 190px;
     font-size: 1em;
   }
-  .AddMealFoodsDisplayContainer, .AddFoodDiv {
-    max-width: 200px;
-  }
+
   #add-meal-button {
     width: auto;
     font-size: 1em;
@@ -110,6 +120,24 @@
   #search-food-button {
     padding: 1%;
     font-size: 1em;
+    display:block;
+  }
+
+@media screen and (min-width: 800px){
+  #search-food-button {
+    padding: none;
+    font-size: 1em;
+    display:block;
+  }
+  .add-meal-div {
+    /*   box-sizing: border-box; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 100%;
+    margin:none;
+    text-align: center;
+    overflow: auto;
   }
   #back-button{
     margin: 1%;

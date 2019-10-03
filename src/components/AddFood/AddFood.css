@@ -1,16 +1,34 @@
 
-.SearchFoodForm {
+.add-food-logo{
+  opacity: 1;
+  height:35px;
+  float:right;
+  
+}
+
+.AddFoodSearchResultsDiv{
+  border-bottom: 1px solid grey;
+}
+@media screen and (min-width: 800px){
+  .add-food-logo{
+    opacity: 0;
+    width:35px;
+  }
+ .SearchFoodForm {
   display: inherit;
   flex-direction: row;
-  width: 50%;
   
   
 }
 
 .AddFoodSearchResultsRow{
   display:flex;
+  flex-flow: row wrap;
   justify-content:space-between;
+  padding-left:10%;
+  padding-right:10%;
   align-items:center;
+
 }
 .AddFoodSearchResultsRow div{
   word-break: normal; 
@@ -20,6 +38,12 @@
   flex-grow:0;
   height:40px;
 }
+.AddFoodSearchResultsDiv:hover{
+  background-color: grey;
+  color:white;
+  border: 1px solid black;
+}
+
 
 .AddFoodSearchResultsSpace{
   flex-basis:20px;
@@ -57,9 +81,7 @@ font-weight: bold;
     align-items: center;
     justify-content: center;
 }
-#add-food-button:hover{
-border: 1px solid black;
-}
+
 .AddFoodSearchResultsPaginate button{
 border: 1px solid black;
 border-radius:5px;
@@ -71,12 +93,4 @@ background-color: white;
 #back{
   margin-right: 2%;
 }
-@media screen and (max-width: 500px){
-  .AddFoodDiv{
-    max-width: 200px;
-    display: inline;
-  }
-  .AddFoodSearchResults{
-    max-width:200px;
-  }
 }

@@ -120,6 +120,7 @@ class Symptom extends Component {
     console.log(this.state);
     return (
       <div className="symptom-container">
+        <p className="exitButton" onClick={()=>this.props.closeModal('addSymptomsModal')}>X</p>
         <section className="symptom-container">
           <h2>Log a Symptom</h2>
           <form
