@@ -144,6 +144,7 @@ export default class DashBoard extends React.Component {
   };
   formatDate = (time) => {
     let date = new Date(time);
+    console.log(date.getMinutes());
     let formatted_date =
       date.getMonth() +
       1 +
@@ -156,7 +157,11 @@ export default class DashBoard extends React.Component {
       date.getHours() +
       ':' +
       // eslint-disable-next-line eqeqeq
-      ((date.getMinutes() == '0') ? '00' : (date.getMinutes()[0] == '0') ? `0${date.getMinutes()[1]}` : date.getMinutes());
+      (date.getMinutes() == '0')
+        ? '00'
+        : date.getMinutes()[0] == '0'
+        ? `0${date.getMinutes()[1]}`
+        : date.getMinutes();
     return formatted_date;
   };
 
@@ -238,22 +243,20 @@ export default class DashBoard extends React.Component {
                           <div className="exp-hide-btn">
                             <button
                               className="ingredients-expand"
-                              onClick={() =>
-                                this.handleIngredientsToggle(index)
-                              }
-                            >
-                              {this.state.itemExpanded.includes(index)
-                                ? 'Hide ingredients'
-                                : 'Show ingredients'}
-                            </button>
-                          </div>
-                        </>
-                      );
-                    })}
-                  </ul>
-                </div>
-              )}
-            </li>
+                            onClick={() => this.handleIngredientsToggle(index)}
+                          >
+                            {this.state.itemExpanded.includes(index)
+                              ? 'Hide ingredients'
+                              : 'Show ingredients'}
+                          </button>
+                        </div>
+                      </>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+          </li>
         );
       } else {
         return (
