@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import TokenService from "../../services/token-service";
 import "./Header.css";
 import logo from "../../Media/logo2.png";
@@ -20,12 +20,12 @@ class Header extends Component {
     return (
       <div className="nav-container">
         <nav className="LoginLogout">
-          <Link id="aboutlink" to="/about">
+          <NavLink id="aboutlink" to="/about" activeClassName="current-nav">
             About
-          </Link>{" "}
-          <Link id="dashlink" to="/dash">
+          </NavLink>{" "}
+          <NavLink id="dashlink" to="/dash" activeClassName="current-nav">
             Dashboard
-          </Link>
+          </NavLink>
           <Link id="logoutlink" onClick={this.handleLogoutClick} to="/login">
             Logout
           </Link>
@@ -38,15 +38,15 @@ class Header extends Component {
     return (
       <div className="nav-container">
         <nav className="LoginLogout">
-          <Link id="aboutlink" to="/about">
+          <NavLink id="aboutlink" to="/about" activeClassName="current-nav">
             About
-          </Link>{" "}
-          <Link id="loginlink" to="/login">
+          </NavLink>{" "}
+          <NavLink id="loginlink" to="/login" activeClassName="current-nav">
             Login
-          </Link>{" "}
-          <Link id="signuplink" to="/register">
+          </NavLink>{" "}
+          <NavLink id="signuplink" to="/register" activeClassName="current-nav">
             Sign up
-          </Link>
+          </NavLink>
         </nav>
       </div>
     );
