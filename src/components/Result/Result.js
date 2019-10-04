@@ -96,9 +96,6 @@ export default class Result extends React.Component {
       Number(this.state.tempMaxTimeObj.minutes) +
       ' minutes';
 
-    console.log('min being submitted:', minTime);
-    console.log('max being submitted:', maxTime);
-
     return API.doFetch('/symptom', 'PATCH', {
       id: item.symptomType.type_id,
       min_time: minTime,
