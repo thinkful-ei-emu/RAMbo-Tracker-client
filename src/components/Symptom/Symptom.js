@@ -177,7 +177,7 @@ class Symptom extends Component {
                   id="user-symptom"
                   type="text"
                   placeholder="bloated.."
-                  maxlength="20"
+                  maxLength="20"
                   list="past-symptoms"
                   disabled={this.state.symptomSelectIsHidden}
                 />
