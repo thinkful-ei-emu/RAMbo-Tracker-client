@@ -53,6 +53,4 @@ run `npm run start`
 
 ![Log Meal](/src/Media/logmealshot.png)
 
-### About Page
 
-![About Page](/src/Media/aboutscreenshot.png)
