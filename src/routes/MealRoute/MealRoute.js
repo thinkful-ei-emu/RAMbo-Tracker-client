@@ -121,7 +121,7 @@ export default class MealRoute extends React.Component {
             </label>
             <DatePicker
               id="date-select"
-              selected={this.state.symptomTime}
+              selected={this.state.mealTime}
               onChange={this.handleTimeChange}
               showTimeSelect
               dateFormat="Pp"

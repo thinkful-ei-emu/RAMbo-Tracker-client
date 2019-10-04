@@ -53,7 +53,7 @@ class Symptom extends Component {
         this.setState({
           typedSymptom: '',
           selectedSymptom: false
-        })
+        });
         this.props.updateEvents(res);
         this.props.closeModal('addSymptomsModal');
       })
@@ -104,8 +104,8 @@ class Symptom extends Component {
     this.setState({
       selectedSymptom: false,
       typedSymptom: sym.target.value
-    })
-  }
+    });
+  };
 
   addSymptomClick = (e) => {
     e.preventDefault();
@@ -119,7 +119,12 @@ class Symptom extends Component {
   render() {
     return (
       <div className="symptom-container">
-        <p className="exitButton" onClick={()=>this.props.closeModal('addSymptomsModal')}>X</p>
+        <p
+          className="exitButton"
+          onClick={() => this.props.closeModal('addSymptomsModal')}
+        >
+          X
+        </p>
         <section className="symptom-container">
           <h2>Log a Symptom</h2>
           <form
@@ -132,10 +137,16 @@ class Symptom extends Component {
               if (i > 4 || !s)
                 //limits to 5
                 return null;
-                
+
               return (
-                <div className={`recent-radio-container ${this.state.selectedSymptom===s && 'selected'}`} key={i} >
-                  <label className="recent-radios-label" htmlFor={`radio-${s}`}>{s}</label>
+                <div
+                  className={`recent-radio-container ${this.state
+                    .selectedSymptom === s && 'selected'}`}
+                  key={i}
+                >
+                  <label className="recent-radios-label" htmlFor={`radio-${s}`}>
+                    {s}
+                  </label>
                   <input
                     className="recent-radio"
                     id={`radio-${s}`}
@@ -185,7 +196,9 @@ class Symptom extends Component {
             </div>
 
             <div id="date">
-              <label className="label-for-datepicker" htmlFor="date-select">Date and Time:</label>
+              <label className="label-for-datepicker" htmlFor="date-select">
+                Date and Time:
+              </label>
               <DatePicker
                 id="date-select"
                 selected={this.state.symptomTime}
@@ -197,12 +210,12 @@ class Symptom extends Component {
                 popperModifiers={{
                   offset: {
                     enabled: true,
-                    offset: "5px, 10px"
+                    offset: '5px, 10px'
                   },
                   preventOverflow: {
                     enabled: true,
                     escapeWithReference: false,
-                    boundariesElement: "viewport"
+                    boundariesElement: 'viewport'
                   }
                 }}
               />
