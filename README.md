@@ -2,6 +2,14 @@
 
 [https://symptomtracker.rambo.now.sh/](https://symptomtracker.rambo.now.sh/)
 
+##Our team
+Colleen Higgins
+Tara Patel
+Blake Lowrey
+Corey Moore
+David Queen
+Kyu Tae Han
+
 ## What is Symptom Tracker
 
 Symptom tracker is an online food diary designed to help users take control of their health. By tracking foods they eat and symptoms they experience, Symptom Tracker will help you draw relationships between the food you eat and way you feel.
