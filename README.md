@@ -3,11 +3,11 @@
 [https://symptomtracker.rambo.now.sh/](https://symptomtracker.rambo.now.sh/)
 
 ##Our team
-Colleen Higgins
-Tara Patel
-Blake Lowrey
-Corey Moore
-David Queen
+Colleen Higgins,
+Tara Patel,
+Blake Lowrey,
+Corey Moore,
+David Queen,
 Kyu Tae Han
 
 ## What is Symptom Tracker
