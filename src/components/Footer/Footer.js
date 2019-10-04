@@ -26,7 +26,7 @@ export default function Footer() {
                   <a href="https://thinkful-ei-emu.github.io/Paul-Portfolio/" target="_blank" rel='noopener noreferrer'> Paul KHan</a>
                 </li>
                 <li>
-                  Blake Lowrey
+                  <a href="https://github.com/Blakelowrey" target="_blank" rel='noopener noreferrer'> Blake Lowrey </a>
                 </li>
                 <li>
                   <a href='https://thinkful-ei-emu.github.io/portfolio-corey/' target="_blank" rel='noopener noreferrer'>Corey Moore</a> 
