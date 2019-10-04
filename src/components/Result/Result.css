@@ -18,21 +18,21 @@ li {
 #last-check-before-delete-symptom {
   border-radius: 10px;
   border-radius: 10px;
-  border:2px solid red;
+  border: 2px solid red;
   margin: 0 10px;
-  padding:10px 20px;
+  padding: 10px 20px;
 }
 #edit-user-symptom-form {
   width: fit-content;
   margin: 20px auto;
   max-width: 90%;
-  padding:10px 15px;
-  text-align:center;
+  padding: 10px 15px;
+  text-align: center;
   border-radius: 10px;
-  border:2px solid rgb(231, 233, 235);
+  border: 2px solid rgb(231, 233, 235);
 }
-#edit-user-symptom-form>h3{
-    margin-top:0px;
+#edit-user-symptom-form > h3 {
+  margin-top: 0px;
 }
 
 #symptom-results-display-form {
@@ -44,15 +44,15 @@ li {
   margin-left: 5px;
 }
 
-.results-symptom-yes-delete{
-    border: 1px solid red;
-    background-color:white;
-    margin-right:2%;
+.results-symptom-yes-delete {
+  border: 1px solid red;
+  background-color: white;
+  margin-right: 2%;
 }
-.results-symptom-do-not-delete{
-background-color: white;
-border: 1px solid black;
-margin-left:2%;
+.results-symptom-do-not-delete {
+  background-color: white;
+  border: 1px solid black;
+  margin-left: 2%;
 }
 .edit-user-symptom-setting-begin-div {
   margin-left: 15px;
@@ -83,22 +83,19 @@ margin-left:2%;
   height: 25.95px;
 }
 
-
-
-.edit-user-symptom-label-input-div{
-    display:flex;
-    margin:5px 10px;
-    justify-content:center;
+.edit-user-symptom-label-input-div {
+  display: flex;
+  margin: 5px 10px;
+  justify-content: center;
 }
-.edit-user-symptom-minmax-label{
-    flex-basis:60px;
-    text-align:right;
+.edit-user-symptom-minmax-label {
+  flex-basis: 60px;
+  text-align: right;
 }
-.edit-user-symptom-minmax-input{
-    width:120px;
-    margin-left:5px;
+.edit-user-symptom-minmax-input {
+  width: 120px;
+  margin-left: 5px;
 }
-
 
 ul {
   padding-inline-start: 0px;
@@ -107,14 +104,14 @@ ul {
 
 #results {
   display: block;
-  flex-basis:50%;
+  flex-basis: 50%;
 }
 
 .pie-area {
-    text-align: center;
-    position: relative;
-    margin:0 auto;
-    min-height:500px;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+  min-height: 500px;
 }
 
 #results-button {
@@ -122,41 +119,40 @@ ul {
   text-align: center;
 }
 
-#results-button button{
-    border-radius: 5px;
-    border: 1px solid white;
-    margin: 0 auto;
-    padding: 15px;
-    background-color: rgb(32, 88, 68);
-    /* #32936F */
-    color: white;
+#results-button button {
+  border-radius: 5px;
+  border: 1px solid white;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: rgb(32, 88, 68);
+  /* #32936F */
+  color: white;
 }
 #results-button button:hover {
   background-color: rgb(17, 51, 38);
 }
-@media screen and (min-width:800px){
-    /* #result-list{
+@media screen and (min-width: 800px) {
+  /* #result-list{
         max-width: 50%;
     } */
-    /* .pie-area{
+  /* .pie-area{
         height: 50vh;
     } */
 }
-@media screen and (max-width:800px){
-    /* #result-list{
+@media screen and (max-width: 800px) {
+  /* #result-list{
         max-width: 50%;
     } */
-    /* .pie-area{
+  /* .pie-area{
         height: 50vh;
     } */
 }
-@media screen and (max-width: 500px){
-  
-    /* #results-button button{
+@media screen and (max-width: 500px) {
+  /* #results-button button{
         width: 120px;
         padding: 5px;
     } */
-    /* #result-list{
+  /* #result-list{
         width: 300px;
        
     }
@@ -167,6 +163,4 @@ ul {
     .chartjs-render-monitor{
         max-width: -webkit-fill-available;
     } */
-
-
 }
