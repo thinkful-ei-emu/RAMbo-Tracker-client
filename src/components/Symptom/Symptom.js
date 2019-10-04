@@ -117,7 +117,6 @@ class Symptom extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="symptom-container">
         <p className="exitButton" onClick={()=>this.props.closeModal('addSymptomsModal')}>X</p>

@@ -55,7 +55,6 @@ export default class AddFood extends React.Component {
       API.doFetch(`/food/search?search=${this.state.lockedInSearchTerm}&pageNumber=${(this.state.page + 1)}`)
         .then((res) => {
           res = JSON.parse(res);
-          console.log(res);
           if (res) {
             return this.setState({
               foodsFromSearch: res,
@@ -73,7 +72,6 @@ export default class AddFood extends React.Component {
       API.doFetch(`/food/search?search=${this.state.lockedInSearchTerm}&pageNumber=${(this.state.page - 1)}`)
         .then((res) => {
           res = JSON.parse(res);
-          console.log(res);
           if (res) {
             return this.setState({
               foodsFromSearch: res,
