@@ -120,14 +120,6 @@ export default class Result extends React.Component {
       return API.doFetch(`/symptom/${type_id}`, 'DELETE')
         .then(() => {
           return this.state.refreshResults(true,true);
-
-          /* const newResults = [...this.state.results];
-          newResults.splice(this.state.selected, 1)
-          this.setState({
-            results: newResults,
-            onLastCheckBeforeDelete: false,
-            isEditting:false,
-            selected: 0, */
         })
         .catch((res) => this.setState({ error: res.error }));
     } else {
@@ -139,8 +131,6 @@ export default class Result extends React.Component {
   };
 
   handleTimeChange = (minOrMax, unit, event, item) => {
-    /* item.symptomType[minOrMax + '_time'][unit] = (event.target.value);
-    this.forceUpdate(); */
     let key = 'temp' + minOrMax + 'TimeObj';
     this.setState({
       [key]: {
