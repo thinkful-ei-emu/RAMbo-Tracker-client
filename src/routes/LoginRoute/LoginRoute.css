@@ -14,14 +14,11 @@ section{
   display: inherit;
   align-content: flex-start
 }
-/* .reg-photo-3 {
-margin-right: -50%;
-  margin-bottom: 10%;
 
-   max-width: 400px;
-   box-shadow: -25px 25px 0 0 rgb(24, 16, 104);
-}   */
-
+#donut-img{
+  width: 50%;
+  margin: -5% auto;
+}
 #register-link-login {
   font-weight: bold;
   text-decoration: black underline
@@ -41,6 +38,8 @@ color: rgb(29, 16, 175)
     justify-content: center;
     width: 70%;
   }
-
+#donut-img{
+  width:75%;
+}
 }
 

@@ -2,15 +2,21 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
-  padding-left: 5%;
-  padding-right: 5%;
-  
+  padding-left: 1%;
+  padding-right: 1%;
 }
+
+.event-text-section { display: inline-block; word-break: break-word; }
 
 .log-container {
   display: inherit;
   flex-direction: column;
-  width: 75%;
+  width: 100%;
+}
+
+.event-text-section {
+  display: inline-block;
+  word-break: break-word; 
 }
 
 #dash-button-container {
@@ -33,22 +39,60 @@
   width: fit-content;
 }
 
-.dash-event-container:nth-child(odd) {
-  background-color: rgb(245, 245, 245);
-}
-.dash-event-container {
+.dash-event-container-symptom {
+  border:2px solid #f15e3d;
+  margin:1%;
+  border-radius:10px;
   text-align: left;
-  background-color: rgb(224, 226, 226);
+  padding: 2%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.dash-event-container-meal {
+  border:2px solid #558AA4;
+  margin:1%;
+  border-radius:10px;
+  text-align: left;
+  padding: 2%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .expand-toggle {
   top: 8px;
   right: 45px;
   border: none;
   background-color: transparent;
+  font-size: 18px;
   font-weight: bold;
   color: rgb(22, 86, 184);
-/*   padding-right: 20%;
- */}
+}
+
+ .meal-toggle-cont{
+  text-align: right;
+  padding: 0px;
+  margin-right: -6px;
+  display: inline-block;
+  width: 60px;
+  height: 100%;
+ }
+
+ .dash-event-text {
+  display: inline-block;
+
+    max-width: 75%;
+
+}
+
+.expanded-food-event {
+  display: block;
+  width: 100%;
+}
 
 .delete-event {
   top: 8px;
@@ -63,9 +107,21 @@
   background-color: transparent;
 }
 
+.food-info-in-dash {
+  display: block;
+  margin: 0px 3px 0px;
+}
+
 .food-item-in-dash {
   margin-bottom: 5px;
+  color: rgb(31, 27, 27);
   padding: 0;
+  display: block;
+  width: 100%;
+  display: flex;
+  flex-flow: column ;
+  justify-content: flex-start;
+  align-items: left;
 }
 .new-meal,
 .new-symptom,
@@ -93,15 +149,13 @@
 }
 
 .food-info-in-dash {
-  margin: 0;
   padding: 0;
 }
 
 li {
   list-style-type: none;
-  color: rgb(31, 27, 27);
-  padding: 2%;
 }
+
 .events-list {
   margin: 0 auto;
 }
@@ -109,21 +163,20 @@ li {
 .Modal {
   display: flex;
   position: fixed;
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  bottom: 40px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
   background-color: white;
 }
-
-.Overlay {
+.Modal_Overlay{
+  width:100%;
+  height:100%;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgb(224, 224, 224);
+  top:0px;
+  background-color: rgba(0,0,0,0.5)
 }
+
 
 .symptom-modal {
   opacity: 0.5;
@@ -136,16 +189,31 @@ li {
     align-items: center;
     flex-direction: column;
   }
+  .new-symptom{
+    z-index: 1;
+    position: fixed;
+    height:80px;
+    bottom:10px;
+    right:10px;
+  }
   .new-meal{
     z-index: 1;
     position: fixed;
     height:80px;
     bottom:10px;
   }
+  .new-symptom > img,
   .new-meal >img{
     height:50px;
     width: 50px;
     color:white;
+  }
+  .exitButton{
+    color:red;
+    font-size: 26px;
+    position: absolute;
+    right:25px;
+    top:-7px;
   }
 @media screen and (min-width: 800px) {
   .new-meal{
@@ -170,22 +238,47 @@ li {
     margin: 0 auto;
     padding-bottom: 2%;
   }
+  
 
   .events-list {
-    width: 100%;
     margin: 0 auto;
   }
 
   .dashboard-content {
-    padding: 1% 0 1% 0;
+    padding: 1% 1% 1% 1%;
     margin: 0 0%;
   }
+
+  
 
   #user-welcome {
     text-align: left;
     padding: 0 0 0 10px;
   }
 }
+
+@media screen and (min-width: 800px) {
+
+  .Modal {
+    overflow: auto;
+    display: flex;
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    right: 15%;
+    bottom: 15%;
+    background-color: white;
+  }
+  .log-container {
+    flex-basis: 50%;
+  }
+
+  .dashboard-content {
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    padding: 15px;
+  }
+ }
 
 .print-container {
   display: none;
@@ -220,7 +313,4 @@ li {
   .log-container {
     width: 100%;
   }
-
-  /*   .symptom, .meal {
-    /* font-weight: bold; */
 }

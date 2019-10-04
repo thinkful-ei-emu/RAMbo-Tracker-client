@@ -89,18 +89,20 @@ export default class MealRoute extends React.Component {
   render() {
     return (
       <div className="add-meal-div">
+        <p className="exitButton" onClick={()=>this.props.closeModal('addMealModal')}>X</p>
         <h2>Log a Meal</h2>
         <form className="add-meal-form" onSubmit={this.handleMealSubmit}  onReset = {()=>this.props.closeModal('addMealModal')}>
           <label className="add-meal-labels" htmlFor="AddMealNameInput">Meal Name:</label>
           <br></br>
           <input
             type="text"
+            maxlength="40"
             onChange={e => this.handleNameChange(e.target.value)}
             id="AddMealNameInput"
             value={this.state.mealName}
           />
           <ValidationError message={this.verifyMealName()} />
-          <br></br>
+          <br/>
           <label className="add-meal-labels" htmlFor="AddMealTimeInput">Date and Time:</label>
           <DatePicker
             id='AddMealDateInput'
@@ -144,23 +146,24 @@ export default class MealRoute extends React.Component {
                       />
                     </button>
                   </div>
-                  <hr></hr>
+                  <hr/>
                 </div>
               ))}
             </div>
           </div>
           <AddFood addFood={this.state.handleAddFood} />
-          <br></br>
+          <br/>
           <ValidationError message={this.verifyFoodNonempty()} />
+          <div id='meal-form-btn-container'>
+            <button id="back-button" type="reset">Back</button>
           <button
             disabled={this.verify() ? true : false}
-            className="user-button"
-            id="add-meal-button"
+            className="user-button add-meal-button"
           >
             Add Meal
           </button>
-          <button className="user-button" type="reset">Cancel</button>
-         
+          
+          </div>
         </form>
       </div>
     );

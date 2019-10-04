@@ -51,7 +51,7 @@
   }
 
   .registration-form{
-    padding: 0 0 60px 0;
+    padding: 0 0 30px 0;
   }
 
   .reg-photo-container{
@@ -62,8 +62,7 @@
 
   .reg-photo {
     max-width: 200px;
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: 0px 0px 10px #ffd103;
+   
     /* border-right: 20px solid #798630; */
   }
 
@@ -97,7 +96,7 @@
   }
   
   .registration-form{
-    padding: 0 0 60px 0;
+    padding: 0 0 30px 0;
   }
 
   .reg-photo {
@@ -121,13 +120,7 @@
     margin-top: 30px;
     margin-bottom: 5px;
     width: 90%;
-    font-size: 42px;
-    font-family: cursive;
+   
   }
   
-  .emphasis {
-    font-weight: bold;
-    font-family: cursive;
-    font-size: 28px;
-  }
 }

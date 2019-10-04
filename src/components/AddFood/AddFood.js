@@ -168,7 +168,7 @@ export default class AddFood extends React.Component {
             form='sub-form'
             placeholder='brand'
           />
-          <button className="user-button" id="search-food-button"
+          <button /*className="user-button"*/ id="search-food-button"
             form='sub-form' htmlFor='searchTermInput' 
             onClick={this.handleFoodSubmit}>
             Search for Food
@@ -191,7 +191,7 @@ export default class AddFood extends React.Component {
               {
                 this.state.foodsFromSearch.foods.map((food, index) =>
                   <div key={index} className='AddFoodSearchResultsDiv'>
-                    <div className='AddFoodSearchResultsRow'>
+                    <div className='AddFoodSearchResultsRow' onClick={e => { this.handleAddFood(e,food) }}>
                       <div className='AddFoodSearchResultsFoodInfo'>
                         <div className='AddFoodSearchResultsManu'>
                           {
@@ -203,14 +203,13 @@ export default class AddFood extends React.Component {
                         <div className='AddFoodSearchResultsName'>
                           {ProcessFoodName(food.description)}
                         </div>
+                        <img className='add-food-logo'src={cart} alt='shopping cart'/>
                       </div>
+                      
                       <div className='AddFoodSearchResultsSpace'>
                       </div>
-                      <button id='add-food-button' className='user-button' onClick={e => { this.handleAddFood(e,food) }} >
-                       <img id='add-food-logo'src={cart} alt=''/> Add Food
-                      </button>
+                      
                     </div>
-                    <hr></hr>
                   </div>
                 )
               }

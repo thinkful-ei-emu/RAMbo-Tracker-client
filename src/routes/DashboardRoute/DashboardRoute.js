@@ -1,52 +1,65 @@
-import React from "react";
-import API from "../../services/api-service";
-import Modal from "react-modal";
+import React from 'react';
+import API from '../../services/api-service';
+import Modal from 'react-modal';
 //components
-import Symptoms from "../../components/Symptom/Symptom";
-import Meal from "../MealRoute/MealRoute";
+import Symptoms from '../../components/Symptom/Symptom';
+import Meal from '../MealRoute/MealRoute';
 //css
-import "./Dashboard.css";
-import Result from "../../components/Result/Result";
-import Plate from "../../Media/plate.png";
-import Symptom from "../../Media/symptom.png";
-import Printer from '../../Media/print.png'
+import './Dashboard.css';
+import Result from '../../components/Result/Result';
+import Plate from '../../Media/plate.png';
+import Symptom from '../../Media/symptom.png';
+import Printer from '../../Media/print.png';
 //to be removed for final product
 //import helper from "../../services/helper.services";
 
-if (process.env.NODE_ENV !== "test") Modal.setAppElement("#root");
+if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#root');
 export default class DashBoard extends React.Component {
   state = {
     addMealModal: false,
     addSymptomsModal: false,
     expanded: false,
     itemExpanded: [],
+    forceUpdateInResult: false,
 
     user: {
-      username: "",
-      display_name: ""
+      username: '',
+      display_name: ''
     },
     events: [
       {
-        name: "",
+        name: '',
         time: 2134234,
-        type: "",
+        type: '',
         items: [
           {
-            name: "",
+            name: '',
             ingredients: []
           },
           {
-            name: "",
+            name: '',
             ingredients: []
           }
         ]
       }
     ]
   };
-  clearErrors=()=>{
-    this.setState({error: null})
-  }
+  clearErrors = () => {
+    this.setState({ error: null });
+  };
   componentDidMount() {
+    this.clearErrors();
+    API.doFetch('/event')
+      .then((res) => {
+        this.setState({
+          user: { username: res.username, display_name: res.display_name },
+          events: res.events
+        });
+      })
+      .catch((res) => this.setState({ error: res.error }));
+  }
+
+  updateAllEventsDueToResult = () => {
     this.clearErrors()
     API.doFetch("/event")
       .then(res => {
@@ -55,26 +68,34 @@ export default class DashBoard extends React.Component {
           events: res.events
         });
       })
-      .catch(res => this.setState({ error: res.message }));
+      .catch((res) => this.setState({ error: res.error }));
   }
 
   handleDelete = (id, type, index) => {
-    this.clearErrors()
+    this.clearErrors();
 
-    API.doFetch("/event", "DELETE", {
+    API.doFetch('/event', 'DELETE', {
       id,
       type
     }).then(() => {
       const newEvents = [...this.state.events];
       newEvents.splice(index, 1);
       this.setState({
-        events: newEvents
+        events: newEvents,
+        forceUpdateInResult: !this.state.forceUpdateInResult
       });
     })
-    .catch(res =>this.setState({error: res.message}));
+      .then(() => {
+        const newEvents = [...this.state.events];
+        newEvents.splice(index, 1);
+        this.setState({
+          events: newEvents
+        });
+      })
+      .catch((res) => this.setState({ error: res.error }));
   };
 
-  handleExpandToggle = index => {
+  handleExpandToggle = (index) => {
     if (this.state.expanded === index) {
       this.setState({
         expanded: false,
@@ -88,7 +109,7 @@ export default class DashBoard extends React.Component {
     }
   };
 
-  handleIngredientsToggle = index => {
+  handleIngredientsToggle = (index) => {
     if (this.state.itemExpanded.includes(index)) {
       const newItemExpanded = [...this.state.itemExpanded];
       newItemExpanded.splice(newItemExpanded.indexOf(index), 1);
@@ -104,161 +125,187 @@ export default class DashBoard extends React.Component {
     }
   };
 
-  closeModal = modal => {
+  closeModal = (modal) => {
     this.setState({ [modal]: false });
   };
   openModal = (e, modal) => {
     e.preventDefault();
     this.setState({ [modal]: true });
   };
-  updateEvents = e => {
+  updateEvents = (e) => {
     let temp = [e, ...this.state.events];
     temp.sort(
       (a, b) => new Date(b.time).getTime() - new Date(a.time).getTime()
     );
-    this.setState({ events: temp });
+    this.setState({
+      events: temp,
+      forceUpdateInResult: !this.state.forceUpdateInResult
+    });
   };
-  formatDate = time => {
+  formatDate = (time) => {
     let date = new Date(time);
     let formatted_date =
       date.getMonth() +
       1 +
-      "-" +
+      '-' +
       date.getDate() +
-      "-" +
+      '-' +
       date.getFullYear() +
-      " " +
+      ' ' +
+      'at ' +
       date.getHours() +
-      ":" +
-      date.getMinutes();
+      ':' +
+      // eslint-disable-next-line eqeqeq
+      ((date.getMinutes() == '0') ? '00' : date.getMinutes());
     return formatted_date;
   };
- 
-  print = () => { 
-     window.print() 
+
+  print = () => {
+    window.print();
   };
   render() {
-    let printEvents =
-    this.state.events.map((e, index) => {
-      if (e.type === "meal") {
+    let printEvents = this.state.events.map((e, index) => {
+      if (e.type === 'meal') {
         return (
           <div key={index} className="print-container">
             <li className="meal">
-              {e.name} at {this.formatDate(e.time)}
+              {e.name} on {this.formatDate(e.time)}
               <ul className="food-ingredient-print">
                 {e.items.map((item, index) => {
                   return (
                     <li key={index} className="food-item-in-dash">
-                      <p className="food-info-in-dash">{item.name}:{' '}
+                      <p className="food-info-in-dash">
+                        {item.name}:{' '}
                         {item.ingredients
-                          .map(ingredient => ingredient.toLowerCase())
-                          .join(", ")}
-                          
+                          .map((ingredient) => ingredient.toLowerCase())
+                          .join(', ')}
                       </p>
                     </li>
                   );
                 })}
               </ul>
-              
             </li>
           </div>
         );
-      } else{
+      } else {
         return (
           <div key={index} className="print-container">
             <li className="symptom">
-              {e.name} at {this.formatDate(e.time)}{" "}
-              {e.type === "symptom" ? `Severity: ${e.severity}` : ""}
+              {e.name} on {this.formatDate(e.time)}{' '}
+              {e.type === 'symptom' ? `Severity: ${e.severity}` : ''}
             </li>
           </div>
         );
       }
     });
     let events = this.state.events.map((e, index) => {
-      if (e.type === "meal") {
+      if (e.type === 'meal') {
         return (
-          <ul key={index} className="dash-event-container">
-            <li className={"meal"}>
-              {e.name} at {this.formatDate(e.time)}
-              <div className='meal-toggle-cont'>
-              <button
-                className="expand-toggle"
-                onClick={() => this.handleExpandToggle(index)}
-              >
-                {this.state.expanded === index ? "-" : "+"}
-              </button>
-              <button
-                className="delete-event" aria-label="Delete item"
-                onClick={() => this.handleDelete(e.id, e.type, index)}
-              >
-                <i className="fa fa-trash" aria-hidden="true" ></i>
-              </button>
+            <li key={index} className={'meal dash-event-container-meal'}>
+              <div className="dash-event-text">
+                <div className="event-text-section">{e.name}</div>{' '}
+                <div className="event-text-section">on {this.formatDate(e.time)}</div>
+              </div>
+              <div className="meal-toggle-cont">
+                <button
+                  className="expand-toggle"
+                  onClick={() => this.handleExpandToggle(index)}
+                >
+                  {this.state.expanded === index ? "-" : "+"}
+                </button>
+                <button
+                  className="delete-event" aria-label="Delete item"
+                  onClick={() => this.handleDelete(e.id, e.type, index)}
+                >
+                  <i className="fa fa-trash fa-lg" aria-hidden="true"></i>
+                </button>
               </div>
               {this.state.expanded === index && (
-                <ul className="food-toggle">
-                  {e.items.map((item, index) => {
-                    return (<>
-                      <li key={index} className="food-item-in-dash">
-                        <p className="food-info-in-dash">{item.name}</p>
-                        <p className="ingredients-list-in-dash">
-                          {this.state.itemExpanded.includes(index) &&
-                            item.ingredients
-                              .map(ingredient => ingredient.toLowerCase())
-                              .join(", ")}
-                          
-                        </p>
-                      </li>
-                      <div className='exp-hide-btn'>
-                          <button
-                            className="ingredients-expand"
-                            onClick={() => this.handleIngredientsToggle(index)}
-                          >
-                            {this.state.itemExpanded.includes(index)
-                              ? "Hide ingredients"
-                              : "Show ingredients"}
-                          </button>
+                <div className="expanded-food-event">
+                  <ul className="food-toggle">
+                    {e.items.map((item, index) => {
+                      return (
+                        <>
+                          <li key={index} className="food-item-in-dash">
+                            <p className="food-info-in-dash">{item.name}</p>
+                            <p className="ingredients-list-in-dash">
+                              {this.state.itemExpanded.includes(index) && 
+                                item.ingredients
+                                  .map((ingredient) => ingredient.toLowerCase())
+                                  .join(', ')}
+                            </p>
+                          </li>
+                          <div className="exp-hide-btn">
+                            <button
+                              className="ingredients-expand"
+                              onClick={() =>
+                                this.handleIngredientsToggle(index)
+                              }
+                            >
+                              {this.state.itemExpanded.includes(index)
+                                ? 'Hide ingredients'
+                                : 'Show ingredients'}
+                            </button>
                           </div>
-                    </>);
-                  })}
-                </ul>
+                        </>
+                      );
+                    })}
+                  </ul>
+                </div>
               )}
             </li>
-          </ul>
         );
       } else {
         return (
-          <ul key={index} className="dash-event-container">
-            <li className="symptom">
-              {e.name} at {this.formatDate(e.time)}{" "}
-              {e.type === "symptom" ? `Severity: ${e.severity}` : ""}{' '}
+            <li key={index} className="symptom dash-event-container-symptom">
+            <div className="dash-event-text">
+              <div className="event-text-section">{e.name}</div>{' '}
+              <div className="event-text-section">on {this.formatDate(e.time)};</div>{' '}
+              <div className="event-text-section">{`Severity: ${e.severity}`}</div>{' '}
+              </div>
+              <div className="meal-toggle-cont">
               <button
                 className="delete-event" aria-label="Delete item"
                 onClick={() => this.handleDelete(e.id, e.type, index)}
               >
-                <i className="fa fa-trash" aria-hidden="true"></i>
+                <i className="fa fa-trash fa-lg" aria-hidden="true"></i>
               </button>
+              </div>
             </li>
-           
-          </ul>
         );
       }
     });
+
+    let prevSymptoms = [];
+
+    for (let i = 0; i < this.state.events.length; i++) {
+      let curr = this.state.events[i];
+      if (!prevSymptoms.includes(curr.name) && curr.type === 'symptom') {
+        prevSymptoms.push(curr.name);
+      }
+    }
     return (
-      <div>
+      <div className='entire-dashboard-div'>
         {/*add meal modal*/}
         <Modal
+          className = "Modal"
+          overlayClassName = "Modal_Overlay"
           isOpen={this.state.addMealModal}
-          onRequestClose={e => this.closeModal("addMealModal")}
+          onRequestClose={(e) => this.closeModal('addMealModal')}
         >
           <Meal closeModal={this.closeModal} updateEvents={this.updateEvents} />
         </Modal>
         <Modal
+          className = "Modal"
+          overlayClassName = "Modal_Overlay"
           isOpen={this.state.addSymptomsModal}
-          onRequestClose={() => this.closeModal("addSymptomsModal")}
+          onRequestClose={() => this.closeModal('addSymptomsModal')}
         >
           <Symptoms
             closeModal={this.closeModal}
-            prevSymptoms={this.state.events.filter(e => e.type === "symptom")}
+            prevSymptoms={this.state.events.filter((e) => e.type === 'symptom').map((e)=>
+              e.name
+            )}
             updateEvents={this.updateEvents}
           />
         </Modal>
@@ -267,8 +314,7 @@ export default class DashBoard extends React.Component {
           <h2>Welcome back, {this.state.user.display_name}</h2>
         </div>
         <div className="dashboard-content">
-          <Result />
-       
+          <Result refreshDash={this.updateAllEventsDueToResult} forceUpdate={this.state.forceUpdateInResult} />
           <div className="log-container">
             <h2>My Log</h2>
             {this.state.error && <p className="error">There Was An Error!</p>}
@@ -276,30 +322,33 @@ export default class DashBoard extends React.Component {
             <div id="dash-button-container">
               <button
                 className="user-button new-meal"
-                onClick={e => this.openModal(e, "addMealModal")}
+                onClick={(e) => this.openModal(e, 'addMealModal')}
               >
                 <img className="button-logo" src={Plate} alt=""></img>
                 Log Meal
               </button>
               <button
                 className="user-button new-symptom"
-                onClick={e => this.openModal(e, "addSymptomsModal")}
+                onClick={(e) => this.openModal(e, 'addSymptomsModal')}
               >
                 <img className="button-logo" src={Symptom} alt=""></img>
                 Log Symptom
               </button>
-          <button className="user-button print-button" onClick={() => this.print()}>
-            <img className="button-logo" src={Printer} alt=""></img>
-            Print Logs
-          </button>
-          <div className=".print-container">
-
-        {printEvents}
-          </div>
+              <button
+                className="user-button print-button"
+                onClick={() => this.print()}
+              >
+                <img className="button-logo" src={Printer} alt=""></img>
+                Print Logs
+              </button>
+              <div className=".print-container">{printEvents}</div>
             </div>
             <div className="events">
               <div className="events-list">
-                {events == "" ? `Your log is empty` : events}
+                <ul>
+                {events === '' ? `Your log is empty` : events}
+                </ul>
+                
               </div>
             </div>
           </div>
