@@ -161,6 +161,7 @@ li {
 }
 /* Modals                       */
 .Modal {
+  z-index: 3;
   display: flex;
   position: fixed;
   top: 0px;
@@ -170,6 +171,7 @@ li {
   background-color: white;
 }
 .Modal_Overlay{
+  z-index: 2;
   width:100%;
   height:100%;
   position: fixed;
@@ -192,20 +194,23 @@ li {
   .new-symptom{
     z-index: 1;
     position: fixed;
-    height:80px;
-    bottom:10px;
-    right:10px;
+    height:40px;
+    width:25%;
+    bottom:2%;
+    right:15%;
   }
   .new-meal{
+    width:25%;
     z-index: 1;
     position: fixed;
-    height:80px;
-    bottom:10px;
+    height:40px;
+    bottom:2%;
+    left:12%;
   }
   .new-symptom > img,
   .new-meal >img{
-    height:50px;
-    width: 50px;
+    height:25px;
+    width: 25px;
     color:white;
   }
   .exitButton{
@@ -218,14 +223,15 @@ li {
 @media screen and (min-width: 800px) {
   .new-meal{
     z-index: 1;
-    position: relative;
+    position: static;
     height:50px;
     bottom:10px;
   }
-  .new-meal >img{
+  .new-symptom{
+    z-index: 1;
+    position: static;
     height:50px;
-    width: 50px;
-    color:white;
+    bottom:10px;
   }
  }
 
