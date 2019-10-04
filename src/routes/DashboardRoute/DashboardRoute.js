@@ -156,7 +156,7 @@ export default class DashBoard extends React.Component {
       date.getHours() +
       ':' +
       // eslint-disable-next-line eqeqeq
-      ((date.getMinutes() == '0') ? '00' : date.getMinutes());
+      ((date.getMinutes() === 0) ? '00' : (date.getMinutes() < 10) ? `0${date.getMinutes()}` : date.getMinutes());
     return formatted_date;
   };
 
