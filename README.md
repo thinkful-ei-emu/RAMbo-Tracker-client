@@ -1,6 +1,6 @@
 # RAMbo Symptom Tracker
 
-`https://symptomtracker.rambo.now.sh/`
+[https://symptomtracker.rambo.now.sh/](https://symptomtracker.rambo.now.sh/)
 
 ## What is Symptom Tracker
 
