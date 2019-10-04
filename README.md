@@ -47,11 +47,11 @@ run `npm run start`
 
 ### Log Symptom
 
-![Log Symptom](/src/Media/symptomscreenshot.png)
+![Log Symptom](/src/Media/logsymptomscreenshot.png)
 
 ### Log Meal
 
-![Log Meal](/src/Media/mealscreenshot.png)
+![Log Meal](/src/Media/logmealshot.png)
 
 ### About Page
 
