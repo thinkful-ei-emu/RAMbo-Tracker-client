@@ -159,7 +159,7 @@ li {
 .events-list {
   margin: 0 auto;
 }
-/* Modals                       */
+
 .Modal {
   z-index: 3;
   display: flex;
@@ -170,6 +170,7 @@ li {
   bottom: 0px;
   background-color: white;
 }
+
 .Modal_Overlay{
   z-index: 2;
   width:100%;
@@ -179,47 +180,53 @@ li {
   background-color: rgba(0,0,0,0.5)
 }
 
-
 .symptom-modal {
   opacity: 0.5;
 }
+
 .button-logo {
   width: 20px;
   padding-right: 5px;
 }
-  .dashboard-content {
-    align-items: center;
-    flex-direction: column;
-  }
-  .new-symptom{
-    z-index: 1;
-    position: fixed;
-    height:40px;
-    width:25%;
-    bottom:2%;
-    right:15%;
-  }
-  .new-meal{
-    width:25%;
-    z-index: 1;
-    position: fixed;
-    height:40px;
-    bottom:2%;
-    left:12%;
-  }
-  .new-symptom > img,
-  .new-meal >img{
-    height:25px;
-    width: 25px;
-    color:white;
-  }
-  .exitButton{
-    color:red;
-    font-size: 26px;
-    position: absolute;
-    right:25px;
-    top:-7px;
-  }
+
+.dashboard-content {
+  align-items: center;
+  flex-direction: column;
+}
+
+.new-symptom{
+  z-index: 1;
+  position: fixed;
+  height:40px;
+  width:25%;
+  bottom:2%;
+  right:15%;
+}
+
+.new-meal{
+  width:25%;
+  z-index: 1;
+  position: fixed;
+  height:40px;
+  bottom:2%;
+  left:12%;
+}
+
+.new-symptom > img,
+.new-meal >img{
+  height:25px;
+  width: 25px;
+  color:white;
+}
+
+.exitButton{
+  color:red;
+  font-size: 26px;
+  position: absolute;
+  right:25px;
+  top:-7px;
+}
+
 @media screen and (min-width: 760px) {
   .new-meal{
     z-index: 1;
@@ -284,7 +291,7 @@ li {
     align-items: flex-start;
     padding: 15px;
   }
- }
+}
 
 .print-container {
   display: none;

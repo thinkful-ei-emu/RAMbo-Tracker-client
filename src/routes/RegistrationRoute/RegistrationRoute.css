@@ -16,7 +16,6 @@
 
 .reg-photo, .reg-photo-2 {
   max-height: 400px;
- 
 }
 
 
@@ -57,18 +56,14 @@
   .reg-photo-container{
     margin-bottom: 0px;
     padding-bottom: 0px;
-    /* height: max-content; */
-    }
+  }
 
   .reg-photo {
     max-width: 200px;
-   
-    /* border-right: 20px solid #798630; */
   }
 
   .reg-photo-2 {
     display: none;
-   
   }
 
   .mission {
@@ -85,7 +80,6 @@
     flex-flow: row wrap;
     justify-content: space-around;
     padding-top: 30px;
-    /* max-width: 1080px; */
   }
   
   .mission {
@@ -101,14 +95,10 @@
 
   .reg-photo {
     max-width: 220px;
- 
   }
-  
- 
   
   .reg-photo-2 {
     display: none;
-   
   }
   
   .reg-description {
@@ -120,7 +110,6 @@
     margin-top: 30px;
     margin-bottom: 5px;
     width: 90%;
-   
   }
   
 }

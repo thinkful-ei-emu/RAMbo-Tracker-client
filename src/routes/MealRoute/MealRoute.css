@@ -18,20 +18,24 @@
   text-align: left;
   padding-left: 5px;
 }
+
 .AddMealFoodsDisplayRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .AddMealFoodsDisplayRow>div {
   word-break: normal;
   word-wrap: normal;
   display: inline-block;
 }
+
 .AddMealFoodsDisplayInfo{
   flex-basis: 60%;
   flex-grow: 1;
 }
+
 .AddMealFoodsDisplayManu {
   font-weight:550;
   text-align: left;
@@ -42,15 +46,18 @@
   text-align: left;
   padding-left: 5px;
 }
+
 .AddMealFoodsDisplaySpace {
   flex-basis: 20px;
   flex-grow: 1;
 }
+
 .AddMealFoodsDisplayRemove {
   flex-grow: 0;
   height: 25px;
   color: red;
 }
+
 #AddMealNameInput, #AddMealDateInput, #searchTermInput,#brandTermInput {
   font-size: 1.2em;
   margin: 1%;
@@ -66,7 +73,6 @@
   border-radius: 5px;
   width: 60px;
   height: 25px;
-  
 }
 
 #remove-food-button{
@@ -87,29 +93,32 @@
   width: 20px;
   height: 23px;
 }
+
 .AddFoodSearchResults{
   height: 270px;
   overflow:auto;
   padding: 0 1px;
 } 
+
 .AddMealFoodsDisplayContainer{
   overflow: auto;
   max-height: 300px;
 }
-#AddMealNameInput, #AddMealDateInput, #searchTermInput,#brandTermInput {
-    max-width: 190px;
-    font-size: 1em;
-  }
 
-  #add-meal-button {
-    width: auto;
-    font-size: 1em;
-  }
-  #search-food-button {
-    padding: 1%;
-    font-size: 1em;
-    display:block;
-  }
+#AddMealNameInput, #AddMealDateInput, #searchTermInput,#brandTermInput {
+  max-width: 190px;
+  font-size: 1em;
+}
+
+#add-meal-button {
+  width: auto;
+  font-size: 1em;
+}
+#search-food-button {
+  padding: 1%;
+  font-size: 1em;
+  display:block;
+}
 
 @media screen and (min-width: 800px){
   #search-food-button {
@@ -118,7 +127,6 @@
     display:block;
   }
   .add-meal-div {
-    /*   box-sizing: border-box; */
     display: flex;
     flex-direction: column;
     max-width: 100%;
