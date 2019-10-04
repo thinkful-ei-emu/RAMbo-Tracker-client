@@ -78,11 +78,10 @@ export default class MealRoute extends React.Component {
       };
       API.doFetch('/event', 'POST', meal)
         .then((res) => {
-          //this.props.history.push('/')
           meal.items = null;
           meal.type = 'meal';
           this.props.updateEvents(res);
-          this.props.closeModal('addMealModal'); //this functions is passed in from dashboard to close the modal, it should be placed int the 'then' of api call to ensure it only runs in happy case
+          this.props.closeModal('addMealModal'); 
         })
         .catch((res) => this.setState({ error: res.error }));
     }
@@ -122,7 +121,7 @@ export default class MealRoute extends React.Component {
             </label>
             <DatePicker
               id="date-select"
-              selected={this.state.symptomTime}
+              selected={this.state.mealTime}
               onChange={this.handleTimeChange}
               showTimeSelect
               dateFormat="Pp"

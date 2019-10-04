@@ -13,53 +13,52 @@ export default class Result extends React.Component {
     isEditting: false,
     screenSize: 0,
     tempMinTimeObj: { days: 0, hours: 0, minutes: 0 },
-    tempMaxTimeObj: { days: 0, hours: 0, minutes: 0 }
+    tempMaxTimeObj: { days: 0, hours: 0, minutes: 0 },
+    refreshResults: (
+      selectedReset = false,
+      dashReset = false,
+      forcingUpdate = { bool: false }
+    ) => {
+      this.clearErrors();
+      return API.doFetch("/results")
+        .then(res => {
+          if (dashReset) {
+            this.props.refreshDash();
+          }
+          this.setState({
+            results: res,
+            onLastCheckBeforeDelete: false,
+            isEditting: false,
+            selected: selectedReset ? 0 : this.state.selected,
+            forceUpdate: forcingUpdate.bool
+              ? forcingUpdate.value
+              : this.state.forceUpdate
+          });
+        })
+        .catch(res =>
+          this.setState({
+            error: res.error,
+            onLastCheckBeforeDelete: false,
+            isEditting: false,
+            selected: 0
+          })
+        );
+    },
+    forceUpdate: false
   };
+
   clearErrors = () => {
     this.setState({ error: null });
   };
 
-  refreshResults = (selectedReset = false) => {
-    this.clearErrors();
-    return API.doFetch("/results")
-      .then(res => {
-        this.props.refreshDash();
-        this.setState({
-          results: res,
-          onLastCheckBeforeDelete: false,
-          isEditting: false,
-          selected: selectedReset ? 0 : this.state.selected
-        });
-      })
-      .catch(res =>
-        this.setState({
-          error: res.error,
-          onLastCheckBeforeDelete: false,
-          isEditting: false,
-          selected: 0
-        })
-      );
-  };
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.forceUpdate !== this.props.forceUpdate) {
-      this.refreshResults();
+  componentDidUpdate(prevProps) {
+    if (this.props.forceUpdate !== prevProps.forceUpdate) {
+      this.state.refreshResults(false, false, {
+        bool: true,
+        value: this.props.forceUpdate
+      });
     }
   }
-  componentDidMount() {
-    window.addEventListener("resize", this.resize);
-    this.resize();
-  }
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.resize);
-  }
-  resize = () => {
-    let currentscreenSize =
-      window.innerWidth >= 1000 ? (window.innerWidth >= 1400 ? 2 : 1) : 0;
-    if (currentscreenSize !== this.state.screenSize) {
-      this.setState({ screenSize: currentscreenSize });
-    }
-  };
 
   handleSelectedChange = event => {
     this.clearErrors();
@@ -69,12 +68,14 @@ export default class Result extends React.Component {
       isEditting: false
     });
   };
+
   handleBeginDelete = () => {
     this.clearErrors();
     this.setState({
       onLastCheckBeforeDelete: true
     });
   };
+
   handleToggleEdit = () => {
     this.clearErrors();
     this.setState({
@@ -85,6 +86,7 @@ export default class Result extends React.Component {
         .min_time
     });
   };
+
   handleEdit = (event, item) => {
     event.preventDefault();
     let minTime =
@@ -109,7 +111,7 @@ export default class Result extends React.Component {
       max_time: maxTime
     })
       .then(res => {
-        return this.refreshResults();
+        return this.state.refreshResults();
       })
       .catch(res =>
         this.setState({
@@ -118,11 +120,12 @@ export default class Result extends React.Component {
         })
       );
   };
+
   handleResultDelete = (e, toBeDeleted, type_id) => {
     if (toBeDeleted) {
       return API.doFetch(`/symptom/${type_id}`, "DELETE")
         .then(() => {
-          return this.refreshResults(true);
+          return this.state.refreshResults(true, true);
         })
         .catch(res => this.setState({ error: res.error }));
     } else {
@@ -132,6 +135,7 @@ export default class Result extends React.Component {
       });
     }
   };
+
   handleTimeChange = (minOrMax, unit, event, item) => {
     let key = "temp" + minOrMax + "TimeObj";
     this.setState({
@@ -141,6 +145,7 @@ export default class Result extends React.Component {
       }
     });
   };
+
   render() {
     let results = !this.state.results ? (
       <h2>Click Analyze to See Results</h2>
@@ -422,7 +427,9 @@ export default class Result extends React.Component {
         )}
 
         <div id="results-button">
-          <button onClick={e => this.refreshResults(e)}>Refresh Results</button>
+          <button onClick={e => this.state.refreshResults()}>
+            Refresh Results
+          </button>
         </div>
       </div>
     );

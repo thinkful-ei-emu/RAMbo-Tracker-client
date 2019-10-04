@@ -37,9 +37,11 @@
   display: block;
   position: relative;
 }
+
 #about-img{
   max-height:250px;
 }
+
 @media screen and (max-width: 420px) and (min-width: 310px){
 
   .about {

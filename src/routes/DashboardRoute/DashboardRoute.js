@@ -1,17 +1,13 @@
 import React from "react";
 import API from "../../services/api-service";
 import Modal from "react-modal";
-//components
 import Symptoms from "../../components/Symptom/Symptom";
 import Meal from "../MealRoute/MealRoute";
-//css
 import "./Dashboard.css";
 import Result from "../../components/Result/Result";
 import Plate from "../../Media/plate.png";
 import Symptom from "../../Media/symptom.png";
 import Printer from "../../Media/print.png";
-//to be removed for final product
-//import helper from "../../services/helper.services";
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement("#root");
 export default class DashBoard extends React.Component {
@@ -157,7 +153,11 @@ export default class DashBoard extends React.Component {
       date.getHours() +
       ":" +
       // eslint-disable-next-line eqeqeq
-      (date.getMinutes() == "0" ? "00" : date.getMinutes());
+      (date.getMinutes() === 0
+        ? "00"
+        : date.getMinutes() < 10
+        ? `0${date.getMinutes()}`
+        : date.getMinutes());
     return formatted_date;
   };
 
@@ -291,7 +291,6 @@ export default class DashBoard extends React.Component {
     }
     return (
       <div className="entire-dashboard-div">
-        {/*add meal modal*/}
         <Modal
           className="Modal"
           overlayClassName="Modal_Overlay"

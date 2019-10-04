@@ -19,12 +19,14 @@ section{
   width: 50%;
   margin: -5% auto;
 }
+
 #register-link-login {
   font-weight: bold;
   text-decoration: black underline
 }
+
 #register-link-login:hover {
-color: rgb(29, 16, 175)
+  color: rgb(29, 16, 175)
 }
 
 @media screen and (max-width: 420px) and (min-width: 310px){
@@ -38,8 +40,9 @@ color: rgb(29, 16, 175)
     justify-content: center;
     width: 70%;
   }
-#donut-img{
-  width:75%;
-}
+
+  #donut-img{
+    width:75%;
+  }
 }
 
