@@ -168,7 +168,7 @@ export default class AddFood extends React.Component {
             form='sub-form'
             placeholder='brand'
           />
-          <button className="user-button" id="search-food-button"
+          <button /*className="user-button"*/ id="search-food-button"
             form='sub-form' htmlFor='searchTermInput' 
             onClick={this.handleFoodSubmit}>
             Search for Food
