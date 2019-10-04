@@ -8,10 +8,17 @@ const props = {
   prevSymptoms: ["a", "b", "c"]
 };
 it("renders without crashing", () => {
+  const form = document.createElement("form");
+  const radio = document.createElement("input");
+  form.id = "symptom-form";
+  radio.name = "radio-face";
+  radio.type = "radio";
+  form.appendChild(radio);
   const div = document.createElement("div");
+  div.appendChild(form)
   ReactDOM.render(
     <BrowserRouter>
-      <Symptom {...props} />
+      <Symptom {...props}/>
     </BrowserRouter>,
     div
   );
