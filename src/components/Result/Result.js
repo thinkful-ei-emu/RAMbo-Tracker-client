@@ -46,20 +46,8 @@ export default class Result extends React.Component {
       this.refreshResults();
     }
   }
-  componentDidMount() {
-    window.addEventListener('resize', this.resize);
-    this.resize();
-  }
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.resize);
-  }
-  resize = () => {
-    let currentscreenSize =
-      window.innerWidth >= 1000 ? (window.innerWidth >= 1400 ? 2 : 1) : 0;
-    if (currentscreenSize !== this.state.screenSize) {
-      this.setState({ screenSize: currentscreenSize });
-    }
-  };
+  
+  
 
   handleSelectedChange = (event) => {
     this.clearErrors();
