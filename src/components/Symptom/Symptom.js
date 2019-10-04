@@ -177,6 +177,7 @@ class Symptom extends Component {
                   id="user-symptom"
                   type="text"
                   placeholder="bloated.."
+                  maxlength="20"
                   list="past-symptoms"
                   disabled={this.state.symptomSelectIsHidden}
                 />
@@ -191,7 +192,6 @@ class Symptom extends Component {
                 selected={this.state.symptomTime}
                 onChange={this.handleTimeChange}
                 showTimeSelect
-                withPortal
                 dateFormat="Pp"
               />
             </div>
@@ -282,11 +282,11 @@ class Symptom extends Component {
               <p className="symptom-error">{this.state.error}</p>
             )}
             <div id="submit-button">
-              <button className="user-button" type="submit">
-                Submit Symptom
-              </button>
               <button id="back-button" type="reset">
                 Back
+              </button>
+              <button className="user-button" type="submit">
+                Submit Symptom
               </button>
             </div>
           </form>
