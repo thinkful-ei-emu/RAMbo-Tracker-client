@@ -186,26 +186,13 @@ class Symptom extends Component {
             </div>
 
             <div id="date">
-              <label className="label-for-datepicker" htmlFor="date-select">Date and Time:</label>
+              <label htmlFor="date-select">Date and Time:</label>
               <DatePicker
                 id="date-select"
                 selected={this.state.symptomTime}
                 onChange={this.handleTimeChange}
                 showTimeSelect
                 dateFormat="Pp"
-                className="DatePicker"
-                popperPlacement="bottom-left"
-                popperModifiers={{
-                  offset: {
-                    enabled: true,
-                    offset: "5px, 10px"
-                  },
-                  preventOverflow: {
-                    enabled: true,
-                    escapeWithReference: false,
-                    boundariesElement: "viewport"
-                  }
-                }}
               />
             </div>
 

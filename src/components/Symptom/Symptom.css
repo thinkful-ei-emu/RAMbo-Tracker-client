@@ -45,8 +45,8 @@
   border: 2px solid rgb(11, 76, 114);;
 }
 
-.label-for-datepicker {
-  display: block;
+#date{
+  padding: 20px;
 }
 
 #user-symptom{
