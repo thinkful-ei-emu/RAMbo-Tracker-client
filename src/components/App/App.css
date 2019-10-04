@@ -7,12 +7,12 @@
   background-color: rgb(255, 255, 255);
 }
 
-  main {
+main {
   background-color: rgb(255, 255, 255);
-  min-height:100vh;
-} 
- 
-.error{
+  min-height: 100vh;
+}
+
+.error {
   font-weight: bold;
   color: red;
   margin: 0;

@@ -7,18 +7,14 @@ exports[`renders the UI as expected 1`] = `
   <h2>
     My Results
   </h2>
-  <ul>
-    <h2>
-      Click Analyze to See Results
-    </h2>
-  </ul>
+  <div />
   <div
     id="results-button"
   >
     <button
       onClick={[Function]}
     >
-      Analyze my Log
+      Refresh Results
     </button>
   </div>
 </div>

@@ -1,9 +1,7 @@
-
-#footer{
+#footer {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  /* background: linear-gradient(180deg, rgb(212, 212, 212) 10%, rgb(185, 185, 185) 150%, rgb(212, 212, 212) 10% ); */
   background: rgb(204, 204, 204);
   color: rgb(54, 53, 53);
   padding: 15px;
@@ -14,32 +12,32 @@
   overflow: hidden;
 }
 
-#title-footer, .login-footer{
+#title-footer,
+.login-footer {
   margin: 0 10px 3px 10px;
 }
 
-#copy-footer{
-  display:block;
+#copy-footer {
+  display: block;
   margin: 0 10px 3px 10px;
   text-align: right;
 }
-#created-head{
-  margin: 0 0px 0 10px
+#created-head {
+  margin: 0 0px 0 10px;
 }
 
-#developers{
-
-text-align: right;
+#developers {
+  text-align: right;
 }
 
-#developers li{
-  margin:1px;
-padding:1px;
+#developers li {
+  margin: 1px;
+  padding: 1px;
 }
-#developers ul{
+#developers ul {
   margin: 0;
 }
-#app-info{
+#app-info {
   text-align: left;
 }
 
@@ -47,8 +45,7 @@ padding:1px;
   color: black;
   font-weight: 600;
 }
-#footer a:hover{
+#footer a:hover {
   color: rgb(8, 8, 94);
   text-decoration: underline;
 }
-

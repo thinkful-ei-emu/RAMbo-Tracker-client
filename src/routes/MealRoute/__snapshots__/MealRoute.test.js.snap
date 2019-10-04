@@ -4,11 +4,18 @@ exports[`renders the UI as expected 1`] = `
 <div
   className="add-meal-div"
 >
+  <p
+    className="exitButton"
+    onClick={[Function]}
+  >
+    X
+  </p>
   <h2>
     Log a Meal
   </h2>
   <form
     className="add-meal-form"
+    onReset={[Function]}
     onSubmit={[Function]}
   >
     <label
@@ -20,34 +27,41 @@ exports[`renders the UI as expected 1`] = `
     <br />
     <input
       id="AddMealNameInput"
+      maxLength="40"
       onChange={[Function]}
       type="text"
       value="A Meal"
     />
     <br />
-    <label
-      className="add-meal-labels"
-      htmlFor="AddMealTimeInput"
+    <div
+      id="date"
     >
-      Date and Time:
-    </label>
-    <div>
-      <div
-        className="react-datepicker__input-container"
+      <label
+        className="label-for-datepicker"
+        htmlFor="date-select"
       >
-        <input
-          className=""
-          disabled={false}
-          id="AddMealDateInput"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          readOnly={false}
-          type="text"
-          value="10/01/2019, 12:35 PM"
-        />
+        Date and Time:
+      </label>
+      <div
+        className="react-datepicker-wrapper"
+      >
+        <div
+          className="react-datepicker__input-container"
+        >
+          <input
+            className="DatePicker"
+            disabled={false}
+            id="date-select"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            readOnly={false}
+            type="text"
+            value=""
+          />
+        </div>
       </div>
     </div>
     <div
@@ -91,7 +105,6 @@ exports[`renders the UI as expected 1`] = `
           value=""
         />
         <button
-          className="user-button"
           form="sub-form"
           htmlFor="searchTermInput"
           id="search-food-button"
@@ -107,13 +120,22 @@ exports[`renders the UI as expected 1`] = `
     >
       Meal contents can't be empty
     </div>
-    <button
-      className="user-button"
-      disabled={true}
-      id="add-meal-button"
+    <div
+      id="meal-form-btn-container"
     >
-      Add Meal
-    </button>
+      <button
+        id="back-button"
+        type="reset"
+      >
+        Back
+      </button>
+      <button
+        className="user-button add-meal-button"
+        disabled={true}
+      >
+        Add Meal
+      </button>
+    </div>
   </form>
 </div>
 `;

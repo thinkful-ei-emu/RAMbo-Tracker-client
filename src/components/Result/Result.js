@@ -1,8 +1,8 @@
-import React from 'react';
-import API from '../../services/api-service';
-import PieChart from '../PieChart/PieChart';
-import './Result.css';
-import pencil from '../../Media/pencil.png';
+import React from "react";
+import API from "../../services/api-service";
+import PieChart from "../PieChart/PieChart";
+import "./Result.css";
+import pencil from "../../Media/pencil.png";
 
 export default class Result extends React.Component {
   state = {
@@ -21,8 +21,8 @@ export default class Result extends React.Component {
 
   refreshResults = (selectedReset = false) => {
     this.clearErrors();
-    return API.doFetch('/results')
-      .then((res) => {
+    return API.doFetch("/results")
+      .then(res => {
         this.props.refreshDash();
         this.setState({
           results: res,
@@ -31,7 +31,7 @@ export default class Result extends React.Component {
           selected: selectedReset ? 0 : this.state.selected
         });
       })
-      .catch((res) =>
+      .catch(res =>
         this.setState({
           error: res.error,
           onLastCheckBeforeDelete: false,
@@ -47,11 +47,11 @@ export default class Result extends React.Component {
     }
   }
   componentDidMount() {
-    window.addEventListener('resize', this.resize);
+    window.addEventListener("resize", this.resize);
     this.resize();
   }
   componentWillUnmount() {
-    window.removeEventListener('resize', this.resize);
+    window.removeEventListener("resize", this.resize);
   }
   resize = () => {
     let currentscreenSize =
@@ -61,7 +61,7 @@ export default class Result extends React.Component {
     }
   };
 
-  handleSelectedChange = (event) => {
+  handleSelectedChange = event => {
     this.clearErrors();
     this.setState({
       selected: event.target.value,
@@ -89,29 +89,29 @@ export default class Result extends React.Component {
     event.preventDefault();
     let minTime =
       Number(this.state.tempMinTimeObj.days) +
-      ' days ' +
+      " days " +
       Number(this.state.tempMinTimeObj.hours) +
-      ' hours ' +
+      " hours " +
       Number(this.state.tempMinTimeObj.minutes) +
-      ' minutes';
+      " minutes";
 
     let maxTime =
       Number(this.state.tempMaxTimeObj.days) +
-      ' days ' +
+      " days " +
       Number(this.state.tempMaxTimeObj.hours) +
-      ' hours ' +
+      " hours " +
       Number(this.state.tempMaxTimeObj.minutes) +
-      ' minutes';
+      " minutes";
 
-    return API.doFetch('/symptom', 'PATCH', {
+    return API.doFetch("/symptom", "PATCH", {
       id: item.symptomType.type_id,
       min_time: minTime,
       max_time: maxTime
     })
-      .then((res) => {
+      .then(res => {
         return this.refreshResults();
       })
-      .catch((res) =>
+      .catch(res =>
         this.setState({
           error: res.error,
           onLastCheckBeforeDelete: false
@@ -120,19 +120,11 @@ export default class Result extends React.Component {
   };
   handleResultDelete = (e, toBeDeleted, type_id) => {
     if (toBeDeleted) {
-      return API.doFetch(`/symptom/${type_id}`, 'DELETE')
+      return API.doFetch(`/symptom/${type_id}`, "DELETE")
         .then(() => {
           return this.refreshResults(true);
-
-          /* const newResults = [...this.state.results];
-          newResults.splice(this.state.selected, 1)
-          this.setState({
-            results: newResults,
-            onLastCheckBeforeDelete: false,
-            isEditting:false,
-            selected: 0, */
         })
-        .catch((res) => this.setState({ error: res.error }));
+        .catch(res => this.setState({ error: res.error }));
     } else {
       this.setState({
         onLastCheckBeforeDelete: false,
@@ -141,9 +133,7 @@ export default class Result extends React.Component {
     }
   };
   handleTimeChange = (minOrMax, unit, event, item) => {
-    /* item.symptomType[minOrMax + '_time'][unit] = (event.target.value);
-    this.forceUpdate(); */
-    let key = 'temp' + minOrMax + 'TimeObj';
+    let key = "temp" + minOrMax + "TimeObj";
     this.setState({
       [key]: {
         ...this.state[key],
@@ -206,7 +196,7 @@ export default class Result extends React.Component {
                 <button
                   type="button"
                   className="results-symptom-yes-delete"
-                  onClick={(e) =>
+                  onClick={e =>
                     this.handleResultDelete(e, true, item.symptomType.type_id)
                   }
                 >
@@ -215,7 +205,7 @@ export default class Result extends React.Component {
                 <button
                   type="button"
                   className="results-symptom-do-not-delete"
-                  onClick={(e) =>
+                  onClick={e =>
                     this.handleResultDelete(e, false, item.symptomType.type_id)
                   }
                 >
@@ -226,7 +216,7 @@ export default class Result extends React.Component {
             {this.state.isEditting && !this.state.onLastCheckBeforeDelete && (
               <form
                 id="edit-user-symptom-form"
-                onSubmit={(e) => this.handleEdit(e, item)}
+                onSubmit={e => this.handleEdit(e, item)}
               >
                 <h3>Meals-to-Symptom settings</h3>
                 <span>Minimum time required between meal and symptom</span>
@@ -246,8 +236,8 @@ export default class Result extends React.Component {
                     id="edit-user-symptom-min-days"
                     className="edit-user-symptom-minmax-input"
                     value={this.state.tempMinTimeObj.days}
-                    onChange={(e) =>
-                      this.handleTimeChange('Min', 'days', e, item)
+                    onChange={e =>
+                      this.handleTimeChange("Min", "days", e, item)
                     }
                   />
                 </div>
@@ -267,8 +257,8 @@ export default class Result extends React.Component {
                     id="edit-user-symptom-min-hours"
                     value={this.state.tempMinTimeObj.hours}
                     className="edit-user-symptom-minmax-input"
-                    onChange={(e) =>
-                      this.handleTimeChange('Min', 'hours', e, item)
+                    onChange={e =>
+                      this.handleTimeChange("Min", "hours", e, item)
                     }
                   />
                 </div>
@@ -288,15 +278,12 @@ export default class Result extends React.Component {
                     id="edit-user-symptom-min-minutes"
                     value={this.state.tempMinTimeObj.minutes}
                     className="edit-user-symptom-minmax-input"
-                    onChange={(e) =>
-                      this.handleTimeChange('Min', 'minutes', e, item)
+                    onChange={e =>
+                      this.handleTimeChange("Min", "minutes", e, item)
                     }
                   />
                 </div>
                 <br></br>
-                {/* 
-                    <br></br> */}
-
                 <span>Maximum time allowed between meal and symptom</span>
                 <br></br>
                 <div className="edit-user-symptom-label-input-div">
@@ -313,13 +300,12 @@ export default class Result extends React.Component {
                     pattern="\d+"
                     id="edit-user-symptom-max-days"
                     value={this.state.tempMaxTimeObj.days}
-                    onChange={(e) =>
-                      this.handleTimeChange('Max', 'days', e, item)
+                    onChange={e =>
+                      this.handleTimeChange("Max", "days", e, item)
                     }
                     className="edit-user-symptom-minmax-input"
                   />
                 </div>
-                {/* <br></br> */}
                 <div className="edit-user-symptom-label-input-div">
                   <label
                     htmlFor="edit-user-symptom-max-hours"
@@ -334,13 +320,12 @@ export default class Result extends React.Component {
                     pattern="\d+"
                     id="edit-user-symptom-max-hours"
                     value={this.state.tempMaxTimeObj.hours}
-                    onChange={(e) =>
-                      this.handleTimeChange('Max', 'hours', e, item)
+                    onChange={e =>
+                      this.handleTimeChange("Max", "hours", e, item)
                     }
                     className="edit-user-symptom-minmax-input"
                   />
                 </div>
-                {/* <br></br> */}
                 <div className="edit-user-symptom-label-input-div">
                   <label
                     htmlFor="edit-user-symptom-max-minutes"
@@ -355,15 +340,12 @@ export default class Result extends React.Component {
                     pattern="\d+"
                     id="edit-user-symptom-max-minutes"
                     value={this.state.tempMaxTimeObj.minutes}
-                    onChange={(e) =>
-                      this.handleTimeChange('Max', 'minutes', e, item)
+                    onChange={e =>
+                      this.handleTimeChange("Max", "minutes", e, item)
                     }
                     className="edit-user-symptom-minmax-input"
                   />
                 </div>
-
-                {/* <br></br> */}
-
                 <button className="user-button">Submit</button>
                 <button
                   className="user-button"
@@ -377,20 +359,20 @@ export default class Result extends React.Component {
             {item.mostCommonIngredients.length > 0 ? (
               <div>
                 <strong>{item.symptomType.type}</strong> is experienced most
-                frequently after eating foods with:{' '}
+                frequently after eating foods with:{" "}
                 <i>
                   {item.mostCommonIngredients
-                    .filter((food) => {
-                      return food.name !== 'WATER';
+                    .filter(food => {
+                      return food.name !== "WATER";
                     })
-                    .map((food) => {
+                    .map(food => {
                       data.push({
                         label: food.name.toLowerCase(),
                         value: food.weight
                       });
                       return food.name.toLowerCase();
                     })
-                    .join(', ')}
+                    .join(", ")}
                 </i>
                 <div className="pie-area">
                   <PieChart
@@ -398,25 +380,22 @@ export default class Result extends React.Component {
                     data={data}
                     title={item.symptomType.type}
                     colors={[
-                      '#8AD2D8',
-                      '#C6A68E',
-                      '#558AA4',
-                      '#F15E3D',
-                      '#56704B',
-                      '#CC3B7C',
-                      '#005594',
-                      '#89B65A',
-                      '#EBC9BE',
-                      '#EFCBE' /* 
-                    '#8AD2D8',
-                    '#C6A68E',
-                    '#558AA4', */,
-                      '#F15E3D',
-                      '#56704B',
-                      '#CC3B7C',
-                      '#005594',
-                      '#89B65A',
-                      '#EBC9BE'
+                      "#8AD2D8",
+                      "#C6A68E",
+                      "#558AA4",
+                      "#F15E3D",
+                      "#56704B",
+                      "#CC3B7C",
+                      "#005594",
+                      "#89B65A",
+                      "#EBC9BE",
+                      "#EFCBE",
+                      "#F15E3D",
+                      "#56704B",
+                      "#CC3B7C",
+                      "#005594",
+                      "#89B65A",
+                      "#EBC9BE"
                     ]}
                   />
                 </div>
@@ -443,9 +422,7 @@ export default class Result extends React.Component {
         )}
 
         <div id="results-button">
-          <button onClick={(e) => this.refreshResults(e)}>
-            Refresh Results
-          </button>
+          <button onClick={e => this.refreshResults(e)}>Refresh Results</button>
         </div>
       </div>
     );

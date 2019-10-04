@@ -1,61 +1,60 @@
-import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import './App.css';
-import Header from '../Header/Header';
-import TokenService from '../../services/token-service';
-import PrivateRoute from '../PrivateRoute/PrivateRoute';
-import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute';
-import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute';
-import LoginRoute from '../../routes/LoginRoute/LoginRoute';
-import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute';
-import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
-import MealRoute from '../../routes/MealRoute/MealRoute';
-import AboutRoute from '../../routes/AboutRoute/AboutRoute'
-import Footer from '../Footer/Footer';
-import IdleService from '../../services/idle-service'
-import AuthService from '../../services/auth-service'
+import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
+import "./App.css";
+import Header from "../Header/Header";
+import TokenService from "../../services/token-service";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import PublicOnlyRoute from "../PublicOnlyRoute/PublicOnlyRoute";
+import RegistrationRoute from "../../routes/RegistrationRoute/RegistrationRoute";
+import LoginRoute from "../../routes/LoginRoute/LoginRoute";
+import DashboardRoute from "../../routes/DashboardRoute/DashboardRoute";
+import NotFoundRoute from "../../routes/NotFoundRoute/NotFoundRoute";
+import MealRoute from "../../routes/MealRoute/MealRoute";
+import AboutRoute from "../../routes/AboutRoute/AboutRoute";
+import Footer from "../Footer/Footer";
+import IdleService from "../../services/idle-service";
+import AuthService from "../../services/auth-service";
 
 class App extends Component {
   state = {
     hasError: false,
-    error:'',
-    username: '',
-    processLogin: (username) => {
-      const jwtPayload = TokenService.parseAuthToken()
+    error: "",
+    username: "",
+    processLogin: username => {
       this.setState({
-        username/* : jwtPayload.sub */,
-      })
-      IdleService.registerIdleTimerResets()
+        username
+      });
+      IdleService.registerIdleTimerResets();
       TokenService.queueCallbackBeforeExpiry(() => {
-        this.fetchRefreshToken()
-      })
+        this.fetchRefreshToken();
+      });
     },
     processLogout: () => {
-      TokenService.clearAuthToken()
-      TokenService.clearCallbackBeforeExpiry()
-      IdleService.unRegisterIdleResets()
-      this.setState({ username: '' });
+      TokenService.clearAuthToken();
+      TokenService.clearCallbackBeforeExpiry();
+      IdleService.unRegisterIdleResets();
+      this.setState({ username: "" });
     }
   };
 
   fetchRefreshToken = () => {
     AuthService.refreshToken()
       .then(res => {
-        TokenService.saveAuthToken(res.authToken)
+        TokenService.saveAuthToken(res.authToken);
         TokenService.queueCallbackBeforeExpiry(() => {
-          this.fetchRefreshToken()
-        })
+          this.fetchRefreshToken();
+        });
       })
       .catch(error => {
-        this.setState({error})
-      })
-  }
+        this.setState({ error });
+      });
+  };
   componentDidMount() {
     IdleService.setIdleCallback(this.logoutFromIdle);
     if (TokenService.hasAuthToken()) {
       IdleService.registerIdleTimerResets();
       TokenService.queueCallbackBeforeExpiry(() => {
-        AuthService.refreshToken()
+        AuthService.refreshToken();
       });
     }
   }
@@ -80,12 +79,14 @@ class App extends Component {
       <div className="App">
         <Header refreshesWhenAppStateDoes={this.state} />
         <main>
-          {this.state.hasError && <p className='error'>There was an error! Rut Roh!</p>}
+          {this.state.hasError && (
+            <p className="error">There was an error! Rut Roh!</p>
+          )}
           <Switch>
-            <PrivateRoute exact path={'/dash'} component={DashboardRoute} />
+            <PrivateRoute exact path={"/dash"} component={DashboardRoute} />
             <PublicOnlyRoute
               exact
-              path={['/register', '/']}
+              path={["/register", "/"]}
               component={RegistrationRoute}
             />
             <PublicOnlyRoute
@@ -93,8 +94,8 @@ class App extends Component {
               path={"/login"}
               component={LoginRoute}
             />
-            <PrivateRoute path={'/meal'} component={MealRoute} />
-            <Route exact path={"/about"} component={AboutRoute}/>
+            <PrivateRoute path={"/meal"} component={MealRoute} />
+            <Route exact path={"/about"} component={AboutRoute} />
 
             {<Route component={NotFoundRoute} />}
           </Switch>

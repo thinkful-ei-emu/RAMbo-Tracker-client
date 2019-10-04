@@ -14,7 +14,8 @@ exports[`renders the UI as expected 1`] = `
         Welcome back!
       </h2>
       <p>
-        Don't have an account? 
+        Don't have an account?
+         
         <a
           href="/register"
           id="register-link-login"
@@ -81,6 +82,11 @@ exports[`renders the UI as expected 1`] = `
         </div>
       </form>
     </div>
+    <img
+      alt="three donuts in a row"
+      id="donut-img"
+      src="donuts.png"
+    />
   </div>
 </section>
 `;

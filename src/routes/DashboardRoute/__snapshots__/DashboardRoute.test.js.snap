@@ -1,15 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders the UI as expected 1`] = `
-<div>
+<div
+  className="entire-dashboard-div"
+>
   <div
     id="user-welcome"
   >
      
-    <h3>
+    <h2>
       Welcome back, 
       
-    </h3>
+    </h2>
   </div>
   <div
     className="dashboard-content"
@@ -20,18 +22,14 @@ exports[`renders the UI as expected 1`] = `
       <h2>
         My Results
       </h2>
-      <ul>
-        <h2>
-          Click Analyze to See Results
-        </h2>
-      </ul>
+      <div />
       <div
         id="results-button"
       >
         <button
           onClick={[Function]}
         >
-          Analyze my Log
+          Refresh Results
         </button>
       </div>
     </div>
@@ -87,8 +85,8 @@ exports[`renders the UI as expected 1`] = `
               className="symptom"
             >
               
-               at 
-              12-31-1969 18:35
+               on 
+              12-31-1969 at 16:35
                
               
             </li>
@@ -101,28 +99,50 @@ exports[`renders the UI as expected 1`] = `
         <div
           className="events-list"
         >
-          <div
-            className="dash-event-container"
-          >
+          <ul>
             <li
-              className="symptom"
+              className="symptom dash-event-container-symptom"
             >
-              
-               at 
-              12-31-1969 18:35
-               
-              
-              <button
-                className="delete-event"
-                onClick={[Function]}
+              <div
+                className="dash-event-text"
               >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-trash"
-                />
-              </button>
+                <div
+                  className="event-text-section"
+                >
+                  
+                </div>
+                 
+                <div
+                  className="event-text-section"
+                >
+                  on 
+                  12-31-1969 at 16:35
+                  ;
+                </div>
+                 
+                <div
+                  className="event-text-section"
+                >
+                  Severity: undefined
+                </div>
+                 
+              </div>
+              <div
+                className="meal-toggle-cont"
+              >
+                <button
+                  aria-label="Delete item"
+                  className="delete-event"
+                  onClick={[Function]}
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-trash fa-lg"
+                  />
+                </button>
+              </div>
             </li>
-          </div>
+          </ul>
         </div>
       </div>
     </div>

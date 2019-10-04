@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import Chart from "chart.js";
 
 export default class PieChart extends React.Component {
@@ -7,19 +7,17 @@ export default class PieChart extends React.Component {
     this.canvasRef = React.createRef();
   }
 
-  componentWillReceiveProps(nextProps){
-    if(nextProps.screenSize!==this.props.screenSize){
-      if(nextProps.screenSize===2){
-        this.myChart.canvas.parentNode.style.height='600px';
-        this.myChart.canvas.parentNode.style.width='700px';
-      }
-      else if(nextProps.screenSize===1){
-        this.myChart.canvas.parentNode.style.height='600px';
-        this.myChart.canvas.parentNode.style.width='400px';
-      }
-      else if(nextProps.screenSize===0){
-        this.myChart.canvas.parentNode.style.height='500px';
-        this.myChart.canvas.parentNode.style.width='300px';
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.screenSize !== this.props.screenSize) {
+      if (nextProps.screenSize === 2) {
+        this.myChart.canvas.parentNode.style.height = "600px";
+        this.myChart.canvas.parentNode.style.width = "700px";
+      } else if (nextProps.screenSize === 1) {
+        this.myChart.canvas.parentNode.style.height = "600px";
+        this.myChart.canvas.parentNode.style.width = "400px";
+      } else if (nextProps.screenSize === 0) {
+        this.myChart.canvas.parentNode.style.height = "500px";
+        this.myChart.canvas.parentNode.style.width = "300px";
       }
     }
   }
@@ -30,39 +28,33 @@ export default class PieChart extends React.Component {
   }
 
   componentDidMount() {
-    
     this.myChart = new Chart(this.canvasRef.current, {
-      type: 'doughnut',
+      type: "doughnut",
       options: {
         maintainAspectRatio: false,
-        responsive: true,
-      
+        responsive: true
       },
       data: {
         labels: this.props.data.map(d => d.label),
-        datasets: [{
-          data: this.props.data.map(d => d.value),
-          backgroundColor: this.props.colors
-        }],
-       
-      },
+        datasets: [
+          {
+            data: this.props.data.map(d => d.value),
+            backgroundColor: this.props.colors
+          }
+        ]
+      }
     });
-    if(this.props.screenSize===2){
-      this.myChart.canvas.parentNode.style.height='600px';
-      this.myChart.canvas.parentNode.style.width='700px';
+    if (this.props.screenSize === 2) {
+      this.myChart.canvas.parentNode.style.height = "600px";
+      this.myChart.canvas.parentNode.style.width = "700px";
+    } else if (this.props.screenSize === 1) {
+      this.myChart.canvas.parentNode.style.height = "600px";
+      this.myChart.canvas.parentNode.style.width = "400px";
+    } else if (this.props.screenSize === 0) {
+      this.myChart.canvas.parentNode.style.height = "500px";
+      this.myChart.canvas.parentNode.style.width = "300px";
     }
-    else if(this.props.screenSize===1){
-      this.myChart.canvas.parentNode.style.height='600px';
-      this.myChart.canvas.parentNode.style.width='400px';
-    }
-    else if(this.props.screenSize===0){
-      this.myChart.canvas.parentNode.style.height='500px';
-      this.myChart.canvas.parentNode.style.width='300px';
-    }
-
   }
-
-
 
   render() {
     return <canvas className="chart-canvas" ref={this.canvasRef} />;

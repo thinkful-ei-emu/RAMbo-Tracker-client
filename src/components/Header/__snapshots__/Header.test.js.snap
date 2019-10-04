@@ -5,11 +5,15 @@ exports[`renders the UI as expected 1`] = `
   <h1
     className="Header"
   >
-    <img
-      alt="logo"
-      className="header-photo"
-      src="logo2.png"
-    />
+    <a
+      href="/"
+    >
+      <img
+        alt="Symptom Tracker"
+        className="header-photo"
+        src="logo2.png"
+      />
+    </a>
     <a
       href="/"
       id="main-title"

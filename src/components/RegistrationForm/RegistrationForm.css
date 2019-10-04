@@ -8,18 +8,16 @@
   background-color: rgb(228, 228, 228);
   border: 0px solid rgb(168, 168, 168);
   border-radius: 20px;
-  box-shadow: 0 0px 0 #E0E0E0 inset, 0px 0px 3px rgba(0, 0, 0, 0.94)inset;
+  box-shadow: 0 0px 0 #e0e0e0 inset, 0px 0px 3px rgba(0, 0, 0, 0.94) inset;
 }
 
 .regLabel {
   text-align: left;
   width: 55%;
- 
 }
 
 .registration-input {
-padding: 2%;
-
+  padding: 2%;
 }
 
 .registration-input-field {
@@ -41,11 +39,10 @@ padding: 2%;
   background-color: rgb(32, 88, 68);
   color: white;
 }
-.user-button:hover{
+.user-button:hover {
   background-color: rgb(17, 51, 38);
 }
 a {
   display: inline-block;
   margin: auto;
 }
-

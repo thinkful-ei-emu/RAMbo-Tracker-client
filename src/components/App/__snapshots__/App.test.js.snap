@@ -8,11 +8,15 @@ exports[`renders the UI as expected 1`] = `
     <h1
       className="Header"
     >
-      <img
-        alt="logo"
-        className="header-photo"
-        src="logo2.png"
-      />
+      <a
+        href="/"
+      >
+        <img
+          alt="Symptom Tracker"
+          className="header-photo"
+          src="logo2.png"
+        />
+      </a>
       <a
         href="/"
         id="main-title"
@@ -171,21 +175,21 @@ exports[`renders the UI as expected 1`] = `
         className="reg-photo-container"
       >
         <img
-          alt="A lemon"
+          alt="A painting of popcorn"
           className="reg-photo"
-          src="Lemons.jpg"
+          src="popcorn.png"
         />
       </div>
       <img
-        alt="Carrot"
+        alt="A painting of a burger"
         className="reg-photo-2"
-        src="carrot.jpg"
+        src="burger.png"
       />
       <div
         className="mission"
       >
         <h3
-          className="reg-description-header"
+          className="reg-description-header emphasis"
         >
           Our mission
         </h3>
@@ -210,14 +214,14 @@ exports[`renders the UI as expected 1`] = `
         </p>
       </div>
       <img
-        alt="bunch of grapes"
+        alt="painting of a half eaten pizza"
         className="reg-photo-2"
-        src="grapes.jpg"
+        src="pizza.png"
       />
       <img
-        alt="lettuce"
+        alt="painting of an eggroll"
         className="reg-photo-2"
-        src="lettuce.jpg"
+        src="eggroll.png"
       />
       <div
         className="mission"
@@ -238,21 +242,127 @@ exports[`renders the UI as expected 1`] = `
   </main>
   <div>
     <div
-      id="phantom-footer"
-    />
-    <div
       id="footer"
+      role="contentinfo"
     >
-      <p
-        id="title-footer"
+      <div
+        id="app-info"
       >
-        Symptom Tracker
-      </p>
-      <p
-        id="copy-footer"
+        <div
+          id="title-and-links"
+        >
+          <p
+            id="title-footer"
+          >
+            Symptom Tracker
+            <br />
+             
+            <a
+              href="https://github.com/thinkful-ei-emu/RAMbo-Tracker-client"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Client Code
+            </a>
+             
+            <br />
+            <a
+              href="https://github.com/thinkful-ei-emu/RAMbo-Tracker-Server"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Server Code
+            </a>
+          </p>
+        </div>
+        <div
+          id="demo-login"
+        >
+          <p
+            className="login-footer"
+          >
+            Demo Username: testuser
+          </p>
+          <p
+            className="login-footer"
+          >
+            Demo Password: password1
+          </p>
+        </div>
+      </div>
+      <div
+        id="developers"
       >
-        RAMbo © 2019
-      </p>
+        <p
+          id="created-head"
+        >
+          Created By:
+        </p>
+        <ul>
+          <li>
+            <a
+              href="https://thinkful-ei-emu.github.io/portfolio-colleen/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Colleen Higgins
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://thinkful-ei-emu.github.io/Paul-Portfolio/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+               
+              Paul KHan
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/Blakelowrey"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+               
+              Blake Lowrey
+               
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://thinkful-ei-emu.github.io/portfolio-corey/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Corey Moore
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://tarajpatel.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              T.J. Patel
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://dcoollx.github.io/Portfolio/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              David Queen Jr.
+            </a>
+          </li>
+        </ul>
+        <p
+          id="copy-footer"
+        >
+          RAMbo © 2019
+        </p>
+      </div>
     </div>
   </div>
 </div>

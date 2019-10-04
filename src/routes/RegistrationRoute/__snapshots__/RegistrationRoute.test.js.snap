@@ -115,21 +115,21 @@ exports[`renders the UI as expected 1`] = `
     className="reg-photo-container"
   >
     <img
-      alt="A lemon"
+      alt="A painting of popcorn"
       className="reg-photo"
-      src="Lemons.jpg"
+      src="popcorn.png"
     />
   </div>
   <img
-    alt="Carrot"
+    alt="A painting of a burger"
     className="reg-photo-2"
-    src="carrot.jpg"
+    src="burger.png"
   />
   <div
     className="mission"
   >
     <h3
-      className="reg-description-header"
+      className="reg-description-header emphasis"
     >
       Our mission
     </h3>
@@ -154,14 +154,14 @@ exports[`renders the UI as expected 1`] = `
     </p>
   </div>
   <img
-    alt="bunch of grapes"
+    alt="painting of a half eaten pizza"
     className="reg-photo-2"
-    src="grapes.jpg"
+    src="pizza.png"
   />
   <img
-    alt="lettuce"
+    alt="painting of an eggroll"
     className="reg-photo-2"
-    src="lettuce.jpg"
+    src="eggroll.png"
   />
   <div
     className="mission"

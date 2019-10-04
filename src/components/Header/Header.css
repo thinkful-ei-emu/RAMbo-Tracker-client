@@ -1,27 +1,25 @@
-a{
+a {
   text-decoration: none;
   color: rgb(0, 0, 0);
-  display:block;
+  display: block;
   text-align: right;
 }
 
-
-#main-title{
-  text-align:left;
-  border:none;
+#main-title {
+  text-align: left;
+  border: none;
   font-size: 40px;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
   color: black;
   position: relative;
   top: -5px;
 }
 
-.user-container{
+.user-container {
   padding-right: 2%;
   width: 100%;
   margin: 0 auto;
   font-weight: bold;
-  
 }
 .Header {
   display: flex;
@@ -29,7 +27,7 @@ a{
   margin: 0 0 0 10px;
 }
 
-.nav-container{
+.nav-container {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -51,12 +49,11 @@ header {
   margin-top: 0px;
 }
 
-
-.user-container{
+.user-container {
   text-align: right;
 }
 
-.LoginLogout{
+.LoginLogout {
   width: 100%;
   display: flex;
   align-items: center;
@@ -65,44 +62,44 @@ header {
   font-size: 20px;
 }
 
-#logoutlink{
+#logoutlink {
   color: white;
   margin: 0 auto;
 }
 
-#logoutlink:hover{
+#logoutlink:hover {
   color: white;
 }
 
-#loginlink, #dashlink{
+#loginlink,
+#dashlink {
   padding: 28px 10px;
   color: white;
 }
 
-#aboutlink{
+#aboutlink {
   margin: 0 auto;
 }
 
-#signuplink{
+#signuplink {
   padding: 0px 10px;
   color: white;
   margin: 0 auto;
 }
 
-.header-photo{
+.header-photo {
   width: 90px;
   height: 100px;
   margin: -10px 0px 0px -10px;
 }
 
-@media screen and (max-width: 420px) and (min-width: 310px){
-
-  .header-photo{
+@media screen and (max-width: 420px) and (min-width: 310px) {
+  .header-photo {
     width: 60px;
     height: 70px;
     margin: -10px 0px 0px -5px;
   }
-  
+
   header {
     padding: 0px;
     margin: 10px 0 0 0;
@@ -114,49 +111,50 @@ header {
     flex-direction: column;
   }
 
-  .LoginLogout{
+  .LoginLogout {
     padding: 10px;
     font-size: 20px;
   }
-  
-  .Header{
+
+  .Header {
     display: flex;
     justify-content: center;
     justify-content: space-evenly;
-    margin-left:0px;
+    margin-left: 0px;
   }
-  
-  #loginlink, #dashlink{
+
+  #loginlink,
+  #dashlink {
     padding: 0 0 0 0;
     color: white;
     margin: 0 20px 0 20px;
   }
 
-  #signuplink{
+  #signuplink {
     padding: 0px 0px;
     color: white;
     margin: 0 20px 0 20px;
   }
 
-  #aboutlink{
+  #aboutlink {
     margin: 0 20px 0 20px;
   }
 
-  #logoutlink{
+  #logoutlink {
     margin: 0 20px 0 20px;
   }
 
-  #main-title{
-    text-align:center;
+  #main-title {
+    text-align: center;
     white-space: nowrap;
     border: none;
     font-size: 36px;
-    font-family: 'Dancing Script', cursive;
+    font-family: "Dancing Script", cursive;
     color: black;
     margin: 0 5px 0 0;
   }
 
-  .nav-container{
+  .nav-container {
     display: flex;
     justify-content: space-around;
     padding: 0px;
@@ -166,21 +164,19 @@ header {
     border-radius: 0px;
   }
 
-  .registration-form{
+  .registration-form {
     margin-top: 50px;
   }
- 
-} 
+}
 
-@media screen and (min-width: 421px) and (max-width: 1020px){
-
-  .header-photo{
+@media screen and (min-width: 421px) and (max-width: 1020px) {
+  .header-photo {
     width: 80px;
     height: 90px;
     margin: -20px 0px 0px 5px;
   }
 
-  .LoginLogout{
+  .LoginLogout {
     padding: 10px;
     font-size: 20px;
     width: 100%;
@@ -188,34 +184,35 @@ header {
     align-items: center;
     justify-content: space-evenly;
   }
-  
-  .Header{
+
+  .Header {
     width: 80%;
     margin: 0 0 0 10px;
   }
-  
-  #loginlink, #dashlink{
+
+  #loginlink,
+  #dashlink {
     padding: 28px 10px;
     color: white;
   }
 
-  #signuplink{
+  #signuplink {
     padding: 0px 10px;
   }
 
-  #logoutlink{
+  #logoutlink {
     margin: 0 auto;
   }
 
-  #aboutlink{
+  #aboutlink {
     margin: 0 auto;
   }
 
-  #main-title{
-    text-align:left;
-    border:none;
+  #main-title {
+    text-align: left;
+    border: none;
     font-size: 36px;
-    font-family: 'Dancing Script', cursive;
+    font-family: "Dancing Script", cursive;
     margin-left: 10px;
     position: relative;
     top: -10px;
@@ -230,8 +227,7 @@ header {
     width: 100%;
   }
 
-
-  .nav-container{
+  .nav-container {
     display: flex;
     align-items: center;
     padding: 0px;
@@ -239,9 +235,4 @@ header {
     height: 118px;
     margin: 0px -1px 0px 0px;
   }
-
-  
- 
-} 
-
-  
+}

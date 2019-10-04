@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import ValidationError from './ValidationError';
-import { BrowserRouter } from 'react-router-dom';
-import renderer from 'react-test-renderer'
+import React from "react";
+import ReactDOM from "react-dom";
+import ValidationError from "./ValidationError";
+import { BrowserRouter } from "react-router-dom";
+import renderer from "react-test-renderer";
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
+it("renders without crashing", () => {
+  const div = document.createElement("div");
   ReactDOM.render(
     <BrowserRouter>
       <ValidationError />
@@ -16,9 +16,10 @@ it('renders without crashing', () => {
 });
 it("renders the UI as expected", () => {
   const tree = renderer
-    .create(<BrowserRouter>
-      <ValidationError />
-    </BrowserRouter>
+    .create(
+      <BrowserRouter>
+        <ValidationError />
+      </BrowserRouter>
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

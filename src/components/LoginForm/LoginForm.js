@@ -12,7 +12,6 @@ class LoginForm extends React.Component {
       password: ""
     };
     this.firstInput = React.createRef();
-
   }
 
   handleChange = e => {
@@ -26,19 +25,17 @@ class LoginForm extends React.Component {
     const { username, password } = this.state;
 
     this.setState({ error: null });
-    API.doFetch('/auth/token', 'POST', {
+    API.doFetch("/auth/token", "POST", {
       username,
       password
     })
-      .then((res) => {
+      .then(res => {
         TokenService.saveAuthToken(res.authToken);
         this.props.onLoginSuccess(username);
       })
       .catch(res => {
-         this.setState({ error: res.error});
+        this.setState({ error: res.error });
       });
-
-    
   };
 
   componentDidMount() {
@@ -50,7 +47,7 @@ class LoginForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="login-form">
         <div className="error" role="alert">
-          {error && <p className='error'>{error}</p>}
+          {error && <p className="error">{error}</p>}
         </div>
         <div className="login-input">
           <label htmlFor="login-username-input" className="loginLabel">

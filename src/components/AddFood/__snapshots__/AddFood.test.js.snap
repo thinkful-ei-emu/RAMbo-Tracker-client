@@ -32,7 +32,6 @@ exports[`renders the UI as expected 1`] = `
       value=""
     />
     <button
-      className="user-button"
       form="sub-form"
       htmlFor="searchTermInput"
       id="search-food-button"
