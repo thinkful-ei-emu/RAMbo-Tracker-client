@@ -13,22 +13,20 @@ export default class Result extends React.Component {
     isEditting: false,
     screenSize: 0,
     tempMinTimeObj: { days: 0, hours: 0, minutes: 0 },
-    tempMaxTimeObj: { days: 0, hours: 0, minutes: 0 }
-  };
-  clearErrors = () => {
-    this.setState({ error: null });
-  };
-
-  refreshResults = (selectedReset = false) => {
-    this.clearErrors();
-    return API.doFetch('/results')
+    tempMaxTimeObj: { days: 0, hours: 0, minutes: 0 },
+    refreshResults: (selectedReset=false,dashReset=false,forcingUpdate={bool:false})=>{
+      this.clearErrors();
+      return API.doFetch('/results')
       .then((res) => {
-        this.props.refreshDash();
+        if(dashReset){
+          this.props.refreshDash();
+        }
         this.setState({
           results: res,
           onLastCheckBeforeDelete: false,
           isEditting: false,
-          selected: selectedReset ? 0 : this.state.selected
+          selected: selectedReset ? 0 : this.state.selected,
+          forceUpdate: forcingUpdate.bool? forcingUpdate.value : this.state.forceUpdate 
         });
       })
       .catch((res) =>
@@ -39,15 +37,19 @@ export default class Result extends React.Component {
           selected: 0
         })
       );
+    },
+    forceUpdate:false
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.forceUpdate !== this.props.forceUpdate) {
-      this.refreshResults();
+  clearErrors = () => {
+    this.setState({ error: null });
+  };
+  
+  componentDidUpdate(prevProps){
+    if(this.props.forceUpdate!==prevProps.forceUpdate){
+      this.state.refreshResults(false,false,{bool:true,value:this.props.forceUpdate})
     }
   }
-  
-  
 
   handleSelectedChange = (event) => {
     this.clearErrors();
@@ -57,12 +59,14 @@ export default class Result extends React.Component {
       isEditting: false
     });
   };
+
   handleBeginDelete = () => {
     this.clearErrors();
     this.setState({
       onLastCheckBeforeDelete: true
     });
   };
+
   handleToggleEdit = () => {
     this.clearErrors();
     this.setState({
@@ -73,6 +77,7 @@ export default class Result extends React.Component {
         .min_time
     });
   };
+
   handleEdit = (event, item) => {
     event.preventDefault();
     let minTime =
@@ -100,7 +105,7 @@ export default class Result extends React.Component {
       max_time: maxTime
     })
       .then((res) => {
-        return this.refreshResults();
+        return this.state.refreshResults();
       })
       .catch((res) =>
         this.setState({
@@ -109,11 +114,12 @@ export default class Result extends React.Component {
         })
       );
   };
+
   handleResultDelete = (e, toBeDeleted, type_id) => {
     if (toBeDeleted) {
       return API.doFetch(`/symptom/${type_id}`, 'DELETE')
         .then(() => {
-          return this.refreshResults(true);
+          return this.state.refreshResults(true,true);
 
           /* const newResults = [...this.state.results];
           newResults.splice(this.state.selected, 1)
@@ -131,6 +137,7 @@ export default class Result extends React.Component {
       });
     }
   };
+
   handleTimeChange = (minOrMax, unit, event, item) => {
     /* item.symptomType[minOrMax + '_time'][unit] = (event.target.value);
     this.forceUpdate(); */
@@ -142,6 +149,7 @@ export default class Result extends React.Component {
       }
     });
   };
+
   render() {
     let results = !this.state.results ? (
       <h2>Click Analyze to See Results</h2>
@@ -434,7 +442,7 @@ export default class Result extends React.Component {
         )}
 
         <div id="results-button">
-          <button onClick={(e) => this.refreshResults(e)}>
+          <button onClick={(e) => this.state.refreshResults()}>
             Refresh Results
           </button>
         </div>
