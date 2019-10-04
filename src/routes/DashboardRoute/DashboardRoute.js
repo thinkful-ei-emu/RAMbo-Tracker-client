@@ -165,6 +165,17 @@ export default class DashBoard extends React.Component {
     window.print();
   };
   render() {
+    let prevSymptoms = this.state.events
+              .filter(e => e.type === "symptom")
+              .map(e => e.name);
+    let prevSymptomsMap = {}
+    for (let i = 0; i < prevSymptoms.length; i++) {
+      if (!prevSymptomsMap[prevSymptoms[i]]) {
+        prevSymptomsMap[prevSymptoms[i]] = 1;
+      }
+    }
+
+    prevSymptoms = Object.keys(prevSymptomsMap);
     let printEvents = this.state.events.map((e, index) => {
       if (e.type === "meal") {
         return (
@@ -281,14 +292,6 @@ export default class DashBoard extends React.Component {
       }
     });
 
-    let prevSymptoms = [];
-
-    for (let i = 0; i < this.state.events.length; i++) {
-      let curr = this.state.events[i];
-      if (!prevSymptoms.includes(curr.name) && curr.type === "symptom") {
-        prevSymptoms.push(curr.name);
-      }
-    }
     return (
       <div className="entire-dashboard-div">
         <Modal
@@ -307,9 +310,7 @@ export default class DashBoard extends React.Component {
         >
           <Symptoms
             closeModal={this.closeModal}
-            prevSymptoms={this.state.events
-              .filter(e => e.type === "symptom")
-              .map(e => e.name)}
+            prevSymptoms={prevSymptoms}
             updateEvents={this.updateEvents}
           />
         </Modal>
