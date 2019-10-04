@@ -15,6 +15,12 @@ a {
   top: -5px;
 }
 
+.current-nav {
+  font-weight: 800;
+  background-color: rgb(8, 59, 88);
+  border-radius: 6px;
+  /* text-shadow: 0 0 8px rgb(4, 34, 51); */
+}
 .user-container {
   padding-right: 2%;
   width: 100%;
@@ -31,7 +37,6 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 0px;
   width: 80vw;
   height: 110px;
   margin-left: 10px;
@@ -57,14 +62,14 @@ header {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  padding: 10px;
+  justify-content: space-between;
+  padding: 10px 0;
   font-size: 20px;
 }
 
 #logoutlink {
   color: white;
-  margin: 0 auto;
+  margin: auto;
 }
 
 #logoutlink:hover {
@@ -72,17 +77,19 @@ header {
 }
 
 #loginlink,
-#dashlink {
-  padding: 28px 10px;
+#dashlink,
+#aboutlink {
+  padding: 15px 10px;
   color: white;
+
 }
 
 #aboutlink {
-  margin: 0 auto;
+  margin: auto;
 }
 
 #signuplink {
-  padding: 0px 10px;
+  padding: 15px 10px;
   color: white;
   margin: 0 auto;
 }
@@ -124,24 +131,25 @@ header {
   }
 
   #loginlink,
-  #dashlink {
-    padding: 0 0 0 0;
+  #dashlink,
+  #aboutlink {
+    padding: 5px 5px;
     color: white;
-    margin: 0 20px 0 20px;
+    margin: auto;
   }
 
   #signuplink {
-    padding: 0px 0px;
+    padding: 5px 5px;
     color: white;
     margin: 0 20px 0 20px;
   }
 
   #aboutlink {
-    margin: 0 20px 0 20px;
+    margin: auto;
   }
 
   #logoutlink {
-    margin: 0 20px 0 20px;
+    margin: auto;
   }
 
   #main-title {
@@ -191,13 +199,14 @@ header {
   }
 
   #loginlink,
-  #dashlink {
-    padding: 28px 10px;
+  #dashlink,
+  #aboutlink {
+    padding: 15px 10px;
     color: white;
   }
 
   #signuplink {
-    padding: 0px 10px;
+    padding: 15px 10px;
   }
 
   #logoutlink {
