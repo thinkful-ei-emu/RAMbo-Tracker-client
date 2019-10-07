@@ -76,7 +76,7 @@ class LoginForm extends React.Component {
             required
             value={this.state.password}
           />
-          <button className="user-button" type="submit">
+          <button className="user-button login-final-button" type="submit">
             Login
           </button>{" "}
         </div>
