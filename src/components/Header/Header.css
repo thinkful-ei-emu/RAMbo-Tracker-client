@@ -84,6 +84,8 @@ header {
 
 }
 
+
+
 #aboutlink {
   margin: auto;
 }
@@ -244,4 +246,10 @@ header {
     height: 118px;
     margin: 0px -1px 0px 0px;
   }
+}
+
+#signuplink:hover, #loginlink:hover, #dashlink:hover, #aboutlink:hover{
+  font-weight: 800;
+  background-color: rgb(8, 59, 88);
+  border-radius: 6px;
 }

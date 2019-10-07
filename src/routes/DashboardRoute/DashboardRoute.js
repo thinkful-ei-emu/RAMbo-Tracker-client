@@ -82,13 +82,6 @@ export default class DashBoard extends React.Component {
           forceUpdateInResult: !this.state.forceUpdateInResult
         });
       })
-      .then(() => {
-        const newEvents = [...this.state.events];
-        newEvents.splice(index, 1);
-        this.setState({
-          events: newEvents
-        });
-      })
       .catch(res => this.setState({ error: res.error }));
   };
 

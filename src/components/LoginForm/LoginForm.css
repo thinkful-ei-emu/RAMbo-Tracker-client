@@ -23,6 +23,10 @@
   padding: 2%;
 }
 
+.login-final-button{
+  z-index:10;
+}
+
 @media screen and (max-width: 2560px) and (min-width: 450px) {
   .login-input {
     width: 300px;
