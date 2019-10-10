@@ -1,101 +1,356 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders the UI as expected 1`] = `
-<section
+<div
   className="symptom-container"
 >
-  <h2>
-    Log a Symptom
-  </h2>
-  <form
-    onSubmit={[Function]}
+  <p
+    className="exitButton"
+    onClick={[Function]}
   >
-    <div
-      id="user-input-container"
+    X
+  </p>
+  <section
+    className="symptom-container"
+  >
+    <h2>
+      Log a Symptom
+    </h2>
+    <form
+      id="symptom-form"
+      onReset={[Function]}
+      onSubmit={[Function]}
     >
-      <label
-        htmlFor="user-symptom"
+      <h3>
+        Choose from recent symptoms:
+      </h3>
+      <div
+        className="recent-radio-container false"
       >
-        Add New Symptom
-      </label>
-      <br />
-      <input
-        disabled={false}
-        id="user-symptom"
-        name="symptom"
-        placeholder="bloated.."
-        type="text"
-      />
-    </div>
-    <div
-      id="select"
-    >
-      <button
-        className="user-button"
-        id="select-preexisting"
-        onClick={[Function]}
-      >
-        Choose Saved Symptom
-      </button>
-    </div>
-    <div
-      id="date"
-    >
-      <label
-        htmlFor="date-select"
-      >
-        Date and Time:
-      </label>
-      <div>
-        <div
-          className="react-datepicker__input-container"
+        <label
+          className="recent-radios-label"
+          htmlFor="radio-a"
         >
+          a
+        </label>
+        <input
+          checked={false}
+          className="recent-radio"
+          id="radio-a"
+          name="symptom-type-name"
+          onChange={[Function]}
+          type="radio"
+          value="a"
+        />
+      </div>
+      <div
+        className="recent-radio-container false"
+      >
+        <label
+          className="recent-radios-label"
+          htmlFor="radio-b"
+        >
+          b
+        </label>
+        <input
+          checked={false}
+          className="recent-radio"
+          id="radio-b"
+          name="symptom-type-name"
+          onChange={[Function]}
+          type="radio"
+          value="b"
+        />
+      </div>
+      <div
+        className="recent-radio-container false"
+      >
+        <label
+          className="recent-radios-label"
+          htmlFor="radio-c"
+        >
+          c
+        </label>
+        <input
+          checked={false}
+          className="recent-radio"
+          id="radio-c"
+          name="symptom-type-name"
+          onChange={[Function]}
+          type="radio"
+          value="c"
+        />
+      </div>
+      <div
+        id="user-input-container"
+      >
+        <h3>
+          <label
+            htmlFor="user-symptom"
+          >
+            Or type in a symptom:
+          </label>
+        </h3>
+        <br />
+        <input
+          checked=""
+          className="recent-radio"
+          id="radio-other-input"
+          name="symptom-type-name"
+          onChange={[Function]}
+          type="radio"
+          value=""
+        />
+        <label
+          htmlFor="radio-other-input"
+        >
+          <datalist
+            id="past-symptoms"
+          >
+            <option
+              value=""
+            />
+            <option
+              value="bloating"
+            />
+            <option
+              value="drowsiness"
+            />
+            <option
+              value="heart burn"
+            />
+            <option
+              value="gas"
+            />
+            <option
+              value="vomiting"
+            />
+            <option
+              value="nausea"
+            />
+            <option
+              value="diarrhea"
+            />
+            <option
+              value="migraines"
+            />
+            <option
+              value="constipation"
+            />
+            <option
+              value="irritability"
+            />
+            <option
+              value="twitching muscles"
+            />
+            <option
+              value="headaches"
+            />
+            <option
+              value="congestion"
+            />
+            <option
+              value="hives"
+            />
+            <option
+              value="vertigo"
+            />
+            <option
+              value="cough"
+            />
+            <option
+              value="swollen tongue"
+            />
+            <option
+              value="nightmares"
+            />
+          </datalist>
           <input
-            className=""
             disabled={false}
-            id="date-select"
-            onBlur={[Function]}
+            id="user-symptom"
+            list="past-symptoms"
+            maxLength="20"
+            name="symptom"
             onChange={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            readOnly={false}
+            placeholder="bloated.."
             type="text"
-            value="09/24/2019, 11:53 AM"
+            value=""
           />
+          <p
+            id="auto-complete"
+          />
+        </label>
+      </div>
+      <div
+        id="date"
+      >
+        <label
+          className="label-for-datepicker"
+          htmlFor="date-select"
+        >
+          Date and Time:
+        </label>
+        <div
+          className="react-datepicker-wrapper"
+        >
+          <div
+            className="react-datepicker__input-container"
+          >
+            <input
+              className="DatePicker"
+              disabled={false}
+              id="date-select"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
+              type="text"
+              value="10/10/2019, 10:32 AM"
+            />
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      id="severity-radio"
-    >
       <label
-        htmlFor="severity-slider"
+        htmlFor="radio"
+        id="radio-label"
       >
         Rate the Severity
       </label>
       <br />
-      <input
-        defaultValue={4}
-        id="severity-slider"
-        max="5"
-        min="1"
-        onChange={[Function]}
-        step="1"
-        type="range"
-      />
-    </div>
-    <br />
-    <div
-      id="submit-button"
-    >
-      <button
-        className="user-button"
-        type="submit"
+      <div
+        className="radio-container"
       >
-        Submit Symptom
-      </button>
-    </div>
-  </form>
-</section>
+        <div
+          className="radio-buttons-1"
+        >
+          <input
+            checked={false}
+            className="radio-input"
+            id="radio-1"
+            name="radio-face"
+            onChange={[Function]}
+            type="radio"
+            value="1"
+          />
+          <label
+            htmlFor="radio-1"
+          >
+            <img
+              alt="Severity Very Mild"
+              className="face"
+              src="wellness_face_1.png"
+            />
+          </label>
+        </div>
+        <div
+          className="radio-buttons-2"
+        >
+          <input
+            checked={false}
+            className="radio-input"
+            id="radio-2"
+            name="radio-face"
+            onChange={[Function]}
+            type="radio"
+            value="2"
+          />
+          <label
+            htmlFor="radio-2"
+          >
+            <img
+              alt="Severity Mild"
+              className="face"
+              src="wellness_face_2.png"
+            />
+          </label>
+        </div>
+        <div
+          className="radio-buttons-3"
+        >
+          <input
+            checked={false}
+            className="radio-input"
+            id="radio-3"
+            name="radio-face"
+            onChange={[Function]}
+            type="radio"
+            value="3"
+          />
+          <label
+            htmlFor="radio-3"
+          >
+            <img
+              alt="Severity Medium"
+              className="face"
+              src="wellness_face_3.png"
+            />
+          </label>
+        </div>
+        <div
+          className="radio-buttons-4"
+        >
+          <input
+            checked={false}
+            className="radio-input"
+            id="radio-4"
+            name="radio-face"
+            onChange={[Function]}
+            type="radio"
+            value="4"
+          />
+          <label
+            htmlFor="radio-4"
+          >
+            <img
+              alt="Severity High"
+              className="face"
+              src="wellness_face_4.png"
+            />
+          </label>
+        </div>
+        <div
+          className="radio-buttons-5"
+        >
+          <input
+            checked={false}
+            className="radio-input"
+            id="radio-5"
+            name="radio-face"
+            onChange={[Function]}
+            type="radio"
+            value="5"
+          />
+          <label
+            htmlFor="radio-5"
+          >
+            <img
+              alt="Severity Extreme"
+              className="face"
+              src="wellness_face_5.png"
+            />
+          </label>
+        </div>
+      </div>
+      <br />
+      <div
+        id="submit-button"
+      >
+        <button
+          id="back-button"
+          type="reset"
+        >
+          Back
+        </button>
+        <button
+          className="user-button"
+          type="submit"
+        >
+          Submit Symptom
+        </button>
+      </div>
+    </form>
+  </section>
+</div>
 `;

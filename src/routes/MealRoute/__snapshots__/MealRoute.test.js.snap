@@ -59,7 +59,7 @@ exports[`renders the UI as expected 1`] = `
             onKeyDown={[Function]}
             readOnly={false}
             type="text"
-            value=""
+            value="10/10/2019, 10:32 AM"
           />
         </div>
       </div>

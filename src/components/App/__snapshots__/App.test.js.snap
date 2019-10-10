@@ -32,6 +32,7 @@ exports[`renders the UI as expected 1`] = `
         className="LoginLogout"
       >
         <a
+          aria-current={null}
           href="/about"
           id="aboutlink"
           onClick={[Function]}
@@ -40,6 +41,7 @@ exports[`renders the UI as expected 1`] = `
         </a>
          
         <a
+          aria-current={null}
           href="/login"
           id="loginlink"
           onClick={[Function]}
@@ -48,6 +50,7 @@ exports[`renders the UI as expected 1`] = `
         </a>
          
         <a
+          aria-current={null}
           href="/register"
           id="signuplink"
           onClick={[Function]}

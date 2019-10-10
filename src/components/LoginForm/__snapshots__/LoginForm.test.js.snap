@@ -46,7 +46,7 @@ exports[`renders the UI as expected 1`] = `
       value=""
     />
     <button
-      className="user-button"
+      className="user-button login-final-button"
       type="submit"
     >
       Login

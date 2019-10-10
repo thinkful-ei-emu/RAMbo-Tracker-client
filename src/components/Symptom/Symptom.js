@@ -11,29 +11,27 @@ import face4 from "../../Media/wellness_face_4.png";
 import face5 from "../../Media/wellness_face_5.png";
 
 class Symptom extends Component {
-  state = {
-    selectedSymptom: "",
-    typedSymptom: "",
-    symptomSeverity: null,
-    symptomTime: new Date(),
-    pastUserSymptoms: [],
-    pastSymptomVal: "",
-    symptomSelectIsHidden: false,
-    symptomInputDisabled: false,
-    error: null
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedSymptom: "",
+      typedSymptom: "",
+      symptomSeverity: null,
+      symptomTime: new Date(),
+      pastUserSymptoms: [],
+      pastSymptomVal: "",
+      symptomSelectIsHidden: false,
+      symptomInputDisabled: false,
+      error: null
+    };
 
+    
+  }
+  
   componentDidMount() {
     this.setState({ error: null });
     this.setState({ pastUserSymptoms: helper.preExisting() });
 
-    //set colors
-    let radioButtons = document.getElementById("symptom-form")["radio-face"];
-    radioButtons[0].parentElement.style.backgroundColor = "rgba(255,255,0,0)";
-    radioButtons[1].parentElement.style.backgroundColor = "rgba(255,215,0,0)";
-    radioButtons[2].parentElement.style.backgroundColor = "rgba(255,165,0,0)";
-    radioButtons[3].parentElement.style.backgroundColor = "rgba(255,69,0,0)";
-    radioButtons[4].parentElement.style.backgroundColor = "rgba(255,0,0,0)";
   }
 
   handleSymptomSubmit = e => {
@@ -69,21 +67,25 @@ class Symptom extends Component {
   };
 
   handleSeverityChange = sev => {
+    const colors = {
+      1: "rgba(255,255,0,0)",
+    2: "rgba(255,215,0,0)",
+    3: "rgba(255,165,0,0)",
+    4: "rgba(255,69,0,0)",
+    5: "rgba(255,0,0,0)"
+    }
     let radioButtons = document.getElementById("symptom-form")["radio-face"];
     this.setState({ symptomSeverity: Number(sev.target.value) });
     radioButtons.forEach(radio => {
       if (radio.value <= radioButtons.value) {
-        let color = radio.parentElement.style.backgroundColor;
+        let color = colors[radio.value];
         let values = color.split(",");
         values[3] = "0.99)";
         color = values.join(",");
         radio.parentElement.style.backgroundColor = color;
         //that button should be lit up
       } else {
-        let color = radio.parentElement.style.backgroundColor;
-        let values = color.split(",");
-        values[3] = "0)";
-        color = values.join(",");
+        let color = colors[radio.value];
         radio.parentElement.style.backgroundColor = color;
         //button should be transparent
       }

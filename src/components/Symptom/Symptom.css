@@ -153,7 +153,7 @@ input[type="radio"]:checked:before {
 .radio-buttons-1 {
   flex-grow: 2;
   color: black;
-  background-color: yellow;
+  /* background-color: yellow; */
   padding: 8px 2px 0 2px;
   border-radius: 50px;
 }
@@ -161,28 +161,28 @@ input[type="radio"]:checked:before {
 .radio-buttons-2 {
   flex-grow: 2;
   color: black;
-  background-color: gold;
+  /* background-color: gold; */
   padding: 8px 2px 0 2px;
   border-radius: 50px;
 }
 .radio-buttons-3 {
   flex-grow: 2;
   color: black;
-  background-color: orange;
+  /* background-color: orange; */
   padding: 8px 2px 0 2px;
   border-radius: 50px;
 }
 .radio-buttons-4 {
   flex-grow: 2;
   color: black;
-  background-color: orangered;
+  /* background-color: orangered; */
   padding: 8px 2px 0 2px;
   border-radius: 50px;
 }
 .radio-buttons-5 {
   flex-grow: 2;
   color: black;
-  background-color: red;
+  /* background-color: red; */
   padding: 8px 2px 0 2px;
   border-radius: 50px;
 }
@@ -248,28 +248,20 @@ input[type="radio"]:checked:before {
 
   .radio-buttons-1 {
     color: black;
-    background-color: black;
+    /* background-color: black; */
     padding: 8px 8px 0px 8px;
   }
 
   .radio-buttons-2 {
-    color: black;
-    background-color: gold;
     padding: 8px 8px 0px 8px;
   }
   .radio-buttons-3 {
-    color: black;
-    background-color: orange;
     padding: 8px 8px 0px 8px;
   }
   .radio-buttons-4 {
-    color: black;
-    background-color: orangered;
     padding: 8px 8px 0px 8px;
   }
   .radio-buttons-5 {
-    color: black;
-    background-color: red;
     padding: 8px 8px 0px 8px;
   }
 
@@ -352,28 +344,6 @@ input {
     padding: 0px 20px 0px 20px;
   }
 
-  .radio-buttons-1 {
-    color: black;
-    background-color: yellow;
-  }
-
-  .radio-buttons-2 {
-    color: black;
-    background-color: gold;
-  }
-  .radio-buttons-3 {
-    color: black;
-    background-color: orange;
-  }
-  .radio-buttons-4 {
-    color: black;
-    background-color: orangered;
-  }
-  .radio-buttons-5 {
-    color: black;
-    background-color: red;
-  }
-
   .wong-severity {
     padding: 5px;
     height: 50px;
@@ -446,28 +416,6 @@ input {
 
   .radio-label {
     padding: 0px 20px 0px 20px;
-  }
-
-  .radio-buttons-1 {
-    color: black;
-    background-color: rgba(255, 255, 0, 0);
-  }
-
-  .radio-buttons-2 {
-    color: black;
-    background-color: gold;
-  }
-  .radio-buttons-3 {
-    color: black;
-    background-color: orange;
-  }
-  .radio-buttons-4 {
-    color: black;
-    background-color: orangered;
-  }
-  .radio-buttons-5 {
-    color: black;
-    background-color: red;
   }
 
   .wong-severity {
