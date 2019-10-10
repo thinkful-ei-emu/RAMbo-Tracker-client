@@ -86,7 +86,7 @@ exports[`renders the UI as expected 1`] = `
             >
               
                on 
-              12-31-1969 at 16:35
+              12-31-1969 at 18:35
                
               
             </li>
@@ -116,7 +116,7 @@ exports[`renders the UI as expected 1`] = `
                   className="event-text-section"
                 >
                   on 
-                  12-31-1969 at 16:35
+                  12-31-1969 at 18:35
                   ;
                 </div>
                  
